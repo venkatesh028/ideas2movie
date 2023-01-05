@@ -10,20 +10,20 @@ import lombok.Setter;
 
 /**
  * <h1>
- *     BookingStatus
+ *      Payment Status
  * </h1>
  * <p>
- *     Contains the Status of the Booking as a Enum
+ *      Contains the Status of the Payment as a Enum
  * </p>
+ *
  * @author  AJAISHARMA
  * @version 1.0
  * @since   05-01-2023
  */
 @AllArgsConstructor
-public enum BookingStatus {
-    BOOKED("booked"), CANCELED("Canceled"), PROCESSING("Processing");
-
-    @Getter
+public enum PaymentStatus {
+    PAID("Paid"), FAILED("Failed");
     @Setter
+    @Getter
     private String status;
 }
