@@ -4,7 +4,7 @@
  */
 package com.ideas2it.ideas2movie.service.impl;
 
-import com.ideas2it.ideas2movie.service.UserService;
+import com.ideas2it.ideas2movie.service.PaymentService;
 
-public class UserServiceImpl implements UserService {
+public class PaymentServiceImpl implements PaymentService {
 }

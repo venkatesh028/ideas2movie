@@ -4,7 +4,7 @@
  */
 package com.ideas2it.ideas2movie.service.impl;
 
-import com.ideas2it.ideas2movie.service.UserService;
+import com.ideas2it.ideas2movie.service.TicketServie;
 
-public class UserServiceImpl implements UserService {
+public class TicketServiceImpl implements TicketServie {
 }
