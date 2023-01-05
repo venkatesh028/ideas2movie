@@ -4,31 +4,35 @@
  */
 package com.ideas2it.ideas2movie.model;
 
+import com.ideas2it.ideas2movie.util.enums.ModeOfBooking;
 import jakarta.persistence.Table;
 import java.sql.Timestamp;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
+
+import com.ideas2it.ideas2movie.util.enums.BookingStatus;
 
 /**
  * <h1>
- *      User
+ *      Booking
  * </h1>
  * <p>
- *      Entity of the User
+ *      Entity of the Booking
  * </p>
  *
  * @author  AJAISHARMA
@@ -39,30 +43,35 @@ import org.hibernate.annotations.UpdateTimestamp;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name = "user")
-public class User {
+@Table(name = "booking")
+public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private String email;
-    private String phoneNumber;
-    private String password;
-    @ManyToOne
+    @Enumerated(EnumType.STRING)
+    private BookingStatus status;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "mode_of_booking")
+    private ModeOfBooking modeOfBooking;
+    @OneToOne
     @JoinColumn(
-            name = "role_id",
+            name = "ticket_id",
             referencedColumnName = "id"
     )
-    private Role role;
-    @Column(
-            name = "is_active"
+    private Ticket ticket;
+    @ManyToOne
+    @JoinColumn(
+            name = "user_id",
+            referencedColumnName = "id"
     )
-    @ColumnDefault(
-            value = "true"
+    private User user;
+    @OneToOne
+    @JoinColumn(
+            name = "payment_id",
+            referencedColumnName = "id"
     )
-    private boolean isActive;
+    private Payment payment;
     @CreationTimestamp
-    private Timestamp createdOn;
-    @UpdateTimestamp
-    private Timestamp updatedOn;
+    @Column(name = "booked_on")
+    private Timestamp bookedOn;
 }

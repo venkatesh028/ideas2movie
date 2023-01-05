@@ -1,13 +1,11 @@
 /*
- * Copyright 2022 Ideas2IT Technologies. All rights reserved.
+ * Copyright 2023 Ideas2IT Technologies. All rights reserved.
  * IDEAS2IT PROPRIETARY/CONFIDENTIAL.
  */
 package com.ideas2it.ideas2movie.model;
 
-import jakarta.persistence.Table;
 import java.sql.Timestamp;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,52 +13,44 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
+import jakarta.validation.constraints.NotNull;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 /**
  * <h1>
- *      User
+ *     Seat
  * </h1>
  * <p>
- *      Entity of the User
+ *     Entity of seat
  * </p>
  *
- * @author  AJAISHARMA
+ * @author Venkatesh TM
  * @version 1.0
- * @since   05-01-2023
+ * @since 05/01/2022
  */
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name = "user")
-public class User {
+public class Seat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotNull
     private String name;
-    private String email;
-    private String phoneNumber;
-    private String password;
+    @NotNull
+    private double price;
     @ManyToOne
     @JoinColumn(
-            name = "role_id",
+            name = "screen_id",
             referencedColumnName = "id"
     )
-    private Role role;
-    @Column(
-            name = "is_active"
-    )
-    @ColumnDefault(
-            value = "true"
-    )
-    private boolean isActive;
+    private Screen screen;
     @CreationTimestamp
     private Timestamp createdOn;
     @UpdateTimestamp
