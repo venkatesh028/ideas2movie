@@ -68,7 +68,7 @@ public class User {
     )
     private boolean isActive;
     @CreationTimestamp
-    private Timestamp createdOn;
+    private Timestamp createdAt;
     @UpdateTimestamp
-    private Timestamp updatedOn;
+    private Timestamp updatedAt;
 }

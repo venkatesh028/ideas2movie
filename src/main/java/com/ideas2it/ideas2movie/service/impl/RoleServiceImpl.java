@@ -4,7 +4,7 @@
  */
 package com.ideas2it.ideas2movie.service.impl;
 
-import com.ideas2it.ideas2movie.service.UserService;
+import com.ideas2it.ideas2movie.service.RoleService;
 
-public class UserServiceImpl implements UserService {
+public class RoleServiceImpl implements RoleService {
 }
