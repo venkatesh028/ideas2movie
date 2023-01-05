@@ -60,9 +60,9 @@ public class Seat {
             mappedBy = "seats",
             fetch = FetchType.EAGER
     )
-    private List<Ticket> ticket;
+    private List<Ticket> tickets;
     @CreationTimestamp
-    private Timestamp createdOn;
+    private Timestamp createdAt;
     @UpdateTimestamp
-    private Timestamp updatedOn;
+    private Timestamp updatedAt;
 }
