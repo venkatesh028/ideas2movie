@@ -216,4 +216,867 @@
  %PARSER_ERROR[l]
 ""2023-01-05 15:51:31 INFO HikariPool-1 - Shutdown completed.
  %PARSER_ERROR[l]
-"
+""2023-01-05 16:27:03 INFO Starting Ideas2movieApplication using Java 18.0.2 with PID 6000 (E:\ideas2movie\ideas2movie\target\classes started by LENOVO in E:\ideas2movie\ideas2movie)
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:03 INFO No active profile set, falling back to 1 default profile: "default"
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:05 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:05 INFO Finished Spring Data repository scanning in 37 ms. Found 0 JPA repository interfaces.
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:06 INFO Tomcat initialized with port(s): 8080 (http)
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:06 INFO An older version [1.2.35] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.1]
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:06 INFO Loaded Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:06 INFO OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:06 INFO Starting service [Tomcat]
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:06 INFO Starting Servlet engine: [Apache Tomcat/10.1.4]
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:06 INFO Initializing Spring embedded WebApplicationContext
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:06 INFO Root WebApplicationContext: initialization completed in 3033 ms
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:07 INFO HHH000204: Processing PersistenceUnitInfo [name: default]
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:07 INFO HHH000412: Hibernate ORM core version 6.1.6.Final
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:07 WARN HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:07 INFO HikariPool-1 - Starting...
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:09 ERROR HikariPool-1 - Exception during pool initialization.
+ %PARSER_ERROR[l]
+"java.sql.SQLSyntaxErrorException: Unknown database 'ideas2movie'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:828)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:448)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:284)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:177)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:36)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:119)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:255)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:230)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:207)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:44)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:218)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:191)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:138)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1350)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1421)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1797)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1747)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1130)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:905)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:432)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291)
+	at com.ideas2it.ideas2movie.Ideas2movieApplication.main(Ideas2movieApplication.java:10)
+"2023-01-05 16:27:09 WARN HHH000342: Could not obtain connection to query metadata
+ %PARSER_ERROR[l]
+"java.sql.SQLSyntaxErrorException: Unknown database 'ideas2movie'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:828)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:448)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:284)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:177)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:36)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:119)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:255)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:230)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:207)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:44)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:218)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:191)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:138)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1350)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1421)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1797)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1747)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1130)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:905)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:432)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291)
+	at com.ideas2it.ideas2movie.Ideas2movieApplication.main(Ideas2movieApplication.java:10)
+"2023-01-05 16:27:09 INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:10 ERROR Failed to initialize JPA EntityManagerFactory: Collection 'com.ideas2it.ideas2movie.model.Seat.ticket' is 'mappedBy' a property named 'ticket' which does not exist in the target entity 'com.ideas2it.ideas2movie.model.Ticket'
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:10 WARN Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Collection 'com.ideas2it.ideas2movie.model.Seat.ticket' is 'mappedBy' a property named 'ticket' which does not exist in the target entity 'com.ideas2it.ideas2movie.model.Ticket'
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:10 INFO Stopping service [Tomcat]
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:10 INFO 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:10 ERROR Application run failed
+ %PARSER_ERROR[l]
+"org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Collection 'com.ideas2it.ideas2movie.model.Seat.ticket' is 'mappedBy' a property named 'ticket' which does not exist in the target entity 'com.ideas2it.ideas2movie.model.Ticket'
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1751)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1130)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:905)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:432)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291)
+	at com.ideas2it.ideas2movie.Ideas2movieApplication.main(Ideas2movieApplication.java:10)
+Caused by: org.hibernate.AnnotationException: Collection 'com.ideas2it.ideas2movie.model.Seat.ticket' is 'mappedBy' a property named 'ticket' which does not exist in the target entity 'com.ideas2it.ideas2movie.model.Ticket'
+	at org.hibernate.cfg.annotations.CollectionBinder.bindStarToManySecondPass(CollectionBinder.java:1568)
+	at org.hibernate.cfg.annotations.CollectionBinder$1.secondPass(CollectionBinder.java:1524)
+	at org.hibernate.cfg.CollectionSecondPass.doSecondPass(CollectionSecondPass.java:47)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1782)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1739)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:300)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1350)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1421)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1797)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1747)
+	... 16 common frames omitted
+"2023-01-05 16:27:44 INFO Starting Ideas2movieApplication using Java 18.0.2 with PID 17872 (E:\ideas2movie\ideas2movie\target\classes started by LENOVO in E:\ideas2movie\ideas2movie)
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:44 INFO No active profile set, falling back to 1 default profile: "default"
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:45 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:45 INFO Finished Spring Data repository scanning in 28 ms. Found 0 JPA repository interfaces.
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:46 INFO Tomcat initialized with port(s): 8080 (http)
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:46 INFO An older version [1.2.35] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.1]
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:46 INFO Loaded Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:46 INFO OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:46 INFO Starting service [Tomcat]
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:46 INFO Starting Servlet engine: [Apache Tomcat/10.1.4]
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:46 INFO Initializing Spring embedded WebApplicationContext
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:46 INFO Root WebApplicationContext: initialization completed in 2106 ms
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:46 INFO HHH000204: Processing PersistenceUnitInfo [name: default]
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:46 INFO HHH000412: Hibernate ORM core version 6.1.6.Final
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:47 WARN HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:47 INFO HikariPool-1 - Starting...
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:47 INFO HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3d40498a
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:47 INFO HikariPool-1 - Start completed.
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:47 INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:48 ERROR Failed to initialize JPA EntityManagerFactory: Collection 'com.ideas2it.ideas2movie.model.Seat.ticket' is 'mappedBy' a property named 'ticket' which does not exist in the target entity 'com.ideas2it.ideas2movie.model.Ticket'
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:48 WARN Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Collection 'com.ideas2it.ideas2movie.model.Seat.ticket' is 'mappedBy' a property named 'ticket' which does not exist in the target entity 'com.ideas2it.ideas2movie.model.Ticket'
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:48 INFO HikariPool-1 - Shutdown initiated...
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:48 INFO HikariPool-1 - Shutdown completed.
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:48 INFO Stopping service [Tomcat]
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:48 INFO 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+ %PARSER_ERROR[l]
+""2023-01-05 16:27:48 ERROR Application run failed
+ %PARSER_ERROR[l]
+"org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Collection 'com.ideas2it.ideas2movie.model.Seat.ticket' is 'mappedBy' a property named 'ticket' which does not exist in the target entity 'com.ideas2it.ideas2movie.model.Ticket'
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1751)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1130)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:905)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:432)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291)
+	at com.ideas2it.ideas2movie.Ideas2movieApplication.main(Ideas2movieApplication.java:10)
+Caused by: org.hibernate.AnnotationException: Collection 'com.ideas2it.ideas2movie.model.Seat.ticket' is 'mappedBy' a property named 'ticket' which does not exist in the target entity 'com.ideas2it.ideas2movie.model.Ticket'
+	at org.hibernate.cfg.annotations.CollectionBinder.bindStarToManySecondPass(CollectionBinder.java:1568)
+	at org.hibernate.cfg.annotations.CollectionBinder$1.secondPass(CollectionBinder.java:1524)
+	at org.hibernate.cfg.CollectionSecondPass.doSecondPass(CollectionSecondPass.java:47)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1782)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1739)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:300)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1350)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1421)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1797)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1747)
+	... 16 common frames omitted
+"2023-01-05 16:29:01 INFO Starting Ideas2movieApplication using Java 18.0.2 with PID 10744 (E:\ideas2movie\ideas2movie\target\classes started by LENOVO in E:\ideas2movie\ideas2movie)
+ %PARSER_ERROR[l]
+""2023-01-05 16:29:01 INFO No active profile set, falling back to 1 default profile: "default"
+ %PARSER_ERROR[l]
+""2023-01-05 16:29:02 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+ %PARSER_ERROR[l]
+""2023-01-05 16:29:03 INFO Finished Spring Data repository scanning in 26 ms. Found 0 JPA repository interfaces.
+ %PARSER_ERROR[l]
+""2023-01-05 16:29:03 INFO Tomcat initialized with port(s): 8080 (http)
+ %PARSER_ERROR[l]
+""2023-01-05 16:29:03 INFO An older version [1.2.35] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.1]
+ %PARSER_ERROR[l]
+""2023-01-05 16:29:03 INFO Loaded Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
+ %PARSER_ERROR[l]
+""2023-01-05 16:29:03 INFO OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
+ %PARSER_ERROR[l]
+""2023-01-05 16:29:03 INFO Starting service [Tomcat]
+ %PARSER_ERROR[l]
+""2023-01-05 16:29:03 INFO Starting Servlet engine: [Apache Tomcat/10.1.4]
+ %PARSER_ERROR[l]
+""2023-01-05 16:29:04 INFO Initializing Spring embedded WebApplicationContext
+ %PARSER_ERROR[l]
+""2023-01-05 16:29:04 INFO Root WebApplicationContext: initialization completed in 2241 ms
+ %PARSER_ERROR[l]
+""2023-01-05 16:29:04 INFO HHH000204: Processing PersistenceUnitInfo [name: default]
+ %PARSER_ERROR[l]
+""2023-01-05 16:29:04 INFO HHH000412: Hibernate ORM core version 6.1.6.Final
+ %PARSER_ERROR[l]
+""2023-01-05 16:29:04 WARN HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+ %PARSER_ERROR[l]
+""2023-01-05 16:29:04 INFO HikariPool-1 - Starting...
+ %PARSER_ERROR[l]
+""2023-01-05 16:29:05 INFO HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@dc1fadd
+ %PARSER_ERROR[l]
+""2023-01-05 16:29:05 INFO HikariPool-1 - Start completed.
+ %PARSER_ERROR[l]
+""2023-01-05 16:29:05 INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+ %PARSER_ERROR[l]
+""2023-01-05 16:29:06 ERROR Failed to initialize JPA EntityManagerFactory: Collection 'com.ideas2it.ideas2movie.model.Seat.ticket' is 'mappedBy' a property named 'Ticket' which does not exist in the target entity 'com.ideas2it.ideas2movie.model.Ticket'
+ %PARSER_ERROR[l]
+""2023-01-05 16:29:06 WARN Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Collection 'com.ideas2it.ideas2movie.model.Seat.ticket' is 'mappedBy' a property named 'Ticket' which does not exist in the target entity 'com.ideas2it.ideas2movie.model.Ticket'
+ %PARSER_ERROR[l]
+""2023-01-05 16:29:06 INFO HikariPool-1 - Shutdown initiated...
+ %PARSER_ERROR[l]
+""2023-01-05 16:29:06 INFO HikariPool-1 - Shutdown completed.
+ %PARSER_ERROR[l]
+""2023-01-05 16:29:06 INFO Stopping service [Tomcat]
+ %PARSER_ERROR[l]
+""2023-01-05 16:29:06 INFO 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+ %PARSER_ERROR[l]
+""2023-01-05 16:29:06 ERROR Application run failed
+ %PARSER_ERROR[l]
+"org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Collection 'com.ideas2it.ideas2movie.model.Seat.ticket' is 'mappedBy' a property named 'Ticket' which does not exist in the target entity 'com.ideas2it.ideas2movie.model.Ticket'
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1751)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1130)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:905)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:432)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291)
+	at com.ideas2it.ideas2movie.Ideas2movieApplication.main(Ideas2movieApplication.java:10)
+Caused by: org.hibernate.AnnotationException: Collection 'com.ideas2it.ideas2movie.model.Seat.ticket' is 'mappedBy' a property named 'Ticket' which does not exist in the target entity 'com.ideas2it.ideas2movie.model.Ticket'
+	at org.hibernate.cfg.annotations.CollectionBinder.bindStarToManySecondPass(CollectionBinder.java:1568)
+	at org.hibernate.cfg.annotations.CollectionBinder$1.secondPass(CollectionBinder.java:1524)
+	at org.hibernate.cfg.CollectionSecondPass.doSecondPass(CollectionSecondPass.java:47)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1782)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1739)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:300)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1350)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1421)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1797)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1747)
+	... 16 common frames omitted
+"2023-01-05 16:30:30 INFO Starting Ideas2movieApplication using Java 18.0.2 with PID 10140 (E:\ideas2movie\ideas2movie\target\classes started by LENOVO in E:\ideas2movie\ideas2movie)
+ %PARSER_ERROR[l]
+""2023-01-05 16:30:30 INFO No active profile set, falling back to 1 default profile: "default"
+ %PARSER_ERROR[l]
+""2023-01-05 16:30:32 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+ %PARSER_ERROR[l]
+""2023-01-05 16:30:32 INFO Finished Spring Data repository scanning in 25 ms. Found 0 JPA repository interfaces.
+ %PARSER_ERROR[l]
+""2023-01-05 16:30:33 INFO Tomcat initialized with port(s): 8080 (http)
+ %PARSER_ERROR[l]
+""2023-01-05 16:30:33 INFO An older version [1.2.35] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.1]
+ %PARSER_ERROR[l]
+""2023-01-05 16:30:33 INFO Loaded Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
+ %PARSER_ERROR[l]
+""2023-01-05 16:30:33 INFO OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
+ %PARSER_ERROR[l]
+""2023-01-05 16:30:33 INFO Starting service [Tomcat]
+ %PARSER_ERROR[l]
+""2023-01-05 16:30:33 INFO Starting Servlet engine: [Apache Tomcat/10.1.4]
+ %PARSER_ERROR[l]
+""2023-01-05 16:30:33 INFO Initializing Spring embedded WebApplicationContext
+ %PARSER_ERROR[l]
+""2023-01-05 16:30:33 INFO Root WebApplicationContext: initialization completed in 2402 ms
+ %PARSER_ERROR[l]
+""2023-01-05 16:30:33 INFO HHH000204: Processing PersistenceUnitInfo [name: default]
+ %PARSER_ERROR[l]
+""2023-01-05 16:30:33 INFO HHH000412: Hibernate ORM core version 6.1.6.Final
+ %PARSER_ERROR[l]
+""2023-01-05 16:30:33 WARN HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+ %PARSER_ERROR[l]
+""2023-01-05 16:30:34 INFO HikariPool-1 - Starting...
+ %PARSER_ERROR[l]
+""2023-01-05 16:30:34 INFO HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5b332439
+ %PARSER_ERROR[l]
+""2023-01-05 16:30:34 INFO HikariPool-1 - Start completed.
+ %PARSER_ERROR[l]
+""2023-01-05 16:30:34 INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+ %PARSER_ERROR[l]
+""2023-01-05 16:30:38 INFO HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+ %PARSER_ERROR[l]
+""2023-01-05 16:30:38 INFO Initialized JPA EntityManagerFactory for persistence unit 'default'
+ %PARSER_ERROR[l]
+""2023-01-05 16:30:38 WARN spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+ %PARSER_ERROR[l]
+""2023-01-05 16:30:39 INFO Tomcat started on port(s): 8080 (http) with context path ''
+ %PARSER_ERROR[l]
+""2023-01-05 16:30:39 INFO Started Ideas2movieApplication in 9.51 seconds (process running for 10.799)
+ %PARSER_ERROR[l]
+""2023-01-05 16:35:15 INFO Closing JPA EntityManagerFactory for persistence unit 'default'
+ %PARSER_ERROR[l]
+""2023-01-05 16:35:15 INFO HikariPool-1 - Shutdown initiated...
+ %PARSER_ERROR[l]
+""2023-01-05 16:35:15 INFO HikariPool-1 - Shutdown completed.
+ %PARSER_ERROR[l]
+""2023-01-05 16:35:27 INFO Starting Ideas2movieApplication using Java 18.0.2 with PID 12796 (E:\ideas2movie\ideas2movie\target\classes started by LENOVO in E:\ideas2movie\ideas2movie)
+ %PARSER_ERROR[l]
+""2023-01-05 16:35:27 INFO No active profile set, falling back to 1 default profile: "default"
+ %PARSER_ERROR[l]
+""2023-01-05 16:35:29 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+ %PARSER_ERROR[l]
+""2023-01-05 16:35:29 INFO Finished Spring Data repository scanning in 29 ms. Found 0 JPA repository interfaces.
+ %PARSER_ERROR[l]
+""2023-01-05 16:35:30 INFO Tomcat initialized with port(s): 8080 (http)
+ %PARSER_ERROR[l]
+""2023-01-05 16:35:30 INFO An older version [1.2.35] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.1]
+ %PARSER_ERROR[l]
+""2023-01-05 16:35:30 INFO Loaded Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
+ %PARSER_ERROR[l]
+""2023-01-05 16:35:30 INFO OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
+ %PARSER_ERROR[l]
+""2023-01-05 16:35:30 INFO Starting service [Tomcat]
+ %PARSER_ERROR[l]
+""2023-01-05 16:35:30 INFO Starting Servlet engine: [Apache Tomcat/10.1.4]
+ %PARSER_ERROR[l]
+""2023-01-05 16:35:30 INFO Initializing Spring embedded WebApplicationContext
+ %PARSER_ERROR[l]
+""2023-01-05 16:35:30 INFO Root WebApplicationContext: initialization completed in 2478 ms
+ %PARSER_ERROR[l]
+""2023-01-05 16:35:30 INFO HHH000204: Processing PersistenceUnitInfo [name: default]
+ %PARSER_ERROR[l]
+""2023-01-05 16:35:30 INFO HHH000412: Hibernate ORM core version 6.1.6.Final
+ %PARSER_ERROR[l]
+""2023-01-05 16:35:31 WARN HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+ %PARSER_ERROR[l]
+""2023-01-05 16:35:31 INFO HikariPool-1 - Starting...
+ %PARSER_ERROR[l]
+""2023-01-05 16:35:32 INFO HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5170bc02
+ %PARSER_ERROR[l]
+""2023-01-05 16:35:32 INFO HikariPool-1 - Start completed.
+ %PARSER_ERROR[l]
+""2023-01-05 16:35:32 INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+ %PARSER_ERROR[l]
+""2023-01-05 16:35:33 ERROR Failed to initialize JPA EntityManagerFactory: Collection 'com.ideas2it.ideas2movie.model.Seat.ticket' is 'mappedBy' a property named 'seat' which does not exist in the target entity 'com.ideas2it.ideas2movie.model.Ticket'
+ %PARSER_ERROR[l]
+""2023-01-05 16:35:33 WARN Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Collection 'com.ideas2it.ideas2movie.model.Seat.ticket' is 'mappedBy' a property named 'seat' which does not exist in the target entity 'com.ideas2it.ideas2movie.model.Ticket'
+ %PARSER_ERROR[l]
+""2023-01-05 16:35:33 INFO HikariPool-1 - Shutdown initiated...
+ %PARSER_ERROR[l]
+""2023-01-05 16:35:33 INFO HikariPool-1 - Shutdown completed.
+ %PARSER_ERROR[l]
+""2023-01-05 16:35:33 INFO Stopping service [Tomcat]
+ %PARSER_ERROR[l]
+""2023-01-05 16:35:33 INFO 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+ %PARSER_ERROR[l]
+""2023-01-05 16:35:33 ERROR Application run failed
+ %PARSER_ERROR[l]
+"org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Collection 'com.ideas2it.ideas2movie.model.Seat.ticket' is 'mappedBy' a property named 'seat' which does not exist in the target entity 'com.ideas2it.ideas2movie.model.Ticket'
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1751)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1130)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:905)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:432)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291)
+	at com.ideas2it.ideas2movie.Ideas2movieApplication.main(Ideas2movieApplication.java:10)
+Caused by: org.hibernate.AnnotationException: Collection 'com.ideas2it.ideas2movie.model.Seat.ticket' is 'mappedBy' a property named 'seat' which does not exist in the target entity 'com.ideas2it.ideas2movie.model.Ticket'
+	at org.hibernate.cfg.annotations.CollectionBinder.bindStarToManySecondPass(CollectionBinder.java:1568)
+	at org.hibernate.cfg.annotations.CollectionBinder$1.secondPass(CollectionBinder.java:1524)
+	at org.hibernate.cfg.CollectionSecondPass.doSecondPass(CollectionSecondPass.java:47)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1782)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1739)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:300)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1350)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1421)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1797)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1747)
+	... 16 common frames omitted
+"2023-01-05 16:35:56 INFO Starting Ideas2movieApplication using Java 18.0.2 with PID 1932 (E:\ideas2movie\ideas2movie\target\classes started by LENOVO in E:\ideas2movie\ideas2movie)
+ %PARSER_ERROR[l]
+""2023-01-05 16:35:56 INFO No active profile set, falling back to 1 default profile: "default"
+ %PARSER_ERROR[l]
+""2023-01-05 16:35:58 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+ %PARSER_ERROR[l]
+""2023-01-05 16:35:58 INFO Finished Spring Data repository scanning in 29 ms. Found 0 JPA repository interfaces.
+ %PARSER_ERROR[l]
+""2023-01-05 16:35:59 INFO Tomcat initialized with port(s): 8080 (http)
+ %PARSER_ERROR[l]
+""2023-01-05 16:35:59 INFO An older version [1.2.35] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.1]
+ %PARSER_ERROR[l]
+""2023-01-05 16:35:59 INFO Loaded Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
+ %PARSER_ERROR[l]
+""2023-01-05 16:35:59 INFO OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
+ %PARSER_ERROR[l]
+""2023-01-05 16:35:59 INFO Starting service [Tomcat]
+ %PARSER_ERROR[l]
+""2023-01-05 16:35:59 INFO Starting Servlet engine: [Apache Tomcat/10.1.4]
+ %PARSER_ERROR[l]
+""2023-01-05 16:35:59 INFO Initializing Spring embedded WebApplicationContext
+ %PARSER_ERROR[l]
+""2023-01-05 16:35:59 INFO Root WebApplicationContext: initialization completed in 2576 ms
+ %PARSER_ERROR[l]
+""2023-01-05 16:35:59 INFO HHH000204: Processing PersistenceUnitInfo [name: default]
+ %PARSER_ERROR[l]
+""2023-01-05 16:35:59 INFO HHH000412: Hibernate ORM core version 6.1.6.Final
+ %PARSER_ERROR[l]
+""2023-01-05 16:36:00 WARN HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+ %PARSER_ERROR[l]
+""2023-01-05 16:36:00 INFO HikariPool-1 - Starting...
+ %PARSER_ERROR[l]
+""2023-01-05 16:36:00 INFO HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@14d1737a
+ %PARSER_ERROR[l]
+""2023-01-05 16:36:00 INFO HikariPool-1 - Start completed.
+ %PARSER_ERROR[l]
+""2023-01-05 16:36:00 INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+ %PARSER_ERROR[l]
+""2023-01-05 16:36:01 ERROR Failed to initialize JPA EntityManagerFactory: Collection 'com.ideas2it.ideas2movie.model.Seat.ticket' is 'mappedBy' a property named 'ticket_seats' which does not exist in the target entity 'com.ideas2it.ideas2movie.model.Ticket'
+ %PARSER_ERROR[l]
+""2023-01-05 16:36:01 WARN Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Collection 'com.ideas2it.ideas2movie.model.Seat.ticket' is 'mappedBy' a property named 'ticket_seats' which does not exist in the target entity 'com.ideas2it.ideas2movie.model.Ticket'
+ %PARSER_ERROR[l]
+""2023-01-05 16:36:01 INFO HikariPool-1 - Shutdown initiated...
+ %PARSER_ERROR[l]
+""2023-01-05 16:36:01 INFO HikariPool-1 - Shutdown completed.
+ %PARSER_ERROR[l]
+""2023-01-05 16:36:01 INFO Stopping service [Tomcat]
+ %PARSER_ERROR[l]
+""2023-01-05 16:36:01 INFO 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+ %PARSER_ERROR[l]
+""2023-01-05 16:36:01 ERROR Application run failed
+ %PARSER_ERROR[l]
+"org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Collection 'com.ideas2it.ideas2movie.model.Seat.ticket' is 'mappedBy' a property named 'ticket_seats' which does not exist in the target entity 'com.ideas2it.ideas2movie.model.Ticket'
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1751)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1130)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:905)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:432)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291)
+	at com.ideas2it.ideas2movie.Ideas2movieApplication.main(Ideas2movieApplication.java:10)
+Caused by: org.hibernate.AnnotationException: Collection 'com.ideas2it.ideas2movie.model.Seat.ticket' is 'mappedBy' a property named 'ticket_seats' which does not exist in the target entity 'com.ideas2it.ideas2movie.model.Ticket'
+	at org.hibernate.cfg.annotations.CollectionBinder.bindStarToManySecondPass(CollectionBinder.java:1568)
+	at org.hibernate.cfg.annotations.CollectionBinder$1.secondPass(CollectionBinder.java:1524)
+	at org.hibernate.cfg.CollectionSecondPass.doSecondPass(CollectionSecondPass.java:47)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1782)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1739)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:300)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1350)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1421)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1797)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1747)
+	... 16 common frames omitted
+"2023-01-05 16:37:51 INFO Starting Ideas2movieApplication using Java 18.0.2 with PID 1968 (E:\ideas2movie\ideas2movie\target\classes started by LENOVO in E:\ideas2movie\ideas2movie)
+ %PARSER_ERROR[l]
+""2023-01-05 16:37:51 INFO No active profile set, falling back to 1 default profile: "default"
+ %PARSER_ERROR[l]
+""2023-01-05 16:37:52 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+ %PARSER_ERROR[l]
+""2023-01-05 16:37:52 INFO Finished Spring Data repository scanning in 25 ms. Found 0 JPA repository interfaces.
+ %PARSER_ERROR[l]
+""2023-01-05 16:37:53 INFO Tomcat initialized with port(s): 8080 (http)
+ %PARSER_ERROR[l]
+""2023-01-05 16:37:53 INFO An older version [1.2.35] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.1]
+ %PARSER_ERROR[l]
+""2023-01-05 16:37:53 INFO Loaded Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
+ %PARSER_ERROR[l]
+""2023-01-05 16:37:53 INFO OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
+ %PARSER_ERROR[l]
+""2023-01-05 16:37:53 INFO Starting service [Tomcat]
+ %PARSER_ERROR[l]
+""2023-01-05 16:37:53 INFO Starting Servlet engine: [Apache Tomcat/10.1.4]
+ %PARSER_ERROR[l]
+""2023-01-05 16:37:53 INFO Initializing Spring embedded WebApplicationContext
+ %PARSER_ERROR[l]
+""2023-01-05 16:37:53 INFO Root WebApplicationContext: initialization completed in 2322 ms
+ %PARSER_ERROR[l]
+""2023-01-05 16:37:54 INFO HHH000204: Processing PersistenceUnitInfo [name: default]
+ %PARSER_ERROR[l]
+""2023-01-05 16:37:54 INFO HHH000412: Hibernate ORM core version 6.1.6.Final
+ %PARSER_ERROR[l]
+""2023-01-05 16:37:54 WARN HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+ %PARSER_ERROR[l]
+""2023-01-05 16:37:54 INFO HikariPool-1 - Starting...
+ %PARSER_ERROR[l]
+""2023-01-05 16:37:55 INFO HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@d9f5fce
+ %PARSER_ERROR[l]
+""2023-01-05 16:37:55 INFO HikariPool-1 - Start completed.
+ %PARSER_ERROR[l]
+""2023-01-05 16:37:55 INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+ %PARSER_ERROR[l]
+""2023-01-05 16:37:55 ERROR Failed to initialize JPA EntityManagerFactory: Collection 'com.ideas2it.ideas2movie.model.Seat.ticket' is 'mappedBy' a property named 'seat' which does not exist in the target entity 'com.ideas2it.ideas2movie.model.Ticket'
+ %PARSER_ERROR[l]
+""2023-01-05 16:37:55 WARN Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Collection 'com.ideas2it.ideas2movie.model.Seat.ticket' is 'mappedBy' a property named 'seat' which does not exist in the target entity 'com.ideas2it.ideas2movie.model.Ticket'
+ %PARSER_ERROR[l]
+""2023-01-05 16:37:55 INFO HikariPool-1 - Shutdown initiated...
+ %PARSER_ERROR[l]
+""2023-01-05 16:37:55 INFO HikariPool-1 - Shutdown completed.
+ %PARSER_ERROR[l]
+""2023-01-05 16:37:55 INFO Stopping service [Tomcat]
+ %PARSER_ERROR[l]
+""2023-01-05 16:37:55 INFO 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+ %PARSER_ERROR[l]
+""2023-01-05 16:37:55 ERROR Application run failed
+ %PARSER_ERROR[l]
+"org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Collection 'com.ideas2it.ideas2movie.model.Seat.ticket' is 'mappedBy' a property named 'seat' which does not exist in the target entity 'com.ideas2it.ideas2movie.model.Ticket'
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1751)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1130)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:905)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:432)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291)
+	at com.ideas2it.ideas2movie.Ideas2movieApplication.main(Ideas2movieApplication.java:10)
+Caused by: org.hibernate.AnnotationException: Collection 'com.ideas2it.ideas2movie.model.Seat.ticket' is 'mappedBy' a property named 'seat' which does not exist in the target entity 'com.ideas2it.ideas2movie.model.Ticket'
+	at org.hibernate.cfg.annotations.CollectionBinder.bindStarToManySecondPass(CollectionBinder.java:1568)
+	at org.hibernate.cfg.annotations.CollectionBinder$1.secondPass(CollectionBinder.java:1524)
+	at org.hibernate.cfg.CollectionSecondPass.doSecondPass(CollectionSecondPass.java:47)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1782)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1739)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:300)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1350)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1421)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1797)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1747)
+	... 16 common frames omitted
+"2023-01-05 16:38:30 INFO Starting Ideas2movieApplication using Java 18.0.2 with PID 8212 (E:\ideas2movie\ideas2movie\target\classes started by LENOVO in E:\ideas2movie\ideas2movie)
+ %PARSER_ERROR[l]
+""2023-01-05 16:38:30 INFO No active profile set, falling back to 1 default profile: "default"
+ %PARSER_ERROR[l]
+""2023-01-05 16:38:32 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+ %PARSER_ERROR[l]
+""2023-01-05 16:38:32 INFO Finished Spring Data repository scanning in 26 ms. Found 0 JPA repository interfaces.
+ %PARSER_ERROR[l]
+""2023-01-05 16:38:33 INFO Tomcat initialized with port(s): 8080 (http)
+ %PARSER_ERROR[l]
+""2023-01-05 16:38:33 INFO An older version [1.2.35] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.1]
+ %PARSER_ERROR[l]
+""2023-01-05 16:38:33 INFO Loaded Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
+ %PARSER_ERROR[l]
+""2023-01-05 16:38:33 INFO OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
+ %PARSER_ERROR[l]
+""2023-01-05 16:38:33 INFO Starting service [Tomcat]
+ %PARSER_ERROR[l]
+""2023-01-05 16:38:33 INFO Starting Servlet engine: [Apache Tomcat/10.1.4]
+ %PARSER_ERROR[l]
+""2023-01-05 16:38:33 INFO Initializing Spring embedded WebApplicationContext
+ %PARSER_ERROR[l]
+""2023-01-05 16:38:33 INFO Root WebApplicationContext: initialization completed in 2283 ms
+ %PARSER_ERROR[l]
+""2023-01-05 16:38:33 INFO HHH000204: Processing PersistenceUnitInfo [name: default]
+ %PARSER_ERROR[l]
+""2023-01-05 16:38:33 INFO HHH000412: Hibernate ORM core version 6.1.6.Final
+ %PARSER_ERROR[l]
+""2023-01-05 16:38:33 WARN HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+ %PARSER_ERROR[l]
+""2023-01-05 16:38:34 INFO HikariPool-1 - Starting...
+ %PARSER_ERROR[l]
+""2023-01-05 16:38:34 INFO HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3ef3f661
+ %PARSER_ERROR[l]
+""2023-01-05 16:38:34 INFO HikariPool-1 - Start completed.
+ %PARSER_ERROR[l]
+""2023-01-05 16:38:34 INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+ %PARSER_ERROR[l]
+""2023-01-05 16:38:35 ERROR Failed to initialize JPA EntityManagerFactory: Collection 'com.ideas2it.ideas2movie.model.Seat.ticket' is 'mappedBy' a property named 'ticket' which does not exist in the target entity 'com.ideas2it.ideas2movie.model.Ticket'
+ %PARSER_ERROR[l]
+""2023-01-05 16:38:35 WARN Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Collection 'com.ideas2it.ideas2movie.model.Seat.ticket' is 'mappedBy' a property named 'ticket' which does not exist in the target entity 'com.ideas2it.ideas2movie.model.Ticket'
+ %PARSER_ERROR[l]
+""2023-01-05 16:38:35 INFO HikariPool-1 - Shutdown initiated...
+ %PARSER_ERROR[l]
+""2023-01-05 16:38:35 INFO HikariPool-1 - Shutdown completed.
+ %PARSER_ERROR[l]
+""2023-01-05 16:38:35 INFO Stopping service [Tomcat]
+ %PARSER_ERROR[l]
+""2023-01-05 16:38:35 INFO 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+ %PARSER_ERROR[l]
+""2023-01-05 16:38:35 ERROR Application run failed
+ %PARSER_ERROR[l]
+"org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Collection 'com.ideas2it.ideas2movie.model.Seat.ticket' is 'mappedBy' a property named 'ticket' which does not exist in the target entity 'com.ideas2it.ideas2movie.model.Ticket'
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1751)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1130)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:905)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:432)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291)
+	at com.ideas2it.ideas2movie.Ideas2movieApplication.main(Ideas2movieApplication.java:10)
+Caused by: org.hibernate.AnnotationException: Collection 'com.ideas2it.ideas2movie.model.Seat.ticket' is 'mappedBy' a property named 'ticket' which does not exist in the target entity 'com.ideas2it.ideas2movie.model.Ticket'
+	at org.hibernate.cfg.annotations.CollectionBinder.bindStarToManySecondPass(CollectionBinder.java:1568)
+	at org.hibernate.cfg.annotations.CollectionBinder$1.secondPass(CollectionBinder.java:1524)
+	at org.hibernate.cfg.CollectionSecondPass.doSecondPass(CollectionSecondPass.java:47)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1782)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1739)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:300)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1350)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1421)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1797)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1747)
+	... 16 common frames omitted
+"2023-01-05 16:41:15 INFO Starting Ideas2movieApplication using Java 18.0.2 with PID 6832 (E:\ideas2movie\ideas2movie\target\classes started by LENOVO in E:\ideas2movie\ideas2movie)
+ %PARSER_ERROR[l]
+""2023-01-05 16:41:15 INFO No active profile set, falling back to 1 default profile: "default"
+ %PARSER_ERROR[l]
+""2023-01-05 16:41:16 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+ %PARSER_ERROR[l]
+""2023-01-05 16:41:16 INFO Finished Spring Data repository scanning in 28 ms. Found 0 JPA repository interfaces.
+ %PARSER_ERROR[l]
+""2023-01-05 16:41:17 INFO Tomcat initialized with port(s): 8080 (http)
+ %PARSER_ERROR[l]
+""2023-01-05 16:41:17 INFO An older version [1.2.35] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.1]
+ %PARSER_ERROR[l]
+""2023-01-05 16:41:17 INFO Loaded Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
+ %PARSER_ERROR[l]
+""2023-01-05 16:41:17 INFO OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
+ %PARSER_ERROR[l]
+""2023-01-05 16:41:17 INFO Starting service [Tomcat]
+ %PARSER_ERROR[l]
+""2023-01-05 16:41:17 INFO Starting Servlet engine: [Apache Tomcat/10.1.4]
+ %PARSER_ERROR[l]
+""2023-01-05 16:41:17 INFO Initializing Spring embedded WebApplicationContext
+ %PARSER_ERROR[l]
+""2023-01-05 16:41:17 INFO Root WebApplicationContext: initialization completed in 2242 ms
+ %PARSER_ERROR[l]
+""2023-01-05 16:41:17 INFO HHH000204: Processing PersistenceUnitInfo [name: default]
+ %PARSER_ERROR[l]
+""2023-01-05 16:41:17 INFO HHH000412: Hibernate ORM core version 6.1.6.Final
+ %PARSER_ERROR[l]
+""2023-01-05 16:41:18 WARN HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+ %PARSER_ERROR[l]
+""2023-01-05 16:41:18 INFO HikariPool-1 - Starting...
+ %PARSER_ERROR[l]
+""2023-01-05 16:41:18 INFO HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3e52ed5d
+ %PARSER_ERROR[l]
+""2023-01-05 16:41:18 INFO HikariPool-1 - Start completed.
+ %PARSER_ERROR[l]
+""2023-01-05 16:41:18 INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+ %PARSER_ERROR[l]
+""2023-01-05 16:41:19 ERROR Failed to initialize JPA EntityManagerFactory: Collection 'com.ideas2it.ideas2movie.model.Seat.ticket' is 'mappedBy' a property named 'seat' which does not exist in the target entity 'com.ideas2it.ideas2movie.model.Ticket'
+ %PARSER_ERROR[l]
+""2023-01-05 16:41:19 WARN Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Collection 'com.ideas2it.ideas2movie.model.Seat.ticket' is 'mappedBy' a property named 'seat' which does not exist in the target entity 'com.ideas2it.ideas2movie.model.Ticket'
+ %PARSER_ERROR[l]
+""2023-01-05 16:41:19 INFO HikariPool-1 - Shutdown initiated...
+ %PARSER_ERROR[l]
+""2023-01-05 16:41:19 INFO HikariPool-1 - Shutdown completed.
+ %PARSER_ERROR[l]
+""2023-01-05 16:41:19 INFO Stopping service [Tomcat]
+ %PARSER_ERROR[l]
+""2023-01-05 16:41:19 INFO 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+ %PARSER_ERROR[l]
+""2023-01-05 16:41:19 ERROR Application run failed
+ %PARSER_ERROR[l]
+"org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Collection 'com.ideas2it.ideas2movie.model.Seat.ticket' is 'mappedBy' a property named 'seat' which does not exist in the target entity 'com.ideas2it.ideas2movie.model.Ticket'
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1751)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1130)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:905)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:432)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291)
+	at com.ideas2it.ideas2movie.Ideas2movieApplication.main(Ideas2movieApplication.java:10)
+Caused by: org.hibernate.AnnotationException: Collection 'com.ideas2it.ideas2movie.model.Seat.ticket' is 'mappedBy' a property named 'seat' which does not exist in the target entity 'com.ideas2it.ideas2movie.model.Ticket'
+	at org.hibernate.cfg.annotations.CollectionBinder.bindStarToManySecondPass(CollectionBinder.java:1568)
+	at org.hibernate.cfg.annotations.CollectionBinder$1.secondPass(CollectionBinder.java:1524)
+	at org.hibernate.cfg.CollectionSecondPass.doSecondPass(CollectionSecondPass.java:47)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1782)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1739)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:300)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1350)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1421)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1797)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1747)
+	... 16 common frames omitted
