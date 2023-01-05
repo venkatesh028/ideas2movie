@@ -1,4 +1,4 @@
 package com.ideas2it.ideas2movie.exception;
 
-public class NotfoundException {
+public class NotfoundException extends Exception {
 }
