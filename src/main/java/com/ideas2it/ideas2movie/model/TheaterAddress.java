@@ -11,6 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
@@ -35,9 +36,13 @@ public class TheaterAddress {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotNull
     private String street;
+    @NotNull
     private String area;
+    @NotNull
     private String city;
+    @NotNull
     private Long pincode;
     @CreationTimestamp
     private Timestamp createdOn;

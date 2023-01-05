@@ -5,6 +5,7 @@
 package com.ideas2it.ideas2movie.model;
 
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 import java.sql.Timestamp;
 import java.util.UUID;
 
@@ -46,14 +47,18 @@ public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotNull
     @Column(name = "transaction_id")
     private UUID transactionId;
-
+    @NotNull
     @CreationTimestamp
     private Timestamp paidOn;
+    @NotNull
     private double amount;
+    @NotNull
     @Enumerated(EnumType.STRING)
     private ModeOfPayment modeOfPayment;
+    @NotNull
     @Enumerated(EnumType.STRING)
     private PaymentStatus status;
 }
