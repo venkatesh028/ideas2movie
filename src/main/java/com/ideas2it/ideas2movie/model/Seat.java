@@ -55,7 +55,7 @@ public class Seat {
             referencedColumnName = "id"
     )
     private Screen screen;
-    @ManyToMany(mappedBy = "seat")
+    @ManyToMany(mappedBy = "seats")
     private List<Ticket> ticket;
     @CreationTimestamp
     private Timestamp createdOn;
