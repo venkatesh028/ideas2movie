@@ -4,16 +4,18 @@
  */
 package com.ideas2it.ideas2movie.model;
 
-import com.fasterxml.jackson.annotation.JacksonInject;
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
-import java.util.List;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -40,9 +42,14 @@ public class Ticket {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToMany
-    @JoinColumn(
-            name = "seat_id",
-            referencedColumnName = "id"
+    @JoinTable(
+            name = "ticket_seat",
+            joinColumns = {
+                    @JoinColumn(name = "ticket_id")
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "seat_id")
+            }
     )
     private List<Seat> seats;
 }
