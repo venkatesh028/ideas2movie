@@ -5,12 +5,14 @@
 package com.ideas2it.ideas2movie.model;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 
 import jakarta.validation.constraints.NotNull;
@@ -51,6 +53,8 @@ public class Seat {
             referencedColumnName = "id"
     )
     private Screen screen;
+    @ManyToMany(mappedBy = "ticket")
+    private List<Ticket> ticket;
     @CreationTimestamp
     private Timestamp createdOn;
     @UpdateTimestamp
