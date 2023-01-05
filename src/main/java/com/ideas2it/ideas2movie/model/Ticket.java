@@ -4,6 +4,8 @@
  */
 package com.ideas2it.ideas2movie.model;
 
+import jakarta.persistence.ManyToOne;
+import java.sql.Timestamp;
 import java.util.List;
 
 import jakarta.persistence.Entity;
@@ -19,6 +21,7 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
 /**
  * <h1>
@@ -52,4 +55,12 @@ public class Ticket {
             }
     )
     private List<Seat> seats;
+    @ManyToOne
+    @JoinColumn(
+            name = "show_id",
+            referencedColumnName = "id"
+    )
+    private Show showId;
+    @CreationTimestamp
+    private Timestamp createdAt;
 }

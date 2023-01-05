@@ -4,11 +4,11 @@
  */
 package com.ideas2it.ideas2movie.model;
 
-import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotNull;
 import java.sql.Timestamp;
 import java.util.UUID;
 
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -52,7 +52,7 @@ public class Payment {
     private UUID transactionId;
     @NotNull
     @CreationTimestamp
-    private Timestamp paidOn;
+    private Timestamp paidAt;
     @NotNull
     private double amount;
     @NotNull

@@ -53,9 +53,9 @@ public class Screen {
     @Column(insertable = false)
     private boolean isActive;
     @CreationTimestamp
-    private Timestamp createdOn;
+    private Timestamp createdAt;
     @UpdateTimestamp
-    private Timestamp updatedOn;
+    private Timestamp updatedAt;
     @ManyToOne
     @JoinColumn(
             name = "theate_id",

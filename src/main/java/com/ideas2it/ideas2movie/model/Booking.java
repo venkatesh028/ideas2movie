@@ -4,11 +4,10 @@
  */
 package com.ideas2it.ideas2movie.model;
 
-import com.ideas2it.ideas2movie.util.enums.ModeOfBooking;
-import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotNull;
 import java.sql.Timestamp;
 
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -27,6 +26,7 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
 import com.ideas2it.ideas2movie.util.enums.BookingStatus;
+import com.ideas2it.ideas2movie.util.enums.ModeOfBooking;
 
 /**
  * <h1>
@@ -75,6 +75,6 @@ public class Booking {
     )
     private Payment payment;
     @CreationTimestamp
-    @Column(name = "booked_on")
-    private Timestamp bookedOn;
+    @Column(name = "booked_at")
+    private Timestamp bookedAt;
 }
