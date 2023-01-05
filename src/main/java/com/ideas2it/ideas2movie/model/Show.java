@@ -59,4 +59,10 @@ public class Show {
             referencedColumnName = "id"
     )
     private Screen screen;
+    @ManyToOne
+    @JoinColumn(
+            name = "movie_id",
+            referencedColumnName = "id"
+    )
+    private Movie movie;
 }
