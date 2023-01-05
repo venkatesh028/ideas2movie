@@ -11,9 +11,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
 
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
@@ -22,6 +21,8 @@ import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+
+import com.ideas2it.ideas2movie.model.Movie;
 
 /**
  * <h1>
@@ -45,17 +46,17 @@ public class Theater {
     private Long id;
     @NotNull
     private String theaterName;
+    @NotNull
+    private String city;
+    @NotNull
+    private String area;
+    @NotNull
+    private String pincode;
     @ColumnDefault(value = "true")
     @Column( insertable = false)
     private boolean activeStatus;
     @CreationTimestamp
-    private Timestamp createdOn;
+    private Timestamp createdAt;
     @UpdateTimestamp
-    private Timestamp updatedOn;
-    @OneToOne
-    @JoinColumn(
-            name = "address_id",
-            referencedColumnName = "id"
-    )
-    private TheaterAddress theaterAddress;
+    private Timestamp updatedAt;
 }

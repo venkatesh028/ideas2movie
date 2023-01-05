@@ -5,6 +5,7 @@
 package com.ideas2it.ideas2movie.model;
 
 import java.sql.Timestamp;
+import java.time.LocalTime;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -45,13 +46,13 @@ public class Movie {
     @NotNull
     private String language;
     @NotNull
-    private float duration;
+    private Long duration;
     @NotNull
-    private String category;
+    private String genre;
     @CreationTimestamp
-    private Timestamp createdOn;
+    private Timestamp createdAt;
     @UpdateTimestamp
-    private Timestamp updatedOn;
+    private Timestamp updatedAt;
     @OneToOne
     @JoinColumn(
             name = "castAndCrew_id",
