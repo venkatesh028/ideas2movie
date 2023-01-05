@@ -43,7 +43,7 @@ public class CastAndCrew {
     private String hero;
     private String heroine;
     @CreationTimestamp
-    private Timestamp createdOn;
+    private Timestamp createdAt;
     @UpdateTimestamp
-    private Timestamp updatedOn;
+    private Timestamp updatedAt;
 }

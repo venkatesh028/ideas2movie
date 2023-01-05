@@ -9,5 +9,4 @@ public class Ideas2movieApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(Ideas2movieApplication.class, args);
 	}
-
 }
