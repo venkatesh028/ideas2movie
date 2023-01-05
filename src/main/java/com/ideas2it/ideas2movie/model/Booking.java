@@ -6,6 +6,7 @@ package com.ideas2it.ideas2movie.model;
 
 import com.ideas2it.ideas2movie.util.enums.ModeOfBooking;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 import java.sql.Timestamp;
 
 import jakarta.persistence.Column;
@@ -48,8 +49,10 @@ public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotNull
     @Enumerated(EnumType.STRING)
     private BookingStatus status;
+    @NotNull
     @Enumerated(EnumType.STRING)
     @Column(name = "mode_of_booking")
     private ModeOfBooking modeOfBooking;
