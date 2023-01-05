@@ -5,6 +5,7 @@
 package com.ideas2it.ideas2movie.model;
 
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 import java.sql.Timestamp;
 
 import jakarta.persistence.Column;
@@ -44,10 +45,15 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotNull
     private String name;
+    @NotNull
     private String email;
+    @NotNull
     private String phoneNumber;
+    @NotNull
     private String password;
+    @NotNull
     @ManyToOne
     @JoinColumn(
             name = "role_id",
