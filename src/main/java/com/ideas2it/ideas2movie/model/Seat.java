@@ -15,6 +15,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 
 import lombok.Getter;
@@ -39,6 +40,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 @Getter
 @Setter
 @NoArgsConstructor
+@Table(name = "seat")
 public class Seat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -53,7 +55,7 @@ public class Seat {
             referencedColumnName = "id"
     )
     private Screen screen;
-    @ManyToMany(mappedBy = "ticket")
+    @ManyToMany(mappedBy = "seat")
     private List<Ticket> ticket;
     @CreationTimestamp
     private Timestamp createdOn;
