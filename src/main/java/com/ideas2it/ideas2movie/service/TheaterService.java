@@ -1,4 +1,16 @@
+/*
+ * Copyright 2023 Ideas2IT Technologies. All rights reserved.
+ * IDEAS2IT PROPRIETARY/CONFIDENTIAL.
+ */
 package com.ideas2it.ideas2movie.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import com.ideas2it.ideas2movie.dto.TheaterDTO;
+import com.ideas2it.ideas2movie.dto.responsedto.TheaterResponseDTO;
+import com.ideas2it.ideas2movie.exception.AlreadyExistException;
+import com.ideas2it.ideas2movie.exception.NotFoundException;
 
 public interface TheaterService {
     /**
@@ -9,18 +21,8 @@ public interface TheaterService {
      * @param theaterDto it contains details of the theater.
      * @return TheaterDto
      */
-    TheaterResponseDTO createTheater(TheaterDTO theaterDto)
-            throws NotFoundException;
-
-    /**
-     * <p>
-     * To List the all Theater Details based on particular movie.
-     * </p>
-     *
-     * @return List<TheaterDto> it contains list of theater  based on particular movie.
-     */
-    List<TheaterDto> getAllTheaterByMovieId(TheaterDTO theaterDto,
-            MovieDto movieDto) throws NotFoundException;
+    Optional<TheaterDTO> createTheater(TheaterDTO theaterDto)
+            throws AlreadyExistException;
 
     /**
      * <p>
@@ -29,19 +31,18 @@ public interface TheaterService {
      *
      * @return List<TheaterDto>
      */
-    List<TheaterDto> getAllTheater(TheaterDTO theaterDto)
-            throws NotFoundException;
+    List<TheaterResponseDTO> getAllTheater() throws NotFoundException;
 
     /**
      * <p>
      * To get the Theater Details based on theater id.
      * </p>
      *
-     * @param theaterId it contains theater id
+     * @param id it contains theater id
      * @return TheaterDto
      */
-    TheaterDto getTheaterById(TheaterDTO theaterDto)
-            throws NotFoundException;
+    TheaterResponseDTO getTheaterById(Long id) throws NotFoundException;
+
 
     /**
      * <p>
@@ -51,6 +52,5 @@ public interface TheaterService {
      * @param theaterDto it contains theater details
      * @return List<TheaterDto>
      */
-    TheaterDto updateTheater(TheaterDto theaterDto )
-            throws NotFoundException;
+    TheaterDTO updateTheater(TheaterDTO theaterDto) throws NotFoundException;
 }

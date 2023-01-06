@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright 2023 Ideas2IT Technologies. All rights reserved.
  * IDEAS2IT PROPRIETARY/CONFIDENTIAL.
  */

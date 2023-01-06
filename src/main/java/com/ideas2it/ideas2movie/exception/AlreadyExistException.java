@@ -4,6 +4,8 @@
  */
 package com.ideas2it.ideas2movie.exception;
 
+import org.springframework.http.HttpStatus;
+
 public class AlreadyExistException extends Exception{
     public AlreadyExistException(String message) {
         super(message);
