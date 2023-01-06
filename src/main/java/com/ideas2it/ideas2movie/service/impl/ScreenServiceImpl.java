@@ -30,17 +30,17 @@ public class ScreenServiceImpl implements ScreenService {
     }
 
     @Override
-    public ScreenResponseDTO createScreen(ScreenDTO screenDTO) {
+    public ScreenResponseDTO createScreen(ScreenDTO screenDTO) throws NotFoundException {
         Screen screen = mapper.map(screenDTO, Screen.class);
-        screen.setTheater(theaterService.getTheaterById(screenDTO.getTheaterId()));
+        screen.setTheater(theaterService.getTheaterForScreenById(screenDTO.getTheaterId()));
         return mapper.map(screenRepository.save(screen), ScreenResponseDTO.class);
     }
 
     @Override
-    public ScreenResponseDTO updateScreen(Long id, ScreenDTO screenDTO) throws AlreadyExistException {
+    public ScreenResponseDTO updateScreen(Long id, ScreenDTO screenDTO) throws AlreadyExistException, NotFoundException {
         Screen screen = mapper.map(screenDTO, Screen.class);
         screen.setId(id);
-        screen.setTheater(theaterService.getTheaterById(screenDTO.getTheaterId()));
+        screen.setTheater(theaterService.getTheaterForScreenById(screenDTO.getTheaterId()));
 
         if (screenRepository.existsScreenByNameAndTheaterId(screen.getName(),
                 screen.getTheater().getId())) {
