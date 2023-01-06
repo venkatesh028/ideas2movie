@@ -46,7 +46,7 @@ public class Movie {
     @NotNull
     private String language;
     @NotNull
-    private Long duration;
+    private LocalTime duration;
     @NotNull
     private String genre;
     @CreationTimestamp
