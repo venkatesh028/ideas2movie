@@ -45,7 +45,7 @@ public class TheaterController {
     }
 
     @GetMapping
-    public List<TheaterResponseDTO> getAllTheater() throws NotFoundException {
+    public List<TheaterResponseDTO> getAllTheaters() throws NotFoundException {
         return theaterService.getAllTheater();
     }
 }
