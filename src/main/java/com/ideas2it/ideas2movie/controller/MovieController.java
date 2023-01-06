@@ -4,5 +4,8 @@
  */
 package com.ideas2it.ideas2movie.controller;
 
-public class TicketController {
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class MovieController {
 }

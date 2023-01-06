@@ -4,6 +4,8 @@
  */
 package com.ideas2it.ideas2movie.exception;
 
+import org.springframework.http.HttpStatus;
+
 public class NotFoundException extends Exception {
     public NotFoundException(String message){
         super(message);

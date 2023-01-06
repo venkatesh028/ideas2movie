@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 Ideas2IT Technologies. All rights reserved.
+ * Copyright 2023 Ideas2IT Technologies. All rights reserved.
  * IDEAS2IT PROPRIETARY/CONFIDENTIAL.
  */
 package com.ideas2it.ideas2movie.dto;
@@ -33,16 +33,16 @@ import com.ideas2it.ideas2movie.util.constant.Message;
 @NoArgsConstructor
 public class UserDTO {
     @NotBlank(message = Message.NAME_SHOULD_NOT_BE_EMPTY)
-    @Pattern(regexp = Constant.NAME_PATTERN, message = Message.ENTER_VALID_NAME)
+    //@Pattern(regexp = Constant.NAME_PATTERN, message = Message.ENTER_VALID_NAME)
     private String name;
     @NotBlank(message = Message.EMAIL_SHOULD_NOT_BE_EMPTY)
-    @Email(message = Message.ENTER_VALID_EMAIL)
+    //@Email(message = Message.ENTER_VALID_EMAIL)
     private String email;
     @NotBlank(message = Message.PHONE_SHOULD_NOT_BE_EMPTY)
-    @Pattern(regexp = Constant.PHONE_NUMBER_PATTERN, message = Message.ENTER_VALID_PHONE_NUMBER)
+    //@Pattern(regexp = Constant.PHONE_NUMBER_PATTERN, message = Message.ENTER_VALID_PHONE_NUMBER)
     private String phoneNumber;
     @NotBlank(message = Message.PASSWORD_SHOULD_NOT_BE_EMPTY)
-    @Pattern(regexp = Constant.PASSWORD_PATTERN, message = Message.ENTER_VALID_PASSWORD)
+    //@Pattern(regexp = Constant.PASSWORD_PATTERN, message = Message.ENTER_VALID_PASSWORD)
     private String password;
     private RoleDTO role;
 }

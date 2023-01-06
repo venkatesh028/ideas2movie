@@ -11,6 +11,23 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 
+import lombok.Getter;
+import lombok.Setter;
+
+/**
+ * <h1>
+ *     ShowDTO
+ * </h1>
+ * <p>
+ *     Gets the input from the client for the show
+ * </p>
+ *
+ * @author Venkatesh TM
+ * @version 1.0
+ * @since 06/01/2023
+ */
+@Getter
+@Setter
 public class ShowDTO {
     @NotBlank(message = "Show Date should not be empty")
     @JsonDeserialize(using = LocalDateDeserializer.class)
@@ -24,7 +41,7 @@ public class ShowDTO {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
     private LocalTime endTime;
     @NotBlank(message = "Screen id should not be empty")
-    private String screenId;
+    private Long screenId;
     @NotBlank(message = "Movie id should not be empty")
-    private String movieId;
+    private Long movieId;
 }
