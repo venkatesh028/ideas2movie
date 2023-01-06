@@ -61,6 +61,7 @@ public class Ticket {
             referencedColumnName = "id"
     )
     private Show showId;
+    private double price;
     @CreationTimestamp
     private Timestamp createdAt;
 }
