@@ -85,6 +85,20 @@ public class TheaterServiceImpl implements TheaterService {
      * {@inheritDoc}
      */
     @Override
+    public Theater getTheaterForScreenById(Long id) throws NotFoundException {
+        Optional<Theater> theater = theaterRepository.findById(id);
+
+        if (theater.isPresent()) {
+            return theater.get();
+        } else {
+            throw new NotFoundException("No theater exist on a given id");
+        }
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public TheaterDTO updateTheater(TheaterDTO theaterDto)
             throws NotFoundException {
 

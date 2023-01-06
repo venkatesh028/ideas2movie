@@ -11,6 +11,7 @@ import com.ideas2it.ideas2movie.dto.TheaterDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.TheaterResponseDTO;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
+import com.ideas2it.ideas2movie.model.Theater;
 
 public interface TheaterService {
     /**
@@ -43,6 +44,15 @@ public interface TheaterService {
      */
     TheaterResponseDTO getTheaterById(Long id) throws NotFoundException;
 
+    /**
+     * <p>
+     * To get the Theater Details based on theater id.
+     * </p>
+     *
+     * @param id it contains theater id
+     * @return TheaterDto
+     */
+    Theater getTheaterForScreenById(Long id) throws NotFoundException;
 
     /**
      * <p>

@@ -12,8 +12,8 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
 
 public interface ScreenService {
 
-    ScreenResponseDTO createScreen(ScreenDTO screenDTO);
-    ScreenResponseDTO updateScreen(Long id, ScreenDTO screenDTO) throws AlreadyExistException;
+    ScreenResponseDTO createScreen(ScreenDTO screenDTO) throws NotFoundException;
+    ScreenResponseDTO updateScreen(Long id, ScreenDTO screenDTO) throws AlreadyExistException, NotFoundException;
     String deleteScreen(Long id) throws NotFoundException;
 
 }

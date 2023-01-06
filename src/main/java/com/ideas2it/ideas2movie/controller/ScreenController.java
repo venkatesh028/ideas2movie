@@ -6,6 +6,7 @@ package com.ideas2it.ideas2movie.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ideas2it.ideas2movie.dto.ScreenDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.ScreenResponseDTO;
+import com.ideas2it.ideas2movie.exception.NotFoundException;
 import com.ideas2it.ideas2movie.service.ScreenService;
-import com.ideas2it.ideas2movie.service.impl.ScreenServiceImpl;
 
 /**
  * <h1>
@@ -40,11 +41,12 @@ public class ScreenController {
     }
 
     @PostMapping
-    public ResponseEntity<ScreenResponseDTO> createScreen(@RequestBody ScreenDTO screenDTO){
+    public ResponseEntity<ScreenResponseDTO> createScreen(@RequestBody ScreenDTO screenDTO) throws NotFoundException {
         return ResponseEntity.status(HttpStatus.OK).body(screenService.createScreen(screenDTO));
     }
     @PostMapping("/{id}")
-    public ResponseEntity<ScreenResponseDTO> updateScreen(@RequestBody ScreenDTO screenDTO){
-        return ResponseEntity.status(HttpStatus.OK).body();
+    public ResponseEntity<ScreenResponseDTO> updateScreen(@PathVariable Long id,
+                                                          @RequestBody ScreenDTO screenDTO){
+        return ResponseEntity.status(HttpStatus.OK).body(new ScreenResponseDTO());
     }
 }
