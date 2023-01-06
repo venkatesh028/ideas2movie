@@ -1,3 +1,7 @@
+/*
+ * Copyright 2023 Ideas2IT Technologies. All rights reserved.
+ * IDEAS2IT PROPRIETARY/CONFIDENTIAL.
+ */
 package com.ideas2it.ideas2movie.controller;
 
 import org.springframework.http.HttpStatus;
@@ -12,8 +16,23 @@ import com.ideas2it.ideas2movie.model.Show;
 import com.ideas2it.ideas2movie.service.ShowService;
 import com.ideas2it.ideas2movie.service.impl.ShowServiceImpl;
 
+/**
+ * <h1>
+ *     ShowController
+ * </h1>
+ * <p>
+ *     Gets the inputs via Request from the client
+ *     to perform Create, Update, Delete and Get
+ *     the Show by sending the parameter/object
+ *     to perform business logics on them
+ * </p>
+ *
+ * @author Venkatesh TM
+ * @version 1.0
+ * @since 06/01/2023
+ */
 @RestController
-@RequestMapping("/api/v1/show")
+@RequestMapping("/api/v1/shows")
 public class ShowController {
     private final ShowService showService;
 
