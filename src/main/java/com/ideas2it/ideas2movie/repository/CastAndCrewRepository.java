@@ -7,13 +7,7 @@ package com.ideas2it.ideas2movie.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
-import com.ideas2it.ideas2movie.model.Theater;
+import com.ideas2it.ideas2movie.model.CastAndCrew;
 @Repository
-public interface TheaterRepository extends JpaRepository<Theater, Long> {
-    boolean existsByTheaterCity(String city);
-    boolean existsByTheaterName(String theatreName);
-
-
+public interface CastAndCrewRepository extends JpaRepository<CastAndCrew, Long> {
 }
