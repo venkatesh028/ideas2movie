@@ -1,3 +1,7 @@
+/*
+ * Copyright 2023 Ideas2IT Technologies. All rights reserved.
+ * IDEAS2IT PROPRIETARY/CONFIDENTIAL.
+ */
 package com.ideas2it.ideas2movie.dto;
 
 import jakarta.validation.constraints.NotBlank;
@@ -13,6 +17,14 @@ import com.ideas2it.ideas2movie.util.constant.Constant;
 import com.ideas2it.ideas2movie.util.constant.Message;
 import com.ideas2it.ideas2movie.util.enums.ModeOfPayment;
 
+/**
+ * <h1>
+ *     Payment DTO
+ * </h1>
+ * <p>
+ *     Gets the Input from the Client for the Payment Entity
+ * </p>
+ */
 @Getter
 @Setter
 @NoArgsConstructor
