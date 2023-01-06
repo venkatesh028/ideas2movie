@@ -35,8 +35,8 @@ import com.ideas2it.ideas2movie.logger.CustomLogger;
 @ControllerAdvice
 public class MovieExceptionHandler {
     private final CustomLogger logger = new CustomLogger(MovieExceptionHandler.class);
-    @ExceptionHandler(NotfoundException.class)
-    public ResponseEntity<ErrorMessageDTO> notFoundException(NotfoundException notfoundException) {
+    @ExceptionHandler(NotFoundException.class)
+    public ResponseEntity<ErrorMessageDTO> notFoundException(NotFoundException notfoundException) {
         logger.error(notfoundException.getMessage());
         ErrorMessageDTO errorMessage = new ErrorMessageDTO(notfoundException.getMessage(),
                                                            HttpStatus.NOT_FOUND);
