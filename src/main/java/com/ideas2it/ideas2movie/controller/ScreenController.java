@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ideas2it.ideas2movie.dto.ScreenDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.ScreenResponseDTO;
+import com.ideas2it.ideas2movie.exception.AlreadyExistException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
 import com.ideas2it.ideas2movie.service.ScreenService;
 
@@ -41,7 +42,7 @@ public class ScreenController {
     }
 
     @PostMapping
-    public ResponseEntity<ScreenResponseDTO> createScreen(@RequestBody ScreenDTO screenDTO) throws NotFoundException {
+    public ResponseEntity<ScreenResponseDTO> createScreen(@RequestBody ScreenDTO screenDTO) throws NotFoundException, AlreadyExistException {
         return ResponseEntity.status(HttpStatus.OK).body(screenService.createScreen(screenDTO));
     }
     @PostMapping("/{id}")

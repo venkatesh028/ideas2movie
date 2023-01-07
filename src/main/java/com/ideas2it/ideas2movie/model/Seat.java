@@ -12,9 +12,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
@@ -50,12 +48,6 @@ public class Seat {
     private String name;
     @NotNull
     private double price;
-    @ManyToOne
-    @JoinColumn(
-            name = "screen_id",
-            referencedColumnName = "id"
-    )
-    private Screen screen;
     @ManyToMany(
             mappedBy = "seats",
             fetch = FetchType.EAGER

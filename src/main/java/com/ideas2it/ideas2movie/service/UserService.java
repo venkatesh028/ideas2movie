@@ -24,6 +24,7 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  * @since 06-01-2023
  */
 public interface UserService {
+
     /**
      * <h1>
      *     Create User
@@ -37,11 +38,65 @@ public interface UserService {
      * </p>
      *
      * @param userDTO - reference Variable which holds the Details of the User
-     * @return UserResposeDTO - Holds the Created User Details
-     * @throws AlreadyExistException - occurs when User's Name or Phone Number Already Exist
-     * @throws NotFoundException - occurs when Role Not Found
+     * @return UserResponseDTO - Holds the Created User Details
+     * @throws AlreadyExistException - when User's Name or Phone Number Already Exist
+     * @throws NotFoundException - when Role Not Found
      */
     UserResponseDTO createUser(UserDTO userDTO) throws AlreadyExistException, NotFoundException;
 
+    /**
+     * <h1>
+     *     Get User By ID
+     * </h1>
+     * <p>
+     *     Gets the User By getting the ID of the User
+     *     from the Controller
+     *     and checks whether the User is present or Not
+     *     If present then returns the User Details
+     *     Otherwise throws Exception
+     * </p>
+     *
+     * @param id - ID of the User to get the Details
+     * @return UserResponseDTO - Holds the Details of User
+     * @throws NotFoundException - when User not found
+     */
     UserResponseDTO getUserById(Long id) throws NotFoundException;
+
+    /**
+     * <h1>
+     *      Create User
+     * </h1>
+     * <p>
+     *      Updates the User
+     *      by getting the UserDTO from the Controller
+     *      and checks whether the User name
+     *      and Phone Number is already Exists or Not
+     *      If Exist then throws an Exception
+     * </p>
+     *
+     * @param id - ID of the User to Update the user Details
+     * @param userDTO - reference Variable which holds the Details of the User
+     * @return UserResponseDTO - Holds the Updated User Details
+     * @throws AlreadyExistException - when User's Name or Phone Number Already Exist
+     * @throws NotFoundException     - when Role Not Found
+     */
+    UserResponseDTO updateUser(Long id, UserDTO userDTO) throws NotFoundException, AlreadyExistException;
+
+    /**
+     * <h1>
+     *     Delete User
+     * </h1>
+     * <p>
+     *     Deletes the User
+     *     by getting the ID of the User from Controller
+     *     and checks whether the User is present or Not
+     *     If present then deletes the User Details
+     *     Otherwise throws Exception
+     * </p>
+     *
+     * @param id - ID of the User to delete the Details
+     * @return String - Success message of Deletion
+     * @throws NotFoundException - when User Not Found
+     */
+    String deleteUser(Long id) throws NotFoundException;
 }

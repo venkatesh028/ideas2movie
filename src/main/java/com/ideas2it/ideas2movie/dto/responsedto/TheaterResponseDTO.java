@@ -10,4 +10,6 @@ public class TheaterResponseDTO {
     private  Long id;
     private String theaterName;
     private String city;
+    private String area;
+    private String pincode;
 }

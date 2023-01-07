@@ -19,4 +19,12 @@ public interface ShowRepository extends JpaRepository<Show, Long> {
             @NotBlank(message = "Show Date should not be empty") LocalDate streamingDate,
             @NotBlank() LocalTime startTime,
             @NotBlank(message = "Movie id should not be empty") Long movieId);
+
+    boolean existsByDateAndTimeAndScreenId(
+            LocalDate streamingDate,
+            LocalTime startTime,
+            Long movieId);
+
+    Show getShowByStreamingDateAndStartTimeAndScreen();
+
 }

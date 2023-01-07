@@ -18,6 +18,20 @@ import com.ideas2it.ideas2movie.repository.ScreenRepository;
 import com.ideas2it.ideas2movie.service.ScreenService;
 import com.ideas2it.ideas2movie.service.TheaterService;
 
+/**
+ * <h1>
+ *     Screen Service Impl
+ * </h1>
+ * <p>
+ *     Implements the Screen Service and
+ *     Holds the Business Logics
+ *     to Create, Update, Delete, Get the Details of the Screen
+ * </p>
+ *
+ * @author Venkatesh TM
+ * @version 1.0
+ * @since 06/01/2023
+ */
 @Service
 public class ScreenServiceImpl implements ScreenService {
     private final ScreenRepository screenRepository;
@@ -30,8 +44,12 @@ public class ScreenServiceImpl implements ScreenService {
     }
 
     @Override
-    public ScreenResponseDTO createScreen(ScreenDTO screenDTO) throws NotFoundException {
+    public ScreenResponseDTO createScreen(ScreenDTO screenDTO) throws NotFoundException, AlreadyExistException {
         Screen screen = mapper.map(screenDTO, Screen.class);
+
+        if (screenRepository.existsScreenByNameAndTheaterId(screenDTO.getName(), screenDTO.getTheaterId())){
+            throw new AlreadyExistException("There a Screen with given name");
+        }
         screen.setTheater(theaterService.getTheaterForScreenById(screenDTO.getTheaterId()));
         return mapper.map(screenRepository.save(screen), ScreenResponseDTO.class);
     }
