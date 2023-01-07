@@ -31,4 +31,12 @@ public class SeatServiceImpl implements SeatService {
     public Seat createSeat(Seat seat) {
         return seatRepository.save(seat);
     }
+
+    public Seat getSeatById(Long id){
+        return seatRepository.findById(id).get();
+    }
+
+    public Seat bookSeatById(Long id){
+        return null;
+    }
 }
