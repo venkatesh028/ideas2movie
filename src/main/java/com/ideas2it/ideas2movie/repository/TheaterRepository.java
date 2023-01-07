@@ -14,6 +14,4 @@ import com.ideas2it.ideas2movie.model.Theater;
 public interface TheaterRepository extends JpaRepository<Theater, Long> {
     boolean existsByTheaterCity(String city);
     boolean existsByTheaterName(String theatreName);
-
-
 }

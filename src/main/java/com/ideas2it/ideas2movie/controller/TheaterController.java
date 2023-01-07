@@ -6,6 +6,8 @@ package com.ideas2it.ideas2movie.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,6 +23,7 @@ import com.ideas2it.ideas2movie.dto.responsedto.TheaterResponseDTO;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
 import com.ideas2it.ideas2movie.service.TheaterService;
+
 @RestController
 @RequestMapping("api/v1/theater")
 public class TheaterController {
@@ -29,17 +32,21 @@ public class TheaterController {
     public TheaterController(TheaterService theaterService) {
         this.theaterService = theaterService;
     }
+
     @PostMapping
-    public ResponseEntity<TheaterDTO> createTheater(@RequestBody TheaterDTO theaterDTO)
-            throws AlreadyExistException {
-        Optional<TheaterDTO> theaterDetails = theaterService.createTheater(theaterDTO);
-        if ( theaterDetails.isPresent() ) {
+    public ResponseEntity<TheaterResponseDTO> createTheater(
+            @RequestBody TheaterDTO theaterDTO) throws AlreadyExistException {
+        Optional<TheaterResponseDTO> theaterDetails = theaterService.createTheater(theaterDTO);
+
+        if (theaterDetails.isPresent()) {
             return ResponseEntity.status(HttpStatus.OK).body(theaterDetails.get());
         }
         throw new AlreadyExistException("Theater not created");
     }
+
     @GetMapping("/{id}")
-    public ResponseEntity<TheaterResponseDTO> getTheaterById(@PathVariable("id") Long id) throws NotFoundException {
+    public ResponseEntity<TheaterResponseDTO> getTheaterById(
+            @PathVariable("id") Long id) throws NotFoundException {
         TheaterResponseDTO fetchedTheater = theaterService.getTheaterById(id);
         return ResponseEntity.status(HttpStatus.OK).body(fetchedTheater);
     }
@@ -47,6 +54,21 @@ public class TheaterController {
     @GetMapping
     public List<TheaterResponseDTO> getAllTheaters() throws NotFoundException {
         return theaterService.getAllTheater();
+    }
+
+    @PostMapping("/{id}")
+    public ResponseEntity<TheaterResponseDTO> update(@PathVariable("id") Long id,
+                                             @RequestBody TheaterDTO theaterDTO) throws
+            NotFoundException, AlreadyExistException {
+
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(theaterService.updateTheater(id, theaterDTO));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteTheater(@PathVariable("id") Long id)
+            throws NotFoundException  {
+        return ResponseEntity.status(HttpStatus.OK).body(theaterService.deleteTheater(id));
     }
 }
 

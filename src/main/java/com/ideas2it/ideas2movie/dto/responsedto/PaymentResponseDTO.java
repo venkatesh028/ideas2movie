@@ -22,10 +22,11 @@ import lombok.Setter;
  * @version 1.0
  * @since 06-01-2023
  */
-
 @Getter
 @Setter
 public class PaymentResponseDTO {
+    private Long id;
+    private Long ticketId;
     private Timestamp paidAt;
     private UUID transactionId;
     private double amount;

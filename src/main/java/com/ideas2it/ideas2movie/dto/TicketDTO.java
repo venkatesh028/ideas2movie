@@ -29,6 +29,6 @@ import com.ideas2it.ideas2movie.model.Seat;
 @NoArgsConstructor
 public class TicketDTO {
     private ShowDTO showDTO;
-    private List<Seat> seats;
+    private List<SeatDTO> seats;
     private double price;
 }
