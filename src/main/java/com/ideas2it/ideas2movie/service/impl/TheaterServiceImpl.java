@@ -31,7 +31,7 @@ public class TheaterServiceImpl implements TheaterService {
      * {@inheritDoc}
      */
     @Override
-    public Optional<TheaterDTO> createTheater(TheaterDTO theaterDTO)
+    public Optional<TheaterResponseDTO> createTheater(TheaterDTO theaterDTO)
             throws AlreadyExistException {
 
         if (theaterRepository.existsByTheaterName(theaterDTO.getTheaterName())
@@ -39,14 +39,8 @@ public class TheaterServiceImpl implements TheaterService {
             throw new AlreadyExistException("This Theatre is already exist");
         } else {
             Theater theater = modelMapper.map(theaterDTO, Theater.class);
-            theater.setTheaterName(theater.getTheaterName());
-            theater.setCity(theater.getCity());
-            theater.setPincode(theater.getPincode());
-            theater.setArea(theater.getArea());
-            theater.setCreatedAt(theater.getCreatedAt());
-            theater.setUpdatedAt(theater.getUpdatedAt());
             return Optional.of(modelMapper.map(theaterRepository.save(theater),
-                    TheaterDTO.class));
+                    TheaterResponseDTO.class));
         }
     }
 
@@ -99,15 +93,41 @@ public class TheaterServiceImpl implements TheaterService {
      * {@inheritDoc}
      */
     @Override
-    public TheaterDTO updateTheater(TheaterDTO theaterDto)
-            throws NotFoundException {
+    public TheaterResponseDTO updateTheater(Long id, TheaterDTO theaterDTO)
+            throws NotFoundException, AlreadyExistException {
+        Theater theater = modelMapper.map(theaterDTO, Theater.class);
+        TheaterResponseDTO existingTheater = getTheaterById(id);
 
-        if (null == theaterDto) {
-            throw new NotFoundException("No theater exist  on given id");
+        if (null == existingTheater) {
+            throw new NotFoundException("No theater exist on given id");
+        } else if (theaterRepository.existsByTheaterName(theater.getTheaterName()) &&
+                theaterRepository.existsByTheaterCity(theater.getCity())) {
+            throw new AlreadyExistException("Theater name already exist");
+        } else {
+            return modelMapper.map(theaterRepository.save(theater),
+                    TheaterResponseDTO.class);
         }
-        return new TheaterDTO();
     }
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String deleteTheater(Long id) throws NotFoundException {
 
+        Optional<Theater> existingTheater = theaterRepository.findById(id);
+
+        if (existingTheater.isPresent() && existingTheater.get().isActive()) {
+            existingTheater.get().setActive(false);
+            Optional<TheaterDTO> deletedTheater = Optional.of(modelMapper
+                    .map(theaterRepository.save(existingTheater.get()), TheaterDTO.class));
+            if (!existingTheater.get().isActive()) {
+                return "Account deleted successfuly";
+            } else {
+                return "Account not deleted";
+            }
+        }
+        throw new NotFoundException("No Theater exist to delete");
+    }
 }
 
 

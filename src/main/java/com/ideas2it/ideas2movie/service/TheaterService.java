@@ -22,7 +22,7 @@ public interface TheaterService {
      * @param theaterDto it contains details of the theater.
      * @return TheaterDto
      */
-    Optional<TheaterDTO> createTheater(TheaterDTO theaterDto)
+    Optional<TheaterResponseDTO> createTheater(TheaterDTO theaterDto)
             throws AlreadyExistException;
 
     /**
@@ -32,7 +32,8 @@ public interface TheaterService {
      *
      * @return List<TheaterDto>
      */
-    List<TheaterResponseDTO> getAllTheater() throws NotFoundException;
+    List<TheaterResponseDTO> getAllTheater() throws
+            NotFoundException;
 
     /**
      * <p>
@@ -42,7 +43,8 @@ public interface TheaterService {
      * @param id it contains theater id
      * @return TheaterDto
      */
-    TheaterResponseDTO getTheaterById(Long id) throws NotFoundException;
+    TheaterResponseDTO getTheaterById(Long id) throws
+            NotFoundException;
 
     /**
      * <p>
@@ -52,15 +54,20 @@ public interface TheaterService {
      * @param id it contains theater id
      * @return TheaterDto
      */
-    Theater getTheaterForScreenById(Long id) throws NotFoundException;
+    Theater getTheaterForScreenById(Long id)
+            throws NotFoundException;
 
     /**
      * <p>
      * To update the Theater Details
      * </p>
      *
-     * @param theaterDto it contains theater details
+     * @param theaterDTO it contains theater details
      * @return List<TheaterDto>
      */
-    TheaterDTO updateTheater(TheaterDTO theaterDto) throws NotFoundException;
+    TheaterResponseDTO updateTheater(Long id, TheaterDTO theaterDTO)
+            throws NotFoundException, AlreadyExistException;
+
+    String deleteTheater(Long id) throws NotFoundException;
+
 }

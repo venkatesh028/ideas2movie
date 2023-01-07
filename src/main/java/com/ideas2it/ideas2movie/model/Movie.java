@@ -21,6 +21,9 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import com.ideas2it.ideas2movie.util.enums.Genre;
+import com.ideas2it.ideas2movie.util.enums.Language;
+
 /**
  * <h1>
  *    Movie
@@ -44,11 +47,11 @@ public class Movie {
     @NotNull
     private String movieName;
     @NotNull
-    private String language;
+    private Language language;
     @NotNull
     private LocalTime duration;
     @NotNull
-    private String genre;
+    private Genre genre;
     @CreationTimestamp
     private Timestamp createdAt;
     @UpdateTimestamp

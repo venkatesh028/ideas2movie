@@ -51,7 +51,7 @@ public class Theater {
     private String pincode;
     @ColumnDefault(value = "true")
     @Column( insertable = false)
-    private boolean activeStatus;
+    private boolean isActive;
     @CreationTimestamp
     private Timestamp createdAt;
     @UpdateTimestamp
