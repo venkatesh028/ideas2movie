@@ -46,18 +46,16 @@ public class ShowServiceImpl implements ShowService {
 
     public ShowResponseDTO createShow(ShowDTO showDTO) throws AlreadyExistException {
         Show show = mapper.map(showDTO, Show.class);
-
-        if (showRepository.existsByDateAndTimeAndScreenId(showDTO.getStreamingDate(),
-                                                          showDTO.getStartTime(),
-                                                          showDTO.getScreenId())){
-            throw new AlreadyExistException("This is Show is Already Active");
-
-        }
         return mapper.map(showRepository.save(show), ShowResponseDTO.class);
     }
 
     @Override
     public Show getShowById(Long id) {
+        return null;
+    }
+
+    @Override
+    public List<ShowResponseDTO> getShowsByMovieName(String movieName) throws NotFoundException {
         return null;
     }
 
@@ -67,19 +65,19 @@ public class ShowServiceImpl implements ShowService {
         return new ShowResponseDTO();
     }
 
-    public List<ShowResponseDTO> getShowsByMovieName(String movieName) throws NotFoundException {
-        List<Show> availableShows = List.of(showRepository.findAllByMovieName(movieName));
-        List<ShowResponseDTO> shows = new ArrayList<>() ;
-
-        if (availableShows.isEmpty()){
-            throw new NotFoundException("There is No Show with this movie name");
-        }
-
-        for(Show show: availableShows){
-            shows.add(mapper.map(show, ShowResponseDTO.class));
-        }
-        return shows;
-    }
+//    public List<ShowResponseDTO> getShowsByMovieName(String movieName) throws NotFoundException {
+//        //List<Show> availableShows = List.of(showRepository.findByMovieName(movieName));
+//        List<ShowResponseDTO> shows = new ArrayList<>() ;
+//
+//        if (availableShows.isEmpty()){
+//            throw new NotFoundException("There is No Show with this movie name");
+//        }
+//
+//        for(Show show: availableShows){
+//            shows.add(mapper.map(show, ShowResponseDTO.class));
+//        }
+//        return shows;
+//    }
 
     public String deactivateShowById(Long id){
         String message = "Deleted Successfully";
