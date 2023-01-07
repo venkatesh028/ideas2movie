@@ -47,12 +47,13 @@ public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private Long ticketId;
     @NotNull
     @Column(name = "transaction_id")
     private UUID transactionId;
     @NotNull
     @CreationTimestamp
-    private Timestamp paidAt;
+    private Timestamp transactionAt;
     @NotNull
     private double amount;
     @NotNull

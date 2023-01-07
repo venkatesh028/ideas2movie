@@ -55,6 +55,7 @@ public class Ticket {
             }
     )
     private List<Seat> seats;
+    private int numberOfSeatsSelected;
     @ManyToOne
     @JoinColumn(
             name = "show_id",
