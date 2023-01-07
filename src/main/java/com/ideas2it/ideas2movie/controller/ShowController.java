@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ideas2it.ideas2movie.dto.ShowDTO;
-import com.ideas2it.ideas2movie.model.Show;
+import com.ideas2it.ideas2movie.dto.responsedto.ShowResponseDTO;
+import com.ideas2it.ideas2movie.exception.AlreadyExistException;
 import com.ideas2it.ideas2movie.service.ShowService;
 import com.ideas2it.ideas2movie.service.impl.ShowServiceImpl;
 
@@ -41,8 +42,8 @@ public class ShowController {
     }
 
     @PostMapping
-    public ResponseEntity<Show> createShow(@RequestBody ShowDTO showDTO){
-        return new ResponseEntity<>(showService.createShow(showDTO), HttpStatus.OK);
+    public ResponseEntity<ShowResponseDTO> createShow(@RequestBody ShowDTO showDTO) throws AlreadyExistException {
+        return ResponseEntity.status(HttpStatus.OK).body(showService.createShow(showDTO)) ;
     }
 
 }

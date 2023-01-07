@@ -20,6 +20,5 @@ public class MovieServiceImpl implements MovieService {
     }
     @Override
     public MovieResponseDTO getMovieById(MovieDTO movieDTO) {
-
     }
 }
