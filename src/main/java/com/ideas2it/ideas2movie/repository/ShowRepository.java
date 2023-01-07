@@ -9,22 +9,14 @@ import java.time.LocalTime;
 
 import jakarta.validation.constraints.NotBlank;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import com.ideas2it.ideas2movie.model.Show;
 
+@Repository
 public interface ShowRepository extends JpaRepository<Show, Long> {
-    Show[] findAllByMovieName(String movieName);
+    Show findAllByMovieName(String movieName);
 
-    boolean existsByDateAndTimeAndMovieId(
-            @NotBlank(message = "Show Date should not be empty") LocalDate streamingDate,
-            @NotBlank() LocalTime startTime,
-            @NotBlank(message = "Movie id should not be empty") Long movieId);
 
-    boolean existsByDateAndTimeAndScreenId(
-            LocalDate streamingDate,
-            LocalTime startTime,
-            Long movieId);
-
-    Show getShowByStreamingDateAndStartTimeAndScreen();
-
+    Object findByMovieName(String movieName);
 }

@@ -35,7 +35,7 @@ public class TheaterServiceImpl implements TheaterService {
             throws AlreadyExistException {
 
         if (theaterRepository.existsByTheaterName(theaterDTO.getTheaterName())
-                && theaterRepository.existsByTheaterCity(theaterDTO.getCity())) {
+                && theaterRepository.existsByCity(theaterDTO.getCity())) {
             throw new AlreadyExistException("This Theatre is already exist");
         } else {
             Theater theater = modelMapper.map(theaterDTO, Theater.class);
@@ -101,7 +101,7 @@ public class TheaterServiceImpl implements TheaterService {
         if (null == existingTheater) {
             throw new NotFoundException("No theater exist on given id");
         } else if (theaterRepository.existsByTheaterName(theater.getTheaterName()) &&
-                theaterRepository.existsByTheaterCity(theater.getCity())) {
+                theaterRepository.existsByCity(theater.getCity())) {
             throw new AlreadyExistException("Theater name already exist");
         } else {
             return modelMapper.map(theaterRepository.save(theater),
