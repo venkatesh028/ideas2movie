@@ -29,11 +29,11 @@ import com.ideas2it.ideas2movie.util.enums.ModeOfPayment;
 @Setter
 @NoArgsConstructor
 public class PaymentDTO {
-    private Timestamp paidAt;
+    private Long ticketId;
     @NotBlank(message = Message.PAYMENT_MODE_SHOULD_NOT_BE_EMPTY)
-    @Pattern(regexp = Constant.PAYMENT_MODE_PATTER, message = Message.ENTER_VALID_PAYMENT_MODE)
+    //@Pattern(regexp = Constant.PAYMENT_MODE_PATTER, message = Message.ENTER_VALID_PAYMENT_MODE)
     private ModeOfPayment modeOfPayment;
     @NotBlank(message = Message.AMOUNT_SHOULD_NOT_BE_EMPTY)
-    @Pattern(regexp = Constant.AMOUNT_PATTERN, message = Message.ENTER_VALID_AMOUNT)
-    private double amount;
+    //@Pattern(regexp = Constant.AMOUNT_PATTERN, message = Message.ENTER_VALID_AMOUNT)
+    private double enteredAmount;
 }

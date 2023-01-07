@@ -4,6 +4,8 @@
  */
 package com.ideas2it.ideas2movie.controller;
 
+import com.ideas2it.ideas2movie.dto.responsedto.ShowResponseDTO;
+import com.ideas2it.ideas2movie.exception.AlreadyExistException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
