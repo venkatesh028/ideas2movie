@@ -19,6 +19,20 @@ import com.ideas2it.ideas2movie.repository.ShowRepository;
 import com.ideas2it.ideas2movie.service.MovieService;
 import com.ideas2it.ideas2movie.service.ShowService;
 
+/**
+ * <h1>
+ *     Show Service Impl
+ * </h1>
+ * <p>
+ *     Implements the Show Service and
+ *     Holds the Business Logics
+ *     to Create, Update, Delete, Get the Details of the Show
+ * </p>
+ *
+ * @author Venkatesh TM
+ * @version 1.0
+ * @since 06/01/2023
+ */
 @Service
 public class ShowServiceImpl implements ShowService {
     private final ShowRepository showRepository;
@@ -33,21 +47,27 @@ public class ShowServiceImpl implements ShowService {
     public ShowResponseDTO createShow(ShowDTO showDTO) throws AlreadyExistException {
         Show show = mapper.map(showDTO, Show.class);
 
-        if (showRepository.existsByDateAndTimeAndMovieId(showDTO.getStreamingDate(),
-                                                         showDTO.getStartTime(),
-                                                         showDTO.getMovieId())){
+        if (showRepository.existsByDateAndTimeAndScreenId(showDTO.getStreamingDate(),
+                                                          showDTO.getStartTime(),
+                                                          showDTO.getScreenId())){
             throw new AlreadyExistException("This is Show is Already Active");
 
         }
         return mapper.map(showRepository.save(show), ShowResponseDTO.class);
     }
 
+    @Override
+    public Show getShowById(Long id) {
+        return null;
+    }
+
     public ShowResponseDTO updateShow(ShowDTO showDTO) {
         Show show = mapper.map(showDTO, Show.class);
+
         return new ShowResponseDTO();
     }
 
-    public List<ShowResponseDTO> getShowsByMovieId(String movieName) throws NotFoundException {
+    public List<ShowResponseDTO> getShowsByMovieName(String movieName) throws NotFoundException {
         List<Show> availableShows = List.of(showRepository.findAllByMovieName(movieName));
         List<ShowResponseDTO> shows = new ArrayList<>() ;
 
@@ -59,6 +79,15 @@ public class ShowServiceImpl implements ShowService {
             shows.add(mapper.map(show, ShowResponseDTO.class));
         }
         return shows;
+    }
+
+    public String deactivateShowById(Long id){
+        String message = "Deleted Successfully";
+        showRepository.deleteById(id);
+        if (showRepository.existsById(id)){
+            message = "Show is not Deleted";
+        }
+        return message;
     }
 
 }

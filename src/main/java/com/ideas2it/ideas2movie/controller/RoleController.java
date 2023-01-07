@@ -23,9 +23,10 @@ import org.springframework.web.bind.annotation.RestController;
  *     Role Controller
  * </h1>
  * <p>
- *     Gets the Input Parameter as a request
- *     from the Client to Get the Role
- *     by sending the parameter to perform business logic
+ *     Gets the Input Parameter as a request from the Client
+ *     for Create and Get the Role
+ *     by sending the parameter and Object
+ *     to perform business logic on them
  * </p>
  *
  * @author AJAISHARMA

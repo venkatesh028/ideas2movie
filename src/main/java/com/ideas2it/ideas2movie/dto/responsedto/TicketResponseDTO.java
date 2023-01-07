@@ -30,5 +30,8 @@ public class TicketResponseDTO {
     private Long ticketId;
     private ShowResponseDTO showResponseDTO;
     private LocalDate showDate;
-    private List<Seat> seats;
+    private String theaterName;
+    private String movieName;
+    private String screenName;
+    private List<SeatResponseDTO> seats;
 }
