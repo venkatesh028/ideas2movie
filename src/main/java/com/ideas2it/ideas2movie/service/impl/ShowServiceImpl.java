@@ -77,7 +77,7 @@ public class ShowServiceImpl implements ShowService {
 
     @Override
     public List<Show> getAllShowsByMovieId(String movieName) throws NoContentException {
-        List<Show> shows = showRepository.findByMovieMovieName(movieName);
+        List<Show> shows = showRepository.findByMovieName(movieName);
 
         if (shows.isEmpty()) {
             throw new NoContentException("There is No Shows For Given Movie");
@@ -95,7 +95,6 @@ public class ShowServiceImpl implements ShowService {
             show.setAvailableSeats(show.getAvailableSeats() - bookedSeats);
             updatedShow = showRepository.save(show);
         }
-
         return updatedShow;
     }
 
