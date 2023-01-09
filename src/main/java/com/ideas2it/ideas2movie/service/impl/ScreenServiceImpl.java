@@ -14,6 +14,7 @@ import com.ideas2it.ideas2movie.dto.responsedto.ScreenResponseDTO;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
 import com.ideas2it.ideas2movie.model.Screen;
+import com.ideas2it.ideas2movie.model.Theater;
 import com.ideas2it.ideas2movie.repository.ScreenRepository;
 import com.ideas2it.ideas2movie.service.ScreenService;
 import com.ideas2it.ideas2movie.service.TheaterService;
@@ -46,25 +47,23 @@ public class ScreenServiceImpl implements ScreenService {
     @Override
     public ScreenResponseDTO createScreen(ScreenDTO screenDTO) throws NotFoundException, AlreadyExistException {
         Screen screen = mapper.map(screenDTO, Screen.class);
+        Theater theater = theaterService.getTheaterForScreenById(screenDTO.getTheaterId());
 
-        if (screenRepository.existsScreenByNameAndTheaterId(screenDTO.getName(), screenDTO.getTheaterId())){
-            throw new AlreadyExistException("There a Screen with given name");
+        if (null != theater) {
+            if (screenRepository.existsScreenByNameAndTheaterId(screenDTO.getName(), screenDTO.getTheaterId())){
+                throw new AlreadyExistException("Screen with given name is already exist in the theater");
+            }
+        } else {
+            throw new NotFoundException("There is no theater with this given id");
         }
-        screen.setTheater(theaterService.getTheaterForScreenById(screenDTO.getTheaterId()));
+        screen.setTheater(theater);
         return mapper.map(screenRepository.save(screen), ScreenResponseDTO.class);
     }
 
     @Override
     public ScreenResponseDTO updateScreen(Long id, ScreenDTO screenDTO) throws AlreadyExistException, NotFoundException {
-        Screen screen = mapper.map(screenDTO, Screen.class);
-        screen.setId(id);
-        screen.setTheater(theaterService.getTheaterForScreenById(screenDTO.getTheaterId()));
-
-        if (screenRepository.existsScreenByNameAndTheaterId(screen.getName(),
-                screen.getTheater().getId())) {
-            throw new AlreadyExistException("This Screen name is Already exist");
-        }
-        return mapper.map(screenRepository.save(screen), ScreenResponseDTO.class);
+        Optional<Screen> existingScreen = screenRepository.findById(id);
+        return null;
     }
 
     @Override

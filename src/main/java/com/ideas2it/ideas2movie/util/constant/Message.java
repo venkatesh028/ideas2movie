@@ -56,4 +56,6 @@ public class Message {
     public static final String NO_SHOWS_AVAILABLE = "No Shows Available";
     public static final String MOVIE_NOT_FOUND = "Movie Not Found";
     public static final String SCREEN_NOT_FOUND = "Screen Not Found";
+    public static final String THEATER_ALREADY_REGISTERED = "Theater Already Registered";
+    public static final String THEATER_NOT_FOUND = "Theater not Found";
 }

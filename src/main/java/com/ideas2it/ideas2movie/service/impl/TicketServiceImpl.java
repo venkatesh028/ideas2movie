@@ -45,7 +45,6 @@ public class TicketServiceImpl implements TicketService {
     @Override
     public TicketResponseDTO bookTicket(TicketDTO ticketDTO) {
         Ticket ticket = mapper.map(ticketDTO, Ticket.class);
-        ticket.setNumberOfSeatsSelected(ticket.getSeats().size());
 
         return null;
     }

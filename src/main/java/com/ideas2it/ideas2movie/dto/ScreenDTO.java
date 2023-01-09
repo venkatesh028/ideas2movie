@@ -22,7 +22,7 @@ public class ScreenDTO {
     @NotBlank(message = "Screen name should not be empty")
     private String name;
     @NotBlank(message = "Total Number of seat should not be blank")
-    private int totalNoOfSeat;
+    private int totalNoOfSeats;
     @NotBlank(message = "Theater id should not be blank")
     private Long theaterId;
 }
