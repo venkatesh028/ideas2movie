@@ -45,7 +45,7 @@ public class Movie {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull
-    private String movieName;
+    private String name;
     @NotNull
     private Language language;
     @NotNull

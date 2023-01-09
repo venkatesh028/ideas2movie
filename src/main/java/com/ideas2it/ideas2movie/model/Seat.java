@@ -5,6 +5,7 @@
 package com.ideas2it.ideas2movie.model;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
