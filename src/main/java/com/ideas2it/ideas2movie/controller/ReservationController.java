@@ -8,11 +8,16 @@ import com.ideas2it.ideas2movie.dto.ReservationDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.ReservationResponseDTO;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
 import com.ideas2it.ideas2movie.service.ReservationService;
+import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.w3c.dom.stylesheets.LinkStyle;
 
 /**
  * <h1>
@@ -30,10 +35,10 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 06-01-2023
  */
 @RestController
-public class BookingController {
+public class ReservationController {
     private final ReservationService reservationService;
 
-    public BookingController(ReservationService reservationService) {
+    public ReservationController(ReservationService reservationService) {
         this.reservationService = reservationService;
     }
 
@@ -55,5 +60,20 @@ public class BookingController {
     @PostMapping
     public ResponseEntity<ReservationResponseDTO> bookTicket(@RequestBody ReservationDTO reservationDTO) throws AlreadyExistException {
         return ResponseEntity.status(HttpStatus.OK).body(reservationService.makeBooking(reservationDTO));
+    }
+
+    @DeleteMapping("{/id}")
+    public ResponseEntity<ReservationResponseDTO> cancelBooking(@PathVariable("id") Long id) {
+        return ResponseEntity.status(HttpStatus.OK).body(reservationService.cancelBooking(id));
+    }
+
+    @GetMapping("{/id}")
+    public ResponseEntity<ReservationResponseDTO> getBookingById(@PathVariable("id") Long id) {
+        return ResponseEntity.status(HttpStatus.OK).body(reservationService.getBookingById(id));
+    }
+
+    @GetMapping("{/all-booking/id")
+    public ResponseEntity<List<ReservationResponseDTO>> getAllBookingByUserId(@PathVariable("id") Long id) {
+        return ResponseEntity.status(HttpStatus.OK).body(reservationService.getAllBookingByUserId(id));
     }
 }
