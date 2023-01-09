@@ -1,6 +1,7 @@
 package com.ideas2it.ideas2movie.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -21,8 +22,10 @@ import lombok.Setter;
 public class ScreenDTO {
     @NotBlank(message = "Screen name should not be empty")
     private String name;
-    @NotBlank(message = "Total Number of seat should not be blank")
-    private int totalNoOfSeats;
+    @NotNull
+    private int totalNumberOfRows;
+    @NotNull
+    private int totalNumberOfColumns;
     @NotBlank(message = "Theater id should not be blank")
     private Long theaterId;
 }

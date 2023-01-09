@@ -4,8 +4,8 @@
  */
 package com.ideas2it.ideas2movie.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -13,11 +13,14 @@ import org.springframework.stereotype.Service;
 import com.ideas2it.ideas2movie.dto.ShowDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.ShowResponseDTO;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
+import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
 import com.ideas2it.ideas2movie.model.Show;
 import com.ideas2it.ideas2movie.repository.ShowRepository;
 import com.ideas2it.ideas2movie.service.MovieService;
+import com.ideas2it.ideas2movie.service.ScreenService;
 import com.ideas2it.ideas2movie.service.ShowService;
+import com.ideas2it.ideas2movie.util.constant.Message;
 
 /**
  * <h1>
@@ -38,54 +41,63 @@ public class ShowServiceImpl implements ShowService {
     private final ShowRepository showRepository;
     private final ModelMapper mapper = new ModelMapper();
     private final MovieService movieService;
+    private final ScreenService screenService;
 
-    public ShowServiceImpl(ShowRepository showRepository,MovieService movieService){
+    public ShowServiceImpl(ShowRepository showRepository, ScreenService screenService,
+                           MovieService movieService){
         this.showRepository = showRepository;
         this.movieService = movieService;
+        this.screenService = screenService;
     }
 
-    public ShowResponseDTO createShow(ShowDTO showDTO) throws AlreadyExistException {
+    public ShowResponseDTO createShow(ShowDTO showDTO) throws NotFoundException, AlreadyExistException {
         Show show = mapper.map(showDTO, Show.class);
+        show.setMovie(movieService.getMovieByIdForShows(showDTO.getMovieId()));
+        show.setScreen(screenService.getScreenById(showDTO.getScreenId()));
+
+        if (showRepository.existsByScreeningDateAndStartTimeAndScreen(show.getScreeningDate(),
+                show.getStartTime(), show.getScreen())){
+            throw new AlreadyExistException("There is show in this screen exactly at given time and date");
+        }
         return mapper.map(showRepository.save(show), ShowResponseDTO.class);
     }
 
-    @Override
-    public Show getShowById(Long id) {
-        return null;
-    }
+    public String deactivateTheShow(Long id) throws NotFoundException {
+        Optional<Show> existingShow = showRepository.findById(id);
+        Show show;
 
-    @Override
-    public List<ShowResponseDTO> getShowsByMovieName(String movieName) throws NotFoundException {
-        return null;
-    }
-
-    public ShowResponseDTO updateShow(ShowDTO showDTO) {
-        Show show = mapper.map(showDTO, Show.class);
-
-        return new ShowResponseDTO();
-    }
-
-//    public List<ShowResponseDTO> getShowsByMovieName(String movieName) throws NotFoundException {
-//        //List<Show> availableShows = List.of(showRepository.findByMovieName(movieName));
-//        List<ShowResponseDTO> shows = new ArrayList<>() ;
-//
-//        if (availableShows.isEmpty()){
-//            throw new NotFoundException("There is No Show with this movie name");
-//        }
-//
-//        for(Show show: availableShows){
-//            shows.add(mapper.map(show, ShowResponseDTO.class));
-//        }
-//        return shows;
-//    }
-
-    public String deactivateShowById(Long id){
-        String message = "Deleted Successfully";
-        showRepository.deleteById(id);
-        if (showRepository.existsById(id)){
-            message = "Show is not Deleted";
+        if (existingShow.isEmpty()){
+            throw new NotFoundException("There is No show in given id");
         }
-        return message;
+        show = existingShow.get();
+        show.setActive(false);
+        showRepository.save(show);
+        return Message.DELETED_SUCCESSFULLY;
     }
+
+    @Override
+    public List<Show> getAllShowsByMovieId(String movieName) throws NoContentException {
+        List<Show> shows = showRepository.findAllByMovieName(movieName);
+
+        if (shows.isEmpty()) {
+            throw new NoContentException("There is No Shows For Given Movie");
+        }
+        return shows;
+    }
+
+    @Override
+    public Show updateAvailableSeatsOfShow(int bookedSeats, Long showId) {
+        Optional<Show> existingShow = showRepository.findById(showId);
+        Show updatedShow = null;
+
+        if (existingShow.isPresent()){
+            Show show = existingShow.get();
+            show.setAvailableSeats(show.getAvailableSeats() - bookedSeats);
+            updatedShow = showRepository.save(show);
+        }
+
+        return updatedShow;
+    }
+
 
 }

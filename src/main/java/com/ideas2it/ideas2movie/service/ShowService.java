@@ -9,6 +9,7 @@ import java.util.List;
 import com.ideas2it.ideas2movie.dto.ShowDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.ShowResponseDTO;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
+import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
 import com.ideas2it.ideas2movie.model.Show;
 
@@ -44,12 +45,12 @@ public interface ShowService {
      * @return showResponseDTO - Holds the response details of the show
      * @throws AlreadyExistException - Occurs When the given show is already exist
      */
-    ShowResponseDTO createShow(ShowDTO showDTO) throws AlreadyExistException;
+    ShowResponseDTO createShow(ShowDTO showDTO) throws AlreadyExistException, NotFoundException;
 
-    Show getShowById(Long id);
+    String deactivateTheShow(Long id) throws NotFoundException;
 
-    List<ShowResponseDTO> getShowsByMovieName(String movieName) throws NotFoundException;
+    List<Show> getAllShowsByMovieId(String movieName) throws NoContentException;
 
-    public String deactivateShowById(Long id);
+    Show updateAvailableSeatsOfShow(int bookedSeats, Long showId);
 
 }

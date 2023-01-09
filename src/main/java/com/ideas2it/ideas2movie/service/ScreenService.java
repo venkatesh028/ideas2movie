@@ -8,6 +8,7 @@ import com.ideas2it.ideas2movie.dto.ScreenDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.ScreenResponseDTO;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
+import com.ideas2it.ideas2movie.model.Screen;
 
 /**
  * <h1>
@@ -40,9 +41,9 @@ public interface ScreenService {
      * @throws NotFoundException - Occurs When there is no theater in that id
      * @throws AlreadyExistException- Occurs when the screen name is already exist in that theater
      */
-    ScreenResponseDTO createScreen(ScreenDTO screenDTO) throws NotFoundException, AlreadyExistException;
-
+    ScreenResponseDTO createScreen(ScreenDTO screenDTO) throws NotFoundException, AlreadyExistException, NotCreatedException;
     ScreenResponseDTO updateScreen(Long id, ScreenDTO screenDTO) throws AlreadyExistException, NotFoundException;
     String deleteScreen(Long id) throws NotFoundException;
+    Screen getScreenById(Long id) throws NotFoundException;
 
 }

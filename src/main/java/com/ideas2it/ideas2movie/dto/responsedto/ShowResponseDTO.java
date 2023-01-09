@@ -20,6 +20,7 @@ public class ShowResponseDTO {
     private LocalDate date;
     private LocalTime startTime;
     private LocalTime endTime;
+    private int availableSeats;
     private MovieResponseDTO movie;
     private ScreenResponseDTO screen;
 }

@@ -17,6 +17,7 @@ import com.ideas2it.ideas2movie.model.Screen;
 import com.ideas2it.ideas2movie.model.Theater;
 import com.ideas2it.ideas2movie.repository.ScreenRepository;
 import com.ideas2it.ideas2movie.service.ScreenService;
+import com.ideas2it.ideas2movie.service.SeatService;
 import com.ideas2it.ideas2movie.service.TheaterService;
 
 /**
@@ -36,43 +37,91 @@ import com.ideas2it.ideas2movie.service.TheaterService;
 @Service
 public class ScreenServiceImpl implements ScreenService {
     private final ScreenRepository screenRepository;
+    private final SeatService seatService;
     private final TheaterService theaterService;
     private final ModelMapper mapper = new ModelMapper();
 
-    public ScreenServiceImpl(ScreenRepository screenRepository, TheaterService theaterService){
+    public ScreenServiceImpl(ScreenRepository screenRepository, SeatService seatService,
+                             TheaterService theaterService){
         this.screenRepository = screenRepository;
+        this.seatService = seatService;
         this.theaterService = theaterService;
     }
 
     @Override
     public ScreenResponseDTO createScreen(ScreenDTO screenDTO) throws NotFoundException, AlreadyExistException {
         Screen screen = mapper.map(screenDTO, Screen.class);
+        Screen createdScreen;
         Theater theater = theaterService.getTheaterForScreenById(screenDTO.getTheaterId());
-
-        if (null != theater) {
-            if (screenRepository.existsScreenByNameAndTheaterId(screenDTO.getName(), screenDTO.getTheaterId())){
-                throw new AlreadyExistException("Screen with given name is already exist in the theater");
-            }
-        } else {
-            throw new NotFoundException("There is no theater with this given id");
-        }
         screen.setTheater(theater);
-        return mapper.map(screenRepository.save(screen), ScreenResponseDTO.class);
+
+        if (screenRepository.existsScreenByNameAndTheaterId(screenDTO.getName(), screenDTO.getTheaterId())){
+            throw new AlreadyExistException("Screen with given name is already exist in the theater");
+        }
+        createdScreen = screenRepository.save(screen);
+
+        if (screenRepository.findById(createdScreen.getId()).isPresent()) {
+            seatService.createSeat(createdScreen);
+        }
+        return mapper.map(createdScreen, ScreenResponseDTO.class);
     }
 
     @Override
     public ScreenResponseDTO updateScreen(Long id, ScreenDTO screenDTO) throws AlreadyExistException, NotFoundException {
-        Optional<Screen> existingScreen = screenRepository.findById(id);
-        return null;
+        Theater theater = theaterService.getTheaterForScreenById(screenDTO.getTheaterId());
+        Screen screen = mapper.map(screenDTO, Screen.class);
+        Screen updatedScreen;
+        Optional<Screen> existingScreen;
+
+        screen.setTheater(theater);
+        existingScreen = screenRepository.findByIdAndTheaterId(id, theater.getId());
+
+        if (existingScreen.isPresent()){
+            if (isScreenAlreadyExistsInTheTheater(screen)){
+                throw new AlreadyExistException("There is a Screen with given name in the given theater");
+            } else {
+                updatedScreen = screenRepository.save(screen);
+            }
+        } else{
+            throw new NotFoundException("There is No Screen with this id in the theater");
+        }
+
+        return mapper.map(updatedScreen, ScreenResponseDTO.class);
     }
 
     @Override
     public String deleteScreen(Long id) throws NotFoundException {
-        Optional<Screen> screen = screenRepository.findById(id);
-
-        if (!screen.isPresent()){
+        Optional<Screen> existingScreen = screenRepository.findById(id);
+        Screen screen;
+        if (existingScreen.isPresent()){
+            screen = existingScreen.get();
+        } else {
             throw new NotFoundException("There is no screen with this screen id ");
         }
+        screen.setActive(false);
+        screenRepository.save(screen);
         return "Deleted SuccessFully";
+    }
+
+    private boolean isScreenAlreadyExistsInTheTheater(Screen screen) {
+        boolean isExists = false;
+        Optional<Screen> existingScreen = screenRepository.findByNameAndTheaterId(screen.getName(),
+                                                                                  screen.getTheater().getId());
+        if (existingScreen.isPresent()){
+            if (existingScreen.get().getId() != screen.getId()){
+                isExists = true;
+            }
+        }
+
+        return isExists;
+    }
+
+    public Screen getScreenById(Long id) throws NotFoundException {
+        Optional<Screen> existingScreen = screenRepository.findById(id);
+
+        if (existingScreen.isEmpty()){
+            throw new NotFoundException("There is No Screen with given id");
+        }
+        return  existingScreen.get();
     }
 }

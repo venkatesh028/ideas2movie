@@ -1,7 +1,11 @@
 package com.ideas2it.ideas2movie.service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
+import com.ideas2it.ideas2movie.model.Screen;
 import com.ideas2it.ideas2movie.model.Seat;
 import com.ideas2it.ideas2movie.repository.SeatRepository;
 import com.ideas2it.ideas2movie.service.SeatService;
@@ -22,21 +26,26 @@ import com.ideas2it.ideas2movie.service.SeatService;
  */
 @Service
 public class SeatServiceImpl implements SeatService {
-    private final SeatRepository seatRepository;
+    private SeatRepository seatRepository;
 
-    public SeatServiceImpl(SeatRepository seatRepository) {
-        this.seatRepository = seatRepository;
+    @Override
+    public List<Seat> createSeat(Screen screen) {
+        int name = 65;
+        List<Seat> seats = new ArrayList<>();
+        for (int row = 1; row <= screen.getTotalNumberOfRows(); row++){
+            for (int coloumn = 1; coloumn <= screen.getTotalNumberOfColumns(); coloumn++){
+                Seat seat = new Seat();
+                seat.setName(""+coloumn+(char)name);
+                seat.setScreen(screen);
+                seats.add(seatRepository.save(seat));
+            }
+            name++;
+        }
+        return seats;
     }
 
-    public Seat createSeat(Seat seat) {
-        return seatRepository.save(seat);
-    }
-
-    public Seat getSeatById(Long id){
-        return seatRepository.findById(id).get();
-    }
-
-    public Seat bookSeatById(Long id){
-        return null;
+    @Override
+    public List<Seat> getSeatsByScreenId(Long id) {
+        return seatRepository.findAllByScreenId(id);
     }
 }

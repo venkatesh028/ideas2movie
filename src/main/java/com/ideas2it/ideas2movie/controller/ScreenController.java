@@ -42,7 +42,7 @@ public class ScreenController {
     }
 
     @PostMapping
-    public ResponseEntity<ScreenResponseDTO> createScreen(@RequestBody ScreenDTO screenDTO) throws NotFoundException, AlreadyExistException {
+    public ResponseEntity<ScreenResponseDTO> createScreen(@RequestBody ScreenDTO screenDTO) throws NotFoundException, AlreadyExistException{
         return ResponseEntity.status(HttpStatus.OK).body(screenService.createScreen(screenDTO));
     }
     @PostMapping("/{id}")

@@ -5,6 +5,7 @@
 package com.ideas2it.ideas2movie.model;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,6 +14,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 
@@ -23,6 +25,7 @@ import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.annotations.Where;
 
 /**
  * <h1>
@@ -41,17 +44,20 @@ import org.hibernate.annotations.UpdateTimestamp;
 @Setter
 @NoArgsConstructor
 @Table(name = "screen")
+@Where(clause = "is_active = false")
 public class Screen {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull
     private String name;
-    @NotNull
-    private int totalNoOfSeats;
     @ColumnDefault(value = "true")
     @Column(insertable = false)
     private boolean isActive;
+    @NotNull
+    private int totalNumberOfRows;
+    @NotNull
+    private int totalNumberOfColumns;
     @CreationTimestamp
     private Timestamp createdAt;
     @UpdateTimestamp
