@@ -44,24 +44,7 @@ public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToMany
-    @JoinTable(
-            name = "ticket_seat",
-            joinColumns = {
-                    @JoinColumn(name = "ticket_id")
-            },
-            inverseJoinColumns = {
-                    @JoinColumn(name = "seat_id")
-            }
-    )
-    private List<Seat> seats;
     private int numberOfSeatsSelected;
-    @ManyToOne
-    @JoinColumn(
-            name = "show_id",
-            referencedColumnName = "id"
-    )
-    private Show showId;
     private double price;
     @CreationTimestamp
     private Timestamp createdAt;
