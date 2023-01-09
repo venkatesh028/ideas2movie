@@ -37,6 +37,11 @@ public class Message {
     public static final String DIRECTOR_NAME_SHOULD_NOT_BE_EMPTY = "Director Name should not be Empty";
     public static final String HERO_NAME_SHOULD_NOT_BE_EMPTY = "Hero Name should not be Empty";
     public static final String HEROINE_NAME_SHOULD_NOT_BE_EMPTY = "Heroine Name should not be Empty";
+    //
+    public static final String USER_ID_SHOULD_NOT_BE_EMPTY = "User Id should not be Empty";
+    public static final String SHOW_ID_SHOULD_NOT_BE_EMPTY = "Show Id should not be Empty";
+    public static final String MODE_OF_BOOKING_SHOULD_NOT_BE_EMPTY = "Mode of Booking should not be Empty";
+    public static final String SELECT_AT_LEAST_ONE_SEAT = "Select At-least One Seat";
     //INVALID INPUT MESSAGES
     public static final String ENTER_VALID_NAME = "Please, Enter Valid Name";
     public static final String ENTER_VALID_EMAIL = "Please, Enter Valid Email";

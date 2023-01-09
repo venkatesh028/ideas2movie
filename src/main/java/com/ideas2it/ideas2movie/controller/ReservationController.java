@@ -26,9 +26,9 @@ import org.w3c.dom.stylesheets.LinkStyle;
  * </h1>
  * <p>
  *     Gets the input parameter as a request from the Client
- *     for create, Update, Get, Delete the Booking Details
+ *     for create, Update, Get, Delete the Reservation Details
  *     by sending those parameter or Object
- *     to the Booking Service to perform Business Logics on them
+ *     to the reservation Service to perform Business Logics on them
  * </p>
  *
  * @author AJAISHARMA
@@ -50,18 +50,18 @@ public class ReservationController {
      * </h1>
      * <p>
      *     Gets the Input parameter as a request form the Client
-     *     to book Tickets for a show
+     *     to reserve Tickets for a show
      *     by sending the Reservation DTO to the Reservation Service
      *     to perform Business logic to book ticket
      * </p>
      *
-     * @param reservationDTO - holds the Details to book ticket
+     * @param reservationDTO - holds the Details to reserve ticket
      * @return ResponseEntity - holds the Reservation Response DTO and Http Status
-     * @throws AlreadyExistException - when seats already booked
+     * @throws AlreadyExistException - when seats already resrved
      */
     @PostMapping
-    public ResponseEntity<ReservationResponseDTO> bookTicket(@RequestBody ReservationDTO reservationDTO) throws AlreadyExistException {
-        return ResponseEntity.status(HttpStatus.OK).body(reservationService.makeBooking(reservationDTO));
+    public ResponseEntity<ReservationResponseDTO> addReservation(@RequestBody ReservationDTO reservationDTO) throws AlreadyExistException {
+        return ResponseEntity.status(HttpStatus.OK).body(reservationService.reserveSeats(reservationDTO));
     }
 
     @DeleteMapping("/{id}")
