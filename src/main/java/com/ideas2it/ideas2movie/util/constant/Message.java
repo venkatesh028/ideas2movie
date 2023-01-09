@@ -41,6 +41,7 @@ public class Message {
     public static final String NUMBER_ALREADY_EXIST = "Phone Number Already Exist";
     public static final String USER_NAME_ALREADY_EXIST = "Name Already Exist, Please try Different Name";
     public static final String ROLE_NAME_ALREADY_EXIST = "Role Name Already Exist, Please try Different Name";
+    public static final String SEAT_ALREADY_BOOKED = "Seats Already Booked";
     //CLIENT RESPONSE MESSAGES
     public static final String CREATED_SUCCESSFULLY = "Created Successfully";
     public static final String FAILED_TO_CREATE = "Failed to Create";
@@ -57,5 +58,6 @@ public class Message {
     public static final String MOVIE_NOT_FOUND = "Movie Not Found";
     public static final String SCREEN_NOT_FOUND = "Screen Not Found";
     public static final String THEATER_ALREADY_REGISTERED = "Theater Already Registered";
-    public static final String THEATER_NOT_FOUND = "Theater not Found";
+    public static final String THEATER_NOT_FOUND = "Theater Not Found";
+    public static final String SHOW_NOT_FOUND = "Show Not Found";
 }
