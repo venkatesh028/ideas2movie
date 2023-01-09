@@ -28,34 +28,42 @@ import com.ideas2it.ideas2movie.model.Theater;
  */
 
 public interface TheaterService {
+
     /**
      * <p>
-     * To create Theater Details
+     * Check the given theater name, city and area is already exist in ideas2movie,
+     * if not, then add the theater details to ideas2movie.
      * </p>
      *
-     * @param theaterDto it contains details of the theater.
-     * @return TheaterDto
+     * @param theaterDto it contains details of the theater to be added to ideas2movie.
+     * @return TheaterResponseDto - after store in ideas2movie to give a response as theater details.
+     * @throws AlreadyExistException - occur when try to add the theater name, city, area which is already
+     *                               registered with same details in ideas2movie
      */
     Optional<TheaterResponseDTO> addTheater(TheaterDTO theaterDto)
             throws AlreadyExistException;
 
     /**
      * <p>
-     * T0 List all the Theater Names which is currently running.
+     * check the status of theaters if theater is active then
+     * Get all the Theaters which registered in ideas2movie
      * </p>
      *
-     * @return List<TheaterDto>
+     * @return List<TheaterResponseDto> gives a response of all theater details
+     * @throws NotFoundException - occur when no theater is existing in ides2movie
      */
     List<TheaterResponseDTO> getAllTheaters() throws
             NotFoundException;
 
     /**
      * <p>
-     * To get the Theater Details based on theater id.
+     * check the given theater id is exist in ideas2movie
+     * if it exist get the Theater Details based on id.
      * </p>
      *
-     * @param id it contains theater id
-     * @return TheaterDto
+     * @param id - id of the theater to be fetched from ideas2movie
+     * @return TheaterResponseDto - gives a response of theater details based on theater id
+     * @throws NotFoundException - occur when no theater is existing in ideas2movie on a given id
      */
     TheaterResponseDTO getTheaterById(Long id) throws
             NotFoundException;
@@ -63,11 +71,12 @@ public interface TheaterService {
     /**
      * <p>
      * Check the given theater id exist in ideas2movie if it exist
-     * To get the Theater Details for screen based on theater id.
+     * get the Theater Details for screen based on theater id.
      * </p>
      *
-     * @param id it contains theater id
-     * @return TheaterDto
+     * @param id - id of the theater to be fetched from ideas2movie
+     * @return theater - gives a theater details based on theater id
+     * @throws NotFoundException -  occur when no theater is existing in ideas2movie on a given id
      */
     Theater getTheaterForScreenById(Long id)
             throws NotFoundException;
@@ -80,11 +89,10 @@ public interface TheaterService {
      *
      * @param id - id of the theater to be updated
      * @param theaterDTO it contains theater details
-     * @return List<TheaterDto>
+     * @return TheaterResponseDto - gives a response of updated theater details based on id
      * @throws NotFoundException - if the given theater id is not exist in ideas2movie
-     * @throws AlreadyExistException - occur when try to update the theater name and city
-     *                             with another theater name and city which already exist
-     *                             in ideas2movie
+     * @throws AlreadyExistException - occur when try to update the theater name, city, area which is already
+     *                                  registered with same details in ideas2movie
      */
     TheaterResponseDTO updateTheater(Long id, TheaterDTO theaterDTO)
             throws NotFoundException, AlreadyExistException;
@@ -92,12 +100,12 @@ public interface TheaterService {
     /**
      * <p>
      * Check the given theater id exist in ideas2movie if it exist delete the Theater
-     * and send the deleted success message if not exist send the failed to delete message.
+     * and send the deleted success message.
      * </p>
      *
      * @param id of theater to be deleted.
      * @return delete message if theater deleted successfully
-     * @throws NotFoundException - occur when id exist and fail to delete.
+     * @throws NotFoundException - occur when id is not exist in ideas2movie.
      */
     String deleteTheater(Long id) throws NotFoundException;
 }

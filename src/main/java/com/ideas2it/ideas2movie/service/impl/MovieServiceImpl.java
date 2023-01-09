@@ -102,10 +102,8 @@ public class MovieServiceImpl implements MovieService {
             movieRepository.deleteById(id);
             if (!existingMovie.isPresent()) {
                 return Message.DELETED_SUCCESSFULLY;
-            } else {
-                return Message.FAILED_TO_DELETE;
             }
         }
-        throw new NotFoundException(Message.GIVEN_ID_INVALID_TO_DELETE);
+        throw new NotFoundException(Message.FAILED_TO_DELETE);
     }
 }
