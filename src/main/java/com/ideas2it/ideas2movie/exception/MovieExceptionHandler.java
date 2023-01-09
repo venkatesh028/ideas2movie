@@ -50,6 +50,13 @@ public class MovieExceptionHandler {
         return new ResponseEntity<>(errorMessage, HttpStatus.NOT_ACCEPTABLE);
     }
 
+    @ExceptionHandler(NoContentException.class)
+    public ResponseEntity<ErrorMessageDTO> noContainException(NoContentException noContentException){
+        ErrorMessageDTO errorMessageDTO = new ErrorMessageDTO(noContentException.getMessage(),
+                                                              HttpStatus.NO_CONTENT);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).body(errorMessageDTO);
+    }
+
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, String>>  handleMethodNotValidationExceptions(

@@ -18,10 +18,10 @@ public class ReservedSeat {
     private Long id;
     @ManyToOne
     @JoinColumn(
-            name = "booking_id",
+            name = "reservation_id",
             referencedColumnName = "id"
     )
-    private Booking booking;
+    private Reservation reservation;
     @ManyToOne
     @JoinColumn(
             name = "seat_id",

@@ -43,19 +43,13 @@ public class CastAndCrewServiceImpl implements CastAndCrewService {
     }
 
     @Override
-    public String deleteCastAndCrew(Long id) throws NotFoundException {
+    public CastAndCrewResponseDTO getCastAndCrewByMovieId(Long id) throws NotFoundException {
+        Optional<CastAndCrew> castAndCrew = castAndCrewRepository.findById(id);
 
-        Optional<CastAndCrew> existingCastAndCrew = castAndCrewRepository.findById(id);
-
-        if (existingCastAndCrew.isPresent()) {
-            castAndCrewRepository.deleteById(id);
-            if (!existingCastAndCrew.isPresent()) {
-                return Message.DELETED_SUCCESSFULLY;
-            } else {
-                return Message.FAILED_TO_DELETE;
-            }
+        if (castAndCrew.isPresent()) {
+            return modelMapper.map(castAndCrew.get(), CastAndCrewResponseDTO.class);
         }
-        throw new NotFoundException(Message.GIVEN_ID_IS_INVALID);
+        throw new NotFoundException(Message.THEATER_NOT_FOUND);
     }
 
     @Override
@@ -63,6 +57,7 @@ public class CastAndCrewServiceImpl implements CastAndCrewService {
                    CastAndCrewDTO castAndCrewDTO) throws NotFoundException {
         CastAndCrew castAndCrew = modelMapper.map(castAndCrewDTO, CastAndCrew.class);
         Optional<CastAndCrew> existingCastAndCrew = castAndCrewRepository.findById(id);
+
         if (existingCastAndCrew.isPresent()) {
             return modelMapper.map(castAndCrewRepository.save(castAndCrew),
                     CastAndCrewResponseDTO.class);
@@ -71,12 +66,16 @@ public class CastAndCrewServiceImpl implements CastAndCrewService {
     }
 
     @Override
-    public CastAndCrewResponseDTO getCastAndCrewByMovieId(Long id) throws NotFoundException {
-        Optional<CastAndCrew> castAndCrew = castAndCrewRepository.findById(id);
+    public String deleteCastAndCrew(Long id) throws NotFoundException {
 
-        if (castAndCrew.isPresent()) {
-            return modelMapper.map(castAndCrew.get(), CastAndCrewResponseDTO.class);
+        Optional<CastAndCrew> existingCastAndCrew = castAndCrewRepository.findById(id);
+
+        if (existingCastAndCrew.isPresent()) {
+            castAndCrewRepository.deleteById(id);
+            if (!existingCastAndCrew.isPresent()) {
+                return Message.DELETED_SUCCESSFULLY;
+            }
         }
-        throw new NotFoundException(Message.GIVEN_ID_IS_INVALID);
+        throw new NotFoundException(Message.FAILED_TO_DELETE);
     }
 }

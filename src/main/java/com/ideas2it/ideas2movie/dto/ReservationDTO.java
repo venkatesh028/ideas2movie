@@ -4,6 +4,8 @@
  */
 package com.ideas2it.ideas2movie.dto;
 
+import com.ideas2it.ideas2movie.util.enums.ModeOfBooking;
+import java.util.List;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -23,6 +25,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class BookingDTO {
-    private String status;
+public class ReservationDTO {
+    private ModeOfBooking modeOfBooking;
+    private Long showId;
+    private List<Long> idOfSeats;
 }

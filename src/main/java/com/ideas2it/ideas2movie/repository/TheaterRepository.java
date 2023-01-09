@@ -15,4 +15,5 @@ public interface TheaterRepository extends JpaRepository<Theater, Long> {
     boolean existsByCity(String city);
 
     boolean existsByTheaterName(String theatreName);
+    boolean existsByArea(String area);
 }

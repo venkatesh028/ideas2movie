@@ -21,7 +21,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class BookingResponseDTO {
+public class ReservationResponseDTO {
     private Long id;
     private TicketResponseDTO ticketResponseDTO;
     private PaymentResponseDTO paymentResponseDTO;

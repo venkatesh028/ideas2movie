@@ -69,7 +69,8 @@ public class TheaterController {
      *
      * @param theaterDTO The theaterDTO object that is to be added.
      * @return ResponseEntity<TheaterDTO> - gives a response as theater details
-     * @throws AlreadyExistException- occur when theater's name and city are already registered
+     * @throws AlreadyExistException- occur when try to add same theater's name, city, area
+     *                          which are already registered in ideas2movie
      */
     @PostMapping
     public ResponseEntity<TheaterResponseDTO> addTheater(
@@ -117,9 +118,10 @@ public class TheaterController {
      * @param theaterDTO The theaterDTO object that needs to be updated.
      * @param id The id of theater that needs to be updated.
      * @return A ResponseEntity object is being returned - gives update response statement.
-     * @throws AlreadyExistException - validate the theater name and city before update it,
-     *                         if it exists, it will throw the error message.
-     * @throws  NotFoundException - if theater details not exist.
+     * @throws AlreadyExistException - validate the theater name, city, area before update it,
+     *                         if it already  registered with same details  in ideas2movie
+     *                         it will throw the error message.
+     * @throws  NotFoundException - if theater details not exist on a given id.
      */
     @PostMapping("/{id}")
     public ResponseEntity<TheaterResponseDTO> update(@PathVariable("id") Long id,

@@ -10,8 +10,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import com.ideas2it.ideas2movie.model.Seat;
-
 /**
  * <h1>
  *     Ticket DTO
