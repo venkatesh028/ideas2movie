@@ -37,8 +37,9 @@ public class TheaterServiceImpl implements TheaterService {
             throws AlreadyExistException {
 
         if (theaterRepository.existsByTheaterName(theaterDTO.getTheaterName())
-                && theaterRepository.existsByCity(theaterDTO.getCity())) {
-            throw new AlreadyExistException(Message.THEATER_ALREADY_EXIST);
+                && theaterRepository.existsByCity(theaterDTO.getCity()) &&
+                theaterRepository.existsByArea(theaterDTO.getArea())) {
+            throw new AlreadyExistException(Message.THEATER_ALREADY_REGISTERED);
         } else {
             Theater theater = modelMapper.map(theaterDTO, Theater.class);
             return Optional.of(modelMapper.map(theaterRepository.save(theater),
@@ -60,7 +61,7 @@ public class TheaterServiceImpl implements TheaterService {
             }
             return listOfTheater;
         }
-        throw  new NotFoundException(Message.N0_THEATER_EXIST);
+        throw  new NotFoundException(Message.THEATER_NOT_FOUND);
     }
 
     /**
@@ -73,7 +74,7 @@ public class TheaterServiceImpl implements TheaterService {
         if (theater.isPresent()) {
             return modelMapper.map(theater.get(), TheaterResponseDTO.class);
         } else {
-            throw new NotFoundException(Message.N0_THEATER_EXIST_ON_GIVEN_ID_TO_SHOW);
+            throw new NotFoundException(Message.THEATER_NOT_FOUND);
         }
     }
 
@@ -87,7 +88,7 @@ public class TheaterServiceImpl implements TheaterService {
         if (existingTheater.isPresent()) {
             return existingTheater.get();
         } else {
-            throw new NotFoundException(Message.N0_THEATER_EXIST_FOR_SCREEN);
+            throw new NotFoundException(Message.THEATER_NOT_FOUND);
         }
     }
 
@@ -103,7 +104,8 @@ public class TheaterServiceImpl implements TheaterService {
         if (!existingTheater.isPresent()) {
             throw new NotFoundException("No theater exist on given id");
         } else if (theaterRepository.existsByTheaterName(theater.getTheaterName()) &&
-                theaterRepository.existsByCity(theater.getCity())) {
+                theaterRepository.existsByCity(theater.getCity()) &&
+                theaterRepository.existsByArea(theaterDTO.getArea())) {
             throw new AlreadyExistException(Message.FAILED_TO_UPDATE);
         } else {
             return modelMapper.map(theaterRepository.save(theater),
@@ -121,11 +123,9 @@ public class TheaterServiceImpl implements TheaterService {
             existingTheater.get().setActive(false);
             if (!existingTheater.get().isActive()) {
                 return Message.DELETED_SUCCESSFULLY ;
-            } else {
-                return Message.FAILED_TO_DELETE;
             }
         }
-        throw new NotFoundException(Message.GIVEN_ID_INVALID_TO_DELETE);
+        throw new NotFoundException(Message.FAILED_TO_DELETE);
     }
 }
 
