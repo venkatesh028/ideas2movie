@@ -20,6 +20,7 @@ import com.ideas2it.ideas2movie.model.Seat;
  * @since 06/01/2023
  */
 public interface SeatService {
+
     List<Seat> createSeat(Screen createdScreen);
 
     List<Seat> getSeatsByScreenId(Long id);

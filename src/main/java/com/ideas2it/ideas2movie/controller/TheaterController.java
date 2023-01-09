@@ -21,6 +21,7 @@ import java.util.Optional;
 import com.ideas2it.ideas2movie.dto.TheaterDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.TheaterResponseDTO;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
+import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
 import com.ideas2it.ideas2movie.service.TheaterService;
 
@@ -104,10 +105,10 @@ public class TheaterController {
      * It returns a list of all theaters.
      *
      * @return A list of ResponseTheaterDTO objects - gives a response as list of theater details.
-     * @throws NotFoundException - occur when list of movie is empty
+     * @throws NoContentException - occur when list of movie is empty
      */
     @GetMapping
-    public List<TheaterResponseDTO> getAllTheaters() throws NotFoundException {
+    public List<TheaterResponseDTO> getAllTheaters() throws NoContentException {
         return theaterService.getAllTheaters();
     }
 

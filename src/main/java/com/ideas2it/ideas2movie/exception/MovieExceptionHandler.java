@@ -40,21 +40,28 @@ public class MovieExceptionHandler {
         logger.error(notfoundException.getMessage());
         ErrorMessageDTO errorMessage = new ErrorMessageDTO(notfoundException.getMessage(),
                                                            HttpStatus.NOT_FOUND);
-        return new ResponseEntity<>(errorMessage, HttpStatus.NOT_FOUND);
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorMessage);
     }
 
     @ExceptionHandler(AlreadyExistException.class)
     public ResponseEntity<ErrorMessageDTO> alreadyExistException(AlreadyExistException alreadyExistException){
         ErrorMessageDTO errorMessage = new ErrorMessageDTO(alreadyExistException.getMessage(),
                                                            HttpStatus.NOT_ACCEPTABLE);
-        return new ResponseEntity<>(errorMessage, HttpStatus.NOT_ACCEPTABLE);
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorMessage);
     }
 
     @ExceptionHandler(NoContentException.class)
-    public ResponseEntity<ErrorMessageDTO> noContainException(NoContentException noContentException){
+    public ResponseEntity<ErrorMessageDTO> noContentException(NoContentException noContentException){
         ErrorMessageDTO errorMessageDTO = new ErrorMessageDTO(noContentException.getMessage(),
                                                               HttpStatus.NO_CONTENT);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body(errorMessageDTO);
+    }
+
+    @ExceptionHandler(NotAcceptableException.class)
+    public ResponseEntity<ErrorMessageDTO> notAcceptableException(NotAcceptableException notAcceptableException){
+        ErrorMessageDTO errorMessageDTO = new ErrorMessageDTO(notAcceptableException.getMessage(),
+                                                              HttpStatus.NOT_ACCEPTABLE);
+        return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(errorMessageDTO);
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
@@ -68,6 +75,6 @@ public class MovieExceptionHandler {
             String errorMessage = error.getDefaultMessage();
             errors.put(fieldName, errorMessage);
         });
-        return new ResponseEntity<>(errors, HttpStatus.NOT_ACCEPTABLE);
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errors);
     }
 }

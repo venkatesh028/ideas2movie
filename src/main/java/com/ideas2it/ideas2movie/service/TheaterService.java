@@ -10,6 +10,7 @@ import java.util.Optional;
 import com.ideas2it.ideas2movie.dto.TheaterDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.TheaterResponseDTO;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
+import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
 import com.ideas2it.ideas2movie.model.Theater;
 
@@ -50,10 +51,10 @@ public interface TheaterService {
      * </p>
      *
      * @return List<TheaterResponseDto> gives a response of all theater details
-     * @throws NotFoundException - occur when no theater is existing in ides2movie
+     * @throws NoContentException - occur when no theater is existing in ides2movie
      */
     List<TheaterResponseDTO> getAllTheaters() throws
-            NotFoundException;
+            NoContentException;
 
     /**
      * <p>

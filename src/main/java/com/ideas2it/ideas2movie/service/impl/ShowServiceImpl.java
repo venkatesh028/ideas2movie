@@ -10,16 +10,17 @@ import java.util.Optional;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import com.ideas2it.ideas2movie.model.Show;
 import com.ideas2it.ideas2movie.dto.ShowDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.ShowResponseDTO;
-import com.ideas2it.ideas2movie.exception.AlreadyExistException;
-import com.ideas2it.ideas2movie.exception.NoContentException;
-import com.ideas2it.ideas2movie.exception.NotFoundException;
-import com.ideas2it.ideas2movie.model.Show;
 import com.ideas2it.ideas2movie.repository.ShowRepository;
 import com.ideas2it.ideas2movie.service.MovieService;
 import com.ideas2it.ideas2movie.service.ScreenService;
 import com.ideas2it.ideas2movie.service.ShowService;
+import com.ideas2it.ideas2movie.exception.AlreadyExistException;
+import com.ideas2it.ideas2movie.exception.NoContentException;
+import com.ideas2it.ideas2movie.exception.NotAcceptableException;
+import com.ideas2it.ideas2movie.exception.NotFoundException;
 import com.ideas2it.ideas2movie.util.constant.Message;
 
 /**
@@ -50,10 +51,21 @@ public class ShowServiceImpl implements ShowService {
         this.screenService = screenService;
     }
 
-    public ShowResponseDTO createShow(ShowDTO showDTO) throws NotFoundException, AlreadyExistException {
+    /**
+     * {@inheritDoc}
+     */
+    public ShowResponseDTO createShow(ShowDTO showDTO) throws NotFoundException, AlreadyExistException,
+                                                              NotAcceptableException {
         Show show = mapper.map(showDTO, Show.class);
         show.setMovie(movieService.getMovieByIdForShows(showDTO.getMovieId()));
         show.setScreen(screenService.getScreenById(showDTO.getScreenId()));
+        int totalNumberOfSeatsInScreen = show.getScreen().getTotalNumberOfColumns() *
+                                                show.getScreen().getTotalNumberOfRows();
+
+        if (show.getAvailableSeats() > totalNumberOfSeatsInScreen){
+            throw new NotAcceptableException("Seats Allocated For the Show is Higher " +
+                                             "than the total number of Seats in Screen");
+        }
 
         if (showRepository.existsByScreeningDateAndStartTimeAndScreen(show.getScreeningDate(),
                 show.getStartTime(), show.getScreen())){
@@ -62,7 +74,10 @@ public class ShowServiceImpl implements ShowService {
         return mapper.map(showRepository.save(show), ShowResponseDTO.class);
     }
 
-    public String deactivateTheShow(Long id) throws NotFoundException {
+    /**
+     * {@inheritDoc}
+     */
+    public String cancelShow(Long id) throws NotFoundException {
         Optional<Show> existingShow = showRepository.findById(id);
         Show show;
 
@@ -75,8 +90,11 @@ public class ShowServiceImpl implements ShowService {
         return Message.DELETED_SUCCESSFULLY;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
-    public List<Show> getAllShowsByMovieId(String movieName) throws NoContentException {
+    public List<Show> getAllShowsByMovieName(String movieName) throws NoContentException {
         List<Show> shows = showRepository.findByMovieName(movieName);
 
         if (shows.isEmpty()) {
@@ -85,6 +103,9 @@ public class ShowServiceImpl implements ShowService {
         return shows;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Show updateAvailableSeatsOfShow(int bookedSeats, Long showId) {
         Optional<Show> existingShow = showRepository.findById(showId);
@@ -97,6 +118,4 @@ public class ShowServiceImpl implements ShowService {
         }
         return updatedShow;
     }
-
-
 }

@@ -13,6 +13,7 @@ import java.util.Optional;
 
 import com.ideas2it.ideas2movie.dto.MovieDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.MovieResponseDTO;
+import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
 import com.ideas2it.ideas2movie.model.Movie;
 import com.ideas2it.ideas2movie.repository.MovieRepository;
@@ -54,12 +55,12 @@ public class MovieServiceImpl implements MovieService {
         if (movies.isPresent()) {
             return modelMapper.map(movies.get(), MovieResponseDTO.class);
         } else {
-            throw new NotFoundException("No movie exist on a given id");
+            throw new NotFoundException(Message.MOVIE_NOT_FOUND);
         }
     }
 
     @Override
-    public List<MovieResponseDTO> getAllMovies() throws NotFoundException{
+    public List<MovieResponseDTO> getAllMovies() throws NoContentException {
         List<Movie> movies = movieRepository.findAll();
 
         if (!movies.isEmpty()) {
@@ -69,7 +70,7 @@ public class MovieServiceImpl implements MovieService {
             }
             return listOfMovies;
         }
-        throw  new NotFoundException("No theater is exist");
+        throw  new NoContentException(Message.MOVIE_NOT_FOUND);
     }
 
     @Override
@@ -79,7 +80,7 @@ public class MovieServiceImpl implements MovieService {
         if (existingMovies.isPresent()) {
             return existingMovies.get();
         } else {
-            throw new NotFoundException("No movie exist on a given id");
+            throw new NotFoundException(Message.MOVIE_NOT_FOUND);
         }
     }
     @Override

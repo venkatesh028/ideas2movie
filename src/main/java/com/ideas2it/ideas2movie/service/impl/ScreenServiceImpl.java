@@ -4,6 +4,7 @@
  */
 package com.ideas2it.ideas2movie.service.impl;
 
+import java.util.Objects;
 import java.util.Optional;
 
 import org.modelmapper.ModelMapper;
@@ -108,7 +109,7 @@ public class ScreenServiceImpl implements ScreenService {
         Optional<Screen> existingScreen = screenRepository.findByNameAndTheaterId(screen.getName(),
                                                                                   screen.getTheater().getId());
         if (existingScreen.isPresent()){
-            if (existingScreen.get().getId() != screen.getId()){
+            if (!Objects.equals(existingScreen.get().getId(), screen.getId())){
                 isExists = true;
             }
         }
