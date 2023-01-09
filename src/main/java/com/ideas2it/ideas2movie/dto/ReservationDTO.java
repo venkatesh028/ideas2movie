@@ -4,6 +4,9 @@
  */
 package com.ideas2it.ideas2movie.dto;
 
+import jakarta.validation.constraints.NotBlank;
+
+import com.ideas2it.ideas2movie.util.constant.Message;
 import com.ideas2it.ideas2movie.util.enums.ModeOfBooking;
 import java.util.List;
 import lombok.Getter;
@@ -26,7 +29,9 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class ReservationDTO {
-    private ModeOfBooking modeOfBooking;
+    @NotBlank(message = "")
+    private Long userId;
     private Long showId;
+    private ModeOfBooking modeOfBooking;
     private List<Long> idOfSeats;
 }

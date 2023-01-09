@@ -114,9 +114,11 @@ public class UserServiceImpl implements UserService {
         Optional<User> existingUser = userRepository.findById(id);
 
         if (existingUser.isPresent()) {
-            userRepository.deleteById(id);
+            User user = existingUser.get();
+            user.setActive(false);
+            userRepository.save(user);
 
-            if (userRepository.findById(id).isEmpty()) {
+            if (!userRepository.findById(id).get().isActive()) {
                 return Message.DELETED_SUCCESSFULLY;
             }
         }
