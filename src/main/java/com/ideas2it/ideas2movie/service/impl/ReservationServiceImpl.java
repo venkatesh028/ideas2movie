@@ -52,8 +52,24 @@ public class ReservationServiceImpl implements ReservationService {
                 }
                 throw new AlreadyExistException(bookedSeats + Message.SEAT_ALREADY_BOOKED);
             }
+
         }
 
         return  mapper.map(reservationRepository.save(newReservation), ReservationResponseDTO.class);
+    }
+
+    @Override
+    public ReservationResponseDTO cancelBooking(Long id) {
+        return null;
+    }
+
+    @Override
+    public ReservationResponseDTO getBookingById(Long id) {
+        return null;
+    }
+
+    @Override
+    public List<ReservationResponseDTO> getAllBookingByUserId(Long id) {
+        return null;
     }
 }

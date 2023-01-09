@@ -30,6 +30,13 @@ public class Message {
     public static final String BOOKING_MODE_SHOULD_NOT_BE_EMPTY = "Mode of Booking should not be Empty";
     public static final String ROLE_NAME_SHOULD_NOT_BE_EMPTY = "Role Name should not be Empty";
     public static final String SEAT_NAME_SHOULD_NOT_BE_EMPTY = "Seat Name should not be Empty";
+    public static final String THEATER_NAME_SHOULD_NOT_BE_EMPTY = "Theater Name Should Not be Empty";
+    public static final String CITY_NAME_SHOULD_NOT_BE_EMPTY = "City Name should not be Empty";
+    public static final String AREA_NAME_SHOULD_NOT_BE_EMPTY = "Area Name should not be Empty";
+    public static final String PINCODE_SHOULD_NOT_BE_EMPTY = "PinCode should not be Empty";
+    public static final String DIRECTOR_NAME_SHOULD_NOT_BE_EMPTY = "Director Name should not be Empty";
+    public static final String HERO_NAME_SHOULD_NOT_BE_EMPTY = "Hero Name should not be Empty";
+    public static final String HEROINE_NAME_SHOULD_NOT_BE_EMPTY = "Heroine Name should not be Empty";
     //INVALID INPUT MESSAGES
     public static final String ENTER_VALID_NAME = "Please, Enter Valid Name";
     public static final String ENTER_VALID_EMAIL = "Please, Enter Valid Email";
