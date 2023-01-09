@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.w3c.dom.stylesheets.LinkStyle;
 
@@ -35,6 +36,7 @@ import org.w3c.dom.stylesheets.LinkStyle;
  * @since 06-01-2023
  */
 @RestController
+@RequestMapping("/api/v1/bookings")
 public class ReservationController {
     private final ReservationService reservationService;
 
@@ -62,17 +64,17 @@ public class ReservationController {
         return ResponseEntity.status(HttpStatus.OK).body(reservationService.makeBooking(reservationDTO));
     }
 
-    @DeleteMapping("{/id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<ReservationResponseDTO> cancelBooking(@PathVariable("id") Long id) {
         return ResponseEntity.status(HttpStatus.OK).body(reservationService.cancelBooking(id));
     }
 
-    @GetMapping("{/id}")
+    @GetMapping("/{id}")
     public ResponseEntity<ReservationResponseDTO> getBookingById(@PathVariable("id") Long id) {
         return ResponseEntity.status(HttpStatus.OK).body(reservationService.getBookingById(id));
     }
 
-    @GetMapping("{/all-booking/id")
+    @GetMapping("/all/{id}")
     public ResponseEntity<List<ReservationResponseDTO>> getAllBookingByUserId(@PathVariable("id") Long id) {
         return ResponseEntity.status(HttpStatus.OK).body(reservationService.getAllBookingByUserId(id));
     }

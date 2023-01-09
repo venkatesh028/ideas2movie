@@ -58,11 +58,11 @@ public interface ScreenService {
      *     then exception is thrown
      * </p>
      *
-     * @param id
-     * @param screenDTO
-     * @return
-     * @throws AlreadyExistException
-     * @throws NotFoundException
+     * @param id  - Holds the id of the Screen
+     * @param screenDTO - Holds the details of screen need to updated
+     * @return screenResponseDTO - Holds the updated screen details of screen
+     * @throws AlreadyExistException - Occurs When there is a screen with screen name in the theater
+     * @throws NotFoundException - Occurs When there is No screen with given id
      */
     ScreenResponseDTO updateScreen(Long id, ScreenDTO screenDTO) throws AlreadyExistException, NotFoundException;
     String deleteScreen(Long id) throws NotFoundException;
