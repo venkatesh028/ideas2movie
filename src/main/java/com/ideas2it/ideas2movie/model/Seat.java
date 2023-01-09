@@ -46,13 +46,6 @@ public class Seat {
     private Long id;
     @NotNull
     private String name;
-    @NotNull
-    private double price;
-    @ManyToMany(
-            mappedBy = "seats",
-            fetch = FetchType.EAGER
-    )
-    private List<Ticket> tickets;
     @CreationTimestamp
     private Timestamp createdAt;
     @UpdateTimestamp
