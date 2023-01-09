@@ -20,5 +20,5 @@ public interface ShowRepository extends JpaRepository<Show, Long> {
                                                        LocalTime startTime,
                                                        Screen screen);
 
-    List<Show> findByMovieMovieName(String movieName);
+    List<Show> findByMovieName(String movieName);
 }

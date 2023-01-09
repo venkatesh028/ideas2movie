@@ -34,14 +34,36 @@ public interface ScreenService {
      *     Create Screen for the Theater
      *     By getting the screenDTO from the controller
      *     And checks the Screen is already exist for the theater
-     *     with name and theater id of the screen     *
+     *     with screen name and theater id of the screen if there
+     *     is a screen in that theater with the same name then exception is thrown
      * </p>
+     *
      * @param screenDTO - Holds the Details of the Screen
      * @return screenResponseDTO - Holds the Response Details of the Screen
      * @throws NotFoundException - Occurs When there is no theater in that id
      * @throws AlreadyExistException- Occurs when the screen name is already exist in that theater
      */
     ScreenResponseDTO createScreen(ScreenDTO screenDTO) throws NotFoundException, AlreadyExistException;
+
+    /**
+     * <h1>
+     *     Update Screen
+     * </h1>
+     * <p>
+     *     Updates Screen for the Theater
+     *     By getting ScreenDTO and id from the Controller
+     *     And checks the Screen is already exist for the
+     *     theater with screen name and theater id of the screen
+     *     is there is a screen in that theater with the same name
+     *     then exception is thrown
+     * </p>
+     *
+     * @param id
+     * @param screenDTO
+     * @return
+     * @throws AlreadyExistException
+     * @throws NotFoundException
+     */
     ScreenResponseDTO updateScreen(Long id, ScreenDTO screenDTO) throws AlreadyExistException, NotFoundException;
     String deleteScreen(Long id) throws NotFoundException;
     Screen getScreenById(Long id) throws NotFoundException;
