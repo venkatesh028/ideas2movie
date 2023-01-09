@@ -38,6 +38,10 @@ public class Message {
     public static final String HERO_NAME_SHOULD_NOT_BE_EMPTY = "Hero Name should not be Empty";
     public static final String HEROINE_NAME_SHOULD_NOT_BE_EMPTY = "Heroine Name should not be Empty";
     //
+    public static final String LANGUAGE_SHOULD_NOT_BE_EMPTY = "Language should not be Empty";
+    public static final String DURATION_SHOULD_NOT_BE_EMPTY = "Duration should not be Empty";
+    public static final String GENRE_SHOULD_NOT_BE_EMPTY = "Genre should not be Empty";
+    //
     public static final String USER_ID_SHOULD_NOT_BE_EMPTY = "User Id should not be Empty";
     public static final String SHOW_ID_SHOULD_NOT_BE_EMPTY = "Show Id should not be Empty";
     public static final String MODE_OF_BOOKING_SHOULD_NOT_BE_EMPTY = "Mode of Booking should not be Empty";
