@@ -14,6 +14,7 @@ import java.util.Optional;
 import com.ideas2it.ideas2movie.dto.TheaterDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.TheaterResponseDTO;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
+import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.model.Theater;
 import com.ideas2it.ideas2movie.repository.TheaterRepository;
 import com.ideas2it.ideas2movie.service.TheaterService;
@@ -51,7 +52,7 @@ public class TheaterServiceImpl implements TheaterService {
      * {@inheritDoc}
      */
     @Override
-    public List<TheaterResponseDTO> getAllTheaters() throws NotFoundException{
+    public List<TheaterResponseDTO> getAllTheaters() throws NoContentException {
         List<Theater> theaters = theaterRepository.findAll();
 
         if (!theaters.isEmpty()) {
@@ -61,7 +62,7 @@ public class TheaterServiceImpl implements TheaterService {
             }
             return listOfTheater;
         }
-        throw  new NotFoundException(Message.THEATER_NOT_FOUND);
+        throw  new NoContentException(Message.THEATER_NOT_FOUND);
     }
 
     /**
