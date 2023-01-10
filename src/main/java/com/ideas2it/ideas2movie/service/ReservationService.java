@@ -7,6 +7,9 @@ package com.ideas2it.ideas2movie.service;
 import com.ideas2it.ideas2movie.dto.ReservationDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.ReservationResponseDTO;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
+import com.ideas2it.ideas2movie.model.Payment;
+import com.ideas2it.ideas2movie.model.Reservation;
+import com.ideas2it.ideas2movie.model.Show;
 import java.util.List;
 
 /**
@@ -42,7 +45,62 @@ public interface ReservationService {
 
     ReservationResponseDTO cancelBooking(Long id);
 
-    ReservationResponseDTO getBookingById(Long id);
+    /**
+     * <h1>
+     *     Confirm Reservation
+     * </h1>
+     * <p>
+     *     Gets the Reservation from Payment Controller
+     *     and according to the Payment Status change the
+     *     status of the Reservation
+     * </p>
+     *
+     * @param reservation - Holds the details of the Reservation
+     * @return ReservationResponseDTO - Holds the response of the Reservation
+     */
+    ReservationResponseDTO confirmReservation(Reservation reservation);
 
-    List<ReservationResponseDTO> getAllBookingByUserId(Long id);
+    /**
+     * <h1>
+     *     getReservationDTOById
+     * </h1>
+     * <p>
+     *     Gets the ID of the Reservation from the Payment Controller
+     *     and checks whether the Reservation is present or not
+     *     and returns the Reservation Response DTO
+     * </p>
+     * @param id - ID of the Reservation
+     * @return ReservationResponseDTO -  Holds the Response of the Reservation
+     */
+    ReservationResponseDTO getReservationDTOById(Long id);
+
+    /**
+     * <h1>
+     *     getReservationById
+     * </h1>
+     * <p>
+     *     Gets the ID of the Reservation from the Payment Controller
+     *     and checks whether the Reservation is present or not
+     *     and returns the Reservation
+     * </p>
+     *
+     * @param id - ID of the Reservation
+     * @return Reservation -  Holds the Response of the Reservation
+     */
+    Reservation getReservationById(Long id);
+
+    /**
+     * <h1>
+     *     getAllByUserId
+     * </h1>
+     * <p>
+     *     Gets the ID of the User from the Payment Controller
+     *     and checks whether the Reservation is present or not
+     *     and returns the Reservation Response DTO
+     * </p>
+     *
+     * @param id - ID of the User to find the Reservation for that User
+     * @return List<ReservationResponseDTO> - Holds the List of Reservation for a User
+     */
+    List<ReservationResponseDTO> getAllReservationByUserId(Long id);
 }

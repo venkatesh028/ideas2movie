@@ -76,4 +76,5 @@ public class Message {
     public static final String THEATER_ALREADY_REGISTERED = "Theater Already Registered";
     public static final String THEATER_NOT_FOUND = "Theater Not Found";
     public static final String SHOW_NOT_FOUND = "Show Not Found";
+    public static final String PAYMENT_NOT_FOUND = "Payment Not Found";
 }
