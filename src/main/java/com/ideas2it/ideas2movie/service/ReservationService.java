@@ -6,16 +6,14 @@ package com.ideas2it.ideas2movie.service;
 
 import com.ideas2it.ideas2movie.dto.ReservationDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.ReservationResponseDTO;
-import com.ideas2it.ideas2movie.exception.AlreadyExistException;
-import com.ideas2it.ideas2movie.model.Payment;
+import com.ideas2it.ideas2movie.exception.NotFoundException;
 import com.ideas2it.ideas2movie.model.Reservation;
 import com.ideas2it.ideas2movie.model.Seat;
-import com.ideas2it.ideas2movie.model.Show;
 import java.util.List;
 
 /**
  * <h1>
- *     Reservation Service
+ *     ReservationService
  * </h1>
  * <p>
  *     Service Layer for the Reservation
@@ -29,7 +27,7 @@ import java.util.List;
 public interface ReservationService {
     /**
      * <h1>
-     *     Make Booking
+     *     reserveSeats
      * </h1>
      * <p>
      *     Gets the Input from the reservation Controller
@@ -39,15 +37,28 @@ public interface ReservationService {
      * </p>
      *
      * @param reservationDTO - Holds the details to book Ticket
-     * @return ReservationResponseDTO - Holds the Response of the Reservation
+     * @return ReservationResponseDTO - Holds the Details of the Reservation
      */
     ReservationResponseDTO reserveSeats(ReservationDTO reservationDTO);
 
-    ReservationResponseDTO cancelBooking(Long id);
+    /**
+     * <h1>
+     *     cancelReservation
+     * </h1>
+     * <p>
+     *     gets the Input from the Reservation Controller
+     *     and checks whether the Reservation id present or not
+     *     and cancels the Reservation
+     * </p>
+     *
+     * @param id - ID of the Reservation to cancel reservation
+     * @return ReservationResponseDTO - Holds the Details of the Reservation
+     */
+    ReservationResponseDTO cancelReservation(Long id);
 
     /**
      * <h1>
-     *     Confirm Reservation
+     *     confirmReservation
      * </h1>
      * <p>
      *     Gets the Reservation from Payment Controller
@@ -72,7 +83,7 @@ public interface ReservationService {
      * @param id - ID of the Reservation
      * @return ReservationResponseDTO -  Holds the Response of the Reservation
      */
-    ReservationResponseDTO getReservationDTOById(Long id);
+    ReservationResponseDTO getReservationDTOById(Long id) throws NotFoundException;
 
     /**
      * <h1>
@@ -88,6 +99,7 @@ public interface ReservationService {
      * @return List<Seat> - holds the Booked seats for a Show
      */
     List<Seat> getReservedSeats(Long showId);
+
     /**
      * <h1>
      *     getReservationById
@@ -101,7 +113,7 @@ public interface ReservationService {
      * @param id - ID of the Reservation
      * @return Reservation -  Holds the Response of the Reservation
      */
-    Reservation getReservationById(Long id);
+    Reservation getReservationById(Long id) throws NotFoundException;
 
     /**
      * <h1>

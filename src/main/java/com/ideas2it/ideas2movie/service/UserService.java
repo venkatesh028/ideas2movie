@@ -11,7 +11,7 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
 
 /**
  * <h1>
- *     User Service
+ *     UserService
  * </h1>
  * <p>
  *     Service Layer for the User
@@ -27,7 +27,7 @@ public interface UserService {
 
     /**
      * <h1>
-     *     Create User
+     *     createUser
      * </h1>
      * <p>
      *     Creates the User
@@ -46,7 +46,7 @@ public interface UserService {
 
     /**
      * <h1>
-     *     Get User By ID
+     *     getUserByID
      * </h1>
      * <p>
      *     Gets the User By getting the ID of the User
@@ -64,7 +64,7 @@ public interface UserService {
 
     /**
      * <h1>
-     *      Create User
+     *      updateUser
      * </h1>
      * <p>
      *      Updates the User
@@ -84,7 +84,7 @@ public interface UserService {
 
     /**
      * <h1>
-     *     Delete User
+     *     deleteUser
      * </h1>
      * <p>
      *     Deletes the User

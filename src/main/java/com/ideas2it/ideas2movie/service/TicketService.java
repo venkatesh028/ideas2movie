@@ -10,7 +10,7 @@ import com.ideas2it.ideas2movie.model.Ticket;
 
 /**
  * <h1>
- *     Ticket Service
+ *     TicketService
  * </h1>
  * <p>
  *     Service Layer for Ticket
@@ -24,7 +24,7 @@ import com.ideas2it.ideas2movie.model.Ticket;
 public interface TicketService {
     /**
      * <h1>
-     *     Book Ticket
+     *     bookTicket
      * </h1>
      * <p>
      *     Books the Ticket
@@ -36,11 +36,11 @@ public interface TicketService {
      * @param ticketDTO - Holds the Details of the Ticket to Book
      * @return TicketResponseDTO - Holds the response of the Booked Ticket
      */
-    TicketResponseDTO bookTicket(TicketDTO ticketDTO);
+    TicketResponseDTO addTicket(TicketDTO ticketDTO);
 
     /**
      * <h1>
-     *     Get TicketDTO By Id
+     *     getTicketDTOById
      * </h1>
      * <p>
      *     Gets the Ticket
@@ -56,7 +56,7 @@ public interface TicketService {
 
     /**
      * <h1>
-     *      Get Ticket By Id
+     *      getTicketById
      * </h1>
      * <p>
      *      Gets the Ticket

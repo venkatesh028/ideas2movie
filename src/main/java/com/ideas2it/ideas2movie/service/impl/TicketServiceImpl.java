@@ -6,7 +6,6 @@ package com.ideas2it.ideas2movie.service.impl;
 
 import com.ideas2it.ideas2movie.dto.TicketDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.TicketResponseDTO;
-import com.ideas2it.ideas2movie.model.Seat;
 import com.ideas2it.ideas2movie.model.Ticket;
 import com.ideas2it.ideas2movie.repository.TicketRepository;
 import com.ideas2it.ideas2movie.service.SeatService;
@@ -16,10 +15,10 @@ import org.springframework.stereotype.Service;
 
 /**
  * <h1>
- *     Ticket Service Impl
+ *     TicketServiceImpl
  * </h1>
  * <p>
- *     Implements the Ticket Service and
+ *     Implements the TicketService and
  *     Holds the Business Logic
  *     to perform Book, Cancel and get the Ticket
  * </p>
@@ -43,7 +42,7 @@ public class TicketServiceImpl implements TicketService {
      * {@inheritDoc}
      */
     @Override
-    public TicketResponseDTO bookTicket(TicketDTO ticketDTO) {
+    public TicketResponseDTO addTicket(TicketDTO ticketDTO) {
         Ticket ticket = mapper.map(ticketDTO, Ticket.class);
 
         return null;

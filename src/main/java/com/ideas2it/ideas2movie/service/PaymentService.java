@@ -11,7 +11,7 @@ import java.util.UUID;
 
 /**
  * <h1>
- *     Payment Service
+ *     PaymentService
  * </h1>
  * <p>
  *     Service Layer for the payment
@@ -25,7 +25,7 @@ import java.util.UUID;
 public interface PaymentService {
     /**
      * <h1>
-     *     Make Payment
+     *     makePayment
      * </h1>
      * <p>
      *     Makes the Payment
@@ -34,10 +34,25 @@ public interface PaymentService {
      *     and returns the response accordingly
      * </p>
      *
-     * @param paymentDTO - holds the Payment Details to Make
-     * @return PaymentResponseDTO - holds the response of the Payment
+     * @param paymentDTO - Holds the Payment Details to Make
+     * @return PaymentResponseDTO - Holds the response of the Payment
      */
-    PaymentResponseDTO makePayment(PaymentDTO paymentDTO);
+    PaymentResponseDTO makePayment(PaymentDTO paymentDTO) throws NotFoundException;
 
+    /**
+     * <h1>
+     *     getByTransactionId
+     * </h1>
+     * <p>
+     *     Gets the Payment details
+     *     by getting the Transaction ID from controller
+     *     and checks the Payment is present or not
+     *     and returns the Response accordingly
+     * </p>
+     *
+     * @param id - ID of the Transaction of the Payment
+     * @return PaymentResponseDTO - Holds the details of the Payment
+     * @throws NotFoundException - when Payment is Not Found
+     */
     PaymentResponseDTO getByTransactionId(UUID id) throws NotFoundException;
 }

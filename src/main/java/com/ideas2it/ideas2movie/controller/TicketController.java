@@ -67,7 +67,7 @@ public class TicketController {
      */
     @PostMapping
     public ResponseEntity<TicketResponseDTO> bookTicket(@RequestBody TicketDTO ticketDTO) {
-        return ResponseEntity.status(HttpStatus.OK).body(ticketService.bookTicket(ticketDTO));
+        return ResponseEntity.status(HttpStatus.OK).body(ticketService.addTicket(ticketDTO));
     }
 
     /**
