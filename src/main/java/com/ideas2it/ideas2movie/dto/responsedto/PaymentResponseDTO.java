@@ -4,6 +4,7 @@
  */
 package com.ideas2it.ideas2movie.dto.responsedto;
 
+import com.ideas2it.ideas2movie.util.enums.PaymentStatus;
 import java.sql.Timestamp;
 import java.util.UUID;
 
@@ -25,10 +26,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class PaymentResponseDTO {
-    private Long id;
-    private Long ticketId;
-    private Timestamp paidAt;
     private UUID transactionId;
+    private Timestamp paidAt;
     private double amount;
-    private String status;
+    private PaymentStatus status;
 }

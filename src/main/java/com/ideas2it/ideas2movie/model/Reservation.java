@@ -83,6 +83,7 @@ public class Reservation {
             referencedColumnName = "id"
     )
     private Show show;
+    private double totalPrice;
     @ManyToMany
     @JoinTable(
             name = "reserved_seat",

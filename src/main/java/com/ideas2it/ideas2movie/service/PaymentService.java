@@ -6,6 +6,8 @@ package com.ideas2it.ideas2movie.service;
 
 import com.ideas2it.ideas2movie.dto.PaymentDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.PaymentResponseDTO;
+import com.ideas2it.ideas2movie.exception.NotFoundException;
+import java.util.UUID;
 
 /**
  * <h1>
@@ -36,4 +38,6 @@ public interface PaymentService {
      * @return PaymentResponseDTO - holds the response of the Payment
      */
     PaymentResponseDTO makePayment(PaymentDTO paymentDTO);
+
+    PaymentResponseDTO getByTransactionId(UUID id) throws NotFoundException;
 }
