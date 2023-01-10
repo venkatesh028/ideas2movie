@@ -4,8 +4,10 @@
  */
 package com.ideas2it.ideas2movie.controller;
 
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -42,12 +44,20 @@ public class ScreenController {
     }
 
     @PostMapping
-    public ResponseEntity<ScreenResponseDTO> createScreen(@RequestBody ScreenDTO screenDTO) throws NotFoundException, AlreadyExistException{
+    public ResponseEntity<ScreenResponseDTO> createScreen(@Valid @RequestBody ScreenDTO screenDTO)
+            throws NotFoundException, AlreadyExistException{
         return ResponseEntity.status(HttpStatus.OK).body(screenService.createScreen(screenDTO));
     }
+
     @PostMapping("/{id}")
     public ResponseEntity<ScreenResponseDTO> updateScreen(@PathVariable Long id,
-                                                          @RequestBody ScreenDTO screenDTO){
-        return ResponseEntity.status(HttpStatus.OK).body(new ScreenResponseDTO());
+                                                          @Valid @RequestBody ScreenDTO screenDTO)
+            throws NotFoundException, AlreadyExistException {
+        return ResponseEntity.status(HttpStatus.OK).body(screenService.updateScreen(id, screenDTO));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> removeScreen(@PathVariable Long id) throws NotFoundException {
+        return ResponseEntity.status(HttpStatus.OK).body(screenService.removeScreen(id));
     }
 }

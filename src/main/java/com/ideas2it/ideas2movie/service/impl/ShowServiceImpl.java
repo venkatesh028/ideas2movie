@@ -95,13 +95,22 @@ public class ShowServiceImpl implements ShowService {
      * {@inheritDoc}
      */
     @Override
-    public List<Show> getAllShowsByMovieName(String movieName) throws NoContentException {
+    public List<ShowResponseDTO> getAllShowsByMovieName(String movieName) throws NoContentException {
         List<Show> shows = showRepository.findByMovieName(movieName);
+        List<ShowResponseDTO> listOfShowsForParticularMovie = new ArrayList<>();
+        ShowResponseDTO showResponseDTO = null;
 
         if (shows.isEmpty()) {
             throw new NoContentException("There is No Shows For Given Movie");
+        } else {
+
+            for(Show show: shows){
+                showResponseDTO = mapper.map(show, ShowResponseDTO.class);
+                showResponseDTO.setAvailableSeats(getAvailableSeats(show));
+                listOfShowsForParticularMovie.add(showResponseDTO);
+            }
         }
-        return shows;
+        return listOfShowsForParticularMovie;
     }
 
     /**

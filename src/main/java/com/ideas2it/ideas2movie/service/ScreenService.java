@@ -54,7 +54,7 @@ public interface ScreenService {
      *     By getting ScreenDTO and id from the Controller
      *     And checks the Screen is already exist for the
      *     theater with screen name and theater id of the screen
-     *     is there is a screen in that theater with the same name
+     *     if there is a screen in that theater with the same name
      *     then exception is thrown
      * </p>
      *
@@ -71,8 +71,7 @@ public interface ScreenService {
      *     deleteScreen
      * </h1>
      * <p>
-     *      Makes the particular screen inactive
-     *      based on the id of the screen
+     *      Remove the Screen based on the id of the screen
      *      if there is no screen for the id
      *      Exception is thrown
      * </p>
@@ -81,7 +80,7 @@ public interface ScreenService {
      * @return message - Holds the success message after changing the active status of screen
      * @throws NotFoundException - Occurs When there is no screen for the given id
      */
-    String deleteScreen(Long id) throws NotFoundException;
+    String removeScreen(Long id) throws NotFoundException;
 
     /**
      * <h1>

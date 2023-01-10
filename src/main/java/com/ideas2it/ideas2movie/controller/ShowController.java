@@ -4,10 +4,13 @@
  */
 package com.ideas2it.ideas2movie.controller;
 
-import com.ideas2it.ideas2movie.dto.responsedto.ShowResponseDTO;
-import com.ideas2it.ideas2movie.exception.AlreadyExistException;
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,11 +18,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ideas2it.ideas2movie.dto.ShowDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.ShowResponseDTO;
+import com.ideas2it.ideas2movie.service.ShowService;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
+import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.exception.NotAcceptableException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
-import com.ideas2it.ideas2movie.service.ShowService;
-import com.ideas2it.ideas2movie.service.impl.ShowServiceImpl;
 
 /**
  * <h1>
@@ -41,8 +44,8 @@ import com.ideas2it.ideas2movie.service.impl.ShowServiceImpl;
 public class ShowController {
     private final ShowService showService;
 
-    public ShowController(ShowServiceImpl showServiceImpl){
-        this.showService = showServiceImpl;
+    public ShowController(ShowService showService){
+        this.showService = showService;
     }
 
     @PostMapping
@@ -52,4 +55,19 @@ public class ShowController {
         return ResponseEntity.status(HttpStatus.OK).body(showService.createShow(showDTO)) ;
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<ShowResponseDTO> getShow(@PathVariable Long id) throws NotFoundException {
+        return ResponseEntity.status(HttpStatus.OK).body(showService.getShowById(id));
+    }
+
+    @GetMapping("/movieName/{movieName}")
+    public ResponseEntity<List<ShowResponseDTO>> getAllShowsByMovieName(@PathVariable String movieName)
+                                                                                        throws NoContentException {
+        return ResponseEntity.status(HttpStatus.OK).body(showService.getAllShowsByMovieName(movieName));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> cancelShow(@PathVariable Long id) throws NotFoundException {
+        return ResponseEntity.status(HttpStatus.OK).body(showService.cancelShow(id));
+    }
 }

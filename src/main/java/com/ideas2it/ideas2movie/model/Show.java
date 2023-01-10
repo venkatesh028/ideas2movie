@@ -27,6 +27,7 @@ import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.annotations.Where;
 
 /**
  * <h1>
@@ -45,6 +46,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 @Setter
 @NoArgsConstructor
 @Table(name = "`show`")
+@Where(clause = "is_active = true")
 public class Show {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -54,7 +56,7 @@ public class Show {
     @NotNull
     private LocalTime startTime;
     @NotNull
-    private double price;
+    private Double price;
     @ColumnDefault(value = "true")
     @Column(insertable = false)
     private boolean isActive;
@@ -71,6 +73,7 @@ public class Show {
     )
     private Movie movie;
     @CreationTimestamp
+    @Column(updatable = false)
     private Timestamp createdAt;
     @UpdateTimestamp
     private Timestamp updatedAt;
