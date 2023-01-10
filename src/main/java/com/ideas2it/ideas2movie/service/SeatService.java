@@ -11,8 +11,8 @@ import com.ideas2it.ideas2movie.model.Seat;
  * </h1>
  * <p>
  *     Service Layer for the Seat
- *     to Create, Update, Get
- *     and Delete the details of the Seat
+ *     to Create, Get the details
+ *     of the Seat
  * </p>
  *
  * @author Venkatesh TM
@@ -21,7 +21,33 @@ import com.ideas2it.ideas2movie.model.Seat;
  */
 public interface SeatService {
 
-    List<Seat> createSeat(Screen createdScreen);
 
+    /**
+     * <h1>
+     *     createSeat
+     * </h1>
+     * <p>
+     *     Gets the Screen Details
+     *     And creates the number of
+     *     seats based on the based
+     *     on total number of rows
+     *     and column in screen
+     * </p>
+     * @param screen - Holds the Details of the Screen
+     * @return listOfSeats - Holds the list of seats Created
+     */
+    List<Seat> createSeat(Screen screen);
+
+    /**
+     * <h1>
+     *     getSeatsByScreenId
+     * </h1>
+     * <p>
+     *     Gets the List of Seats For Particular
+     *     Screen with the screen id
+     * </p>
+     * @param id - Holds the id of the screen
+     * @return listOfSeats - Holds the list of seats for that screen
+     */
     List<Seat> getSeatsByScreenId(Long id);
 }

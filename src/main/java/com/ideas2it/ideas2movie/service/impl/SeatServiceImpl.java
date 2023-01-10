@@ -33,9 +33,9 @@ public class SeatServiceImpl implements SeatService {
         int name = 65;
         List<Seat> seats = new ArrayList<>();
         for (int row = 1; row <= screen.getTotalNumberOfRows(); row++){
-            for (int coloumn = 1; coloumn <= screen.getTotalNumberOfColumns(); coloumn++){
+            for (int column = 1; column <= screen.getTotalNumberOfColumns(); column++){
                 Seat seat = new Seat();
-                seat.setName(""+coloumn+(char)name);
+                seat.setName(""+column+(char)name);
                 seat.setScreen(screen);
                 seats.add(seatRepository.save(seat));
             }

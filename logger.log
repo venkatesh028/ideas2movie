@@ -876,4 +876,58 @@ Caused by: org.springframework.data.mapping.PropertyReferenceException: No prope
  %PARSER_ERROR[l]
 ""2023-01-09 17:20:18 INFO HikariPool-1 - Shutdown completed.
  %PARSER_ERROR[l]
+""2023-01-09 19:50:47 INFO Starting Ideas2movieApplication using Java 18.0.2 with PID 1080 (E:\ideas2movie\ideas2movie\target\classes started by LENOVO in E:\ideas2movie\ideas2movie)
+ %PARSER_ERROR[l]
+""2023-01-09 19:50:47 INFO No active profile set, falling back to 1 default profile: "default"
+ %PARSER_ERROR[l]
+""2023-01-09 19:50:49 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+ %PARSER_ERROR[l]
+""2023-01-09 19:50:49 INFO Finished Spring Data repository scanning in 122 ms. Found 11 JPA repository interfaces.
+ %PARSER_ERROR[l]
+""2023-01-09 19:50:49 INFO Tomcat initialized with port(s): 8080 (http)
+ %PARSER_ERROR[l]
+""2023-01-09 19:50:49 INFO An older version [1.2.35] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.1]
+ %PARSER_ERROR[l]
+""2023-01-09 19:50:49 INFO Loaded Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
+ %PARSER_ERROR[l]
+""2023-01-09 19:50:49 INFO OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
+ %PARSER_ERROR[l]
+""2023-01-09 19:50:49 INFO Starting service [Tomcat]
+ %PARSER_ERROR[l]
+""2023-01-09 19:50:49 INFO Starting Servlet engine: [Apache Tomcat/10.1.4]
+ %PARSER_ERROR[l]
+""2023-01-09 19:50:50 INFO Initializing Spring embedded WebApplicationContext
+ %PARSER_ERROR[l]
+""2023-01-09 19:50:50 INFO Root WebApplicationContext: initialization completed in 2049 ms
+ %PARSER_ERROR[l]
+""2023-01-09 19:50:50 INFO HHH000204: Processing PersistenceUnitInfo [name: default]
+ %PARSER_ERROR[l]
+""2023-01-09 19:50:50 INFO HHH000412: Hibernate ORM core version 6.1.6.Final
+ %PARSER_ERROR[l]
+""2023-01-09 19:50:50 WARN HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+ %PARSER_ERROR[l]
+""2023-01-09 19:50:50 INFO HikariPool-1 - Starting...
+ %PARSER_ERROR[l]
+""2023-01-09 19:50:51 INFO HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4239262e
+ %PARSER_ERROR[l]
+""2023-01-09 19:50:51 INFO HikariPool-1 - Start completed.
+ %PARSER_ERROR[l]
+""2023-01-09 19:50:51 INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+ %PARSER_ERROR[l]
+""2023-01-09 19:50:53 INFO HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+ %PARSER_ERROR[l]
+""2023-01-09 19:50:53 INFO Initialized JPA EntityManagerFactory for persistence unit 'default'
+ %PARSER_ERROR[l]
+""2023-01-09 19:50:54 WARN spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+ %PARSER_ERROR[l]
+""2023-01-09 19:50:54 INFO Tomcat started on port(s): 8080 (http) with context path ''
+ %PARSER_ERROR[l]
+""2023-01-09 19:50:54 INFO Started Ideas2movieApplication in 7.434 seconds (process running for 8.545)
+ %PARSER_ERROR[l]
+""2023-01-09 19:50:59 INFO Closing JPA EntityManagerFactory for persistence unit 'default'
+ %PARSER_ERROR[l]
+""2023-01-09 19:50:59 INFO HikariPool-1 - Shutdown initiated...
+ %PARSER_ERROR[l]
+""2023-01-09 19:50:59 INFO HikariPool-1 - Shutdown completed.
+ %PARSER_ERROR[l]
 "

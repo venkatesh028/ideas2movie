@@ -47,7 +47,7 @@ public interface ScreenService {
 
     /**
      * <h1>
-     *     Update Screen
+     *     updateScreen
      * </h1>
      * <p>
      *     Updates Screen for the Theater
@@ -65,7 +65,37 @@ public interface ScreenService {
      * @throws NotFoundException - Occurs When there is No screen with given id
      */
     ScreenResponseDTO updateScreen(Long id, ScreenDTO screenDTO) throws AlreadyExistException, NotFoundException;
-    String deleteScreen(Long id) throws NotFoundException;
-    Screen getScreenById(Long id) throws NotFoundException;
 
+    /**
+     * <h1>
+     *     deleteScreen
+     * </h1>
+     * <p>
+     *      Makes the particular screen inactive
+     *      based on the id of the screen
+     *      if there is no screen for the id
+     *      Exception is thrown
+     * </p>
+     *
+     * @param id - Holds the id of the Screen
+     * @return message - Holds the success message after changing the active status of screen
+     * @throws NotFoundException - Occurs When there is no screen for the given id
+     */
+    String deleteScreen(Long id) throws NotFoundException;
+
+    /**
+     * <h1>
+     *     getScreenById
+     * </h1>
+     * <p>
+     *     Gets the Screen based on the
+     *     id if the screen is not present
+     *     then the exception is thrown
+     * </p>
+     *
+     * @param id - Holds the id of the screen
+     * @return screen - Holds the details of the screen
+     * @throws NotFoundException - Occurs When there is no screen for the given id
+     */
+    Screen getScreenById(Long id) throws NotFoundException;
 }
