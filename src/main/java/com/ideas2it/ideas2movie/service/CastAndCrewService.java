@@ -24,8 +24,12 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
 public interface CastAndCrewService {
 
     /**
-     * <p></p>
-     * Add the Cast and Crew details to ideas2movie.
+     * <h1>
+     *     Add Cast and Crew for Movie
+     * </h1>
+     * <p>
+     *     Getting castAndCrewDTO from CastAndCrew controller
+     *     Add the Cast and Crew details to ideas2movie.
      * </p>
      *
      * @param castAndCrewDTO it contains details of the cast and crew.
@@ -35,9 +39,14 @@ public interface CastAndCrewService {
     CastAndCrewResponseDTO addCastAndCrew(CastAndCrewDTO castAndCrewDTO);
 
     /**
+     * <h1>
+     *     Get cast and crew by movie id
+     * </h1>
      * <p>
-     * Check the given movie id for castAndCrew exist in ideas2movie, if it exist
-     * get the castAndCrew Details for movie.
+     *     Getting movie id from CastAndCrew controller and
+     *     Check the given movie id for castAndCrew exist
+     *     in ideas2movie, if it exist get the castAndCrew
+     *     Details for movie.
      * </p>
      *
      * @param id - id of the movie to fetch the cast and crew details from ideas2movie
@@ -48,8 +57,13 @@ public interface CastAndCrewService {
             throws  NotFoundException;
 
     /**
+     * <h1>
+     *     Update cast and crew details
+     * </h1>
      * <p>
-     * update the cast and crew details and send the updated castAndCrewResponseDTO.
+     *     Getting cast and crew id , castAndCrewDTO from
+     *     CastAndCrew controller and update the cast, crew
+     *     details and send the updated castAndCrewResponseDTO.
      * </p>
      *
      * @param id - id of the castAndCrew to be updated
@@ -61,9 +75,14 @@ public interface CastAndCrewService {
             CastAndCrewDTO castAndCrewDTO) throws NotFoundException;
 
     /**
+     * <h1>
+     *     Delete cast and crew details
+     * </h1>
      * <p>
-     * Check the given castAndCrew id exist in ideas2movie if it exist, then delete the cast and crew,
-     * send the deleted success message.
+     *     Getting cast and crew id, castAndCrewDTO object from
+     *     CastAndCrew controller and Check the given castAndCrew id
+     *     exist in ideas2movie if it exist, then delete the cast and crew,
+     *     send the deleted success message.
      * </p>
      *
      * @param id of castAndCrew to be deleted.

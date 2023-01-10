@@ -63,10 +63,15 @@ public class TheaterController {
     }
 
     /**
-     * It takes a TheaterDTO object as a parameter, validates it,
-     * and then calls the addMovie function in the theaterService.
-     * If the theater is added, it returns the theater object,
-     * else it throws a Already exist exception
+     * <h1>
+     *     addTheater
+     * </h1>
+     * <p>
+     *     It takes a TheaterDTO object as a parameter, validates it,
+     *     and then calls the addMovie function in the theaterService.
+     *     If the theater is added, it returns the theater object,
+     *     else it throws a Already exist exception
+     *</p>
      *
      * @param theaterDTO The theaterDTO object that is to be added.
      * @return ResponseEntity<TheaterDTO> - gives a response as theater details
@@ -85,10 +90,15 @@ public class TheaterController {
     }
 
     /**
-     * It takes an id of a theater as a parameter and fetches a theater details
-     * returns a response entity with the fetched details of a theater
-     * if details of a particular theater is not present,
-     * it will throw error message (no theater exist for a given movie id)
+     * <h1>
+     *     getTheaterById
+     * </h1>
+     * <p>
+     *     It takes an id of a theater as a parameter and fetches a theater details
+     *     returns a response entity with the fetched details of a theater
+     *     if details of a particular theater is not present,
+     *     it will throw error message.
+     *</p>
      *
      * @param id The id of the theater to fetch a theater details
      * @return ResponseEntity<MovieResponseDTO>  - give response as theater details
@@ -102,7 +112,14 @@ public class TheaterController {
     }
 
     /**
-     * It returns a list of all theaters.
+     * <h1>
+     *     getAllTheaters
+     * </h1>
+     * <p>
+     *     It returns a response entity with the fetched details of all
+     *     theaters, if the list of theater is empty
+     *     it will throw error message.
+     *</p>
      *
      * @return A list of ResponseTheaterDTO objects - gives a response as list of theater details.
      * @throws NoContentException - occur when list of movie is empty
@@ -113,8 +130,14 @@ public class TheaterController {
     }
 
     /**
-     * It takes a TheaterDTO object, id as a parameter, calls the updateTheater function
-     * in the theaterService class, and returns a ResponseEntity object with the updated theater details
+     * <h1>
+     *     Update theater details
+     * </h1>
+     * <p>
+     *     It takes a TheaterDTO object, id as a parameter,
+     *     calls the updateTheater function in the theaterService class,
+     *     and returns a ResponseEntity object with the updated theater details
+     *</p>
      *
      * @param theaterDTO The theaterDTO object that needs to be updated.
      * @param id The id of theater that needs to be updated.
@@ -134,9 +157,14 @@ public class TheaterController {
     }
 
     /**
-     * It deletes a theater details based on  id from  the database and
-     * returns a response entity with a status code of 200 and a body of the
-     * deleted status
+     * <h1>
+     *     Delete theater details
+     * </h1>
+     * <p>
+     *     It deletes a theater details based on id from
+     *     the database and returns a response entity with a
+     *     status code of 200 and a body of the deleted status
+     * </p>
      *
      * @param id The id of the theater to be deleted.
      * @return ResponseEntity<String> - give a response as statement for deleted theater.

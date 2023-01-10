@@ -58,9 +58,14 @@ public class CastAndCrewController {
     }
 
     /**
-     * It takes a CastAndCrewResponseDTO object as a request body
-     * and then calls the createCastAndCrew function in the castAndCrewService.
-     * If the castAndCrew of a movie is created, it returns the castAndCrewDTO object
+     * <h1>
+     *     addCastAndCrew
+     * </h1>
+     * <p>
+     *     It takes a CastAndCrewResponseDTO object as a request body
+     *     and calls the createCastAndCrew function in the castAndCrewService.
+     *     If the castAndCrew of a movie is created, it returns the castAndCrewDTO object
+     *</p>
      *
      * @param castAndCrewDTO The castAndCrewDto object that is to be added.
      * @return ResponseEntity<CastAndCrewResponseDTO> - gives a response as
@@ -74,10 +79,16 @@ public class CastAndCrewController {
     }
 
     /**
-     * It takes an id of a movie as a path variable and fetches a cast and crew
-     * returns a response entity with the fetched cast and crew of a movie
-     * if cast and crew of a particular movie is not present,
-     * it will throw error message (no cast and crew exist for a given movie id)
+     * <h1>
+     *     getCastAndCrewByMovieId
+     * </h1>
+     * <p>
+     *     It takes an id of a movie as a path variable and
+     *     fetches a cast and crew, returns a response entity
+     *     with the fetched cast and crew of a movie
+     *     if cast and crew of a particular movie is not present,
+     *     it will throw error message.
+     * </p>
      *
      * @param id The id of the movie to fetch cast and crew
      * @return ResponseEntity<CastAndCrewResponseDTO>  - give response as castAndCrew details
@@ -91,8 +102,14 @@ public class CastAndCrewController {
     }
 
     /**
-     * It takes a CastAndCrewDTO object, id as a parameter, calls the updateCastAndCrew function
-     * in the CastAndCrewService and returns a ResponseEntity object with the updated CastAndCrew object
+     * <h1>
+     *     updateCastAndCrew
+     * </h1>
+     * <p>
+     *     It takes a CastAndCrewDTO object, id as a parameter,
+     *     calls the updateCastAndCrew function in the CastAndCrewService
+     *     and returns a ResponseEntity object with the updated CastAndCrew object
+     *</p>
      *
      * @param id The id of castAndCrew
      * @param castAndCrewDTO The castAndCrewDTO object that needs to be updated
@@ -101,7 +118,7 @@ public class CastAndCrewController {
      *                         and crew details exist to update on a given id)
      */
     @PostMapping("/{id}")
-     public ResponseEntity<CastAndCrewResponseDTO> update(@PathVariable("id") Long id,
+     public ResponseEntity<CastAndCrewResponseDTO> updateCastAndCrew(@PathVariable("id") Long id,
          @RequestBody CastAndCrewDTO castAndCrewDTO)
             throws NotFoundException {
         return ResponseEntity.status(HttpStatus.OK)
@@ -110,9 +127,14 @@ public class CastAndCrewController {
     }
 
     /**
-     * It deletes a Cast and crew based on  id from  the database and
-     * returns a response entity with a status code of 200 and a body of the
-     * deleted status
+     * <h1>
+     *     deleteCastAndCrew
+     * </h1>
+     * <p>
+     *     It deletes a Cast and crew based on  id from  the database and
+     *     returns a response entity with a status code of 200 and a body of the
+     *     deleted status
+     *</p>
      *
      * @param id The id of the user to be deleted.
      * @return ResponseEntity<String> - give a response as statement for delete castAndCrew.
