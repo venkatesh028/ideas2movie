@@ -69,7 +69,7 @@ public class PaymentController {
      * @return ResponseEntity - Holds the PaymentResponseDTO and Http Status
      */
     @PostMapping
-    public ResponseEntity<PaymentResponseDTO> makePayment(@RequestBody PaymentDTO paymentDTO) {
+    public ResponseEntity<PaymentResponseDTO> makePayment(@RequestBody PaymentDTO paymentDTO) throws NotFoundException {
         return ResponseEntity.status(HttpStatus.OK).body(paymentService.makePayment(paymentDTO));
     }
     @GetMapping("/{id}")

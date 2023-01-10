@@ -19,6 +19,20 @@ import java.util.Optional;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+/**
+ * <h1>
+ *     RoleServiceImpl
+ * </h1>
+ * <p>
+ *     Implements the RoleService and
+ *     Holds the Business Logic
+ *     to Perform Save, and Get Role
+ * </p>
+ *
+ * @author AJAISHARMA
+ * @version 1.0
+ * @since 06-01-2023
+ */
 @Service
 public class RoleServiceImpl implements RoleService {
     private final RoleRepository roleRepository;
@@ -26,6 +40,10 @@ public class RoleServiceImpl implements RoleService {
     public RoleServiceImpl(RoleRepository roleRepository) {
         this.roleRepository = roleRepository;
     }
+
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public RoleResponseDTO createRole(RoleDTO roleDTO) throws AlreadyExistException {
         Role role = mapper.map(roleDTO, Role.class);
@@ -36,6 +54,9 @@ public class RoleServiceImpl implements RoleService {
         return mapper.map(roleRepository.save(role), RoleResponseDTO.class);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Role getRoleById(Long id) throws NotFoundException {
         Optional<Role> role = roleRepository.findById(id);
@@ -46,6 +67,9 @@ public class RoleServiceImpl implements RoleService {
         return role.get();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<RoleResponseDTO> getAllRoles() throws NotFoundException {
         List<Role> roles = roleRepository.findAll();
