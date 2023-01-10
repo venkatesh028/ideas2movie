@@ -9,15 +9,15 @@ import java.util.Optional;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import com.ideas2it.ideas2movie.model.User;
 import com.ideas2it.ideas2movie.dto.UserDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.UserResponseDTO;
-import com.ideas2it.ideas2movie.exception.AlreadyExistException;
-import com.ideas2it.ideas2movie.exception.NotFoundException;
-import com.ideas2it.ideas2movie.model.User;
-import com.ideas2it.ideas2movie.repository.UserRepository;
 import com.ideas2it.ideas2movie.service.RoleService;
 import com.ideas2it.ideas2movie.service.UserService;
+import com.ideas2it.ideas2movie.repository.UserRepository;
 import com.ideas2it.ideas2movie.util.constant.Message;
+import com.ideas2it.ideas2movie.exception.AlreadyExistException;
+import com.ideas2it.ideas2movie.exception.NotFoundException;
 
 /**
  * <h1>

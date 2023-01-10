@@ -5,11 +5,8 @@
 package com.ideas2it.ideas2movie.model;
 
 import java.sql.Timestamp;
+import java.util.List;
 
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotNull;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -18,27 +15,29 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 
-import java.util.List;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-import com.ideas2it.ideas2movie.util.enums.BookingStatus;
 import com.ideas2it.ideas2movie.util.enums.ModeOfBooking;
+import com.ideas2it.ideas2movie.util.enums.ReservationStatus;
 
 /**
- * <h1>
- * Booking
- * </h1>
+ *<h1>
+ *     Reservation
+ *</h1>
  * <p>
- * Entity of the Booking
+ *     Reservation Entity is used to hold the Details of the Reservation
  * </p>
- *
  * @author AJAISHARMA
  * @version 1.0
  * @since 05-01-2023
@@ -54,7 +53,7 @@ public class Reservation {
     private Long id;
     @NotNull
     @Enumerated(EnumType.STRING)
-    private BookingStatus status;
+    private ReservationStatus status;
     @NotNull
     @Enumerated(EnumType.STRING)
     @Column(name = "mode_of_booking")
@@ -83,7 +82,7 @@ public class Reservation {
             referencedColumnName = "id"
     )
     private Show show;
-    private double totalPrice;
+    private Double totalPrice;
     @ManyToMany
     @JoinTable(
             name = "reserved_seat",

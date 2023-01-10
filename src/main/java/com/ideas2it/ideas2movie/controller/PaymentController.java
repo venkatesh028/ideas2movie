@@ -4,14 +4,9 @@
  */
 package com.ideas2it.ideas2movie.controller;
 
-import com.ideas2it.ideas2movie.dto.PaymentDTO;
-import com.ideas2it.ideas2movie.dto.responsedto.PaymentResponseDTO;
-import com.ideas2it.ideas2movie.exception.AlreadyExistException;
-import com.ideas2it.ideas2movie.exception.NotFoundException;
-import com.ideas2it.ideas2movie.service.PaymentService;
 import java.util.UUID;
+
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +14,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.ideas2it.ideas2movie.dto.PaymentDTO;
+import com.ideas2it.ideas2movie.dto.responsedto.PaymentResponseDTO;
+import com.ideas2it.ideas2movie.service.PaymentService;
+import com.ideas2it.ideas2movie.exception.NotFoundException;
 
 /**
  * <h1>

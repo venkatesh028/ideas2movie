@@ -5,24 +5,20 @@
 package com.ideas2it.ideas2movie.dto;
 
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
-
-import java.sql.Timestamp;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import com.ideas2it.ideas2movie.util.constant.Constant;
 import com.ideas2it.ideas2movie.util.constant.Message;
 import com.ideas2it.ideas2movie.util.enums.ModeOfPayment;
 
 /**
  * <h1>
- *     Payment DTO
+ *     PaymentDTO
  * </h1>
  * <p>
- *     Gets the Input from the Client for the Payment Entity
+ *     PaymentDTO is used to get the Details for the payment
  * </p>
  */
 @Getter
@@ -35,5 +31,5 @@ public class PaymentDTO {
     private ModeOfPayment modeOfPayment;
     @NotBlank(message = Message.AMOUNT_SHOULD_NOT_BE_EMPTY)
     //@Pattern(regexp = Constant.AMOUNT_PATTERN, message = Message.ENTER_VALID_AMOUNT)
-    private double enteredAmount;
+    private Double enteredAmount;
 }

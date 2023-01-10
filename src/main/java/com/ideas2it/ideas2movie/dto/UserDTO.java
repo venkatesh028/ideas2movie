@@ -21,7 +21,7 @@ import com.ideas2it.ideas2movie.util.constant.Message;
  *      UserDTO
  * </h1>
  * <p>
- *      Gets the input from the Client for the User Entity
+ *      UserDTO is used to get the Details for the User
  * </p>
  *
  * @author  AJAISHARMA

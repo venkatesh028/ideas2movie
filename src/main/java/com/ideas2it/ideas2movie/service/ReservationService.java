@@ -4,12 +4,13 @@
  */
 package com.ideas2it.ideas2movie.service;
 
+import java.util.List;
+
+import com.ideas2it.ideas2movie.model.Reservation;
+import com.ideas2it.ideas2movie.model.Seat;
 import com.ideas2it.ideas2movie.dto.ReservationDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.ReservationResponseDTO;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
-import com.ideas2it.ideas2movie.model.Reservation;
-import com.ideas2it.ideas2movie.model.Seat;
-import java.util.List;
 
 /**
  * <h1>
@@ -25,6 +26,7 @@ import java.util.List;
  * @since 09-01-2023
  */
 public interface ReservationService {
+
     /**
      * <h1>
      *     reserveSeats
@@ -54,7 +56,7 @@ public interface ReservationService {
      * @param id - ID of the Reservation to cancel reservation
      * @return ReservationResponseDTO - Holds the Details of the Reservation
      */
-    ReservationResponseDTO cancelReservation(Long id);
+    ReservationResponseDTO cancelReservation(Long id) throws NotFoundException;
 
     /**
      * <h1>
