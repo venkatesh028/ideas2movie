@@ -43,41 +43,27 @@ public class ReservationServiceImpl implements ReservationService {
     /**
      * {@inheritDoc}
      */
-    public ReservationResponseDTO reserveSeats(ReservationDTO reservationDTO) throws AlreadyExistException {
+    public ReservationResponseDTO reserveSeats(ReservationDTO reservationDTO) {
         Reservation newReservation = mapper.map(reservationDTO, Reservation.class);
-        List<Long> reservedSeats = getReservedSeats(newReservation);
-
-        if (!reservedSeats.isEmpty()) {
-            throw new AlreadyExistException(reservedSeats + Message.SEAT_ALREADY_BOOKED);
-        } else {
-            newReservation.setStatus(BookingStatus.PROCESSING);
-            newReservation.setTotalPrice(newReservation.getSeats().size() * newReservation.getShow().getPrice());
-            return mapper.map(reservationRepository.save(newReservation), ReservationResponseDTO.class);
-        }
+        newReservation.setStatus(BookingStatus.PROCESSING);
+        newReservation.setTotalPrice(newReservation.getSeats().size() * newReservation.getShow().getPrice());
+        return mapper.map(reservationRepository.save(newReservation), ReservationResponseDTO.class);
     }
 
     /**
      * {@inheritDoc}
      */
-    private List<Long> getReservedSeats(Reservation reservation) {
-        List<Reservation> oldReservations = reservationRepository.findAllByShowId(reservation.getShow().getId());
+    public List<Seat> getReservedSeats(Long showId) {
+        List<Reservation> oldReservations = reservationRepository.findAllByShowId(showId);
 
-        List<Seat> bookedSeats;
-        List<Seat> selectedSeats = reservation.getSeats();
-        List<Long> reservedSeats = new ArrayList<>();
+        List<Seat> bookedSeats = new ArrayList<>();
 
         for (Reservation oldReservation : oldReservations) {
             if(oldReservation.getStatus().equals(BookingStatus.BOOKED)) {
                 bookedSeats = oldReservation.getSeats();
-
-                for (Seat seat : selectedSeats) {
-                    if (bookedSeats.contains(seat)) {
-                        reservedSeats.add(seat.getId());
-                    }
-                }
             }
         }
-        return reservedSeats;
+        return bookedSeats;
     }
 
     /**
