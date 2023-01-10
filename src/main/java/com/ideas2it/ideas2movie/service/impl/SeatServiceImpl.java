@@ -5,11 +5,10 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.ideas2it.ideas2movie.model.Reservation;
 import com.ideas2it.ideas2movie.model.Screen;
 import com.ideas2it.ideas2movie.model.Seat;
-import com.ideas2it.ideas2movie.repository.SeatRepository;
 import com.ideas2it.ideas2movie.service.SeatService;
+import com.ideas2it.ideas2movie.repository.SeatRepository;
 
 /**
  * <h1>
@@ -48,12 +47,5 @@ public class SeatServiceImpl implements SeatService {
     @Override
     public List<Seat> getSeatsByScreenId(Long screenId)  {
         return seatRepository.findAllByScreenId(screenId);
-    }
-
-    @Override
-    public List<String> getAvailableSeats(Long showId) {
-        List<Reservation> lisOfReservationForShow = new ArrayList<>();
-
-        return  null;
     }
 }

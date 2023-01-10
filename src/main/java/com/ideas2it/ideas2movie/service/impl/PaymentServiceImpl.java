@@ -5,33 +5,29 @@
 package com.ideas2it.ideas2movie.service.impl;
 
 import com.ideas2it.ideas2movie.dto.PaymentDTO;
-import com.ideas2it.ideas2movie.dto.ReservationDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.PaymentResponseDTO;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
 import com.ideas2it.ideas2movie.model.Payment;
 import com.ideas2it.ideas2movie.model.Reservation;
-import com.ideas2it.ideas2movie.model.Ticket;
 import com.ideas2it.ideas2movie.repository.PaymentRepository;
 import com.ideas2it.ideas2movie.service.PaymentService;
 import com.ideas2it.ideas2movie.service.ReservationService;
-import com.ideas2it.ideas2movie.service.TicketService;
 import com.ideas2it.ideas2movie.util.constant.Message;
 import com.ideas2it.ideas2movie.util.enums.PaymentStatus;
 import java.sql.Timestamp;
 import java.util.Optional;
 import java.util.UUID;
 import org.modelmapper.ModelMapper;
-import org.springframework.expression.spel.ast.OpAnd;
 import org.springframework.stereotype.Service;
 
 /**
  * <h1>
- *     Payment Service Impl
+ *     PaymentServiceImpl
  * </h1>
  * <p>
- *     Implements the Payment Service and
+ *     Implements the PaymentService and
  *     Holds the Business Logic to perform
- *     Make payment
+ *     Make payment, Get Payment
  * </p>
  *
  * @author AJAISHARMA
@@ -64,7 +60,7 @@ public class PaymentServiceImpl implements PaymentService {
      * {@inheritDoc}
      */
     @Override
-    public PaymentResponseDTO makePayment(PaymentDTO paymentDTO) {
+    public PaymentResponseDTO makePayment(PaymentDTO paymentDTO) throws NotFoundException {
         Payment payment = mapper.map(paymentDTO, Payment.class);
 
         Reservation reservation = reservationService.getReservationById(paymentDTO.getReservationId());

@@ -11,22 +11,21 @@ import java.util.Optional;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
-import com.ideas2it.ideas2movie.dto.responsedto.SeatResponseDTO;
 import com.ideas2it.ideas2movie.model.Seat;
 import com.ideas2it.ideas2movie.model.Show;
 import com.ideas2it.ideas2movie.dto.ShowDTO;
+import com.ideas2it.ideas2movie.dto.responsedto.SeatResponseDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.ShowResponseDTO;
-import com.ideas2it.ideas2movie.repository.ShowRepository;
 import com.ideas2it.ideas2movie.service.MovieService;
 import com.ideas2it.ideas2movie.service.ReservationService;
 import com.ideas2it.ideas2movie.service.ScreenService;
 import com.ideas2it.ideas2movie.service.SeatService;
 import com.ideas2it.ideas2movie.service.ShowService;
+import com.ideas2it.ideas2movie.repository.ShowRepository;
+import com.ideas2it.ideas2movie.util.constant.Message;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
 import com.ideas2it.ideas2movie.exception.NoContentException;
-import com.ideas2it.ideas2movie.exception.NotAcceptableException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
-import com.ideas2it.ideas2movie.util.constant.Message;
 
 /**
  * <h1>
@@ -64,8 +63,7 @@ public class ShowServiceImpl implements ShowService {
     /**
      * {@inheritDoc}
      */
-    public ShowResponseDTO createShow(ShowDTO showDTO) throws NotFoundException, AlreadyExistException,
-                                                              NotAcceptableException {
+    public ShowResponseDTO createShow(ShowDTO showDTO) throws NotFoundException, AlreadyExistException {
         Show show = mapper.map(showDTO, Show.class);
         show.setMovie(movieService.getMovieByIdForShows(showDTO.getMovieId()));
         show.setScreen(screenService.getScreenById(showDTO.getScreenId()));
@@ -106,14 +104,17 @@ public class ShowServiceImpl implements ShowService {
         return shows;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
-    public ShowResponseDTO getShowById(Long id) throws NotFoundException{
+    public ShowResponseDTO getShowById(Long id) throws NotFoundException {
         Optional<Show> existingShow = showRepository.findById(id);
-        ShowResponseDTO showResponseDTO = null;
+        ShowResponseDTO showResponseDTO;
 
         if (existingShow.isPresent()){
             showResponseDTO = mapper.map(existingShow.get(), ShowResponseDTO.class);
-            showResponseDTO.setAvailableSeats(getAvailableSeatsId(existingShow.get()));
+            showResponseDTO.setAvailableSeats(getAvailableSeats(existingShow.get()));
         } else {
             throw new NotFoundException(Message.SHOW_NOT_FOUND);
         }
@@ -121,7 +122,19 @@ public class ShowServiceImpl implements ShowService {
         return showResponseDTO;
     }
 
-    private List<SeatResponseDTO> getAvailableSeatsId(Show show) throws NotFoundException {
+    /**
+     * <h1>
+     *     getAvailableSeats
+     * </h1>
+     * <p>
+     *     Gets the Available seats for the
+     *     particular show for the particular
+     *     screen
+     * </p>
+     * @param show - Holds the details of the show
+     * @return listOfSeats - Holds the list of available seats for the particular show
+     */
+    private List<SeatResponseDTO> getAvailableSeats(Show show) {
         List<Seat> seats = seatService.getSeatsByScreenId(show.getScreen().getId());
         List<Seat> bookedSeats = reservationService.getReservedSeats(show.getId());
         List<SeatResponseDTO> listOfAvailableSeats = new ArrayList<>();
@@ -132,5 +145,4 @@ public class ShowServiceImpl implements ShowService {
         }
         return listOfAvailableSeats;
     }
-
 }

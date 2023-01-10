@@ -21,7 +21,7 @@ import com.ideas2it.ideas2movie.util.constant.Message;
 
 /**
  * <h1>
- *     User Service Impl
+ *     UserServiceImpl
  * </h1>
  * <p>
  *     Implements the User Service and
@@ -42,7 +42,7 @@ public class UserServiceImpl implements UserService {
 
     /**
      * <h1>
-     *     User Service Impl Constructor
+     *     UserServiceImpl Constructor
      * </h1>
      * <p>
      *     Used to Achieve the Autowiring for User Service

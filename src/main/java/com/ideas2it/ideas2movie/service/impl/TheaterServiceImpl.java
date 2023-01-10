@@ -4,20 +4,20 @@
  */
 package com.ideas2it.ideas2movie.service.impl;
 
-import org.modelmapper.ModelMapper;
-import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Service;
+
+import com.ideas2it.ideas2movie.model.Theater;
 import com.ideas2it.ideas2movie.dto.TheaterDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.TheaterResponseDTO;
+import com.ideas2it.ideas2movie.service.TheaterService;
+import com.ideas2it.ideas2movie.repository.TheaterRepository;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
 import com.ideas2it.ideas2movie.exception.NoContentException;
-import com.ideas2it.ideas2movie.model.Theater;
-import com.ideas2it.ideas2movie.repository.TheaterRepository;
-import com.ideas2it.ideas2movie.service.TheaterService;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
 import com.ideas2it.ideas2movie.util.constant.Message;
 
