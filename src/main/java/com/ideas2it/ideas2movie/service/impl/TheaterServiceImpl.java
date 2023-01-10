@@ -110,6 +110,8 @@ public class TheaterServiceImpl implements TheaterService {
     public TheaterResponseDTO updateTheater(Long id, TheaterDTO theaterDTO)
             throws NotFoundException, AlreadyExistException {
         Theater theater = modelMapper.map(theaterDTO, Theater.class);
+        theater.setId(id);
+        theater.setActive(true);
         Optional<Theater> existingTheater = theaterRepository.findById(id);
 
         if (!existingTheater.isPresent()) {
@@ -132,6 +134,7 @@ public class TheaterServiceImpl implements TheaterService {
 
         if (existingTheater.isPresent() && existingTheater.get().isActive()) {
             existingTheater.get().setActive(false);
+            theaterRepository.save(existingTheater.get());
             if (!existingTheater.get().isActive()) {
                 return Message.DELETED_SUCCESSFULLY ;
             }

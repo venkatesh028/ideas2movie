@@ -7,6 +7,8 @@ package com.ideas2it.ideas2movie.model;
 import java.sql.Timestamp;
 import java.time.LocalTime;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -53,10 +55,11 @@ public class Movie {
     @NotNull
     private Genre genre;
     @CreationTimestamp
+    @Column(updatable = false)
     private Timestamp createdAt;
     @UpdateTimestamp
     private Timestamp updatedAt;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(
             name = "castAndCrew_id",
             referencedColumnName = "id"

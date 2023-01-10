@@ -4,12 +4,14 @@
  */
 package com.ideas2it.ideas2movie.controller;
 
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -41,6 +43,7 @@ import com.ideas2it.ideas2movie.service.MovieService;
  * @since 07-01-2023
  */
 @RestController
+@RequestMapping("/api/v1/movies")
 public class MovieController {
     private final MovieService movieService;
 
@@ -72,9 +75,9 @@ public class MovieController {
      * @return ResponseEntity<MovieResponseDTO> - gives a response as
      * movie details.
      */
-    @RequestMapping
+    @PostMapping
     public ResponseEntity<MovieResponseDTO> addMovie
-            (@RequestBody MovieDTO movieDTO) {
+            (@Valid @RequestBody MovieDTO movieDTO) {
         return  ResponseEntity.status(HttpStatus.OK)
                 .body(movieService.addMovie(movieDTO));
     }
@@ -134,8 +137,8 @@ public class MovieController {
      * @throws NotFoundException - it will throw the error message(N0 movie
      *                          details exist to update on a given id)
      */
-    @PostMapping("/{id}")
-    public ResponseEntity<MovieResponseDTO> updateMovie(@PathVariable("id") Long id,
+    @PutMapping("/{id}")
+    public ResponseEntity<MovieResponseDTO> updateMovie(@Valid @PathVariable("id") Long id,
            @RequestBody MovieDTO movieDTO) throws NotFoundException {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(movieService.updateMovie(id, movieDTO));
@@ -158,6 +161,7 @@ public class MovieController {
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteMovie(@PathVariable("id") Long id)
             throws NotFoundException  {
-        return ResponseEntity.status(HttpStatus.OK).body(movieService.deleteMovie(id));
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(movieService.deleteMovie(id));
     }
 }

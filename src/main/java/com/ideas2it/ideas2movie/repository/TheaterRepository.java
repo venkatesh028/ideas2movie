@@ -66,7 +66,7 @@ public interface TheaterRepository extends JpaRepository<Theater, Long> {
      * </p>
      *
      * @param area - name of area to be checked if it exists or not.
-     * @return true - if area name exist or else return false
+     * @return true - if  name exist or else return false
      */
     boolean existsByArea(String area);
 }

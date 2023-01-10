@@ -87,6 +87,7 @@ public class MovieServiceImpl implements MovieService {
     public MovieResponseDTO updateMovie(Long id, MovieDTO movieDTO)
             throws  NotFoundException {
         Movie movie = modelMapper.map(movieDTO, Movie.class);
+        movie.setId(id);
         Optional<Movie> existingMovie = movieRepository.findById(id);
 
         if (existingMovie.isPresent()) {
@@ -101,6 +102,7 @@ public class MovieServiceImpl implements MovieService {
 
         if (existingMovie.isPresent()) {
             movieRepository.deleteById(id);
+            existingMovie = movieRepository.findById(id);
             if (!existingMovie.isPresent()) {
                 return Message.DELETED_SUCCESSFULLY;
             }

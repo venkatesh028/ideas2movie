@@ -56,6 +56,7 @@ public class CastAndCrewServiceImpl implements CastAndCrewService {
     public CastAndCrewResponseDTO updateCastAndCrew(Long id,
                    CastAndCrewDTO castAndCrewDTO) throws NotFoundException {
         CastAndCrew castAndCrew = modelMapper.map(castAndCrewDTO, CastAndCrew.class);
+        castAndCrew.setId(id);
         Optional<CastAndCrew> existingCastAndCrew = castAndCrewRepository.findById(id);
 
         if (existingCastAndCrew.isPresent()) {
@@ -72,6 +73,7 @@ public class CastAndCrewServiceImpl implements CastAndCrewService {
 
         if (existingCastAndCrew.isPresent()) {
             castAndCrewRepository.deleteById(id);
+            castAndCrewRepository.save(existingCastAndCrew.get());
             if (!existingCastAndCrew.isPresent()) {
                 return Message.DELETED_SUCCESSFULLY;
             }
