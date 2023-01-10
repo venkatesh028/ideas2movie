@@ -32,7 +32,7 @@ public interface ShowService {
 
     /**
      * <h1>
-     *     Create Show
+     *     createShow
      * </h1>
      * <p>
      *     Creates the Show for Movie
@@ -50,7 +50,7 @@ public interface ShowService {
 
     /**
      * <h1>
-     *     Cancel Show
+     *     cancelShow
      * </h1>
      * <p>
      *     Gets the id from the controller
@@ -67,7 +67,7 @@ public interface ShowService {
 
     /**
      * <h1>
-     *     GetAllShowsByMovieName
+     *     getAllShowsByMovieName
      * </h1>
      * <p>
      *     Gets all the shows for the particular movie
@@ -82,7 +82,7 @@ public interface ShowService {
 
     /**
      * <h1>
-     *     Update Available Seats Of Show
+     *     updateAvailableSeatsOfShow
      * </h1>
      * <p>
      *     Updates the Available seats of the show

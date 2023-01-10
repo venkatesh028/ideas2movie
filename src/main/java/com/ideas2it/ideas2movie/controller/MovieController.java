@@ -60,9 +60,14 @@ public class MovieController {
     }
 
     /**
-     * It takes a MovieDTO object as a request body
-     * and then calls the creatMovie function in the movieService.
-     * If the details of a movie is created, it returns the movieDTO object
+     * <h1>
+     *     addMovie
+     * </h1>
+     * <p>
+     *     It takes a MovieDTO object as a request body
+     *     and then calls the creatMovie function in the movieService.
+     *     If the details of a movie is created, it returns the movieDTO object
+     * </p>
      *
      * @param movieDTO The MovieDto object that is to be added.
      * @return ResponseEntity<MovieResponseDTO> - gives a response as
@@ -76,10 +81,15 @@ public class MovieController {
     }
 
     /**
-     * It takes an id of a movie as a path variable and fetches a movie details
-     * returns a response entity with the fetched details of a movie
-     * if details of a particular movie is not present,
-     * it will throw error message (no movie exist for a given movie id)
+     * <h1>
+     *     getMovieById
+     * </h1>
+     * <p>
+     *     It takes an id of a movie as a path variable and fetches a movie details
+     *     returns a response entity with the fetched details of a movie
+     *     if details of a particular movie is not present,
+     *     it will throw error message (no movie exist for a given movie id)
+     * </p>
      *
      * @param id The id of the movie to fetch a movie details
      * @return ResponseEntity<MovieResponseDTO>  - give response as movie details
@@ -93,7 +103,13 @@ public class MovieController {
     }
 
     /**
-     * It returns a list of all movies.
+     * <h1>
+     *     getAllMovies
+     * </h1>
+     * <p>
+     *     It calls the getAllMovies function  in the movieService and
+     *     returns a ResponseEntity object with the list of movies
+     *</p>
      *
      * @return A list of ResponseMovieDTO objects  - gives a response as list of movie details.
      * @throws NoContentException  - occur when list of movie is empty
@@ -104,8 +120,14 @@ public class MovieController {
     }
 
     /**
-     * It takes a MovieDTO object, id as a parameter, calls the updateMovie function
-     * in the movieService and returns a ResponseEntity object with the updated movie object
+     * <h1>
+     *     updateMovie
+     * </h1>
+     * <p>
+     *     It takes a MovieDTO object, id as a parameter, calls
+     *     the updateMovie function in the movieService and returns a
+     *     ResponseEntity object with the updated movie object
+     *</p>
      *
      * @param id The id of movie
      * @param movieDTO The movieDTO object that needs to be updated
@@ -114,25 +136,28 @@ public class MovieController {
      *                          details exist to update on a given id)
      */
     @PostMapping("/{id}")
-    public ResponseEntity<MovieResponseDTO> update(@PathVariable("id") Long id,
-                                                     @RequestBody MovieDTO movieDTO) throws
-            NotFoundException {
-
+    public ResponseEntity<MovieResponseDTO> updateMovie(@PathVariable("id") Long id,
+           @RequestBody MovieDTO movieDTO) throws NotFoundException {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(movieService.updateMovie(id, movieDTO));
     }
 
     /**
-     * It deletes a movie details based on  id from  the database and
-     * returns a response entity with a status code of 200 and a body of the
-     * deleted status
+     * <h1>
+     *     deleteMovie
+     * </h1>
+     * <p>
+     *     It deletes a movie details based on  id from  the database and
+     *     returns a response entity with a status code of 200 and a body of the
+     *     deleted status
+     * </p>
      *
      * @param id The id of the movie to be deleted.
      * @return ResponseEntity<String> - give a response as statement for deleted movie.
      * @throws NotFoundException - Occur when movie is not found on a given id
      */
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteTheater(@PathVariable("id") Long id)
+    public ResponseEntity<String> deleteMovie(@PathVariable("id") Long id)
             throws NotFoundException  {
         return ResponseEntity.status(HttpStatus.OK).body(movieService.deleteMovie(id));
     }

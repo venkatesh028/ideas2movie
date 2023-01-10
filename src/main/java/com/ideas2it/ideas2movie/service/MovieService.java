@@ -6,11 +6,11 @@ package com.ideas2it.ideas2movie.service;
 
 import java.util.List;
 
+import com.ideas2it.ideas2movie.model.Movie;
 import com.ideas2it.ideas2movie.dto.MovieDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.MovieResponseDTO;
 import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
-import com.ideas2it.ideas2movie.model.Movie;
 
 /**
  * <h1>
@@ -28,19 +28,29 @@ import com.ideas2it.ideas2movie.model.Movie;
 public interface MovieService {
 
     /**
+     * <h1>
+     *     Add Movie
+     * </h1>
      * <p>
-     *  Add the Movie details to ideas2movie.
+     *     Add the Movie details to ideas2movie by
+     *     getting movieDTO from controller.
      * </p>
      *
-     * @param movieDTO it contains details of the movie to be added to ideas2movie.
-     * @return movieResponseDto - after store in ideas2movie, to give a response as movie details.
+     * @param movieDTO it contains details of the movie
+     *                to be added to ideas2movie.
+     * @return movieResponseDto - after store in ideas2movie,
+     *                to give a response as movie details.
      */
     MovieResponseDTO addMovie(MovieDTO movieDTO);
 
     /**
+     * <h1>
+     *     Get Movie by Id
+     * </h1>
      * <p>
-     * check the given movie id is exist in ideas2movie
-     * if it exist get the Movie Details based on id.
+     *     Getting the id from movie controller and
+     *     check the given movie id is exist in ideas2movie
+     *     if it exist get the Movie Details based on id.
      * </p>
      *
      * @param id - id of the movie to be fetched from ideas2movie
@@ -50,8 +60,11 @@ public interface MovieService {
     MovieResponseDTO getMovieById(Long id) throws NotFoundException;
 
     /**
+     * <h1>
+     *     Get all Movies
+     * </h1>
      * <p>
-     * Get all the Movies which is registered in ideas2movie
+     *     Get all the Movies which is registered in ideas2movie
      * </p>
      *
      * @return List<MovieResponseDto> gives a response of all movie details
@@ -60,9 +73,13 @@ public interface MovieService {
     List<MovieResponseDTO> getAllMovies() throws NoContentException;
 
     /**
+     * <h1>
+     *     Get Movie by id for shows
+     * </h1>
      * <p>
-     * check the given movie id is exist in ideas2movie
-     * if it exist get the Movie Details for shows.
+     *     Getting the movie id from movie controller
+     *     check the given movie id is exist in ideas2movie
+     *     if it exist get the Movie Details for shows.
      * </p>
      *
      * @param id - id of the movie to be fetched from ideas2movie
@@ -72,9 +89,13 @@ public interface MovieService {
     Movie getMovieByIdForShows(Long id) throws NotFoundException;
 
     /**
+     * <h1>
+     *     Update the Movie
+     * </h1>
      * <p>
-     * Check the given movie id exist in ideas2movie if it exist
-     * update the movie details and send the updated movieResponseDTO.
+     *     Getting the movie id and movieDTO object from controller
+     *     Check the given movie id exist in ideas2movie if it exist
+     *     update the movie details and send the updated movieResponseDTO.
      * </p>
      *
      * @param id - id of the movie to be updated
@@ -85,9 +106,14 @@ public interface MovieService {
     MovieResponseDTO updateMovie(Long id, MovieDTO movieDTO) throws NotFoundException;
 
     /**
+     * <h1>
+     *     Delete movie Details
+     * </h1>
      * <p>
-     * Check the given movie id exist in ideas2movie if it exist delete the movie details
-     * and send the deleted success message.
+     *     Getting the movie id from movie controller and
+     *     Check the given movie id exist in ideas2movie
+     *     if it exist delete the movie details
+     *     and send the deleted success message.
      * </p>
      *
      * @param id of movie to be deleted.

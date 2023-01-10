@@ -5,16 +5,23 @@
 package com.ideas2it.ideas2movie.service.impl;
 
 import com.ideas2it.ideas2movie.dto.PaymentDTO;
+import com.ideas2it.ideas2movie.dto.ReservationDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.PaymentResponseDTO;
+import com.ideas2it.ideas2movie.exception.NotFoundException;
 import com.ideas2it.ideas2movie.model.Payment;
+import com.ideas2it.ideas2movie.model.Reservation;
 import com.ideas2it.ideas2movie.model.Ticket;
 import com.ideas2it.ideas2movie.repository.PaymentRepository;
 import com.ideas2it.ideas2movie.service.PaymentService;
+import com.ideas2it.ideas2movie.service.ReservationService;
 import com.ideas2it.ideas2movie.service.TicketService;
+import com.ideas2it.ideas2movie.util.constant.Message;
 import com.ideas2it.ideas2movie.util.enums.PaymentStatus;
 import java.sql.Timestamp;
+import java.util.Optional;
 import java.util.UUID;
 import org.modelmapper.ModelMapper;
+import org.springframework.expression.spel.ast.OpAnd;
 import org.springframework.stereotype.Service;
 
 /**
@@ -34,7 +41,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class PaymentServiceImpl implements PaymentService {
     private final PaymentRepository paymentRepository;
-    private final TicketService ticketService;
+    private final ReservationService reservationService;
     private final ModelMapper mapper = new ModelMapper();
 
     /**
@@ -46,11 +53,11 @@ public class PaymentServiceImpl implements PaymentService {
      * </p>
      *
      * @param paymentRepository - reference variable for Payment repository
-     * @param ticketService - reference variable for Ticket Service
+     * @param reservationService - reference variable for Reservation Service
      */
-    public PaymentServiceImpl(PaymentRepository paymentRepository, TicketService ticketService) {
+    public PaymentServiceImpl(PaymentRepository paymentRepository, ReservationService reservationService) {
         this.paymentRepository = paymentRepository;
-        this.ticketService = ticketService;
+        this.reservationService = reservationService;
     }
 
     /**
@@ -60,10 +67,9 @@ public class PaymentServiceImpl implements PaymentService {
     public PaymentResponseDTO makePayment(PaymentDTO paymentDTO) {
         Payment payment = mapper.map(paymentDTO, Payment.class);
 
-        Ticket ticket = ticketService.getTicketById(payment.getTicketId());
-        double ticketPrice = ticket.getPrice();
+        Reservation reservation = reservationService.getReservationById(paymentDTO.getReservationId());
 
-        if (ticketPrice == payment.getAmount()) {
+        if (reservation.getTotalPrice() == payment.getAmount()) {
             payment.setStatus(PaymentStatus.PAID);
         } else {
             payment.setStatus(PaymentStatus.FAILED);
@@ -71,6 +77,21 @@ public class PaymentServiceImpl implements PaymentService {
 
         payment.setTransactionAt(new Timestamp(System.currentTimeMillis()));
         payment.setTransactionId(UUID.randomUUID());
+        reservation.setPayment(payment);
+        reservationService.confirmReservation(reservation);
         return mapper.map(paymentRepository.save(payment), PaymentResponseDTO.class);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public PaymentResponseDTO getByTransactionId(UUID id) throws NotFoundException {
+        Optional<Payment> existingPayment = paymentRepository.getByTransactionId(id);
+
+        if (existingPayment.isPresent()) {
+            return mapper.map(existingPayment.get(), PaymentResponseDTO.class);
+        }
+        throw new NotFoundException(Message.PAYMENT_NOT_FOUND);
     }
 }

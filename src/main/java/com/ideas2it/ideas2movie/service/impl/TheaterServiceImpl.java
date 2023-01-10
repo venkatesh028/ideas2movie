@@ -26,6 +26,16 @@ public class TheaterServiceImpl implements TheaterService {
     private final TheaterRepository theaterRepository;
     private final ModelMapper modelMapper = new ModelMapper();
 
+    /**
+     * <h1>
+     *     Theater ServiceImpl Constructor
+     * </h1>
+     * <p>
+     *     Used to Achieve the Autowiring for Theater Repository.
+     * </p>
+     *
+     * @param theaterRepository- reference variable for Theater Repository
+     */
     public TheaterServiceImpl(TheaterRepository theaterRepository) {
         this.theaterRepository = theaterRepository;
     }
