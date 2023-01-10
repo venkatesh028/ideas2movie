@@ -32,7 +32,7 @@ public interface TheaterService {
 
     /**
      * <h1>
-     *     Create Theater Details
+     *     addTheater
      * </h1>
      * <p>
      *     Getting the theaterDTO from theater controller and
@@ -51,7 +51,7 @@ public interface TheaterService {
 
     /**
      * <h1>
-     *     Get all theater
+     *     getAllTheaters
      * </h1>
      * <p>
      *     check the status of theaters if theater is active then
@@ -66,7 +66,7 @@ public interface TheaterService {
 
     /**
      * <h1>
-     *     Get theater by its id
+     *     getTheaterById
      * </h1>
      * <p>
      *     Getting the theater id from theater controller and
@@ -83,7 +83,7 @@ public interface TheaterService {
 
     /**
      * <h1>
-     *      Get theater for screen by the theater id
+     *      getTheaterForScreenById
      * </h1>
      * <p>
      *     Getting the movie id from the theater controller
@@ -92,7 +92,7 @@ public interface TheaterService {
      * </p>
      *
      * @param id - id of the theater to be fetched from ideas2movie
-     * @return theater - gives a theater details based on theater id
+     * @return existingTheater - gives a theater details based on theater id
      * @throws NotFoundException -  occur when no theater is existing
      *                     in ideas2movie on a given id
      */
@@ -101,7 +101,7 @@ public interface TheaterService {
 
     /**
      * <h1>
-     *     Update theater details
+     *     updateTheater
      * </h1>
      * <p>
      *     Getting the movie id and theaterDTO object from the

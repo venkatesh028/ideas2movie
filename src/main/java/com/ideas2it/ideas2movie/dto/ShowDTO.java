@@ -40,8 +40,6 @@ public class ShowDTO {
     @NotBlank
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
     private LocalTime endTime;
-    @NotBlank(message = "Available Seats Should not be blank")
-    private int availableSeats;
     @NotBlank(message = "Screen id should not be empty")
     private Long screenId;
     @NotBlank(message = "Movie id should not be empty")

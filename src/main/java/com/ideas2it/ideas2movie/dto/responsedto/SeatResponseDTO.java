@@ -15,6 +15,5 @@ package com.ideas2it.ideas2movie.dto.responsedto;
 public class SeatResponseDTO {
     private Long Seat;
     private String name;
-    private double price;
-    private ScreenResponseDTO screen;
+
 }

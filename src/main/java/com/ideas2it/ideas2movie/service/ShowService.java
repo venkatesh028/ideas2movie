@@ -80,20 +80,5 @@ public interface ShowService {
      */
     List<Show> getAllShowsByMovieName(String movieName) throws NoContentException;
 
-    /**
-     * <h1>
-     *     updateAvailableSeatsOfShow
-     * </h1>
-     * <p>
-     *     Updates the Available seats of the show
-     *     By subtracting the booked seats with
-     *     available seats
-     * </p>
-     *
-     * @param bookedSeats - Holds the number of seats booked for the show
-     * @param showId - Holds the id of the show
-     * @return show - Holds the updated available seats details
-     */
-    Show updateAvailableSeatsOfShow(int bookedSeats, Long showId);
-
+    ShowResponseDTO getShowById(Long id) throws NotFoundException;
 }

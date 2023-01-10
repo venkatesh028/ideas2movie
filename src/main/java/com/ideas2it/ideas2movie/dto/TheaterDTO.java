@@ -1,12 +1,24 @@
+/*
+ * Copyright 2023 Ideas2IT Technologies. All rights reserved.
+ * IDEAS2IT PROPRIETARY/CONFIDENTIAL.
+ */
 package com.ideas2it.ideas2movie.dto;
 
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
 import com.ideas2it.ideas2movie.util.constant.Message;
 
+/**
+ * <p>
+ * Represents the Theater DTO
+ * </p>
+ *
+ * @author YOGESHWAR S
+ * @version 1.0
+ * @since - 09.01.2022
+ */
 @Getter
 @Setter
 public class TheaterDTO {
