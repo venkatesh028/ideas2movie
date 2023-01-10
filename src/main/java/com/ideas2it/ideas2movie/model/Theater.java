@@ -20,6 +20,7 @@ import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.annotations.Where;
 
 /**
  * <h1>
@@ -37,6 +38,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 @Getter
 @Setter
 @Table(name = "theater")
+@Where(clause = "is_active = true")
 public class Theater {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -53,6 +55,7 @@ public class Theater {
     @Column( insertable = false)
     private boolean isActive;
     @CreationTimestamp
+    @Column(updatable = false)
     private Timestamp createdAt;
     @UpdateTimestamp
     private Timestamp updatedAt;
