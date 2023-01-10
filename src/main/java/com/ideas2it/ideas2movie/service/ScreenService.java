@@ -4,11 +4,11 @@
  */
 package com.ideas2it.ideas2movie.service;
 
+import com.ideas2it.ideas2movie.model.Screen;
 import com.ideas2it.ideas2movie.dto.ScreenDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.ScreenResponseDTO;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
-import com.ideas2it.ideas2movie.model.Screen;
 
 /**
  * <h1>

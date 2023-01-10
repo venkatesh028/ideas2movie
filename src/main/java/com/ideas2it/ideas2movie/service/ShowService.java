@@ -80,5 +80,20 @@ public interface ShowService {
      */
     List<Show> getAllShowsByMovieName(String movieName) throws NoContentException;
 
+    /**
+     * <h1>
+     *     getShowById
+     * </h1>
+     * <p>
+     *     Gets the Show based on the id
+     *     of the show if there is no
+     *     show for the id then exception is
+     *     thrown
+     * </p>
+     *
+     * @param id - Holds the id of the Show
+     * @return showResponseDTo - Holds the details of the show in response dto
+     * @throws NotFoundException - Occurs when there is no show for the given id
+     */
     ShowResponseDTO getShowById(Long id) throws NotFoundException;
 }
