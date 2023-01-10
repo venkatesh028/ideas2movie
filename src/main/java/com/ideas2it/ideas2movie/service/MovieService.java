@@ -29,7 +29,7 @@ public interface MovieService {
 
     /**
      * <h1>
-     *     Add Movie
+     *     addMovie
      * </h1>
      * <p>
      *     Add the Movie details to ideas2movie by
@@ -45,7 +45,7 @@ public interface MovieService {
 
     /**
      * <h1>
-     *     Get Movie by Id
+     *     getMovieById
      * </h1>
      * <p>
      *     Getting the id from movie controller and
@@ -61,7 +61,7 @@ public interface MovieService {
 
     /**
      * <h1>
-     *     Get all Movies
+     *     getAllMovies
      * </h1>
      * <p>
      *     Get all the Movies which is registered in ideas2movie
@@ -74,7 +74,7 @@ public interface MovieService {
 
     /**
      * <h1>
-     *     Get Movie by id for shows
+     *     getMovieByIdForShows
      * </h1>
      * <p>
      *     Getting the movie id from movie controller
@@ -83,14 +83,15 @@ public interface MovieService {
      * </p>
      *
      * @param id - id of the movie to be fetched from ideas2movie
-     * @return movieResponseDto - gives a response of movie details based on movie id
-     * @throws NotFoundException - occur when no movie is existing in ideas2movie on a given id
+     * @return existingMovies - return  movie details based on movie id
+     * @throws NotFoundException - occur when no movie is existing in
+     *                       ideas2movie on a given id.
      */
     Movie getMovieByIdForShows(Long id) throws NotFoundException;
 
     /**
      * <h1>
-     *     Update the Movie
+     *     updateMovie
      * </h1>
      * <p>
      *     Getting the movie id and movieDTO object from controller
@@ -107,7 +108,7 @@ public interface MovieService {
 
     /**
      * <h1>
-     *     Delete movie Details
+     *     deleteMovie
      * </h1>
      * <p>
      *     Getting the movie id from movie controller and

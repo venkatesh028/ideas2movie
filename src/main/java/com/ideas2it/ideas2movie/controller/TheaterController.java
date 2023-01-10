@@ -131,7 +131,7 @@ public class TheaterController {
 
     /**
      * <h1>
-     *     Update theater details
+     *     updateTheater
      * </h1>
      * <p>
      *     It takes a TheaterDTO object, id as a parameter,
@@ -148,7 +148,7 @@ public class TheaterController {
      * @throws  NotFoundException - if theater details not exist on a given id.
      */
     @PostMapping("/{id}")
-    public ResponseEntity<TheaterResponseDTO> update(@PathVariable("id") Long id,
+    public ResponseEntity<TheaterResponseDTO> updateTheater(@PathVariable("id") Long id,
                                              @RequestBody TheaterDTO theaterDTO) throws
             NotFoundException, AlreadyExistException {
 
@@ -158,7 +158,7 @@ public class TheaterController {
 
     /**
      * <h1>
-     *     Delete theater details
+     *     deleteTheater
      * </h1>
      * <p>
      *     It deletes a theater details based on id from
