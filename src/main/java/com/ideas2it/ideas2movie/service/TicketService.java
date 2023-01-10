@@ -4,7 +4,6 @@
  */
 package com.ideas2it.ideas2movie.service;
 
-import com.ideas2it.ideas2movie.dto.TicketDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.TicketResponseDTO;
 import com.ideas2it.ideas2movie.model.Ticket;
 
@@ -22,21 +21,6 @@ import com.ideas2it.ideas2movie.model.Ticket;
  * @since 06-01-2023
  */
 public interface TicketService {
-    /**
-     * <h1>
-     *     bookTicket
-     * </h1>
-     * <p>
-     *     Books the Ticket
-     *     by getting the TicketDTO from Controller
-     *     and performs the Calculation for ticket price
-     *     and returns the Response accordingly
-     * </p>
-     *
-     * @param ticketDTO - Holds the Details of the Ticket to Book
-     * @return TicketResponseDTO - Holds the response of the Booked Ticket
-     */
-    TicketResponseDTO addTicket(TicketDTO ticketDTO);
 
     /**
      * <h1>

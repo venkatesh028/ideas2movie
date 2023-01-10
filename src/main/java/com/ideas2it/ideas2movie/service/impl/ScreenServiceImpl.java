@@ -77,6 +77,7 @@ public class ScreenServiceImpl implements ScreenService {
     public ScreenResponseDTO updateScreen(Long id, ScreenDTO screenDTO) throws AlreadyExistException, NotFoundException {
         Theater theater = theaterService.getTheaterForScreenById(screenDTO.getTheaterId());
         Screen screen = mapper.map(screenDTO, Screen.class);
+        screen.setActive(true);
         Screen updatedScreen;
         Optional<Screen> existingScreen;
 
@@ -100,7 +101,7 @@ public class ScreenServiceImpl implements ScreenService {
      * {@inheritDoc}
      */
     @Override
-    public String deleteScreen(Long id) throws NotFoundException {
+    public String removeScreen(Long id) throws NotFoundException {
         Optional<Screen> existingScreen = screenRepository.findById(id);
         Screen screen;
         if (existingScreen.isPresent()){

@@ -15,7 +15,8 @@ package com.ideas2it.ideas2movie.dto.responsedto;
 public class ScreenResponseDTO {
     private Long id;
     private String name;
-    private int totalNumberOfSeat;
+    private int totalNumberOfRows;
+    private int totalNumberOfColumns;
     private boolean isActive;
     private TheaterResponseDTO theater;
 }

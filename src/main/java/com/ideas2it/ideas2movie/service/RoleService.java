@@ -4,13 +4,13 @@
  */
 package com.ideas2it.ideas2movie.service;
 
+import java.util.List;
+
+import com.ideas2it.ideas2movie.model.Role;
 import com.ideas2it.ideas2movie.dto.RoleDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.RoleResponseDTO;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
-
 import com.ideas2it.ideas2movie.exception.NotFoundException;
-import com.ideas2it.ideas2movie.model.Role;
-import java.util.List;
 
 /**
  * <h1>
@@ -26,6 +26,7 @@ import java.util.List;
  * @since 06-01-2023
  */
 public interface RoleService {
+
     /**
      * <h1>
      *     createRole

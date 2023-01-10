@@ -22,9 +22,9 @@ import lombok.Setter;
 public class ScreenDTO {
     @NotBlank(message = "Screen name should not be empty")
     private String name;
-    @NotNull
+    @NotNull(message = "Number of Rows Should not be null")
     private int totalNumberOfRows;
-    @NotNull
+    @NotNull(message = "Number of Columns Should not be null")
     private int totalNumberOfColumns;
     @NotBlank(message = "Theater id should not be blank")
     private Long theaterId;

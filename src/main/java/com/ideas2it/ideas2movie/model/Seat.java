@@ -7,6 +7,7 @@ package com.ideas2it.ideas2movie.model;
 import java.sql.Timestamp;
 import java.util.List;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -53,9 +54,8 @@ public class Seat {
             referencedColumnName = "id"
     )
     private Screen screen;
-    @ManyToMany(mappedBy = "seats")
-    private List<Reservation> reservations;
     @CreationTimestamp
+    @Column(updatable = false)
     private Timestamp createdAt;
     @UpdateTimestamp
     private Timestamp updatedAt;

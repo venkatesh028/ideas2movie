@@ -22,7 +22,7 @@ import lombok.Setter;
  */
 @AllArgsConstructor
 public enum PaymentStatus {
-    PAID("Paid"), FAILED("Failed");
+    PAID("Paid"), FAILED("Failed"), REFUNDED("Refunded");
     @Setter
     @Getter
     private String status;

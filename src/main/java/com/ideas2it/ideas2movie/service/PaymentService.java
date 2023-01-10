@@ -4,10 +4,11 @@
  */
 package com.ideas2it.ideas2movie.service;
 
+import java.util.UUID;
+
 import com.ideas2it.ideas2movie.dto.PaymentDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.PaymentResponseDTO;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
-import java.util.UUID;
 
 /**
  * <h1>

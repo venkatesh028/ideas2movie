@@ -1,933 +1,219 @@
-"2023-01-09 16:44:34 INFO Starting Ideas2movieApplication using Java 18.0.2 with PID 17508 (E:\ideas2movie\ideas2movie\target\classes started by LENOVO in E:\ideas2movie\ideas2movie)
+"2023-01-10 15:45:15 INFO Starting Ideas2movieApplication using Java 18.0.2 with PID 15572 (E:\ideas2movie\ideas2movie\target\classes started by LENOVO in E:\ideas2movie\ideas2movie)
  %PARSER_ERROR[l]
-""2023-01-09 16:44:34 INFO No active profile set, falling back to 1 default profile: "default"
+""2023-01-10 15:45:15 INFO No active profile set, falling back to 1 default profile: "default"
  %PARSER_ERROR[l]
-""2023-01-09 16:44:36 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2023-01-10 15:45:16 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode.
  %PARSER_ERROR[l]
-""2023-01-09 16:44:36 INFO Finished Spring Data repository scanning in 195 ms. Found 11 JPA repository interfaces.
+""2023-01-10 15:45:16 INFO Finished Spring Data repository scanning in 124 ms. Found 11 JPA repository interfaces.
  %PARSER_ERROR[l]
-""2023-01-09 16:44:37 INFO Tomcat initialized with port(s): 8080 (http)
+""2023-01-10 15:45:17 INFO Tomcat initialized with port(s): 8080 (http)
  %PARSER_ERROR[l]
-""2023-01-09 16:44:37 INFO An older version [1.2.35] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.1]
+""2023-01-10 15:45:17 INFO An older version [1.2.35] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.1]
  %PARSER_ERROR[l]
-""2023-01-09 16:44:37 INFO Loaded Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
+""2023-01-10 15:45:17 INFO Loaded Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
  %PARSER_ERROR[l]
-""2023-01-09 16:44:37 INFO OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
+""2023-01-10 15:45:17 INFO OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
  %PARSER_ERROR[l]
-""2023-01-09 16:44:37 INFO Starting service [Tomcat]
+""2023-01-10 15:45:17 INFO Starting service [Tomcat]
  %PARSER_ERROR[l]
-""2023-01-09 16:44:37 INFO Starting Servlet engine: [Apache Tomcat/10.1.4]
+""2023-01-10 15:45:17 INFO Starting Servlet engine: [Apache Tomcat/10.1.4]
  %PARSER_ERROR[l]
-""2023-01-09 16:44:38 INFO Initializing Spring embedded WebApplicationContext
+""2023-01-10 15:45:17 INFO Initializing Spring embedded WebApplicationContext
  %PARSER_ERROR[l]
-""2023-01-09 16:44:38 INFO Root WebApplicationContext: initialization completed in 3086 ms
+""2023-01-10 15:45:17 INFO Root WebApplicationContext: initialization completed in 2103 ms
  %PARSER_ERROR[l]
-""2023-01-09 16:44:38 INFO HHH000204: Processing PersistenceUnitInfo [name: default]
+""2023-01-10 15:45:17 INFO HHH000204: Processing PersistenceUnitInfo [name: default]
  %PARSER_ERROR[l]
-""2023-01-09 16:44:38 INFO HHH000412: Hibernate ORM core version 6.1.6.Final
+""2023-01-10 15:45:17 INFO HHH000412: Hibernate ORM core version 6.1.6.Final
  %PARSER_ERROR[l]
-""2023-01-09 16:44:39 WARN HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+""2023-01-10 15:45:17 WARN HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
  %PARSER_ERROR[l]
-""2023-01-09 16:44:39 INFO HikariPool-1 - Starting...
+""2023-01-10 15:45:18 INFO HikariPool-1 - Starting...
  %PARSER_ERROR[l]
-""2023-01-09 16:44:40 INFO HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7e848aea
+""2023-01-10 15:45:18 INFO HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@64dfb31d
  %PARSER_ERROR[l]
-""2023-01-09 16:44:40 INFO HikariPool-1 - Start completed.
+""2023-01-10 15:45:18 INFO HikariPool-1 - Start completed.
  %PARSER_ERROR[l]
-""2023-01-09 16:44:40 INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+""2023-01-10 15:45:18 INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
  %PARSER_ERROR[l]
-""2023-01-09 16:44:42 ERROR Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Export identifier [reserved_seat] encountered more than once
+""2023-01-10 15:45:20 INFO HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
  %PARSER_ERROR[l]
-""2023-01-09 16:44:42 WARN Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Export identifier [reserved_seat] encountered more than once
+""2023-01-10 15:45:20 INFO Initialized JPA EntityManagerFactory for persistence unit 'default'
  %PARSER_ERROR[l]
-""2023-01-09 16:44:42 INFO HikariPool-1 - Shutdown initiated...
+""2023-01-10 15:45:21 WARN spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
  %PARSER_ERROR[l]
-""2023-01-09 16:44:42 INFO HikariPool-1 - Shutdown completed.
+""2023-01-10 15:45:22 INFO Tomcat started on port(s): 8080 (http) with context path ''
  %PARSER_ERROR[l]
-""2023-01-09 16:44:42 INFO Stopping service [Tomcat]
+""2023-01-10 15:45:22 INFO Started Ideas2movieApplication in 7.899 seconds (process running for 9.005)
  %PARSER_ERROR[l]
-""2023-01-09 16:44:42 INFO 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+""2023-01-10 15:46:04 INFO Closing JPA EntityManagerFactory for persistence unit 'default'
  %PARSER_ERROR[l]
-""2023-01-09 16:44:42 ERROR Application run failed
+""2023-01-10 15:46:04 INFO HikariPool-1 - Shutdown initiated...
  %PARSER_ERROR[l]
-"org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Export identifier [reserved_seat] encountered more than once
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1751)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1130)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:905)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:432)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291)
-	at com.ideas2it.ideas2movie.Ideas2movieApplication.main(Ideas2movieApplication.java:11)
-Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Export identifier [reserved_seat] encountered more than once
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1797)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1747)
-	... 16 common frames omitted
-Caused by: org.hibernate.tool.schema.spi.SchemaManagementException: Export identifier [reserved_seat] encountered more than once
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.checkExportIdentifier(AbstractSchemaMigrator.java:515)
-	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:76)
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:225)
-	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:126)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:284)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:143)
-	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:140)
-	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:336)
-	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:415)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1425)
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
-	... 20 common frames omitted
-"2023-01-09 16:46:05 INFO Starting Ideas2movieApplication using Java 18.0.2 with PID 19216 (E:\ideas2movie\ideas2movie\target\classes started by LENOVO in E:\ideas2movie\ideas2movie)
+""2023-01-10 15:46:04 INFO HikariPool-1 - Shutdown completed.
  %PARSER_ERROR[l]
-""2023-01-09 16:46:05 INFO No active profile set, falling back to 1 default profile: "default"
+""2023-01-10 15:46:11 INFO Starting Ideas2movieApplication using Java 18.0.2 with PID 18004 (E:\ideas2movie\ideas2movie\target\classes started by LENOVO in E:\ideas2movie\ideas2movie)
  %PARSER_ERROR[l]
-""2023-01-09 16:46:06 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2023-01-10 15:46:11 INFO No active profile set, falling back to 1 default profile: "default"
  %PARSER_ERROR[l]
-""2023-01-09 16:46:06 INFO Finished Spring Data repository scanning in 191 ms. Found 11 JPA repository interfaces.
+""2023-01-10 15:46:12 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode.
  %PARSER_ERROR[l]
-""2023-01-09 16:46:07 INFO Tomcat initialized with port(s): 8080 (http)
+""2023-01-10 15:46:12 INFO Finished Spring Data repository scanning in 125 ms. Found 11 JPA repository interfaces.
  %PARSER_ERROR[l]
-""2023-01-09 16:46:07 INFO An older version [1.2.35] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.1]
- %PARSER_ERROR[l]
-""2023-01-09 16:46:07 INFO Loaded Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
- %PARSER_ERROR[l]
-""2023-01-09 16:46:07 INFO OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
- %PARSER_ERROR[l]
-""2023-01-09 16:46:07 INFO Starting service [Tomcat]
- %PARSER_ERROR[l]
-""2023-01-09 16:46:07 INFO Starting Servlet engine: [Apache Tomcat/10.1.4]
- %PARSER_ERROR[l]
-""2023-01-09 16:46:07 INFO Initializing Spring embedded WebApplicationContext
- %PARSER_ERROR[l]
-""2023-01-09 16:46:07 INFO Root WebApplicationContext: initialization completed in 2690 ms
- %PARSER_ERROR[l]
-""2023-01-09 16:46:08 INFO HHH000204: Processing PersistenceUnitInfo [name: default]
- %PARSER_ERROR[l]
-""2023-01-09 16:46:08 INFO HHH000412: Hibernate ORM core version 6.1.6.Final
- %PARSER_ERROR[l]
-""2023-01-09 16:46:08 WARN HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
- %PARSER_ERROR[l]
-""2023-01-09 16:46:08 INFO HikariPool-1 - Starting...
- %PARSER_ERROR[l]
-""2023-01-09 16:46:08 INFO HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@9f0fc36
- %PARSER_ERROR[l]
-""2023-01-09 16:46:09 INFO HikariPool-1 - Start completed.
- %PARSER_ERROR[l]
-""2023-01-09 16:46:09 INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
- %PARSER_ERROR[l]
-""2023-01-09 16:46:12 INFO HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
- %PARSER_ERROR[l]
-""2023-01-09 16:46:12 INFO Initialized JPA EntityManagerFactory for persistence unit 'default'
- %PARSER_ERROR[l]
-""2023-01-09 16:46:13 WARN Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'showController' defined in file [E:\ideas2movie\ideas2movie\target\classes\com\ideas2it\ideas2movie\controller\ShowController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'showServiceImpl' defined in file [E:\ideas2movie\ideas2movie\target\classes\com\ideas2it\ideas2movie\service\impl\ShowServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'showRepository' defined in com.ideas2it.ideas2movie.repository.ShowRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findAllByMovieName(java.lang.String); Reason: Failed to create query for method public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findAllByMovieName(java.lang.String); No property 'name' found for type 'Movie' Traversed path: Show.movie.
- %PARSER_ERROR[l]
-""2023-01-09 16:46:13 INFO Closing JPA EntityManagerFactory for persistence unit 'default'
- %PARSER_ERROR[l]
-""2023-01-09 16:46:13 INFO HikariPool-1 - Shutdown initiated...
- %PARSER_ERROR[l]
-""2023-01-09 16:46:13 INFO HikariPool-1 - Shutdown completed.
- %PARSER_ERROR[l]
-""2023-01-09 16:46:13 INFO Stopping service [Tomcat]
- %PARSER_ERROR[l]
-""2023-01-09 16:46:13 INFO 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
- %PARSER_ERROR[l]
-""2023-01-09 16:46:13 ERROR Application run failed
- %PARSER_ERROR[l]
-"org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'showController' defined in file [E:\ideas2movie\ideas2movie\target\classes\com\ideas2it\ideas2movie\controller\ShowController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'showServiceImpl' defined in file [E:\ideas2movie\ideas2movie\target\classes\com\ideas2it\ideas2movie\service\impl\ShowServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'showRepository' defined in com.ideas2it.ideas2movie.repository.ShowRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findAllByMovieName(java.lang.String); Reason: Failed to create query for method public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findAllByMovieName(java.lang.String); No property 'name' found for type 'Movie' Traversed path: Show.movie.
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:798)
-	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:245)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1344)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1188)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:561)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:961)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:915)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:432)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291)
-	at com.ideas2it.ideas2movie.Ideas2movieApplication.main(Ideas2movieApplication.java:11)
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'showServiceImpl' defined in file [E:\ideas2movie\ideas2movie\target\classes\com\ideas2it\ideas2movie\service\impl\ShowServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'showRepository' defined in com.ideas2it.ideas2movie.repository.ShowRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findAllByMovieName(java.lang.String); Reason: Failed to create query for method public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findAllByMovieName(java.lang.String); No property 'name' found for type 'Movie' Traversed path: Show.movie.
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:798)
-	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:245)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1344)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1188)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:561)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1405)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1325)
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:885)
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:789)
-	... 19 common frames omitted
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'showRepository' defined in com.ideas2it.ideas2movie.repository.ShowRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findAllByMovieName(java.lang.String); Reason: Failed to create query for method public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findAllByMovieName(java.lang.String); No property 'name' found for type 'Movie' Traversed path: Show.movie.
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1751)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1405)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1325)
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:885)
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:789)
-	... 33 common frames omitted
-Caused by: org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findAllByMovieName(java.lang.String); Reason: Failed to create query for method public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findAllByMovieName(java.lang.String); No property 'name' found for type 'Movie' Traversed path: Show.movie.
-	at org.springframework.data.repository.query.QueryCreationException.create(QueryCreationException.java:101)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:115)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.mapMethodsToQuery(QueryExecutorMethodInterceptor.java:99)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lambda$new$0(QueryExecutorMethodInterceptor.java:88)
-	at java.base/java.util.Optional.map(Optional.java:260)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.<init>(QueryExecutorMethodInterceptor.java:88)
-	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:357)
-	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.lambda$afterPropertiesSet$5(RepositoryFactoryBeanSupport.java:279)
-	at org.springframework.data.util.Lazy.getNullable(Lazy.java:229)
-	at org.springframework.data.util.Lazy.get(Lazy.java:113)
-	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:285)
-	at org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.afterPropertiesSet(JpaRepositoryFactoryBean.java:132)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1797)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1747)
-	... 44 common frames omitted
-Caused by: java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findAllByMovieName(java.lang.String); No property 'name' found for type 'Movie' Traversed path: Show.movie.
-	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:96)
-	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:124)
-	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateIfNotFoundQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:258)
-	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$AbstractQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:95)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:111)
-	... 56 common frames omitted
-Caused by: org.springframework.data.mapping.PropertyReferenceException: No property 'name' found for type 'Movie' Traversed path: Show.movie.
-	at org.springframework.data.mapping.PropertyPath.<init>(PropertyPath.java:90)
-	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:423)
-	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:399)
-	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:433)
-	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:456)
-	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:399)
-	at org.springframework.data.mapping.PropertyPath.lambda$from$0(PropertyPath.java:352)
-	at java.base/java.util.concurrent.ConcurrentMap.computeIfAbsent(ConcurrentMap.java:330)
-	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:334)
-	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:317)
-	at org.springframework.data.repository.query.parser.Part.<init>(Part.java:81)
-	at org.springframework.data.repository.query.parser.PartTree$OrPart.lambda$new$0(PartTree.java:242)
-	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
-	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
-	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
-	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
-	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
-	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
-	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
-	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
-	at org.springframework.data.repository.query.parser.PartTree$OrPart.<init>(PartTree.java:243)
-	at org.springframework.data.repository.query.parser.PartTree$Predicate.lambda$new$0(PartTree.java:372)
-	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
-	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
-	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
-	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
-	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
-	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
-	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
-	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
-	at org.springframework.data.repository.query.parser.PartTree$Predicate.<init>(PartTree.java:373)
-	at org.springframework.data.repository.query.parser.PartTree.<init>(PartTree.java:96)
-	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:89)
-	... 60 common frames omitted
-"2023-01-09 16:49:52 INFO Starting Ideas2movieApplication using Java 18.0.2 with PID 3892 (E:\ideas2movie\ideas2movie\target\classes started by LENOVO in E:\ideas2movie\ideas2movie)
- %PARSER_ERROR[l]
-""2023-01-09 16:49:52 INFO No active profile set, falling back to 1 default profile: "default"
- %PARSER_ERROR[l]
-""2023-01-09 16:49:53 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode.
- %PARSER_ERROR[l]
-""2023-01-09 16:49:54 INFO Finished Spring Data repository scanning in 195 ms. Found 11 JPA repository interfaces.
- %PARSER_ERROR[l]
-""2023-01-09 16:49:55 INFO Tomcat initialized with port(s): 8080 (http)
- %PARSER_ERROR[l]
-""2023-01-09 16:49:55 INFO An older version [1.2.35] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.1]
- %PARSER_ERROR[l]
-""2023-01-09 16:49:55 INFO Loaded Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
- %PARSER_ERROR[l]
-""2023-01-09 16:49:55 INFO OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
- %PARSER_ERROR[l]
-""2023-01-09 16:49:55 INFO Starting service [Tomcat]
- %PARSER_ERROR[l]
-""2023-01-09 16:49:55 INFO Starting Servlet engine: [Apache Tomcat/10.1.4]
- %PARSER_ERROR[l]
-""2023-01-09 16:49:55 INFO Initializing Spring embedded WebApplicationContext
- %PARSER_ERROR[l]
-""2023-01-09 16:49:55 INFO Root WebApplicationContext: initialization completed in 2620 ms
- %PARSER_ERROR[l]
-""2023-01-09 16:49:55 INFO HHH000204: Processing PersistenceUnitInfo [name: default]
- %PARSER_ERROR[l]
-""2023-01-09 16:49:55 INFO HHH000412: Hibernate ORM core version 6.1.6.Final
- %PARSER_ERROR[l]
-""2023-01-09 16:49:55 WARN HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
- %PARSER_ERROR[l]
-""2023-01-09 16:49:55 INFO HikariPool-1 - Starting...
- %PARSER_ERROR[l]
-""2023-01-09 16:49:56 INFO HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@9f0fc36
- %PARSER_ERROR[l]
-""2023-01-09 16:49:56 INFO HikariPool-1 - Start completed.
- %PARSER_ERROR[l]
-""2023-01-09 16:49:56 INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
- %PARSER_ERROR[l]
-""2023-01-09 16:49:58 INFO HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
- %PARSER_ERROR[l]
-""2023-01-09 16:49:58 INFO Initialized JPA EntityManagerFactory for persistence unit 'default'
- %PARSER_ERROR[l]
-""2023-01-09 16:49:59 WARN Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'showController' defined in file [E:\ideas2movie\ideas2movie\target\classes\com\ideas2it\ideas2movie\controller\ShowController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'showServiceImpl' defined in file [E:\ideas2movie\ideas2movie\target\classes\com\ideas2it\ideas2movie\service\impl\ShowServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'showRepository' defined in com.ideas2it.ideas2movie.repository.ShowRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findAllByMovieName(java.lang.String); Reason: Failed to create query for method public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findAllByMovieName(java.lang.String); No property 'name' found for type 'Movie' Traversed path: Show.movie.
- %PARSER_ERROR[l]
-""2023-01-09 16:49:59 INFO Closing JPA EntityManagerFactory for persistence unit 'default'
- %PARSER_ERROR[l]
-""2023-01-09 16:49:59 INFO HikariPool-1 - Shutdown initiated...
- %PARSER_ERROR[l]
-""2023-01-09 16:49:59 INFO HikariPool-1 - Shutdown completed.
- %PARSER_ERROR[l]
-""2023-01-09 16:49:59 INFO Stopping service [Tomcat]
- %PARSER_ERROR[l]
-""2023-01-09 16:49:59 INFO 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
- %PARSER_ERROR[l]
-""2023-01-09 16:49:59 ERROR Application run failed
- %PARSER_ERROR[l]
-"org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'showController' defined in file [E:\ideas2movie\ideas2movie\target\classes\com\ideas2it\ideas2movie\controller\ShowController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'showServiceImpl' defined in file [E:\ideas2movie\ideas2movie\target\classes\com\ideas2it\ideas2movie\service\impl\ShowServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'showRepository' defined in com.ideas2it.ideas2movie.repository.ShowRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findAllByMovieName(java.lang.String); Reason: Failed to create query for method public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findAllByMovieName(java.lang.String); No property 'name' found for type 'Movie' Traversed path: Show.movie.
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:798)
-	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:245)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1344)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1188)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:561)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:961)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:915)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:432)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291)
-	at com.ideas2it.ideas2movie.Ideas2movieApplication.main(Ideas2movieApplication.java:11)
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'showServiceImpl' defined in file [E:\ideas2movie\ideas2movie\target\classes\com\ideas2it\ideas2movie\service\impl\ShowServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'showRepository' defined in com.ideas2it.ideas2movie.repository.ShowRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findAllByMovieName(java.lang.String); Reason: Failed to create query for method public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findAllByMovieName(java.lang.String); No property 'name' found for type 'Movie' Traversed path: Show.movie.
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:798)
-	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:245)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1344)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1188)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:561)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1405)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1325)
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:885)
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:789)
-	... 19 common frames omitted
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'showRepository' defined in com.ideas2it.ideas2movie.repository.ShowRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findAllByMovieName(java.lang.String); Reason: Failed to create query for method public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findAllByMovieName(java.lang.String); No property 'name' found for type 'Movie' Traversed path: Show.movie.
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1751)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1405)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1325)
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:885)
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:789)
-	... 33 common frames omitted
-Caused by: org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findAllByMovieName(java.lang.String); Reason: Failed to create query for method public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findAllByMovieName(java.lang.String); No property 'name' found for type 'Movie' Traversed path: Show.movie.
-	at org.springframework.data.repository.query.QueryCreationException.create(QueryCreationException.java:101)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:115)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.mapMethodsToQuery(QueryExecutorMethodInterceptor.java:99)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lambda$new$0(QueryExecutorMethodInterceptor.java:88)
-	at java.base/java.util.Optional.map(Optional.java:260)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.<init>(QueryExecutorMethodInterceptor.java:88)
-	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:357)
-	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.lambda$afterPropertiesSet$5(RepositoryFactoryBeanSupport.java:279)
-	at org.springframework.data.util.Lazy.getNullable(Lazy.java:229)
-	at org.springframework.data.util.Lazy.get(Lazy.java:113)
-	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:285)
-	at org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.afterPropertiesSet(JpaRepositoryFactoryBean.java:132)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1797)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1747)
-	... 44 common frames omitted
-Caused by: java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findAllByMovieName(java.lang.String); No property 'name' found for type 'Movie' Traversed path: Show.movie.
-	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:96)
-	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:124)
-	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateIfNotFoundQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:258)
-	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$AbstractQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:95)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:111)
-	... 56 common frames omitted
-Caused by: org.springframework.data.mapping.PropertyReferenceException: No property 'name' found for type 'Movie' Traversed path: Show.movie.
-	at org.springframework.data.mapping.PropertyPath.<init>(PropertyPath.java:90)
-	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:423)
-	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:399)
-	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:433)
-	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:456)
-	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:399)
-	at org.springframework.data.mapping.PropertyPath.lambda$from$0(PropertyPath.java:352)
-	at java.base/java.util.concurrent.ConcurrentMap.computeIfAbsent(ConcurrentMap.java:330)
-	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:334)
-	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:317)
-	at org.springframework.data.repository.query.parser.Part.<init>(Part.java:81)
-	at org.springframework.data.repository.query.parser.PartTree$OrPart.lambda$new$0(PartTree.java:242)
-	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
-	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
-	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
-	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
-	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
-	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
-	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
-	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
-	at org.springframework.data.repository.query.parser.PartTree$OrPart.<init>(PartTree.java:243)
-	at org.springframework.data.repository.query.parser.PartTree$Predicate.lambda$new$0(PartTree.java:372)
-	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
-	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
-	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
-	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
-	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
-	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
-	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
-	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
-	at org.springframework.data.repository.query.parser.PartTree$Predicate.<init>(PartTree.java:373)
-	at org.springframework.data.repository.query.parser.PartTree.<init>(PartTree.java:96)
-	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:89)
-	... 60 common frames omitted
-"2023-01-09 16:51:27 INFO Starting Ideas2movieApplication using Java 18.0.2 with PID 12344 (E:\ideas2movie\ideas2movie\target\classes started by LENOVO in E:\ideas2movie\ideas2movie)
- %PARSER_ERROR[l]
-""2023-01-09 16:51:27 INFO No active profile set, falling back to 1 default profile: "default"
- %PARSER_ERROR[l]
-""2023-01-09 16:51:28 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode.
- %PARSER_ERROR[l]
-""2023-01-09 16:51:28 INFO Finished Spring Data repository scanning in 155 ms. Found 11 JPA repository interfaces.
- %PARSER_ERROR[l]
-""2023-01-09 16:51:29 INFO Tomcat initialized with port(s): 8080 (http)
- %PARSER_ERROR[l]
-""2023-01-09 16:51:29 INFO An older version [1.2.35] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.1]
- %PARSER_ERROR[l]
-""2023-01-09 16:51:29 INFO Loaded Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
- %PARSER_ERROR[l]
-""2023-01-09 16:51:29 INFO OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
- %PARSER_ERROR[l]
-""2023-01-09 16:51:29 INFO Starting service [Tomcat]
- %PARSER_ERROR[l]
-""2023-01-09 16:51:29 INFO Starting Servlet engine: [Apache Tomcat/10.1.4]
- %PARSER_ERROR[l]
-""2023-01-09 16:51:29 INFO Initializing Spring embedded WebApplicationContext
- %PARSER_ERROR[l]
-""2023-01-09 16:51:29 INFO Root WebApplicationContext: initialization completed in 2659 ms
- %PARSER_ERROR[l]
-""2023-01-09 16:51:30 INFO HHH000204: Processing PersistenceUnitInfo [name: default]
- %PARSER_ERROR[l]
-""2023-01-09 16:51:30 INFO HHH000412: Hibernate ORM core version 6.1.6.Final
- %PARSER_ERROR[l]
-""2023-01-09 16:51:30 WARN HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
- %PARSER_ERROR[l]
-""2023-01-09 16:51:30 INFO HikariPool-1 - Starting...
- %PARSER_ERROR[l]
-""2023-01-09 16:51:31 INFO HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7e848aea
- %PARSER_ERROR[l]
-""2023-01-09 16:51:31 INFO HikariPool-1 - Start completed.
- %PARSER_ERROR[l]
-""2023-01-09 16:51:31 INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
- %PARSER_ERROR[l]
-""2023-01-09 16:51:33 INFO HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
- %PARSER_ERROR[l]
-""2023-01-09 16:51:33 INFO Initialized JPA EntityManagerFactory for persistence unit 'default'
- %PARSER_ERROR[l]
-""2023-01-09 16:51:34 WARN Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'showController' defined in file [E:\ideas2movie\ideas2movie\target\classes\com\ideas2it\ideas2movie\controller\ShowController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'showServiceImpl' defined in file [E:\ideas2movie\ideas2movie\target\classes\com\ideas2it\ideas2movie\service\impl\ShowServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'showRepository' defined in com.ideas2it.ideas2movie.repository.ShowRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findByMovieName(java.lang.String); Reason: Failed to create query for method public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findByMovieName(java.lang.String); No property 'name' found for type 'Movie' Traversed path: Show.movie.
- %PARSER_ERROR[l]
-""2023-01-09 16:51:34 INFO Closing JPA EntityManagerFactory for persistence unit 'default'
- %PARSER_ERROR[l]
-""2023-01-09 16:51:34 INFO HikariPool-1 - Shutdown initiated...
- %PARSER_ERROR[l]
-""2023-01-09 16:51:34 INFO HikariPool-1 - Shutdown completed.
- %PARSER_ERROR[l]
-""2023-01-09 16:51:34 INFO Stopping service [Tomcat]
- %PARSER_ERROR[l]
-""2023-01-09 16:51:34 INFO 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
- %PARSER_ERROR[l]
-""2023-01-09 16:51:34 ERROR Application run failed
- %PARSER_ERROR[l]
-"org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'showController' defined in file [E:\ideas2movie\ideas2movie\target\classes\com\ideas2it\ideas2movie\controller\ShowController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'showServiceImpl' defined in file [E:\ideas2movie\ideas2movie\target\classes\com\ideas2it\ideas2movie\service\impl\ShowServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'showRepository' defined in com.ideas2it.ideas2movie.repository.ShowRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findByMovieName(java.lang.String); Reason: Failed to create query for method public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findByMovieName(java.lang.String); No property 'name' found for type 'Movie' Traversed path: Show.movie.
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:798)
-	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:245)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1344)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1188)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:561)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:961)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:915)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:432)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291)
-	at com.ideas2it.ideas2movie.Ideas2movieApplication.main(Ideas2movieApplication.java:11)
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'showServiceImpl' defined in file [E:\ideas2movie\ideas2movie\target\classes\com\ideas2it\ideas2movie\service\impl\ShowServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'showRepository' defined in com.ideas2it.ideas2movie.repository.ShowRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findByMovieName(java.lang.String); Reason: Failed to create query for method public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findByMovieName(java.lang.String); No property 'name' found for type 'Movie' Traversed path: Show.movie.
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:798)
-	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:245)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1344)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1188)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:561)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1405)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1325)
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:885)
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:789)
-	... 19 common frames omitted
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'showRepository' defined in com.ideas2it.ideas2movie.repository.ShowRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findByMovieName(java.lang.String); Reason: Failed to create query for method public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findByMovieName(java.lang.String); No property 'name' found for type 'Movie' Traversed path: Show.movie.
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1751)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1405)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1325)
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:885)
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:789)
-	... 33 common frames omitted
-Caused by: org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findByMovieName(java.lang.String); Reason: Failed to create query for method public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findByMovieName(java.lang.String); No property 'name' found for type 'Movie' Traversed path: Show.movie.
-	at org.springframework.data.repository.query.QueryCreationException.create(QueryCreationException.java:101)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:115)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.mapMethodsToQuery(QueryExecutorMethodInterceptor.java:99)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lambda$new$0(QueryExecutorMethodInterceptor.java:88)
-	at java.base/java.util.Optional.map(Optional.java:260)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.<init>(QueryExecutorMethodInterceptor.java:88)
-	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:357)
-	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.lambda$afterPropertiesSet$5(RepositoryFactoryBeanSupport.java:279)
-	at org.springframework.data.util.Lazy.getNullable(Lazy.java:229)
-	at org.springframework.data.util.Lazy.get(Lazy.java:113)
-	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:285)
-	at org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.afterPropertiesSet(JpaRepositoryFactoryBean.java:132)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1797)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1747)
-	... 44 common frames omitted
-Caused by: java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findByMovieName(java.lang.String); No property 'name' found for type 'Movie' Traversed path: Show.movie.
-	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:96)
-	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:124)
-	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateIfNotFoundQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:258)
-	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$AbstractQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:95)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:111)
-	... 56 common frames omitted
-Caused by: org.springframework.data.mapping.PropertyReferenceException: No property 'name' found for type 'Movie' Traversed path: Show.movie.
-	at org.springframework.data.mapping.PropertyPath.<init>(PropertyPath.java:90)
-	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:423)
-	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:399)
-	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:433)
-	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:456)
-	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:399)
-	at org.springframework.data.mapping.PropertyPath.lambda$from$0(PropertyPath.java:352)
-	at java.base/java.util.concurrent.ConcurrentMap.computeIfAbsent(ConcurrentMap.java:330)
-	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:334)
-	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:317)
-	at org.springframework.data.repository.query.parser.Part.<init>(Part.java:81)
-	at org.springframework.data.repository.query.parser.PartTree$OrPart.lambda$new$0(PartTree.java:242)
-	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
-	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
-	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
-	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
-	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
-	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
-	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
-	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
-	at org.springframework.data.repository.query.parser.PartTree$OrPart.<init>(PartTree.java:243)
-	at org.springframework.data.repository.query.parser.PartTree$Predicate.lambda$new$0(PartTree.java:372)
-	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
-	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
-	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
-	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
-	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
-	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
-	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
-	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
-	at org.springframework.data.repository.query.parser.PartTree$Predicate.<init>(PartTree.java:373)
-	at org.springframework.data.repository.query.parser.PartTree.<init>(PartTree.java:96)
-	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:89)
-	... 60 common frames omitted
-"2023-01-09 16:52:51 INFO Starting Ideas2movieApplication using Java 18.0.2 with PID 10116 (E:\ideas2movie\ideas2movie\target\classes started by LENOVO in E:\ideas2movie\ideas2movie)
- %PARSER_ERROR[l]
-""2023-01-09 16:52:51 INFO No active profile set, falling back to 1 default profile: "default"
- %PARSER_ERROR[l]
-""2023-01-09 16:52:53 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode.
- %PARSER_ERROR[l]
-""2023-01-09 16:52:53 INFO Finished Spring Data repository scanning in 160 ms. Found 11 JPA repository interfaces.
- %PARSER_ERROR[l]
-""2023-01-09 16:52:54 INFO Tomcat initialized with port(s): 8080 (http)
- %PARSER_ERROR[l]
-""2023-01-09 16:52:54 INFO An older version [1.2.35] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.1]
- %PARSER_ERROR[l]
-""2023-01-09 16:52:54 INFO Loaded Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
- %PARSER_ERROR[l]
-""2023-01-09 16:52:54 INFO OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
- %PARSER_ERROR[l]
-""2023-01-09 16:52:54 INFO Starting service [Tomcat]
- %PARSER_ERROR[l]
-""2023-01-09 16:52:54 INFO Starting Servlet engine: [Apache Tomcat/10.1.4]
- %PARSER_ERROR[l]
-""2023-01-09 16:52:54 INFO Initializing Spring embedded WebApplicationContext
- %PARSER_ERROR[l]
-""2023-01-09 16:52:54 INFO Root WebApplicationContext: initialization completed in 2590 ms
- %PARSER_ERROR[l]
-""2023-01-09 16:52:54 INFO HHH000204: Processing PersistenceUnitInfo [name: default]
- %PARSER_ERROR[l]
-""2023-01-09 16:52:54 INFO HHH000412: Hibernate ORM core version 6.1.6.Final
- %PARSER_ERROR[l]
-""2023-01-09 16:52:55 WARN HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
- %PARSER_ERROR[l]
-""2023-01-09 16:52:55 INFO HikariPool-1 - Starting...
- %PARSER_ERROR[l]
-""2023-01-09 16:52:55 INFO HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@9f0fc36
- %PARSER_ERROR[l]
-""2023-01-09 16:52:55 INFO HikariPool-1 - Start completed.
- %PARSER_ERROR[l]
-""2023-01-09 16:52:55 INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
- %PARSER_ERROR[l]
-""2023-01-09 16:52:57 INFO HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
- %PARSER_ERROR[l]
-""2023-01-09 16:52:57 INFO Initialized JPA EntityManagerFactory for persistence unit 'default'
- %PARSER_ERROR[l]
-""2023-01-09 16:52:58 WARN spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
- %PARSER_ERROR[l]
-""2023-01-09 16:52:59 INFO Tomcat started on port(s): 8080 (http) with context path ''
- %PARSER_ERROR[l]
-""2023-01-09 16:52:59 INFO Started Ideas2movieApplication in 8.566 seconds (process running for 9.648)
- %PARSER_ERROR[l]
-""2023-01-09 17:13:19 WARN HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m23s310ms72µs700ns).
- %PARSER_ERROR[l]
-""2023-01-09 17:16:04 INFO Closing JPA EntityManagerFactory for persistence unit 'default'
- %PARSER_ERROR[l]
-""2023-01-09 17:16:04 INFO HikariPool-1 - Shutdown initiated...
- %PARSER_ERROR[l]
-""2023-01-09 17:16:04 INFO HikariPool-1 - Shutdown completed.
- %PARSER_ERROR[l]
-""2023-01-09 17:16:14 INFO Starting Ideas2movieApplication using Java 18.0.2 with PID 14936 (E:\ideas2movie\ideas2movie\target\classes started by LENOVO in E:\ideas2movie\ideas2movie)
- %PARSER_ERROR[l]
-""2023-01-09 17:16:14 INFO No active profile set, falling back to 1 default profile: "default"
- %PARSER_ERROR[l]
-""2023-01-09 17:16:15 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode.
- %PARSER_ERROR[l]
-""2023-01-09 17:16:15 INFO Finished Spring Data repository scanning in 159 ms. Found 11 JPA repository interfaces.
- %PARSER_ERROR[l]
-""2023-01-09 17:16:16 INFO Tomcat initialized with port(s): 8080 (http)
- %PARSER_ERROR[l]
-""2023-01-09 17:16:16 INFO An older version [1.2.35] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.1]
- %PARSER_ERROR[l]
-""2023-01-09 17:16:16 INFO Loaded Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
- %PARSER_ERROR[l]
-""2023-01-09 17:16:16 INFO OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
- %PARSER_ERROR[l]
-""2023-01-09 17:16:16 INFO Starting service [Tomcat]
- %PARSER_ERROR[l]
-""2023-01-09 17:16:16 INFO Starting Servlet engine: [Apache Tomcat/10.1.4]
- %PARSER_ERROR[l]
-""2023-01-09 17:16:16 INFO Initializing Spring embedded WebApplicationContext
- %PARSER_ERROR[l]
-""2023-01-09 17:16:16 INFO Root WebApplicationContext: initialization completed in 1923 ms
- %PARSER_ERROR[l]
-""2023-01-09 17:16:16 INFO HHH000204: Processing PersistenceUnitInfo [name: default]
- %PARSER_ERROR[l]
-""2023-01-09 17:16:16 INFO HHH000412: Hibernate ORM core version 6.1.6.Final
- %PARSER_ERROR[l]
-""2023-01-09 17:16:17 WARN HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
- %PARSER_ERROR[l]
-""2023-01-09 17:16:17 INFO HikariPool-1 - Starting...
- %PARSER_ERROR[l]
-""2023-01-09 17:16:17 INFO HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@9f0fc36
- %PARSER_ERROR[l]
-""2023-01-09 17:16:17 INFO HikariPool-1 - Start completed.
- %PARSER_ERROR[l]
-""2023-01-09 17:16:17 INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
- %PARSER_ERROR[l]
-""2023-01-09 17:16:19 INFO HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
- %PARSER_ERROR[l]
-""2023-01-09 17:16:20 INFO Initialized JPA EntityManagerFactory for persistence unit 'default'
- %PARSER_ERROR[l]
-""2023-01-09 17:16:20 WARN Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'showController' defined in file [E:\ideas2movie\ideas2movie\target\classes\com\ideas2it\ideas2movie\controller\ShowController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'showServiceImpl' defined in file [E:\ideas2movie\ideas2movie\target\classes\com\ideas2it\ideas2movie\service\impl\ShowServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'showRepository' defined in com.ideas2it.ideas2movie.repository.ShowRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findByMovieMovieName(java.lang.String); Reason: Failed to create query for method public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findByMovieMovieName(java.lang.String); No property 'movieName' found for type 'Movie' Traversed path: Show.movie.
- %PARSER_ERROR[l]
-""2023-01-09 17:16:20 INFO Closing JPA EntityManagerFactory for persistence unit 'default'
- %PARSER_ERROR[l]
-""2023-01-09 17:16:20 INFO HikariPool-1 - Shutdown initiated...
- %PARSER_ERROR[l]
-""2023-01-09 17:16:20 INFO HikariPool-1 - Shutdown completed.
- %PARSER_ERROR[l]
-""2023-01-09 17:16:20 INFO Stopping service [Tomcat]
- %PARSER_ERROR[l]
-""2023-01-09 17:16:20 INFO 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
- %PARSER_ERROR[l]
-""2023-01-09 17:16:20 ERROR Application run failed
- %PARSER_ERROR[l]
-"org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'showController' defined in file [E:\ideas2movie\ideas2movie\target\classes\com\ideas2it\ideas2movie\controller\ShowController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'showServiceImpl' defined in file [E:\ideas2movie\ideas2movie\target\classes\com\ideas2it\ideas2movie\service\impl\ShowServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'showRepository' defined in com.ideas2it.ideas2movie.repository.ShowRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findByMovieMovieName(java.lang.String); Reason: Failed to create query for method public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findByMovieMovieName(java.lang.String); No property 'movieName' found for type 'Movie' Traversed path: Show.movie.
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:798)
-	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:245)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1344)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1188)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:561)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:961)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:915)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:432)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291)
-	at com.ideas2it.ideas2movie.Ideas2movieApplication.main(Ideas2movieApplication.java:11)
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'showServiceImpl' defined in file [E:\ideas2movie\ideas2movie\target\classes\com\ideas2it\ideas2movie\service\impl\ShowServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'showRepository' defined in com.ideas2it.ideas2movie.repository.ShowRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findByMovieMovieName(java.lang.String); Reason: Failed to create query for method public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findByMovieMovieName(java.lang.String); No property 'movieName' found for type 'Movie' Traversed path: Show.movie.
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:798)
-	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:245)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1344)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1188)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:561)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1405)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1325)
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:885)
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:789)
-	... 19 common frames omitted
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'showRepository' defined in com.ideas2it.ideas2movie.repository.ShowRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findByMovieMovieName(java.lang.String); Reason: Failed to create query for method public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findByMovieMovieName(java.lang.String); No property 'movieName' found for type 'Movie' Traversed path: Show.movie.
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1751)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1405)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1325)
-	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:885)
-	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:789)
-	... 33 common frames omitted
-Caused by: org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findByMovieMovieName(java.lang.String); Reason: Failed to create query for method public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findByMovieMovieName(java.lang.String); No property 'movieName' found for type 'Movie' Traversed path: Show.movie.
-	at org.springframework.data.repository.query.QueryCreationException.create(QueryCreationException.java:101)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:115)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.mapMethodsToQuery(QueryExecutorMethodInterceptor.java:99)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lambda$new$0(QueryExecutorMethodInterceptor.java:88)
-	at java.base/java.util.Optional.map(Optional.java:260)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.<init>(QueryExecutorMethodInterceptor.java:88)
-	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:357)
-	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.lambda$afterPropertiesSet$5(RepositoryFactoryBeanSupport.java:279)
-	at org.springframework.data.util.Lazy.getNullable(Lazy.java:229)
-	at org.springframework.data.util.Lazy.get(Lazy.java:113)
-	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:285)
-	at org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.afterPropertiesSet(JpaRepositoryFactoryBean.java:132)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1797)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1747)
-	... 44 common frames omitted
-Caused by: java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.ideas2it.ideas2movie.repository.ShowRepository.findByMovieMovieName(java.lang.String); No property 'movieName' found for type 'Movie' Traversed path: Show.movie.
-	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:96)
-	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:124)
-	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateIfNotFoundQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:258)
-	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$AbstractQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:95)
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:111)
-	... 56 common frames omitted
-Caused by: org.springframework.data.mapping.PropertyReferenceException: No property 'movieName' found for type 'Movie' Traversed path: Show.movie.
-	at org.springframework.data.mapping.PropertyPath.<init>(PropertyPath.java:90)
-	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:423)
-	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:399)
-	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:433)
-	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:456)
-	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:456)
-	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:399)
-	at org.springframework.data.mapping.PropertyPath.lambda$from$0(PropertyPath.java:352)
-	at java.base/java.util.concurrent.ConcurrentMap.computeIfAbsent(ConcurrentMap.java:330)
-	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:334)
-	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:317)
-	at org.springframework.data.repository.query.parser.Part.<init>(Part.java:81)
-	at org.springframework.data.repository.query.parser.PartTree$OrPart.lambda$new$0(PartTree.java:242)
-	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
-	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
-	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
-	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
-	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
-	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
-	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
-	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
-	at org.springframework.data.repository.query.parser.PartTree$OrPart.<init>(PartTree.java:243)
-	at org.springframework.data.repository.query.parser.PartTree$Predicate.lambda$new$0(PartTree.java:372)
-	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
-	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
-	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
-	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
-	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
-	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
-	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
-	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
-	at org.springframework.data.repository.query.parser.PartTree$Predicate.<init>(PartTree.java:373)
-	at org.springframework.data.repository.query.parser.PartTree.<init>(PartTree.java:96)
-	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:89)
-	... 60 common frames omitted
-"2023-01-09 17:18:12 INFO Starting Ideas2movieApplication using Java 18.0.2 with PID 8076 (E:\ideas2movie\ideas2movie\target\classes started by LENOVO in E:\ideas2movie\ideas2movie)
- %PARSER_ERROR[l]
-""2023-01-09 17:18:12 INFO No active profile set, falling back to 1 default profile: "default"
- %PARSER_ERROR[l]
-""2023-01-09 17:18:13 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode.
- %PARSER_ERROR[l]
-""2023-01-09 17:18:13 INFO Finished Spring Data repository scanning in 124 ms. Found 11 JPA repository interfaces.
- %PARSER_ERROR[l]
-""2023-01-09 17:18:14 INFO Tomcat initialized with port(s): 8080 (http)
- %PARSER_ERROR[l]
-""2023-01-09 17:18:14 INFO An older version [1.2.35] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.1]
- %PARSER_ERROR[l]
-""2023-01-09 17:18:14 INFO Loaded Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
- %PARSER_ERROR[l]
-""2023-01-09 17:18:14 INFO OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
- %PARSER_ERROR[l]
-""2023-01-09 17:18:14 INFO Starting service [Tomcat]
- %PARSER_ERROR[l]
-""2023-01-09 17:18:14 INFO Starting Servlet engine: [Apache Tomcat/10.1.4]
- %PARSER_ERROR[l]
-""2023-01-09 17:18:14 INFO Initializing Spring embedded WebApplicationContext
- %PARSER_ERROR[l]
-""2023-01-09 17:18:14 INFO Root WebApplicationContext: initialization completed in 1824 ms
- %PARSER_ERROR[l]
-""2023-01-09 17:18:14 INFO HHH000204: Processing PersistenceUnitInfo [name: default]
- %PARSER_ERROR[l]
-""2023-01-09 17:18:14 INFO HHH000412: Hibernate ORM core version 6.1.6.Final
- %PARSER_ERROR[l]
-""2023-01-09 17:18:15 WARN HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
- %PARSER_ERROR[l]
-""2023-01-09 17:18:15 INFO HikariPool-1 - Starting...
- %PARSER_ERROR[l]
-""2023-01-09 17:18:15 INFO HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@786a3477
- %PARSER_ERROR[l]
-""2023-01-09 17:18:15 INFO HikariPool-1 - Start completed.
- %PARSER_ERROR[l]
-""2023-01-09 17:18:15 INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
- %PARSER_ERROR[l]
-""2023-01-09 17:18:17 INFO HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
- %PARSER_ERROR[l]
-""2023-01-09 17:18:17 INFO Initialized JPA EntityManagerFactory for persistence unit 'default'
- %PARSER_ERROR[l]
-""2023-01-09 17:18:18 WARN spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
- %PARSER_ERROR[l]
-""2023-01-09 17:18:18 INFO Tomcat started on port(s): 8080 (http) with context path ''
- %PARSER_ERROR[l]
-""2023-01-09 17:18:18 INFO Started Ideas2movieApplication in 6.926 seconds (process running for 7.806)
- %PARSER_ERROR[l]
-""2023-01-09 17:20:18 INFO Closing JPA EntityManagerFactory for persistence unit 'default'
- %PARSER_ERROR[l]
-""2023-01-09 17:20:18 INFO HikariPool-1 - Shutdown initiated...
- %PARSER_ERROR[l]
-""2023-01-09 17:20:18 INFO HikariPool-1 - Shutdown completed.
- %PARSER_ERROR[l]
-""2023-01-09 19:50:47 INFO Starting Ideas2movieApplication using Java 18.0.2 with PID 1080 (E:\ideas2movie\ideas2movie\target\classes started by LENOVO in E:\ideas2movie\ideas2movie)
- %PARSER_ERROR[l]
-""2023-01-09 19:50:47 INFO No active profile set, falling back to 1 default profile: "default"
- %PARSER_ERROR[l]
-""2023-01-09 19:50:49 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode.
- %PARSER_ERROR[l]
-""2023-01-09 19:50:49 INFO Finished Spring Data repository scanning in 122 ms. Found 11 JPA repository interfaces.
- %PARSER_ERROR[l]
-""2023-01-09 19:50:49 INFO Tomcat initialized with port(s): 8080 (http)
- %PARSER_ERROR[l]
-""2023-01-09 19:50:49 INFO An older version [1.2.35] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.1]
- %PARSER_ERROR[l]
-""2023-01-09 19:50:49 INFO Loaded Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
- %PARSER_ERROR[l]
-""2023-01-09 19:50:49 INFO OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
- %PARSER_ERROR[l]
-""2023-01-09 19:50:49 INFO Starting service [Tomcat]
- %PARSER_ERROR[l]
-""2023-01-09 19:50:49 INFO Starting Servlet engine: [Apache Tomcat/10.1.4]
- %PARSER_ERROR[l]
-""2023-01-09 19:50:50 INFO Initializing Spring embedded WebApplicationContext
- %PARSER_ERROR[l]
-""2023-01-09 19:50:50 INFO Root WebApplicationContext: initialization completed in 2049 ms
- %PARSER_ERROR[l]
-""2023-01-09 19:50:50 INFO HHH000204: Processing PersistenceUnitInfo [name: default]
- %PARSER_ERROR[l]
-""2023-01-09 19:50:50 INFO HHH000412: Hibernate ORM core version 6.1.6.Final
- %PARSER_ERROR[l]
-""2023-01-09 19:50:50 WARN HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
- %PARSER_ERROR[l]
-""2023-01-09 19:50:50 INFO HikariPool-1 - Starting...
- %PARSER_ERROR[l]
-""2023-01-09 19:50:51 INFO HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4239262e
- %PARSER_ERROR[l]
-""2023-01-09 19:50:51 INFO HikariPool-1 - Start completed.
- %PARSER_ERROR[l]
-""2023-01-09 19:50:51 INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
- %PARSER_ERROR[l]
-""2023-01-09 19:50:53 INFO HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
- %PARSER_ERROR[l]
-""2023-01-09 19:50:53 INFO Initialized JPA EntityManagerFactory for persistence unit 'default'
- %PARSER_ERROR[l]
-""2023-01-09 19:50:54 WARN spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
- %PARSER_ERROR[l]
-""2023-01-09 19:50:54 INFO Tomcat started on port(s): 8080 (http) with context path ''
- %PARSER_ERROR[l]
-""2023-01-09 19:50:54 INFO Started Ideas2movieApplication in 7.434 seconds (process running for 8.545)
- %PARSER_ERROR[l]
-""2023-01-09 19:50:59 INFO Closing JPA EntityManagerFactory for persistence unit 'default'
- %PARSER_ERROR[l]
-""2023-01-09 19:50:59 INFO HikariPool-1 - Shutdown initiated...
- %PARSER_ERROR[l]
-""2023-01-09 19:50:59 INFO HikariPool-1 - Shutdown completed.
+""2023-01-10 15:46:13 INFO Tomcat initialized with port(s): 8080 (http)
+ %PARSER_ERROR[l]
+""2023-01-10 15:46:13 INFO An older version [1.2.35] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.1]
+ %PARSER_ERROR[l]
+""2023-01-10 15:46:13 INFO Loaded Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
+ %PARSER_ERROR[l]
+""2023-01-10 15:46:13 INFO OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
+ %PARSER_ERROR[l]
+""2023-01-10 15:46:13 INFO Starting service [Tomcat]
+ %PARSER_ERROR[l]
+""2023-01-10 15:46:13 INFO Starting Servlet engine: [Apache Tomcat/10.1.4]
+ %PARSER_ERROR[l]
+""2023-01-10 15:46:13 INFO Initializing Spring embedded WebApplicationContext
+ %PARSER_ERROR[l]
+""2023-01-10 15:46:13 INFO Root WebApplicationContext: initialization completed in 1797 ms
+ %PARSER_ERROR[l]
+""2023-01-10 15:46:13 INFO HHH000204: Processing PersistenceUnitInfo [name: default]
+ %PARSER_ERROR[l]
+""2023-01-10 15:46:13 INFO HHH000412: Hibernate ORM core version 6.1.6.Final
+ %PARSER_ERROR[l]
+""2023-01-10 15:46:13 WARN HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+ %PARSER_ERROR[l]
+""2023-01-10 15:46:13 INFO HikariPool-1 - Starting...
+ %PARSER_ERROR[l]
+""2023-01-10 15:46:14 INFO HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@fabef2e
+ %PARSER_ERROR[l]
+""2023-01-10 15:46:14 INFO HikariPool-1 - Start completed.
+ %PARSER_ERROR[l]
+""2023-01-10 15:46:14 INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+ %PARSER_ERROR[l]
+""2023-01-10 15:46:16 INFO HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+ %PARSER_ERROR[l]
+""2023-01-10 15:46:16 INFO Initialized JPA EntityManagerFactory for persistence unit 'default'
+ %PARSER_ERROR[l]
+""2023-01-10 15:46:17 WARN spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+ %PARSER_ERROR[l]
+""2023-01-10 15:46:18 INFO Tomcat started on port(s): 8080 (http) with context path ''
+ %PARSER_ERROR[l]
+""2023-01-10 15:46:18 INFO Started Ideas2movieApplication in 7.168 seconds (process running for 8.075)
+ %PARSER_ERROR[l]
+""2023-01-10 17:45:37 WARN HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=18m50s855ms907µs100ns).
+ %PARSER_ERROR[l]
+""2023-01-10 17:56:02 INFO Closing JPA EntityManagerFactory for persistence unit 'default'
+ %PARSER_ERROR[l]
+""2023-01-10 17:56:02 INFO HikariPool-1 - Shutdown initiated...
+ %PARSER_ERROR[l]
+""2023-01-10 17:56:03 INFO HikariPool-1 - Shutdown completed.
+ %PARSER_ERROR[l]
+""2023-01-10 17:56:51 INFO Starting Ideas2movieApplication using Java 18.0.2 with PID 6296 (E:\ideas2movie\ideas2movie\target\classes started by LENOVO in E:\ideas2movie\ideas2movie)
+ %PARSER_ERROR[l]
+""2023-01-10 17:56:51 INFO No active profile set, falling back to 1 default profile: "default"
+ %PARSER_ERROR[l]
+""2023-01-10 17:56:53 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+ %PARSER_ERROR[l]
+""2023-01-10 17:56:53 INFO Finished Spring Data repository scanning in 239 ms. Found 11 JPA repository interfaces.
+ %PARSER_ERROR[l]
+""2023-01-10 17:56:54 INFO Tomcat initialized with port(s): 8080 (http)
+ %PARSER_ERROR[l]
+""2023-01-10 17:56:54 INFO An older version [1.2.35] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.1]
+ %PARSER_ERROR[l]
+""2023-01-10 17:56:54 INFO Loaded Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
+ %PARSER_ERROR[l]
+""2023-01-10 17:56:54 INFO OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
+ %PARSER_ERROR[l]
+""2023-01-10 17:56:54 INFO Starting service [Tomcat]
+ %PARSER_ERROR[l]
+""2023-01-10 17:56:54 INFO Starting Servlet engine: [Apache Tomcat/10.1.4]
+ %PARSER_ERROR[l]
+""2023-01-10 17:56:54 INFO Initializing Spring embedded WebApplicationContext
+ %PARSER_ERROR[l]
+""2023-01-10 17:56:54 INFO Root WebApplicationContext: initialization completed in 3112 ms
+ %PARSER_ERROR[l]
+""2023-01-10 17:56:55 INFO HHH000204: Processing PersistenceUnitInfo [name: default]
+ %PARSER_ERROR[l]
+""2023-01-10 17:56:55 INFO HHH000412: Hibernate ORM core version 6.1.6.Final
+ %PARSER_ERROR[l]
+""2023-01-10 17:56:55 WARN HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+ %PARSER_ERROR[l]
+""2023-01-10 17:56:56 INFO HikariPool-1 - Starting...
+ %PARSER_ERROR[l]
+""2023-01-10 17:56:56 INFO HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5cc3e49b
+ %PARSER_ERROR[l]
+""2023-01-10 17:56:56 INFO HikariPool-1 - Start completed.
+ %PARSER_ERROR[l]
+""2023-01-10 17:56:57 INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+ %PARSER_ERROR[l]
+""2023-01-10 17:57:00 INFO HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+ %PARSER_ERROR[l]
+""2023-01-10 17:57:00 INFO Initialized JPA EntityManagerFactory for persistence unit 'default'
+ %PARSER_ERROR[l]
+""2023-01-10 17:57:02 WARN spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+ %PARSER_ERROR[l]
+""2023-01-10 17:57:03 INFO Tomcat started on port(s): 8080 (http) with context path ''
+ %PARSER_ERROR[l]
+""2023-01-10 17:57:03 INFO Started Ideas2movieApplication in 13.206 seconds (process running for 14.659)
+ %PARSER_ERROR[l]
+""2023-01-10 17:57:28 INFO Closing JPA EntityManagerFactory for persistence unit 'default'
+ %PARSER_ERROR[l]
+""2023-01-10 17:57:28 INFO HikariPool-1 - Shutdown initiated...
+ %PARSER_ERROR[l]
+""2023-01-10 17:57:28 INFO HikariPool-1 - Shutdown completed.
+ %PARSER_ERROR[l]
+""2023-01-10 17:57:36 INFO Starting Ideas2movieApplication using Java 18.0.2 with PID 19028 (E:\ideas2movie\ideas2movie\target\classes started by LENOVO in E:\ideas2movie\ideas2movie)
+ %PARSER_ERROR[l]
+""2023-01-10 17:57:36 INFO No active profile set, falling back to 1 default profile: "default"
+ %PARSER_ERROR[l]
+""2023-01-10 17:57:38 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+ %PARSER_ERROR[l]
+""2023-01-10 17:57:38 INFO Finished Spring Data repository scanning in 267 ms. Found 11 JPA repository interfaces.
+ %PARSER_ERROR[l]
+""2023-01-10 17:57:39 INFO Tomcat initialized with port(s): 8080 (http)
+ %PARSER_ERROR[l]
+""2023-01-10 17:57:39 INFO An older version [1.2.35] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.1]
+ %PARSER_ERROR[l]
+""2023-01-10 17:57:39 INFO Loaded Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
+ %PARSER_ERROR[l]
+""2023-01-10 17:57:39 INFO OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
+ %PARSER_ERROR[l]
+""2023-01-10 17:57:39 INFO Starting service [Tomcat]
+ %PARSER_ERROR[l]
+""2023-01-10 17:57:39 INFO Starting Servlet engine: [Apache Tomcat/10.1.4]
+ %PARSER_ERROR[l]
+""2023-01-10 17:57:39 INFO Initializing Spring embedded WebApplicationContext
+ %PARSER_ERROR[l]
+""2023-01-10 17:57:39 INFO Root WebApplicationContext: initialization completed in 2900 ms
+ %PARSER_ERROR[l]
+""2023-01-10 17:57:39 INFO HHH000204: Processing PersistenceUnitInfo [name: default]
+ %PARSER_ERROR[l]
+""2023-01-10 17:57:39 INFO HHH000412: Hibernate ORM core version 6.1.6.Final
+ %PARSER_ERROR[l]
+""2023-01-10 17:57:40 WARN HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+ %PARSER_ERROR[l]
+""2023-01-10 17:57:40 INFO HikariPool-1 - Starting...
+ %PARSER_ERROR[l]
+""2023-01-10 17:57:40 INFO HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@9f0fc36
+ %PARSER_ERROR[l]
+""2023-01-10 17:57:40 INFO HikariPool-1 - Start completed.
+ %PARSER_ERROR[l]
+""2023-01-10 17:57:40 INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+ %PARSER_ERROR[l]
+""2023-01-10 17:57:44 INFO HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+ %PARSER_ERROR[l]
+""2023-01-10 17:57:44 INFO Initialized JPA EntityManagerFactory for persistence unit 'default'
+ %PARSER_ERROR[l]
+""2023-01-10 17:57:45 WARN spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+ %PARSER_ERROR[l]
+""2023-01-10 17:57:46 INFO Tomcat started on port(s): 8080 (http) with context path ''
+ %PARSER_ERROR[l]
+""2023-01-10 17:57:46 INFO Started Ideas2movieApplication in 10.84 seconds (process running for 12.132)
+ %PARSER_ERROR[l]
+""2023-01-10 17:58:28 INFO Closing JPA EntityManagerFactory for persistence unit 'default'
+ %PARSER_ERROR[l]
+""2023-01-10 17:58:28 INFO HikariPool-1 - Shutdown initiated...
+ %PARSER_ERROR[l]
+""2023-01-10 17:58:28 INFO HikariPool-1 - Shutdown completed.
  %PARSER_ERROR[l]
 "

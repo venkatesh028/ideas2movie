@@ -15,10 +15,10 @@ import lombok.Setter;
 
 /**
  * <h1>
- *     Role DTO
+ *     RoleDTO
  * </h1>
  * <p>
- *     Gets the Input from the Client for the Role Entity
+ *     RoleDTO is used to get the Details for the Role
  * </p>
  *
  * @author AJAISHARMA

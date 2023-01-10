@@ -44,7 +44,7 @@ import org.hibernate.annotations.Where;
 @Setter
 @NoArgsConstructor
 @Table(name = "screen")
-@Where(clause = "is_active = false")
+@Where(clause = "is_active = true")
 public class Screen {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -59,6 +59,7 @@ public class Screen {
     @NotNull
     private int totalNumberOfColumns;
     @CreationTimestamp
+    @Column(updatable = false)
     private Timestamp createdAt;
     @UpdateTimestamp
     private Timestamp updatedAt;

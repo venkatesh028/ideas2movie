@@ -6,6 +6,7 @@ package com.ideas2it.ideas2movie.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -31,12 +32,13 @@ public class MovieDTO {
     private Long id;
     @NotBlank(message = Message.MOVIE_NAME_SHOULD_NOT_BE_EMPTY)
     private String name;
-    @NotBlank(message = Message.LANGUAGE_SHOULD_NOT_BE_EMPTY)
+
+    @NotNull
     private Language language;
-    @NotBlank(message = Message.DURATION_SHOULD_NOT_BE_EMPTY)
+    @NotNull(message = Message.DURATION_SHOULD_NOT_BE_EMPTY)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
     private LocalTime duration;
-    @NotBlank(message = Message.GENRE_SHOULD_NOT_BE_EMPTY)
-    private Genre gener;
+    @NotNull
+    private Genre genre;
     private CastAndCrew castAndCrew;
 }

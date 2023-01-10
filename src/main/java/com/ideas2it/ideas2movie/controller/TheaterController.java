@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -44,7 +45,7 @@ import com.ideas2it.ideas2movie.service.TheaterService;
  * @since 06-01-2023
  */
 @RestController
-@RequestMapping("api/v1/theater")
+@RequestMapping("api/v1/theaters")
 public class TheaterController {
     private final TheaterService theaterService;
 
@@ -147,7 +148,7 @@ public class TheaterController {
      *                         it will throw the error message.
      * @throws  NotFoundException - if theater details not exist on a given id.
      */
-    @PostMapping("/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<TheaterResponseDTO> updateTheater(@PathVariable("id") Long id,
                                              @RequestBody TheaterDTO theaterDTO) throws
             NotFoundException, AlreadyExistException {

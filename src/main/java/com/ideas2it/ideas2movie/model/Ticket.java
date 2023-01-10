@@ -4,23 +4,18 @@
  */
 package com.ideas2it.ideas2movie.model;
 
-import jakarta.persistence.ManyToOne;
 import java.sql.Timestamp;
-import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 import org.hibernate.annotations.CreationTimestamp;
 
 /**
@@ -28,7 +23,7 @@ import org.hibernate.annotations.CreationTimestamp;
  *      Ticket
  * </h1>
  * <p>
- *      Entity of the Ticket
+ *      Ticket Entity is used to Hold the Details of the Ticket
  * </p>
  *
  * @author  AJAISHARMA

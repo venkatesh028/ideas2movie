@@ -4,8 +4,6 @@
  */
 package com.ideas2it.ideas2movie.model;
 
-import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotNull;
 import java.sql.Timestamp;
 
 import jakarta.persistence.Column;
@@ -15,6 +13,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,7 +29,7 @@ import org.hibernate.annotations.UpdateTimestamp;
  *      User
  * </h1>
  * <p>
- *      Entity of the User
+ *      User Entity is used to Hold the Details of the User
  * </p>
  *
  * @author  AJAISHARMA

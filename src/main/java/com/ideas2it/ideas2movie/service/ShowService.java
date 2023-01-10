@@ -6,7 +6,6 @@ package com.ideas2it.ideas2movie.service;
 
 import java.util.List;
 
-import com.ideas2it.ideas2movie.model.Show;
 import com.ideas2it.ideas2movie.dto.ShowDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.ShowResponseDTO;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
@@ -78,7 +77,7 @@ public interface ShowService {
      * @return listOfShows - Holds the list of shows
      * @throws NoContentException - Occurs when there is empty list obtained for the given movie name
      */
-    List<Show> getAllShowsByMovieName(String movieName) throws NoContentException;
+    List<ShowResponseDTO> getAllShowsByMovieName(String movieName) throws NoContentException;
 
     /**
      * <h1>

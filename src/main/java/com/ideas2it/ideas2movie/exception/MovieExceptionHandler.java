@@ -47,7 +47,7 @@ public class MovieExceptionHandler {
     public ResponseEntity<ErrorMessageDTO> alreadyExistException(AlreadyExistException alreadyExistException){
         ErrorMessageDTO errorMessage = new ErrorMessageDTO(alreadyExistException.getMessage(),
                                                            HttpStatus.NOT_ACCEPTABLE);
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorMessage);
+        return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(errorMessage);
     }
 
     @ExceptionHandler(NoContentException.class)

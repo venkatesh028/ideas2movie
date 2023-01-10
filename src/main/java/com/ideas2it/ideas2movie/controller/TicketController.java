@@ -4,9 +4,6 @@
  */
 package com.ideas2it.ideas2movie.controller;
 
-import com.ideas2it.ideas2movie.dto.TicketDTO;
-import com.ideas2it.ideas2movie.dto.responsedto.TicketResponseDTO;
-import com.ideas2it.ideas2movie.service.TicketService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,9 +13,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ideas2it.ideas2movie.dto.responsedto.TicketResponseDTO;
+import com.ideas2it.ideas2movie.service.TicketService;
+
 /**
  * <h1>
- *     Ticket Controller
+ *     TicketController
  * </h1>
  * <p>
  *     Gets the Input parameter as a Request from the Client
@@ -39,7 +39,7 @@ public class TicketController {
 
     /**
      * <h1>
-     *     Ticket Controller Constructor
+     *     TicketController Constructor
      * </h1>
      * <p>
      *     Used to Achieve the Autowiring for Ticket Service
@@ -53,26 +53,7 @@ public class TicketController {
 
     /**
      * <h1>
-     *     Book Ticket
-     * </h1>
-     * <p>
-     *     Gets the Input parameter as a Request from the Client
-     *     to Book the Ticket for A Movie
-     *     by sending the Object to the Ticket Service
-     *     to perform Business Logic to Book Ticket
-     * </p>
-     *
-     * @param ticketDTO - Holds the Details to Book a Ticket
-     * @return ResponseEntity - Holds the TicketResponseDTo and Http Status
-     */
-    @PostMapping
-    public ResponseEntity<TicketResponseDTO> bookTicket(@RequestBody TicketDTO ticketDTO) {
-        return ResponseEntity.status(HttpStatus.OK).body(ticketService.addTicket(ticketDTO));
-    }
-
-    /**
-     * <h1>
-     *     Get Ticket By ID
+     *     getTicketByID
      * </h1>
      * <p>
      *     Gets the Input Parameter as a request from Client
