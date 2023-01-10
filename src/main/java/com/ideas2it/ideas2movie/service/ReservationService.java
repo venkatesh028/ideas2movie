@@ -9,6 +9,7 @@ import com.ideas2it.ideas2movie.dto.responsedto.ReservationResponseDTO;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
 import com.ideas2it.ideas2movie.model.Payment;
 import com.ideas2it.ideas2movie.model.Reservation;
+import com.ideas2it.ideas2movie.model.Seat;
 import com.ideas2it.ideas2movie.model.Show;
 import java.util.List;
 
@@ -39,9 +40,8 @@ public interface ReservationService {
      *
      * @param reservationDTO - Holds the details to book Ticket
      * @return ReservationResponseDTO - Holds the Response of the Reservation
-     * @throws AlreadyExistException - when Seats is Booked already
      */
-    ReservationResponseDTO reserveSeats(ReservationDTO reservationDTO) throws AlreadyExistException;
+    ReservationResponseDTO reserveSeats(ReservationDTO reservationDTO);
 
     ReservationResponseDTO cancelBooking(Long id);
 
@@ -74,6 +74,20 @@ public interface ReservationService {
      */
     ReservationResponseDTO getReservationDTOById(Long id);
 
+    /**
+     * <h1>
+     *     getReservedSeats
+     * </h1>
+     * <p>
+     *     Gets the Id of the show from the Show Service
+     *     and gets the Reservations for the Show Id
+     *     and returns the List of Seats which are booked
+     * </p>
+     *
+     * @param showId - ID of the Show to get Booking
+     * @return List<Seat> - holds the Booked seats for a Show
+     */
+    List<Seat> getReservedSeats(Long showId);
     /**
      * <h1>
      *     getReservationById
