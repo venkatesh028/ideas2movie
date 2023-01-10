@@ -118,8 +118,8 @@ public class CastAndCrewController {
      *                         and crew details exist to update on a given id)
      */
     @PostMapping("/{id}")
-     public ResponseEntity<CastAndCrewResponseDTO> updateCastAndCrew(@PathVariable("id") Long id,
-         @RequestBody CastAndCrewDTO castAndCrewDTO)
+     public ResponseEntity<CastAndCrewResponseDTO> updateCastAndCrew(
+            @PathVariable("id") Long id, @RequestBody CastAndCrewDTO castAndCrewDTO)
             throws NotFoundException {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(castAndCrewService.updateCastAndCrew(id,

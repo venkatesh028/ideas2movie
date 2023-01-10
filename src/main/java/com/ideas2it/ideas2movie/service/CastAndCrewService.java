@@ -25,7 +25,7 @@ public interface CastAndCrewService {
 
     /**
      * <h1>
-     *     Add Cast and Crew for Movie
+     *     addCastAndCrew
      * </h1>
      * <p>
      *     Getting castAndCrewDTO from CastAndCrew controller
@@ -40,7 +40,7 @@ public interface CastAndCrewService {
 
     /**
      * <h1>
-     *     Get cast and crew by movie id
+     *     getCastAndCrewByMovieId
      * </h1>
      * <p>
      *     Getting movie id from CastAndCrew controller and
@@ -58,7 +58,7 @@ public interface CastAndCrewService {
 
     /**
      * <h1>
-     *     Update cast and crew details
+     *     updateCastAndCrew
      * </h1>
      * <p>
      *     Getting cast and crew id , castAndCrewDTO from
@@ -76,7 +76,7 @@ public interface CastAndCrewService {
 
     /**
      * <h1>
-     *     Delete cast and crew details
+     *     deleteCastAndCrew
      * </h1>
      * <p>
      *     Getting cast and crew id, castAndCrewDTO object from
