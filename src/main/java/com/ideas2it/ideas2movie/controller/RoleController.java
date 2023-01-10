@@ -4,12 +4,8 @@
  */
 package com.ideas2it.ideas2movie.controller;
 
-import com.ideas2it.ideas2movie.dto.RoleDTO;
-import com.ideas2it.ideas2movie.dto.responsedto.RoleResponseDTO;
-import com.ideas2it.ideas2movie.exception.AlreadyExistException;
-import com.ideas2it.ideas2movie.exception.NotFoundException;
-import com.ideas2it.ideas2movie.service.RoleService;
 import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,9 +14,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ideas2it.ideas2movie.dto.RoleDTO;
+import com.ideas2it.ideas2movie.dto.responsedto.RoleResponseDTO;
+import com.ideas2it.ideas2movie.service.RoleService;
+import com.ideas2it.ideas2movie.exception.AlreadyExistException;
+import com.ideas2it.ideas2movie.exception.NotFoundException;
+
 /**
  * <h1>
- *     Role Controller
+ *     RoleController
  * </h1>
  * <p>
  *     Gets the Input Parameter as a request from the Client
@@ -40,7 +42,7 @@ public class RoleController {
 
     /**
      * <h1>
-     *     Role Controller Constructor
+     *     RoleController Constructor
      * </h1>
      * <p>
      *     Used to achieve the Autowiring for Role Service
@@ -54,7 +56,7 @@ public class RoleController {
 
     /**
      * <h1>
-     *     Create Role
+     *     createRole
      * </h1>
      * <p>
      *     Used to create the Role of the Ideas2Movie User
@@ -73,7 +75,7 @@ public class RoleController {
 
     /**
      * <h1>
-     *     Get All Role
+     *     getAllRole
      * </h1>
      * <p>
      *     Used to get all the Roles of the Ideas2Movie

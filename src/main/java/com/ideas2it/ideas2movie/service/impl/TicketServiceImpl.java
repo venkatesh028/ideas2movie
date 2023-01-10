@@ -4,14 +4,14 @@
  */
 package com.ideas2it.ideas2movie.service.impl;
 
-import com.ideas2it.ideas2movie.dto.TicketDTO;
-import com.ideas2it.ideas2movie.dto.responsedto.TicketResponseDTO;
-import com.ideas2it.ideas2movie.model.Ticket;
-import com.ideas2it.ideas2movie.repository.TicketRepository;
-import com.ideas2it.ideas2movie.service.SeatService;
-import com.ideas2it.ideas2movie.service.TicketService;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+
+import com.ideas2it.ideas2movie.model.Ticket;
+import com.ideas2it.ideas2movie.dto.responsedto.TicketResponseDTO;
+import com.ideas2it.ideas2movie.service.SeatService;
+import com.ideas2it.ideas2movie.service.TicketService;
+import com.ideas2it.ideas2movie.repository.TicketRepository;
 
 /**
  * <h1>
@@ -36,16 +36,6 @@ public class TicketServiceImpl implements TicketService {
     public TicketServiceImpl(TicketRepository ticketRepository, SeatService seatService) {
         this.ticketRepository = ticketRepository;
         this.seatService = seatService;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public TicketResponseDTO addTicket(TicketDTO ticketDTO) {
-        Ticket ticket = mapper.map(ticketDTO, Ticket.class);
-
-        return null;
     }
 
     /**

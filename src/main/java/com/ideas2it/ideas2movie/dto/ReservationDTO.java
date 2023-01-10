@@ -15,10 +15,10 @@ import lombok.Setter;
 
 /**
  * <h1>
- *     Booking DTO
+ *     ReservationDTO
  * </h1>
  * <p>
- *     gets the input from the Client for the Booking Entity
+ *     ReservationDTO is used to get the Details for the Reservation
  * </p>
  *
  * @author AJAISHARMA
@@ -31,7 +31,10 @@ import lombok.Setter;
 public class ReservationDTO {
     @NotBlank(message = "")
     private Long userId;
+    @NotBlank
     private Long showId;
+    @NotBlank
     private ModeOfBooking modeOfBooking;
-    private List<Long> idOfSeats;
+    @NotBlank
+    private List<Long> idsOfSeats;
 }

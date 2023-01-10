@@ -4,12 +4,8 @@
  */
 package com.ideas2it.ideas2movie.controller;
 
-import com.ideas2it.ideas2movie.dto.ReservationDTO;
-import com.ideas2it.ideas2movie.dto.responsedto.ReservationResponseDTO;
-import com.ideas2it.ideas2movie.exception.AlreadyExistException;
-import com.ideas2it.ideas2movie.exception.NotFoundException;
-import com.ideas2it.ideas2movie.service.ReservationService;
 import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,9 +16,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ideas2it.ideas2movie.dto.ReservationDTO;
+import com.ideas2it.ideas2movie.dto.responsedto.ReservationResponseDTO;
+import com.ideas2it.ideas2movie.service.ReservationService;
+import com.ideas2it.ideas2movie.exception.AlreadyExistException;
+import com.ideas2it.ideas2movie.exception.NotFoundException;
+
 /**
  * <h1>
- *     Booking Controller
+ *     BookingController
  * </h1>
  * <p>
  *     Gets the input parameter as a request from the Client
@@ -46,7 +48,7 @@ public class ReservationController {
 
     /**
      * <h1>
-     *     Book Ticket
+     *     addReservation
      * </h1>
      * <p>
      *     Gets the Input parameter as a request form the Client
@@ -79,7 +81,7 @@ public class ReservationController {
      * @return ResponseEntity - Holds the ReservationResponseDTO and Http Status
      */
     @DeleteMapping("/{id}")
-    public ResponseEntity<ReservationResponseDTO> cancelReservation(@PathVariable("id") Long id) {
+    public ResponseEntity<ReservationResponseDTO> cancelReservation(@PathVariable("id") Long id) throws NotFoundException {
         return ResponseEntity.status(HttpStatus.OK).body(reservationService.cancelReservation(id));
     }
 

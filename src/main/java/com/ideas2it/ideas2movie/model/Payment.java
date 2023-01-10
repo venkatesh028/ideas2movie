@@ -7,15 +7,15 @@ package com.ideas2it.ideas2movie.model;
 import java.sql.Timestamp;
 import java.util.UUID;
 
-import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotNull;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Column;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,15 +23,15 @@ import lombok.Setter;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-import com.ideas2it.ideas2movie.util.enums.PaymentStatus;
 import com.ideas2it.ideas2movie.util.enums.ModeOfPayment;
+import com.ideas2it.ideas2movie.util.enums.PaymentStatus;
 
 /**
  * <h1>
  *      Payment
  * </h1>
  * <p>
- *      Entity of the Payment
+ *      Payment Entity is used to Hold the Details of the Payment
  * </p>
  *
  * @author  AJAISHARMA
@@ -54,7 +54,7 @@ public class Payment {
     @CreationTimestamp
     private Timestamp transactionAt;
     @NotNull
-    private double amount;
+    private Double amount;
     @NotNull
     @Enumerated(EnumType.STRING)
     private ModeOfPayment modeOfPayment;

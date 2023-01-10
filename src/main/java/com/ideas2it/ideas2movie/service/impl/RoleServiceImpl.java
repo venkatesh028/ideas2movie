@@ -4,20 +4,21 @@
  */
 package com.ideas2it.ideas2movie.service.impl;
 
-import com.ideas2it.ideas2movie.dto.RoleDTO;
-import com.ideas2it.ideas2movie.dto.responsedto.RoleResponseDTO;
-import com.ideas2it.ideas2movie.exception.AlreadyExistException;
-import com.ideas2it.ideas2movie.exception.NotFoundException;
-import com.ideas2it.ideas2movie.model.Role;
-import com.ideas2it.ideas2movie.repository.RoleRepository;
-import com.ideas2it.ideas2movie.service.RoleService;
-import com.ideas2it.ideas2movie.util.constant.Message;
 import java.util.ArrayList;
 import java.util.List;
-
 import java.util.Optional;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+
+import com.ideas2it.ideas2movie.model.Role;
+import com.ideas2it.ideas2movie.dto.RoleDTO;
+import com.ideas2it.ideas2movie.dto.responsedto.RoleResponseDTO;
+import com.ideas2it.ideas2movie.service.RoleService;
+import com.ideas2it.ideas2movie.repository.RoleRepository;
+import com.ideas2it.ideas2movie.util.constant.Message;
+import com.ideas2it.ideas2movie.exception.AlreadyExistException;
+import com.ideas2it.ideas2movie.exception.NotFoundException;
 
 /**
  * <h1>

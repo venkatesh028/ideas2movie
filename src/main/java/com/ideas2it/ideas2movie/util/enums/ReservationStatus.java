@@ -20,7 +20,7 @@ import lombok.Setter;
  * @since   05-01-2023
  */
 @AllArgsConstructor
-public enum BookingStatus {
+public enum ReservationStatus {
     BOOKED("booked"), CANCELED("Canceled"), PROCESSING("Processing");
 
     @Getter

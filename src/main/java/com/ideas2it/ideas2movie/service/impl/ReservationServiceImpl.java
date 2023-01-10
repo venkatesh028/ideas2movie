@@ -4,21 +4,23 @@
  */
 package com.ideas2it.ideas2movie.service.impl;
 
-import com.ideas2it.ideas2movie.dto.ReservationDTO;
-import com.ideas2it.ideas2movie.dto.responsedto.ReservationResponseDTO;
-import com.ideas2it.ideas2movie.exception.NotFoundException;
-import com.ideas2it.ideas2movie.model.Reservation;
-import com.ideas2it.ideas2movie.model.Seat;
-import com.ideas2it.ideas2movie.repository.ReservationRepository;
-import com.ideas2it.ideas2movie.service.ReservationService;
-import com.ideas2it.ideas2movie.util.constant.Message;
-import com.ideas2it.ideas2movie.util.enums.BookingStatus;
-import com.ideas2it.ideas2movie.util.enums.PaymentStatus;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+
+import com.ideas2it.ideas2movie.model.Reservation;
+import com.ideas2it.ideas2movie.model.Seat;
+import com.ideas2it.ideas2movie.dto.ReservationDTO;
+import com.ideas2it.ideas2movie.dto.responsedto.ReservationResponseDTO;
+import com.ideas2it.ideas2movie.service.ReservationService;
+import com.ideas2it.ideas2movie.repository.ReservationRepository;
+import com.ideas2it.ideas2movie.util.constant.Message;
+import com.ideas2it.ideas2movie.util.enums.ReservationStatus;
+import com.ideas2it.ideas2movie.util.enums.PaymentStatus;
+import com.ideas2it.ideas2movie.exception.NotFoundException;
 
 /**
  * <h1>
@@ -47,9 +49,40 @@ public class ReservationServiceImpl implements ReservationService {
      */
     public ReservationResponseDTO reserveSeats(ReservationDTO reservationDTO) {
         Reservation newReservation = mapper.map(reservationDTO, Reservation.class);
-        newReservation.setStatus(BookingStatus.PROCESSING);
+        newReservation.setStatus(ReservationStatus.PROCESSING);
         newReservation.setTotalPrice(newReservation.getSeats().size() * newReservation.getShow().getPrice());
         return mapper.map(reservationRepository.save(newReservation), ReservationResponseDTO.class);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public ReservationResponseDTO confirmReservation(Reservation reservation) {
+        Reservation existingReservation = reservationRepository.findById(reservation.getId()).get();
+        existingReservation.setPayment(reservation.getPayment());
+
+        if (reservation.getPayment().getStatus().equals(PaymentStatus.PAID)) {
+            existingReservation.setStatus(ReservationStatus.BOOKED);
+        } else {
+            existingReservation.setStatus(ReservationStatus.CANCELED);
+        }
+        return mapper.map(reservationRepository.save(existingReservation), ReservationResponseDTO.class);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public ReservationResponseDTO cancelReservation(Long id) throws NotFoundException {
+        Optional<Reservation> existingReservation = reservationRepository.findById(id);
+
+        if (existingReservation.isEmpty()) {
+            throw new NotFoundException(Message.RESERVATION_NOT_FOUND);
+        }
+        Reservation reservation = existingReservation.get();
+        reservation.setStatus(ReservationStatus.CANCELED);
+        reservation.getPayment().setStatus(PaymentStatus.REFUNDED);
+        return mapper.map(reservationRepository.save(reservation), ReservationResponseDTO.class);
     }
 
     /**
@@ -61,35 +94,11 @@ public class ReservationServiceImpl implements ReservationService {
         List<Seat> bookedSeats = new ArrayList<>();
 
         for (Reservation oldReservation : oldReservations) {
-            if(oldReservation.getStatus().equals(BookingStatus.BOOKED)) {
+            if(oldReservation.getStatus().equals(ReservationStatus.BOOKED)) {
                 bookedSeats = oldReservation.getSeats();
             }
         }
         return bookedSeats;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public ReservationResponseDTO confirmReservation(Reservation reservation) {
-        Reservation existingReservation = reservationRepository.findById(reservation.getId()).get();
-        existingReservation.setPayment(reservation.getPayment());
-
-        if (reservation.getPayment().getStatus().equals(PaymentStatus.PAID)) {
-            existingReservation.setStatus(BookingStatus.BOOKED);
-        } else {
-            existingReservation.setStatus(BookingStatus.CANCELED);
-        }
-
-        return mapper.map(reservationRepository.save(existingReservation), ReservationResponseDTO.class);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public ReservationResponseDTO cancelReservation(Long id) {
-        return null;
     }
 
     /**
