@@ -49,5 +49,7 @@ public interface SeatService {
      * @param id - Holds the id of the screen
      * @return listOfSeats - Holds the list of seats for that screen
      */
-    List<Seat> getSeatsByScreenId(Long id);
+    List<Seat> getSeatsByScreenId(Long screenId);
+
+    List<String> getAvailableSeats(Long showId);
 }

@@ -4,18 +4,23 @@
  */
 package com.ideas2it.ideas2movie.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import com.ideas2it.ideas2movie.dto.responsedto.SeatResponseDTO;
+import com.ideas2it.ideas2movie.model.Seat;
 import com.ideas2it.ideas2movie.model.Show;
 import com.ideas2it.ideas2movie.dto.ShowDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.ShowResponseDTO;
 import com.ideas2it.ideas2movie.repository.ShowRepository;
 import com.ideas2it.ideas2movie.service.MovieService;
+import com.ideas2it.ideas2movie.service.ReservationService;
 import com.ideas2it.ideas2movie.service.ScreenService;
+import com.ideas2it.ideas2movie.service.SeatService;
 import com.ideas2it.ideas2movie.service.ShowService;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
 import com.ideas2it.ideas2movie.exception.NoContentException;
@@ -43,12 +48,17 @@ public class ShowServiceImpl implements ShowService {
     private final ModelMapper mapper = new ModelMapper();
     private final MovieService movieService;
     private final ScreenService screenService;
+    private final SeatService seatService;
+    private final ReservationService reservationService;
 
     public ShowServiceImpl(ShowRepository showRepository, ScreenService screenService,
-                           MovieService movieService){
+                           MovieService movieService, SeatService seatService,
+                           ReservationService reservationService){
         this.showRepository = showRepository;
         this.movieService = movieService;
         this.screenService = screenService;
+        this.seatService = seatService;
+        this.reservationService = reservationService;
     }
 
     /**
@@ -59,13 +69,6 @@ public class ShowServiceImpl implements ShowService {
         Show show = mapper.map(showDTO, Show.class);
         show.setMovie(movieService.getMovieByIdForShows(showDTO.getMovieId()));
         show.setScreen(screenService.getScreenById(showDTO.getScreenId()));
-        int totalNumberOfSeatsInScreen = show.getScreen().getTotalNumberOfColumns() *
-                                                show.getScreen().getTotalNumberOfRows();
-
-        if (show.getAvailableSeats() > totalNumberOfSeatsInScreen){
-            throw new NotAcceptableException("Seats Allocated For the Show is Higher " +
-                                             "than the total number of Seats in Screen");
-        }
 
         if (showRepository.existsByScreeningDateAndStartTimeAndScreen(show.getScreeningDate(),
                 show.getStartTime(), show.getScreen())){
@@ -103,19 +106,31 @@ public class ShowServiceImpl implements ShowService {
         return shows;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
-    public Show updateAvailableSeatsOfShow(int bookedSeats, Long showId) {
-        Optional<Show> existingShow = showRepository.findById(showId);
-        Show updatedShow = null;
+    public ShowResponseDTO getShowById(Long id) throws NotFoundException{
+        Optional<Show> existingShow = showRepository.findById(id);
+        ShowResponseDTO showResponseDTO = null;
 
         if (existingShow.isPresent()){
-            Show show = existingShow.get();
-            show.setAvailableSeats(show.getAvailableSeats() - bookedSeats);
-            updatedShow = showRepository.save(show);
+            showResponseDTO = mapper.map(existingShow.get(), ShowResponseDTO.class);
+            showResponseDTO.setAvailableSeats(getAvailableSeatsId(existingShow.get()));
+        } else {
+            throw new NotFoundException(Message.SHOW_NOT_FOUND);
         }
-        return updatedShow;
+
+        return showResponseDTO;
     }
+
+    private List<SeatResponseDTO> getAvailableSeatsId(Show show) throws NotFoundException {
+        List<Seat> seats = seatService.getSeatsByScreenId(show.getScreen().getId());
+        List<Seat> bookedSeats = reservationService.getReservedSeats(show.getId());
+        List<SeatResponseDTO> listOfAvailableSeats = new ArrayList<>();
+        seats.removeAll(bookedSeats);
+
+        for (Seat seat : seats){
+            listOfAvailableSeats.add(mapper.map(seat, SeatResponseDTO.class));
+        }
+        return listOfAvailableSeats;
+    }
+
 }

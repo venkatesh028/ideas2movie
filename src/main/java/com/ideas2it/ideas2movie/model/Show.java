@@ -55,8 +55,6 @@ public class Show {
     private LocalTime startTime;
     @NotNull
     private double price;
-    @NotNull
-    private int availableSeats;
     @ColumnDefault(value = "true")
     @Column(insertable = false)
     private boolean isActive;
