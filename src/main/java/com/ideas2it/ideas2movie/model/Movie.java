@@ -10,6 +10,8 @@ import java.time.LocalTime;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -19,6 +21,7 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -31,7 +34,7 @@ import com.ideas2it.ideas2movie.util.enums.Language;
  *    Movie
  * <h1/>
  * <p>
- *    used to get and store the movie details in ideas2movie.
+ *    Entity of Movie
  * <p/>
  *
  *  @version 1.0
@@ -41,6 +44,7 @@ import com.ideas2it.ideas2movie.util.enums.Language;
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
 @Table(name = "movie")
 public class Movie {
     @Id
@@ -49,10 +53,12 @@ public class Movie {
     @NotNull
     private String name;
     @NotNull
+    @Enumerated(value = EnumType.STRING)
     private Language language;
     @NotNull
     private LocalTime duration;
     @NotNull
+    @Enumerated(value = EnumType.STRING)
     private Genre genre;
     @CreationTimestamp
     @Column(updatable = false)
