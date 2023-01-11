@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import com.ideas2it.ideas2movie.util.constant.Message;
+import com.ideas2it.ideas2movie.util.enums.City;
 
 /**
  * <h1>
@@ -31,7 +32,7 @@ public class TheaterDTO {
     @NotBlank(message = Message.THEATER_NAME_SHOULD_NOT_BE_EMPTY)
     private String theaterName;
     @NotBlank(message = Message.CITY_NAME_SHOULD_NOT_BE_EMPTY)
-    private String city;
+    private City city;
     @NotBlank(message = Message.AMOUNT_SHOULD_NOT_BE_EMPTY)
     private String area;
     @NotBlank(message = Message.PINCODE_SHOULD_NOT_BE_EMPTY)

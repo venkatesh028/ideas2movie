@@ -57,13 +57,13 @@ public class CastAndCrewServiceImpl implements CastAndCrewService {
     }
 
     @Override
-    public CastAndCrewResponseDTO getCastAndCrewByMovieId(Long id) throws NotFoundException {
+    public CastAndCrewResponseDTO getCastAndCrewById(Long id) throws NotFoundException {
         Optional<CastAndCrew> castAndCrew = castAndCrewRepository.findById(id);
 
         if (castAndCrew.isPresent()) {
             return modelMapper.map(castAndCrew.get(), CastAndCrewResponseDTO.class);
         }
-        throw new NotFoundException(Message.THEATER_NOT_FOUND);
+        throw new NotFoundException("Message.CAST_AND_CREW_NOT_FOUND");
     }
 
     @Override
@@ -87,7 +87,7 @@ public class CastAndCrewServiceImpl implements CastAndCrewService {
 
         if (existingCastAndCrew.isPresent()) {
             castAndCrewRepository.deleteById(id);
-            castAndCrewRepository.save(existingCastAndCrew.get());
+            existingCastAndCrew = castAndCrewRepository.findById(id);
             if (!existingCastAndCrew.isPresent()) {
                 return Message.DELETED_SUCCESSFULLY;
             }

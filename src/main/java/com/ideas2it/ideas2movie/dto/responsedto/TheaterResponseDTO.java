@@ -7,6 +7,8 @@ package com.ideas2it.ideas2movie.dto.responsedto;
 import lombok.Getter;
 import lombok.Setter;
 
+import com.ideas2it.ideas2movie.util.enums.City;
+
 /**
  * <h1>
  *     Theater Response DTO
@@ -25,6 +27,6 @@ import lombok.Setter;
 public class TheaterResponseDTO {
     private  Long id;
     private String theaterName;
-    private String city;
+    private City city;
     private String area;
 }
