@@ -33,6 +33,8 @@ import com.ideas2it.ideas2movie.repository.TicketRepository;
  * @version 1.0
  * @since 06-01-2023
  */
+
+
 @Service
 public class TicketServiceImpl implements TicketService {
     private final TicketRepository ticketRepository;

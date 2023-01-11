@@ -14,18 +14,21 @@ import jakarta.persistence.Id;
 
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 /**
  * <h1>
- *    CastAndCrew
+ *     CastAndCrew
  * <h1/>
  * <p>
- *    Entity of CastAndCrew
+ *     CastAndCrewRole Entity have the Attribute which is used to
+ *     Hold the Details of the CastAndCrewRole
  * <p/>
  *
  *  @version 1.0

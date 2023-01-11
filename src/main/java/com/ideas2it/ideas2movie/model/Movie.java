@@ -34,7 +34,7 @@ import com.ideas2it.ideas2movie.util.enums.Language;
  *    Movie
  * <h1/>
  * <p>
- *    Entity of Movie
+ *    Movie Entity have the Attribute which is used to Hold the Details of the Movie
  * <p/>
  *
  *  @version 1.0
