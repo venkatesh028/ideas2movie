@@ -20,7 +20,7 @@ import lombok.Setter;
  *      Role
  * </h1>
  * <p>
- *      Role Entity is used to Hold the Details of the Role
+ *      Role Entity have the Attribute which is used to Hold the Details of the Role
  * </p>
  *
  * @author  AJAISHARMA

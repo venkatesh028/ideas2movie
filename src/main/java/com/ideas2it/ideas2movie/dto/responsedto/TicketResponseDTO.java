@@ -10,14 +10,12 @@ import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
-import com.ideas2it.ideas2movie.model.Seat;
-
 /**
  *<h1>
- *     Ticket Response DTO
+ *     TicketResponseDTO
  *</h1>
  * <p>
- *     Contains the Response of the Ticket Entity
+ *     Contains the attributes to Hold the Response of the Ticket Entity
  * </p>
  *
  * @author AJAISHARMA
@@ -27,11 +25,11 @@ import com.ideas2it.ideas2movie.model.Seat;
 @Getter
 @Setter
 public class TicketResponseDTO {
-    private Long ticketId;
-    private ShowResponseDTO showResponseDTO;
+    private Long id;
+    private Long showId;
     private LocalDate showDate;
     private String theaterName;
     private String movieName;
     private String screenName;
-    private List<SeatResponseDTO> seats;
+    private String seats;
 }

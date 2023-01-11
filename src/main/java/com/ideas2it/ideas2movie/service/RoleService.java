@@ -17,8 +17,9 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  *     RoleService
  * </h1>
  * <p>
- *     Service Layer for the Role
- *     to Create, and Get the Role
+ *     RoleService used to Manage the Operations for the Role
+ *     Like Creating, Viewing the Details of the Role
+ *     and Throws an Exceptions accordingly
  * </p>
  *
  * @author AJAISHARMA

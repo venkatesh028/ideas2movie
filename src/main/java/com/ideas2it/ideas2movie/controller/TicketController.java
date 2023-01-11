@@ -4,6 +4,7 @@
  */
 package com.ideas2it.ideas2movie.controller;
 
+import com.ideas2it.ideas2movie.exception.NotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -66,7 +67,7 @@ public class TicketController {
      * @return ResponseEntity - Holds the TicketResponseDTo and Http Status
      */
     @GetMapping("/{id}")
-    public ResponseEntity<TicketResponseDTO> getTicketById(@PathVariable("id") Long id) {
+    public ResponseEntity<TicketResponseDTO> getTicketById(@PathVariable("id") Long id) throws NotFoundException {
         return ResponseEntity.status(HttpStatus.OK).body(ticketService.getTicketDTOById(id));
     }
 }

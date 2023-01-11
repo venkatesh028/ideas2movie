@@ -78,4 +78,5 @@ public class Message {
     public static final String SHOW_NOT_FOUND = "Show Not Found";
     public static final String PAYMENT_NOT_FOUND = "Payment Not Found";
     public static final String RESERVATION_NOT_FOUND = "Reservation Not Found";
+    public static final String TICKET_NOT_FOUND = "Ticket Not Found";
 }

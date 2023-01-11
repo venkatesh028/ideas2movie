@@ -4,6 +4,7 @@
  */
 package com.ideas2it.ideas2movie.service;
 
+import com.ideas2it.ideas2movie.model.Show;
 import java.util.List;
 
 import com.ideas2it.ideas2movie.model.Reservation;
@@ -11,14 +12,16 @@ import com.ideas2it.ideas2movie.model.Seat;
 import com.ideas2it.ideas2movie.dto.ReservationDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.ReservationResponseDTO;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
+import org.springframework.data.jpa.repository.Modifying;
 
 /**
  * <h1>
  *     ReservationService
  * </h1>
  * <p>
- *     Service Layer for the Reservation
- *     to reserve, cancel and get the Reserved tickets by User Id
+ *     ReservationService Used to manage the Operation for the Reservation
+ *     Like ReserveSeats, Confirm reservation, Cancel reservation for the Show
+ *     and Throws an Exception accordingly
  * </p>
  *
  * @author AJAISHARMA
@@ -60,12 +63,24 @@ public interface ReservationService {
 
     /**
      * <h1>
+     *     cancelAllReservationForShow
+     * </h1>
+     * <p>
+     *     Gets the Show details form the ShowService to cancel the All the reservations
+     *     made for that show by Setting the Status of the reservation to Canceled
+     * </p>
+     * @param show
+     * @return
+     */
+    boolean cancelAllReservationForShow(Show show);
+
+    /**
+     * <h1>
      *     confirmReservation
      * </h1>
      * <p>
-     *     Gets the Reservation from Payment Controller
-     *     and according to the Payment Status change the
-     *     status of the Reservation
+     *     Gets the Reservation from PaymentController to Confirm the reservation for the User
+     *     by changes the status of the Reservation
      * </p>
      *
      * @param reservation - Holds the details of the Reservation
