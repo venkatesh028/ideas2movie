@@ -4,6 +4,7 @@
  */
 package com.ideas2it.ideas2movie.service.impl;
 
+import com.ideas2it.ideas2movie.model.Screen;
 import com.ideas2it.ideas2movie.model.Show;
 import com.ideas2it.ideas2movie.service.TicketService;
 import java.util.ArrayList;
@@ -29,9 +30,9 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  *     BookingServiceImpl
  * </h1>
  * <p>
- *     Implements the BookingService and
- *     Holds the Business Logic
- *     to perform make, cancel and get the Reservation
+ *     Implements the BookingService and Provides the Business Logics
+ *     to make, cancel and get the Details of the Reservation
+ *     and Throws an Exception when occurred
  * </p>
  *
  * @author AJAISHARMA
@@ -98,8 +99,8 @@ public class ReservationServiceImpl implements ReservationService {
      * {@inheritDoc}
      */
     @Override
-    public boolean cancelAllReservationForShow(Show show) {
-        List<Reservation> reservations = reservationRepository.findAllByShowId(show.getId());
+    public boolean cancelAllReservationForShow(Screen screen) {
+        List<Reservation> reservations = reservationRepository.findAllByShowId(screen.getShow().getId());
         int canceledCount = 0;
         boolean isCanceled = false;
 

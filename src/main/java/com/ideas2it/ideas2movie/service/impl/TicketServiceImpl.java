@@ -24,14 +24,17 @@ import com.ideas2it.ideas2movie.repository.TicketRepository;
  *     TicketServiceImpl
  * </h1>
  * <p>
- *     Implements the TicketService and Provides the Operations to manage Ticket
- *     to perform generate Ticket and get ticket and throws an Exception when occurred
+ *     Implements the TicketService and Provides the Business Logics
+ *     to generate and get the Details of the ticket
+ *     and throws an Exception when occurred
  * </p>
  *
  * @author AJAISHARMA
  * @version 1.0
  * @since 06-01-2023
  */
+
+
 @Service
 public class TicketServiceImpl implements TicketService {
     private final TicketRepository ticketRepository;

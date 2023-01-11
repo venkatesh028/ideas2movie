@@ -20,6 +20,20 @@ import com.ideas2it.ideas2movie.repository.MovieRepository;
 import com.ideas2it.ideas2movie.service.MovieService;
 import com.ideas2it.ideas2movie.util.constant.Message;
 
+/**
+ * <h1>
+ *     MovieServiceImpl
+ * </h1>
+ * <p>
+ *     Implements the MovieService and
+ *     Holds the Business Logic
+ *     to Perform Save, and Get Movie
+ * </p>
+ *
+ * @author YOGESHWAR S
+ * @version 1.0
+ * @since 06-01-2023
+ */
 @Service
 public class MovieServiceImpl implements MovieService {
 
@@ -50,10 +64,10 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public MovieResponseDTO getMovieById(Long id) throws NotFoundException {
-        Optional<Movie> movies = movieRepository.findById(id);
+        Optional<Movie> movie = movieRepository.findById(id);
 
-        if (movies.isPresent()) {
-            return modelMapper.map(movies.get(), MovieResponseDTO.class);
+        if (movie.isPresent()) {
+            return modelMapper.map(movie.get(), MovieResponseDTO.class);
         } else {
             throw new NotFoundException(Message.MOVIE_NOT_FOUND);
         }

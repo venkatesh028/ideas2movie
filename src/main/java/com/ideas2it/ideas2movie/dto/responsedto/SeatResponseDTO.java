@@ -19,6 +19,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class SeatResponseDTO {
+    private Long id;
     private String name;
 
 }

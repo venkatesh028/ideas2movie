@@ -7,6 +7,7 @@ package com.ideas2it.ideas2movie.model;
 import java.sql.Timestamp;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -69,4 +70,6 @@ public class Screen {
             referencedColumnName = "id"
     )
     private Theater theater;
+    @OneToMany(mappedBy = "screen", cascade = CascadeType.ALL)
+    private List<Show> shows;
 }

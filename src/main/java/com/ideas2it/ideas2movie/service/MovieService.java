@@ -14,7 +14,7 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
 
 /**
  * <h1>
- *     Movie Service Interface
+ *     Movie Service
  * </h1>
  * <p>
  *     Service Layer for the Movie

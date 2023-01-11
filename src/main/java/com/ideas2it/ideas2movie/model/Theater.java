@@ -11,9 +11,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
 import jakarta.persistence.Table;
+
 import jakarta.validation.constraints.NotBlank;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -30,7 +31,7 @@ import com.ideas2it.ideas2movie.util.constant.Message;
  *    Theater
  * <h1/>
  * <p>
- *    Entity of Theater
+ *    Theater Entity have the Attribute which is used to Hold the Details of the Theater
  * <p/>
  *
  *  @version 1.0

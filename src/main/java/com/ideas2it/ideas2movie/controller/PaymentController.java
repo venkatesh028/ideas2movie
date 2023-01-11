@@ -27,8 +27,7 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  * <p>
  *     Gets the Input Parameter as a Request from the Client
  *     for Create, Get, Update and Delete the Payment Details
- *     by sending those parameter and Object
- *     to the Payment Service to perform Business Logics on them
+ *     by handling and mapping the Request to appropriate function
  * </p>
  *
  * @author AJAISHARMA
@@ -45,10 +44,11 @@ public class PaymentController {
      *      Payment Controller Constructor
      * </h1>
      * <p>
-     *      Used to Achieve the Autowiring for Payment Service
+     *     Used to initialize the Services for calling the Operation performers of Service
+     *     and also achieves the Autowiring
      * </p>
      *
-     * @param paymentService - reference variable of the User Service
+     * @param paymentService - An instance of the UserService
      */
     public PaymentController(PaymentService paymentService) {
         this.paymentService = paymentService;
