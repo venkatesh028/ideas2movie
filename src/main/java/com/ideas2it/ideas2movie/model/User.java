@@ -29,7 +29,7 @@ import org.hibernate.annotations.UpdateTimestamp;
  *      User
  * </h1>
  * <p>
- *      User Entity is used to Hold the Details of the User
+ *      User Entity have the Attribute which is used to Hold the Details of the User
  * </p>
  *
  * @author  AJAISHARMA

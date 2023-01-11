@@ -14,9 +14,9 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  *     UserService
  * </h1>
  * <p>
- *     Service Layer for the User
- *     to Create, Update, Get
- *     and Delete the details of the user
+ *     UserService used to manage the Operation for the User Account
+ *     Like Creating, Updating, and viewing the Details of the User
+ *     and Throwing an Exception accordingly
  * </p>
  *
  * @author AJAISHARMA
@@ -30,11 +30,9 @@ public interface UserService {
      *     createUser
      * </h1>
      * <p>
-     *     Creates the User
-     *     by getting the UserDTO from the Controller
-     *     and checks whether the User name
-     *     and Phone Number is already Exists or Not
-     *     If Exist then throws an Exception
+     *     Creates the User by getting the UserDTO from the Controller
+     *     and checks whether the User name and Phone Number is already Exists or Not
+     *     If Exist then Creates the User Otherwise throws an Exception
      * </p>
      *
      * @param userDTO - reference Variable which holds the Details of the User
@@ -49,11 +47,9 @@ public interface UserService {
      *     getUserByID
      * </h1>
      * <p>
-     *     Gets the User By getting the ID of the User
-     *     from the Controller
+     *     Gets the User By getting the ID of the User from the Controller
      *     and checks whether the User is present or Not
-     *     If present then returns the User Details
-     *     Otherwise throws Exception
+     *     If present then returns the User Details Otherwise throws Exception
      * </p>
      *
      * @param id - ID of the User to get the Details
@@ -67,11 +63,9 @@ public interface UserService {
      *      updateUser
      * </h1>
      * <p>
-     *      Updates the User
-     *      by getting the UserDTO from the Controller
-     *      and checks whether the User name
-     *      and Phone Number is already Exists or Not
-     *      If Exist then throws an Exception
+     *      Updates the User by getting the UserDTO from the Controller
+     *      and checks whether the User name and Phone Number is already Exists or Not
+     *      If Exist then updates the User throws an Exception
      * </p>
      *
      * @param id - ID of the User to Update the user Details
@@ -87,11 +81,9 @@ public interface UserService {
      *     deleteUser
      * </h1>
      * <p>
-     *     Deletes the User
-     *     by getting the ID of the User from Controller
+     *     Deletes the User by getting the ID of the User from Controller
      *     and checks whether the User is present or Not
-     *     If present then deletes the User Details
-     *     Otherwise throws Exception
+     *     If present then deletes the User Details Otherwise throws Exception
      * </p>
      *
      * @param id - ID of the User to delete the Details

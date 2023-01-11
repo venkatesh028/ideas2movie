@@ -4,13 +4,16 @@
  */
 package com.ideas2it.ideas2movie.model;
 
+import com.ideas2it.ideas2movie.util.enums.ReservationStatus;
 import java.sql.Timestamp;
+import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,7 +26,7 @@ import org.hibernate.annotations.CreationTimestamp;
  *      Ticket
  * </h1>
  * <p>
- *      Ticket Entity is used to Hold the Details of the Ticket
+ *      Ticket Entity have the attributes which is used to Hold the Details of the Ticket
  * </p>
  *
  * @author  AJAISHARMA
@@ -39,8 +42,21 @@ public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotNull
     private int numberOfSeatsSelected;
-    private double price;
+    @NotNull
+    private Long showId;
+    @NotNull
+    private LocalDate showDate;
+    @NotNull
+    private String theaterName;
+    @NotNull
+    private String screenName;
+    @NotNull
+    private String MovieName;
+    @NotNull
+    private String seats;
+    private ReservationStatus reservationStatus;
     @CreationTimestamp
     private Timestamp createdAt;
 }

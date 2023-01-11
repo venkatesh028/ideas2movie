@@ -5,6 +5,7 @@
 package com.ideas2it.ideas2movie.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,7 +30,7 @@ public class PaymentDTO {
     @NotBlank(message = Message.PAYMENT_MODE_SHOULD_NOT_BE_EMPTY)
     //@Pattern(regexp = Constant.PAYMENT_MODE_PATTER, message = Message.ENTER_VALID_PAYMENT_MODE)
     private ModeOfPayment modeOfPayment;
-    @NotBlank(message = Message.AMOUNT_SHOULD_NOT_BE_EMPTY)
+    @NotNull(message = Message.AMOUNT_SHOULD_NOT_BE_EMPTY)
     //@Pattern(regexp = Constant.AMOUNT_PATTERN, message = Message.ENTER_VALID_AMOUNT)
     private Double enteredAmount;
 }
