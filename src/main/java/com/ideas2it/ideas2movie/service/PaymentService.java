@@ -54,4 +54,19 @@ public interface PaymentService {
      * @throws NotFoundException - when Payment is Not Found
      */
     PaymentResponseDTO getByTransactionId(UUID id) throws NotFoundException;
+
+    /**
+     * <h1>
+     *      getByTransactionId
+     * </h1>
+     * <p>
+     *      Gets the Payment details by getting the ID from controller
+     *      and checks the Payment is present or not and returns the Response accordingly
+     * </p>
+     *
+     * @param id - ID of the Payment
+     * @return PaymentResponseDTO - Holds the details of the Payment
+     * @throws NotFoundException - when Payment is Not Found
+     */
+    PaymentResponseDTO getById(Long id) throws NotFoundException;
 }
