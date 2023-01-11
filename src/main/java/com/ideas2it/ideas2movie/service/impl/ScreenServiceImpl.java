@@ -4,6 +4,8 @@
  */
 package com.ideas2it.ideas2movie.service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -11,12 +13,13 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import com.ideas2it.ideas2movie.model.Screen;
+import com.ideas2it.ideas2movie.model.Show;
 import com.ideas2it.ideas2movie.model.Theater;
 import com.ideas2it.ideas2movie.dto.ScreenDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.ScreenResponseDTO;
+import com.ideas2it.ideas2movie.service.ReservationService;
 import com.ideas2it.ideas2movie.service.ScreenService;
 import com.ideas2it.ideas2movie.service.SeatService;
-import com.ideas2it.ideas2movie.service.ShowService;
 import com.ideas2it.ideas2movie.service.TheaterService;
 import com.ideas2it.ideas2movie.repository.ScreenRepository;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
@@ -41,15 +44,15 @@ public class ScreenServiceImpl implements ScreenService {
     private final ScreenRepository screenRepository;
     private final SeatService seatService;
     private final TheaterService theaterService;
-    private final ShowService showService;
+    private final ReservationService reservationService;
     private final ModelMapper mapper = new ModelMapper();
 
     public ScreenServiceImpl(ScreenRepository screenRepository, SeatService seatService,
-                             TheaterService theaterService, ShowService showService){
+                             TheaterService theaterService, ReservationService reservationService){
         this.screenRepository = screenRepository;
         this.seatService = seatService;
         this.theaterService = theaterService;
-        this.showService = showService;
+        this.reservationService = reservationService;
     }
 
     /**
@@ -107,6 +110,7 @@ public class ScreenServiceImpl implements ScreenService {
     @Override
     public String removeScreen(Long id) throws NotFoundException {
         Optional<Screen> existingScreen = screenRepository.findById(id);
+        List<Show> shows = new ArrayList<>();
         Screen screen;
 
         if (existingScreen.isPresent()){
@@ -116,9 +120,13 @@ public class ScreenServiceImpl implements ScreenService {
         }
         screen.setActive(false);
 
-        if (showService.cancelShowsForRemovedScreen(screen)) {
-            screenRepository.save(screen);
+        for (Show show : screen.getShows()){
+            show.setActive(false);
+            shows.add(show);
         }
+        screen.setShows(shows);
+        screenRepository.save(screen);
+        reservationService.cancelAllReservationForShow(screen);
         return "Deleted SuccessFully";
     }
 

@@ -400,4 +400,599 @@
  %PARSER_ERROR[l]
 ""2023-01-11 14:17:44 INFO HikariPool-1 - Shutdown completed.
  %PARSER_ERROR[l]
+""2023-01-11 14:49:10 INFO Starting Ideas2movieApplication using Java 18.0.2 with PID 17020 (E:\ideas2movie\ideas2movie\target\classes started by LENOVO in E:\ideas2movie\ideas2movie)
+ %PARSER_ERROR[l]
+""2023-01-11 14:49:10 INFO No active profile set, falling back to 1 default profile: "default"
+ %PARSER_ERROR[l]
+""2023-01-11 14:49:11 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+ %PARSER_ERROR[l]
+""2023-01-11 14:49:11 INFO Finished Spring Data repository scanning in 125 ms. Found 11 JPA repository interfaces.
+ %PARSER_ERROR[l]
+""2023-01-11 14:49:12 INFO Tomcat initialized with port(s): 8080 (http)
+ %PARSER_ERROR[l]
+""2023-01-11 14:49:12 INFO An older version [1.2.35] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.1]
+ %PARSER_ERROR[l]
+""2023-01-11 14:49:12 INFO Loaded Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
+ %PARSER_ERROR[l]
+""2023-01-11 14:49:12 INFO OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
+ %PARSER_ERROR[l]
+""2023-01-11 14:49:12 INFO Starting service [Tomcat]
+ %PARSER_ERROR[l]
+""2023-01-11 14:49:12 INFO Starting Servlet engine: [Apache Tomcat/10.1.4]
+ %PARSER_ERROR[l]
+""2023-01-11 14:49:12 INFO Initializing Spring embedded WebApplicationContext
+ %PARSER_ERROR[l]
+""2023-01-11 14:49:12 INFO Root WebApplicationContext: initialization completed in 2078 ms
+ %PARSER_ERROR[l]
+""2023-01-11 14:49:13 INFO HHH000204: Processing PersistenceUnitInfo [name: default]
+ %PARSER_ERROR[l]
+""2023-01-11 14:49:13 INFO HHH000412: Hibernate ORM core version 6.1.6.Final
+ %PARSER_ERROR[l]
+""2023-01-11 14:49:13 WARN HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+ %PARSER_ERROR[l]
+""2023-01-11 14:49:13 INFO HikariPool-1 - Starting...
+ %PARSER_ERROR[l]
+""2023-01-11 14:49:14 INFO HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@14b95942
+ %PARSER_ERROR[l]
+""2023-01-11 14:49:14 INFO HikariPool-1 - Start completed.
+ %PARSER_ERROR[l]
+""2023-01-11 14:49:14 INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+ %PARSER_ERROR[l]
+""2023-01-11 14:49:17 INFO HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+ %PARSER_ERROR[l]
+""2023-01-11 14:49:17 INFO Initialized JPA EntityManagerFactory for persistence unit 'default'
+ %PARSER_ERROR[l]
+""2023-01-11 14:49:17 WARN Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'screenController' defined in file [E:\ideas2movie\ideas2movie\target\classes\com\ideas2it\ideas2movie\controller\ScreenController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'screenServiceImpl' defined in file [E:\ideas2movie\ideas2movie\target\classes\com\ideas2it\ideas2movie\service\impl\ScreenServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 3: Error creating bean with name 'showServiceImpl' defined in file [E:\ideas2movie\ideas2movie\target\classes\com\ideas2it\ideas2movie\service\impl\ShowServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'screenServiceImpl': Requested bean is currently in creation: Is there an unresolvable circular reference?
+ %PARSER_ERROR[l]
+""2023-01-11 14:49:17 INFO Closing JPA EntityManagerFactory for persistence unit 'default'
+ %PARSER_ERROR[l]
+""2023-01-11 14:49:17 INFO HikariPool-1 - Shutdown initiated...
+ %PARSER_ERROR[l]
+""2023-01-11 14:49:17 INFO HikariPool-1 - Shutdown completed.
+ %PARSER_ERROR[l]
+""2023-01-11 14:49:17 INFO Stopping service [Tomcat]
+ %PARSER_ERROR[l]
+""2023-01-11 14:49:17 INFO 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+ %PARSER_ERROR[l]
+""2023-01-11 14:49:18 ERROR 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The dependencies of some of the beans in the application context form a cycle:
+
+   screenController defined in file [E:\ideas2movie\ideas2movie\target\classes\com\ideas2it\ideas2movie\controller\ScreenController.class]
+┌─────┐
+|  screenServiceImpl defined in file [E:\ideas2movie\ideas2movie\target\classes\com\ideas2it\ideas2movie\service\impl\ScreenServiceImpl.class]
+↑     ↓
+|  showServiceImpl defined in file [E:\ideas2movie\ideas2movie\target\classes\com\ideas2it\ideas2movie\service\impl\ShowServiceImpl.class]
+└─────┘
+
+
+Action:
+
+Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
+
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:05 INFO Starting Ideas2movieApplication using Java 18.0.2 with PID 7248 (E:\ideas2movie\ideas2movie\target\classes started by LENOVO in E:\ideas2movie\ideas2movie)
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:05 INFO No active profile set, falling back to 1 default profile: "default"
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:06 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:06 INFO Finished Spring Data repository scanning in 126 ms. Found 11 JPA repository interfaces.
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:07 INFO Tomcat initialized with port(s): 8080 (http)
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:07 INFO An older version [1.2.35] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.1]
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:07 INFO Loaded Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:07 INFO OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:07 INFO Starting service [Tomcat]
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:07 INFO Starting Servlet engine: [Apache Tomcat/10.1.4]
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:07 INFO Initializing Spring embedded WebApplicationContext
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:07 INFO Root WebApplicationContext: initialization completed in 2159 ms
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:07 INFO HHH000204: Processing PersistenceUnitInfo [name: default]
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:08 INFO HHH000412: Hibernate ORM core version 6.1.6.Final
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:08 WARN HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:08 INFO HikariPool-1 - Starting...
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:09 INFO HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@56ec6960
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:09 INFO HikariPool-1 - Start completed.
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:09 INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:09 ERROR Failed to initialize JPA EntityManagerFactory: Collection 'com.ideas2it.ideas2movie.model.Screen.shows' is 'mappedBy' a property named 'Show' which does not exist in the target entity 'com.ideas2it.ideas2movie.model.Show'
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:09 WARN Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Collection 'com.ideas2it.ideas2movie.model.Screen.shows' is 'mappedBy' a property named 'Show' which does not exist in the target entity 'com.ideas2it.ideas2movie.model.Show'
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:09 INFO HikariPool-1 - Shutdown initiated...
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:09 INFO HikariPool-1 - Shutdown completed.
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:09 INFO Stopping service [Tomcat]
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:09 INFO 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:09 ERROR Application run failed
+ %PARSER_ERROR[l]
+"org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Collection 'com.ideas2it.ideas2movie.model.Screen.shows' is 'mappedBy' a property named 'Show' which does not exist in the target entity 'com.ideas2it.ideas2movie.model.Show'
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1751)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1130)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:905)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:432)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291)
+	at com.ideas2it.ideas2movie.Ideas2movieApplication.main(Ideas2movieApplication.java:11)
+Caused by: org.hibernate.AnnotationException: Collection 'com.ideas2it.ideas2movie.model.Screen.shows' is 'mappedBy' a property named 'Show' which does not exist in the target entity 'com.ideas2it.ideas2movie.model.Show'
+	at org.hibernate.cfg.annotations.CollectionBinder.bindStarToManySecondPass(CollectionBinder.java:1568)
+	at org.hibernate.cfg.annotations.CollectionBinder$1.secondPass(CollectionBinder.java:1524)
+	at org.hibernate.cfg.CollectionSecondPass.doSecondPass(CollectionSecondPass.java:47)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1782)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1739)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:300)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1350)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1421)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1797)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1747)
+	... 16 common frames omitted
+"2023-01-11 15:10:40 INFO Starting Ideas2movieApplication using Java 18.0.2 with PID 18332 (E:\ideas2movie\ideas2movie\target\classes started by LENOVO in E:\ideas2movie\ideas2movie)
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:40 INFO No active profile set, falling back to 1 default profile: "default"
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:42 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:42 INFO Finished Spring Data repository scanning in 130 ms. Found 11 JPA repository interfaces.
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:42 INFO Tomcat initialized with port(s): 8080 (http)
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:42 INFO An older version [1.2.35] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.1]
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:42 INFO Loaded Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:42 INFO OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:42 INFO Starting service [Tomcat]
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:42 INFO Starting Servlet engine: [Apache Tomcat/10.1.4]
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:42 INFO Initializing Spring embedded WebApplicationContext
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:42 INFO Root WebApplicationContext: initialization completed in 1896 ms
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:43 INFO HHH000204: Processing PersistenceUnitInfo [name: default]
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:43 INFO HHH000412: Hibernate ORM core version 6.1.6.Final
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:43 WARN HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:43 INFO HikariPool-1 - Starting...
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:43 INFO HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@184751f3
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:43 INFO HikariPool-1 - Start completed.
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:43 INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:44 ERROR Failed to initialize JPA EntityManagerFactory: Collection 'com.ideas2it.ideas2movie.model.Screen.shows' is 'mappedBy' a property named 'Screen' which does not exist in the target entity 'com.ideas2it.ideas2movie.model.Show'
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:44 WARN Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Collection 'com.ideas2it.ideas2movie.model.Screen.shows' is 'mappedBy' a property named 'Screen' which does not exist in the target entity 'com.ideas2it.ideas2movie.model.Show'
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:44 INFO HikariPool-1 - Shutdown initiated...
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:44 INFO HikariPool-1 - Shutdown completed.
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:44 INFO Stopping service [Tomcat]
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:44 INFO 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+ %PARSER_ERROR[l]
+""2023-01-11 15:10:44 ERROR Application run failed
+ %PARSER_ERROR[l]
+"org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Collection 'com.ideas2it.ideas2movie.model.Screen.shows' is 'mappedBy' a property named 'Screen' which does not exist in the target entity 'com.ideas2it.ideas2movie.model.Show'
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1751)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1130)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:905)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:432)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291)
+	at com.ideas2it.ideas2movie.Ideas2movieApplication.main(Ideas2movieApplication.java:11)
+Caused by: org.hibernate.AnnotationException: Collection 'com.ideas2it.ideas2movie.model.Screen.shows' is 'mappedBy' a property named 'Screen' which does not exist in the target entity 'com.ideas2it.ideas2movie.model.Show'
+	at org.hibernate.cfg.annotations.CollectionBinder.bindStarToManySecondPass(CollectionBinder.java:1568)
+	at org.hibernate.cfg.annotations.CollectionBinder$1.secondPass(CollectionBinder.java:1524)
+	at org.hibernate.cfg.CollectionSecondPass.doSecondPass(CollectionSecondPass.java:47)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1782)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1739)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:300)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1350)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1421)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1797)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1747)
+	... 16 common frames omitted
+"2023-01-11 15:11:10 INFO Starting Ideas2movieApplication using Java 18.0.2 with PID 16016 (E:\ideas2movie\ideas2movie\target\classes started by LENOVO in E:\ideas2movie\ideas2movie)
+ %PARSER_ERROR[l]
+""2023-01-11 15:11:10 INFO No active profile set, falling back to 1 default profile: "default"
+ %PARSER_ERROR[l]
+""2023-01-11 15:11:11 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+ %PARSER_ERROR[l]
+""2023-01-11 15:11:11 INFO Finished Spring Data repository scanning in 141 ms. Found 11 JPA repository interfaces.
+ %PARSER_ERROR[l]
+""2023-01-11 15:11:11 INFO Tomcat initialized with port(s): 8080 (http)
+ %PARSER_ERROR[l]
+""2023-01-11 15:11:11 INFO An older version [1.2.35] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.1]
+ %PARSER_ERROR[l]
+""2023-01-11 15:11:11 INFO Loaded Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
+ %PARSER_ERROR[l]
+""2023-01-11 15:11:11 INFO OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
+ %PARSER_ERROR[l]
+""2023-01-11 15:11:11 INFO Starting service [Tomcat]
+ %PARSER_ERROR[l]
+""2023-01-11 15:11:11 INFO Starting Servlet engine: [Apache Tomcat/10.1.4]
+ %PARSER_ERROR[l]
+""2023-01-11 15:11:12 INFO Initializing Spring embedded WebApplicationContext
+ %PARSER_ERROR[l]
+""2023-01-11 15:11:12 INFO Root WebApplicationContext: initialization completed in 1920 ms
+ %PARSER_ERROR[l]
+""2023-01-11 15:11:12 INFO HHH000204: Processing PersistenceUnitInfo [name: default]
+ %PARSER_ERROR[l]
+""2023-01-11 15:11:12 INFO HHH000412: Hibernate ORM core version 6.1.6.Final
+ %PARSER_ERROR[l]
+""2023-01-11 15:11:12 WARN HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+ %PARSER_ERROR[l]
+""2023-01-11 15:11:12 INFO HikariPool-1 - Starting...
+ %PARSER_ERROR[l]
+""2023-01-11 15:11:12 INFO HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5889fc44
+ %PARSER_ERROR[l]
+""2023-01-11 15:11:12 INFO HikariPool-1 - Start completed.
+ %PARSER_ERROR[l]
+""2023-01-11 15:11:13 INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+ %PARSER_ERROR[l]
+""2023-01-11 15:11:14 INFO HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+ %PARSER_ERROR[l]
+""2023-01-11 15:11:14 INFO Initialized JPA EntityManagerFactory for persistence unit 'default'
+ %PARSER_ERROR[l]
+""2023-01-11 15:11:15 WARN Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'screenController' defined in file [E:\ideas2movie\ideas2movie\target\classes\com\ideas2it\ideas2movie\controller\ScreenController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'screenServiceImpl' defined in file [E:\ideas2movie\ideas2movie\target\classes\com\ideas2it\ideas2movie\service\impl\ScreenServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 3: Error creating bean with name 'showServiceImpl' defined in file [E:\ideas2movie\ideas2movie\target\classes\com\ideas2it\ideas2movie\service\impl\ShowServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'screenServiceImpl': Requested bean is currently in creation: Is there an unresolvable circular reference?
+ %PARSER_ERROR[l]
+""2023-01-11 15:11:15 INFO Closing JPA EntityManagerFactory for persistence unit 'default'
+ %PARSER_ERROR[l]
+""2023-01-11 15:11:15 INFO HikariPool-1 - Shutdown initiated...
+ %PARSER_ERROR[l]
+""2023-01-11 15:11:15 INFO HikariPool-1 - Shutdown completed.
+ %PARSER_ERROR[l]
+""2023-01-11 15:11:15 INFO Stopping service [Tomcat]
+ %PARSER_ERROR[l]
+""2023-01-11 15:11:15 INFO 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+ %PARSER_ERROR[l]
+""2023-01-11 15:11:15 ERROR 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The dependencies of some of the beans in the application context form a cycle:
+
+   screenController defined in file [E:\ideas2movie\ideas2movie\target\classes\com\ideas2it\ideas2movie\controller\ScreenController.class]
+┌─────┐
+|  screenServiceImpl defined in file [E:\ideas2movie\ideas2movie\target\classes\com\ideas2it\ideas2movie\service\impl\ScreenServiceImpl.class]
+↑     ↓
+|  showServiceImpl defined in file [E:\ideas2movie\ideas2movie\target\classes\com\ideas2it\ideas2movie\service\impl\ShowServiceImpl.class]
+└─────┘
+
+
+Action:
+
+Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
+
+ %PARSER_ERROR[l]
+""2023-01-11 15:12:46 INFO Starting Ideas2movieApplication using Java 18.0.2 with PID 10072 (E:\ideas2movie\ideas2movie\target\classes started by LENOVO in E:\ideas2movie\ideas2movie)
+ %PARSER_ERROR[l]
+""2023-01-11 15:12:46 INFO No active profile set, falling back to 1 default profile: "default"
+ %PARSER_ERROR[l]
+""2023-01-11 15:12:47 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+ %PARSER_ERROR[l]
+""2023-01-11 15:12:47 INFO Finished Spring Data repository scanning in 123 ms. Found 11 JPA repository interfaces.
+ %PARSER_ERROR[l]
+""2023-01-11 15:12:48 INFO Tomcat initialized with port(s): 8080 (http)
+ %PARSER_ERROR[l]
+""2023-01-11 15:12:48 INFO An older version [1.2.35] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.1]
+ %PARSER_ERROR[l]
+""2023-01-11 15:12:48 INFO Loaded Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
+ %PARSER_ERROR[l]
+""2023-01-11 15:12:48 INFO OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
+ %PARSER_ERROR[l]
+""2023-01-11 15:12:48 INFO Starting service [Tomcat]
+ %PARSER_ERROR[l]
+""2023-01-11 15:12:48 INFO Starting Servlet engine: [Apache Tomcat/10.1.4]
+ %PARSER_ERROR[l]
+""2023-01-11 15:12:48 INFO Initializing Spring embedded WebApplicationContext
+ %PARSER_ERROR[l]
+""2023-01-11 15:12:48 INFO Root WebApplicationContext: initialization completed in 1830 ms
+ %PARSER_ERROR[l]
+""2023-01-11 15:12:48 INFO HHH000204: Processing PersistenceUnitInfo [name: default]
+ %PARSER_ERROR[l]
+""2023-01-11 15:12:48 INFO HHH000412: Hibernate ORM core version 6.1.6.Final
+ %PARSER_ERROR[l]
+""2023-01-11 15:12:48 WARN HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+ %PARSER_ERROR[l]
+""2023-01-11 15:12:49 INFO HikariPool-1 - Starting...
+ %PARSER_ERROR[l]
+""2023-01-11 15:12:49 INFO HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@37c2f0b4
+ %PARSER_ERROR[l]
+""2023-01-11 15:12:49 INFO HikariPool-1 - Start completed.
+ %PARSER_ERROR[l]
+""2023-01-11 15:12:49 INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+ %PARSER_ERROR[l]
+""2023-01-11 15:12:50 INFO HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+ %PARSER_ERROR[l]
+""2023-01-11 15:12:50 INFO Initialized JPA EntityManagerFactory for persistence unit 'default'
+ %PARSER_ERROR[l]
+""2023-01-11 15:12:51 WARN Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'screenController' defined in file [E:\ideas2movie\ideas2movie\target\classes\com\ideas2it\ideas2movie\controller\ScreenController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'screenServiceImpl' defined in file [E:\ideas2movie\ideas2movie\target\classes\com\ideas2it\ideas2movie\service\impl\ScreenServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 3: Error creating bean with name 'showServiceImpl' defined in file [E:\ideas2movie\ideas2movie\target\classes\com\ideas2it\ideas2movie\service\impl\ShowServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'screenServiceImpl': Requested bean is currently in creation: Is there an unresolvable circular reference?
+ %PARSER_ERROR[l]
+""2023-01-11 15:12:51 INFO Closing JPA EntityManagerFactory for persistence unit 'default'
+ %PARSER_ERROR[l]
+""2023-01-11 15:12:51 INFO HikariPool-1 - Shutdown initiated...
+ %PARSER_ERROR[l]
+""2023-01-11 15:12:51 INFO HikariPool-1 - Shutdown completed.
+ %PARSER_ERROR[l]
+""2023-01-11 15:12:51 INFO Stopping service [Tomcat]
+ %PARSER_ERROR[l]
+""2023-01-11 15:12:51 INFO 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+ %PARSER_ERROR[l]
+""2023-01-11 15:12:51 ERROR 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The dependencies of some of the beans in the application context form a cycle:
+
+   screenController defined in file [E:\ideas2movie\ideas2movie\target\classes\com\ideas2it\ideas2movie\controller\ScreenController.class]
+┌─────┐
+|  screenServiceImpl defined in file [E:\ideas2movie\ideas2movie\target\classes\com\ideas2it\ideas2movie\service\impl\ScreenServiceImpl.class]
+↑     ↓
+|  showServiceImpl defined in file [E:\ideas2movie\ideas2movie\target\classes\com\ideas2it\ideas2movie\service\impl\ShowServiceImpl.class]
+└─────┘
+
+
+Action:
+
+Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
+
+ %PARSER_ERROR[l]
+""2023-01-11 15:13:45 INFO Starting Ideas2movieApplication using Java 18.0.2 with PID 14980 (E:\ideas2movie\ideas2movie\target\classes started by LENOVO in E:\ideas2movie\ideas2movie)
+ %PARSER_ERROR[l]
+""2023-01-11 15:13:45 INFO No active profile set, falling back to 1 default profile: "default"
+ %PARSER_ERROR[l]
+""2023-01-11 15:13:46 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+ %PARSER_ERROR[l]
+""2023-01-11 15:13:46 INFO Finished Spring Data repository scanning in 119 ms. Found 11 JPA repository interfaces.
+ %PARSER_ERROR[l]
+""2023-01-11 15:13:47 INFO Tomcat initialized with port(s): 8080 (http)
+ %PARSER_ERROR[l]
+""2023-01-11 15:13:47 INFO An older version [1.2.35] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.1]
+ %PARSER_ERROR[l]
+""2023-01-11 15:13:47 INFO Loaded Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
+ %PARSER_ERROR[l]
+""2023-01-11 15:13:47 INFO OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
+ %PARSER_ERROR[l]
+""2023-01-11 15:13:47 INFO Starting service [Tomcat]
+ %PARSER_ERROR[l]
+""2023-01-11 15:13:47 INFO Starting Servlet engine: [Apache Tomcat/10.1.4]
+ %PARSER_ERROR[l]
+""2023-01-11 15:13:47 INFO Initializing Spring embedded WebApplicationContext
+ %PARSER_ERROR[l]
+""2023-01-11 15:13:47 INFO Root WebApplicationContext: initialization completed in 1782 ms
+ %PARSER_ERROR[l]
+""2023-01-11 15:13:47 INFO HHH000204: Processing PersistenceUnitInfo [name: default]
+ %PARSER_ERROR[l]
+""2023-01-11 15:13:47 INFO HHH000412: Hibernate ORM core version 6.1.6.Final
+ %PARSER_ERROR[l]
+""2023-01-11 15:13:47 WARN HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+ %PARSER_ERROR[l]
+""2023-01-11 15:13:48 INFO HikariPool-1 - Starting...
+ %PARSER_ERROR[l]
+""2023-01-11 15:13:48 INFO HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@46ea78f0
+ %PARSER_ERROR[l]
+""2023-01-11 15:13:48 INFO HikariPool-1 - Start completed.
+ %PARSER_ERROR[l]
+""2023-01-11 15:13:48 INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+ %PARSER_ERROR[l]
+""2023-01-11 15:13:49 INFO HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+ %PARSER_ERROR[l]
+""2023-01-11 15:13:49 INFO Initialized JPA EntityManagerFactory for persistence unit 'default'
+ %PARSER_ERROR[l]
+""2023-01-11 15:13:50 WARN spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+ %PARSER_ERROR[l]
+""2023-01-11 15:13:51 INFO Tomcat started on port(s): 8080 (http) with context path ''
+ %PARSER_ERROR[l]
+""2023-01-11 15:13:51 INFO Started Ideas2movieApplication in 6.122 seconds (process running for 7.008)
+ %PARSER_ERROR[l]
+""2023-01-11 15:18:10 INFO Closing JPA EntityManagerFactory for persistence unit 'default'
+ %PARSER_ERROR[l]
+""2023-01-11 15:18:10 INFO HikariPool-1 - Shutdown initiated...
+ %PARSER_ERROR[l]
+""2023-01-11 15:18:10 INFO HikariPool-1 - Shutdown completed.
+ %PARSER_ERROR[l]
+""2023-01-11 15:18:26 INFO Starting Ideas2movieApplication using Java 18.0.2 with PID 864 (E:\ideas2movie\ideas2movie\target\classes started by LENOVO in E:\ideas2movie\ideas2movie)
+ %PARSER_ERROR[l]
+""2023-01-11 15:18:26 INFO No active profile set, falling back to 1 default profile: "default"
+ %PARSER_ERROR[l]
+""2023-01-11 15:18:27 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+ %PARSER_ERROR[l]
+""2023-01-11 15:18:27 INFO Finished Spring Data repository scanning in 115 ms. Found 11 JPA repository interfaces.
+ %PARSER_ERROR[l]
+""2023-01-11 15:18:27 INFO Tomcat initialized with port(s): 8080 (http)
+ %PARSER_ERROR[l]
+""2023-01-11 15:18:27 INFO An older version [1.2.35] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.1]
+ %PARSER_ERROR[l]
+""2023-01-11 15:18:27 INFO Loaded Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
+ %PARSER_ERROR[l]
+""2023-01-11 15:18:27 INFO OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
+ %PARSER_ERROR[l]
+""2023-01-11 15:18:27 INFO Starting service [Tomcat]
+ %PARSER_ERROR[l]
+""2023-01-11 15:18:27 INFO Starting Servlet engine: [Apache Tomcat/10.1.4]
+ %PARSER_ERROR[l]
+""2023-01-11 15:18:27 INFO Initializing Spring embedded WebApplicationContext
+ %PARSER_ERROR[l]
+""2023-01-11 15:18:27 INFO Root WebApplicationContext: initialization completed in 1794 ms
+ %PARSER_ERROR[l]
+""2023-01-11 15:18:28 INFO HHH000204: Processing PersistenceUnitInfo [name: default]
+ %PARSER_ERROR[l]
+""2023-01-11 15:18:28 INFO HHH000412: Hibernate ORM core version 6.1.6.Final
+ %PARSER_ERROR[l]
+""2023-01-11 15:18:28 WARN HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+ %PARSER_ERROR[l]
+""2023-01-11 15:18:28 INFO HikariPool-1 - Starting...
+ %PARSER_ERROR[l]
+""2023-01-11 15:18:28 INFO HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7e848aea
+ %PARSER_ERROR[l]
+""2023-01-11 15:18:28 INFO HikariPool-1 - Start completed.
+ %PARSER_ERROR[l]
+""2023-01-11 15:18:28 INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+ %PARSER_ERROR[l]
+""2023-01-11 15:18:30 INFO HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+ %PARSER_ERROR[l]
+""2023-01-11 15:18:30 INFO Initialized JPA EntityManagerFactory for persistence unit 'default'
+ %PARSER_ERROR[l]
+""2023-01-11 15:18:31 WARN spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+ %PARSER_ERROR[l]
+""2023-01-11 15:18:31 INFO Tomcat started on port(s): 8080 (http) with context path ''
+ %PARSER_ERROR[l]
+""2023-01-11 15:18:31 INFO Started Ideas2movieApplication in 6.135 seconds (process running for 7.018)
+ %PARSER_ERROR[l]
+""2023-01-11 15:18:45 INFO Initializing Spring DispatcherServlet 'dispatcherServlet'
+ %PARSER_ERROR[l]
+""2023-01-11 15:18:45 INFO Initializing Servlet 'dispatcherServlet'
+ %PARSER_ERROR[l]
+""2023-01-11 15:18:45 INFO Completed initialization in 1 ms
+ %PARSER_ERROR[l]
+""2023-01-11 15:20:09 ERROR There is No Screen with this id in the theater
+ %PARSER_ERROR[l]
+""2023-01-11 15:22:20 ERROR There is No Screen with given id
+ %PARSER_ERROR[l]
+""2023-01-11 15:23:05 ERROR There is No Screen with given id
+ %PARSER_ERROR[l]
+""2023-01-11 15:24:43 INFO Closing JPA EntityManagerFactory for persistence unit 'default'
+ %PARSER_ERROR[l]
+""2023-01-11 15:24:43 INFO HikariPool-1 - Shutdown initiated...
+ %PARSER_ERROR[l]
+""2023-01-11 15:24:43 INFO HikariPool-1 - Shutdown completed.
+ %PARSER_ERROR[l]
+""2023-01-11 15:24:51 INFO Starting Ideas2movieApplication using Java 18.0.2 with PID 11012 (E:\ideas2movie\ideas2movie\target\classes started by LENOVO in E:\ideas2movie\ideas2movie)
+ %PARSER_ERROR[l]
+""2023-01-11 15:24:51 INFO No active profile set, falling back to 1 default profile: "default"
+ %PARSER_ERROR[l]
+""2023-01-11 15:24:53 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+ %PARSER_ERROR[l]
+""2023-01-11 15:24:53 INFO Finished Spring Data repository scanning in 117 ms. Found 11 JPA repository interfaces.
+ %PARSER_ERROR[l]
+""2023-01-11 15:24:53 INFO Tomcat initialized with port(s): 8080 (http)
+ %PARSER_ERROR[l]
+""2023-01-11 15:24:53 INFO An older version [1.2.35] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.1]
+ %PARSER_ERROR[l]
+""2023-01-11 15:24:53 INFO Loaded Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
+ %PARSER_ERROR[l]
+""2023-01-11 15:24:53 INFO OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
+ %PARSER_ERROR[l]
+""2023-01-11 15:24:53 INFO Starting service [Tomcat]
+ %PARSER_ERROR[l]
+""2023-01-11 15:24:53 INFO Starting Servlet engine: [Apache Tomcat/10.1.4]
+ %PARSER_ERROR[l]
+""2023-01-11 15:24:53 INFO Initializing Spring embedded WebApplicationContext
+ %PARSER_ERROR[l]
+""2023-01-11 15:24:53 INFO Root WebApplicationContext: initialization completed in 1885 ms
+ %PARSER_ERROR[l]
+""2023-01-11 15:24:54 INFO HHH000204: Processing PersistenceUnitInfo [name: default]
+ %PARSER_ERROR[l]
+""2023-01-11 15:24:54 INFO HHH000412: Hibernate ORM core version 6.1.6.Final
+ %PARSER_ERROR[l]
+""2023-01-11 15:24:54 WARN HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+ %PARSER_ERROR[l]
+""2023-01-11 15:24:54 INFO HikariPool-1 - Starting...
+ %PARSER_ERROR[l]
+""2023-01-11 15:24:55 INFO HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3375b118
+ %PARSER_ERROR[l]
+""2023-01-11 15:24:55 INFO HikariPool-1 - Start completed.
+ %PARSER_ERROR[l]
+""2023-01-11 15:24:55 INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+ %PARSER_ERROR[l]
+""2023-01-11 15:24:57 INFO HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+ %PARSER_ERROR[l]
+""2023-01-11 15:24:57 INFO Initialized JPA EntityManagerFactory for persistence unit 'default'
+ %PARSER_ERROR[l]
+""2023-01-11 15:24:58 WARN spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+ %PARSER_ERROR[l]
+""2023-01-11 15:24:58 INFO Tomcat started on port(s): 8080 (http) with context path ''
+ %PARSER_ERROR[l]
+""2023-01-11 15:24:58 INFO Started Ideas2movieApplication in 7.664 seconds (process running for 8.701)
+ %PARSER_ERROR[l]
+""2023-01-11 15:25:14 INFO Initializing Spring DispatcherServlet 'dispatcherServlet'
+ %PARSER_ERROR[l]
+""2023-01-11 15:25:14 INFO Initializing Servlet 'dispatcherServlet'
+ %PARSER_ERROR[l]
+""2023-01-11 15:25:14 INFO Completed initialization in 1 ms
+ %PARSER_ERROR[l]
+""2023-01-11 16:00:55 INFO Closing JPA EntityManagerFactory for persistence unit 'default'
+ %PARSER_ERROR[l]
+""2023-01-11 16:00:55 INFO HikariPool-1 - Shutdown initiated...
+ %PARSER_ERROR[l]
+""2023-01-11 16:00:55 INFO HikariPool-1 - Shutdown completed.
+ %PARSER_ERROR[l]
 "
