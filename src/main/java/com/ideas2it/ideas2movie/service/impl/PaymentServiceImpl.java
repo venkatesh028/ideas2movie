@@ -27,9 +27,9 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  *     PaymentServiceImpl
  * </h1>
  * <p>
- *     Implements the PaymentService and
- *     Holds the Business Logic to perform
- *     Make payment, Get Payment
+ *     Implements the PaymentService and Provides the Business Logics
+ *     to Make and Get the Details of the Payment
+ *     and Throws an Exception when occurred
  * </p>
  *
  * @author AJAISHARMA

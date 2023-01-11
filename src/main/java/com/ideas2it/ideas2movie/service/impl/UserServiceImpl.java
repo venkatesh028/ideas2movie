@@ -24,10 +24,9 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  *     UserServiceImpl
  * </h1>
  * <p>
- *     Implements the User Service and
- *     Holds the Business Logics
- *     to Create, Update, Get and Delete
- *     the Details of the User
+ *     Implements the UserService and Provides the Business Logics
+ *     to Create, Update, Get and Delete the Details of the User
+ *     and throws an Exception according when occurred
  * </p>
  *
  * @author AJAISHARMA

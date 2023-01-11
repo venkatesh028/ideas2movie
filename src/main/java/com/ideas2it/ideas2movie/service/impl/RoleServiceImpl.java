@@ -4,6 +4,7 @@
  */
 package com.ideas2it.ideas2movie.service.impl;
 
+import com.ideas2it.ideas2movie.exception.NoContentException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -25,9 +26,9 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  *     RoleServiceImpl
  * </h1>
  * <p>
- *     Implements the RoleService and
- *     Holds the Business Logic
- *     to Perform Save, and Get Role
+ *     Implements the RoleService and Provides the Business Logics
+ *     to Perform Save, and Get the Details of the Role
+ *     and Throws an Exception when occurred
  * </p>
  *
  * @author AJAISHARMA
@@ -72,12 +73,12 @@ public class RoleServiceImpl implements RoleService {
      * {@inheritDoc}
      */
     @Override
-    public List<RoleResponseDTO> getAllRoles() throws NotFoundException {
+    public List<RoleResponseDTO> getAllRoles() throws NoContentException {
         List<Role> roles = roleRepository.findAll();
         RoleResponseDTO roleResponseDTO;
 
         if (roles.isEmpty()) {
-            throw new NotFoundException(Message.ROLE_NOT_FOUND);
+            throw new NoContentException(Message.ROLE_NOT_FOUND);
         }
         List<RoleResponseDTO> roleResponseDTOList = new ArrayList<>();
 

@@ -4,6 +4,7 @@
  */
 package com.ideas2it.ideas2movie.service;
 
+import com.ideas2it.ideas2movie.exception.NoContentException;
 import java.util.List;
 
 import com.ideas2it.ideas2movie.model.Role;
@@ -34,7 +35,7 @@ public interface RoleService {
      * </h1>
      * <p>
      *     Creates the Role for the User
-     *     by getting the Role DTO from the Controller
+     *     by getting the RoleDTO from the Controller
      * </p>
      *
      * @param roleDTO - Holds the Details of the Role
@@ -52,9 +53,9 @@ public interface RoleService {
      * </p>
      *
      * @return List<RoleResponseDTO> - Holds the List of Role
-     * @throws NotFoundException - when
+     * @throws NoContentException - when No Role Found
      */
-    List<RoleResponseDTO> getAllRoles() throws NotFoundException;
+    List<RoleResponseDTO> getAllRoles() throws NoContentException;
 
     /**
      * <h1>

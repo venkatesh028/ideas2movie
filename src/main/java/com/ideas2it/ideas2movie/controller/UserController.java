@@ -29,9 +29,8 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  * </h1>
  * <p>
  *     Gets the Input parameter as a Request from then Client
- *     for Create, Update, and Get the User
- *     by sending those parameter and object
- *     to User Service to perform Business Logics on them
+ *     for Create, Update, and Get the Details of the User
+ *     by handling and mapping the request to the appropriate function
  * </p>
  *
  * @author AJAISHARMA
@@ -49,10 +48,11 @@ public class UserController {
      *     User Controller Constructor
      * </h1>
      * <p>
-     *     Used to Achieve the Autowiring for User Service
+     *     Used to initialize the Services for calling the Operation performers of Service
+     *     and also achieves the Autowiring
      * </p>
      *
-     * @param userService - reference variable of the User Service
+     * @param userService - An instance of the User Service
      */
     public UserController(UserService userService) {
 
@@ -88,8 +88,7 @@ public class UserController {
      * </h1>
      * <p>
      *     Gets the Input parameter as a Request from the Client
-     *     to Get the User By ID
-     *     by sending the ID to User Service
+     *     to Get the User By ID by sending the ID to User Service
      *     to perform Business Logic to Get
      * </p>
      *

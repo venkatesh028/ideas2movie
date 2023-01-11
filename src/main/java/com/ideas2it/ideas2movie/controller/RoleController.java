@@ -4,6 +4,7 @@
  */
 package com.ideas2it.ideas2movie.controller;
 
+import com.ideas2it.ideas2movie.exception.NoContentException;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -26,9 +27,8 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  * </h1>
  * <p>
  *     Gets the Input Parameter as a request from the Client
- *     for Create and Get the Role
- *     by sending the parameter and Object
- *     to perform business logic on them
+ *     for Create and Get the Details of the Role
+ *     by handling and Mapping the request to appropriate function
  * </p>
  *
  * @author AJAISHARMA
@@ -45,10 +45,11 @@ public class RoleController {
      *     RoleController Constructor
      * </h1>
      * <p>
-     *     Used to achieve the Autowiring for Role Service
+     *     Used to initialize the Services for calling the Operation performers of Service
+     *     and also achieves the Autowiring
      * </p>
      *
-     * @param roleService - reference variable of Role Service
+     * @param roleService - An instance of a RoleService
      */
     public RoleController(RoleService roleService) {
         this.roleService = roleService;
@@ -83,10 +84,10 @@ public class RoleController {
      * </p>
      *
      * @return ResponseEntity - Holds the Role response DTO and Http Status
-     * @throws NotFoundException
+     * @throws NoContentException - when no Role Found
      */
     @GetMapping
-    public ResponseEntity<List<RoleResponseDTO>> getAllRoles() throws NotFoundException {
+    public ResponseEntity<List<RoleResponseDTO>> getAllRoles() throws NoContentException {
         return ResponseEntity.status(HttpStatus.OK).body(roleService.getAllRoles());
     }
 }
