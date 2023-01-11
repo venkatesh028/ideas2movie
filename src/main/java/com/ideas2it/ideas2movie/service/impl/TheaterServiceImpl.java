@@ -21,6 +21,21 @@ import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
 import com.ideas2it.ideas2movie.util.constant.Message;
 
+/**
+ * <h1>
+ *     TheaterServiceImpl
+ * </h1>
+ * <p>
+ *     Implements the TheaterService and
+ *     Holds the Business Logic
+ *     to Perform Save, and Get Theater
+ * </p>
+ *
+ * @author YOGESHWAR S
+ * @version 1.0
+ * @since 07
+ * -01-2023
+ */
 @Service
 public class TheaterServiceImpl implements TheaterService {
     private final TheaterRepository theaterRepository;

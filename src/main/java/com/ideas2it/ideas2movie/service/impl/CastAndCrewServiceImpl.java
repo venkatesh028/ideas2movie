@@ -4,19 +4,33 @@
  */
 package com.ideas2it.ideas2movie.service.impl;
 
+import java.util.Optional;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
+import com.ideas2it.ideas2movie.model.CastAndCrew;
 import com.ideas2it.ideas2movie.dto.CastAndCrewDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.CastAndCrewResponseDTO;
-import com.ideas2it.ideas2movie.exception.NotFoundException;
-import com.ideas2it.ideas2movie.model.CastAndCrew;
-import com.ideas2it.ideas2movie.repository.CastAndCrewRepository;
 import com.ideas2it.ideas2movie.service.CastAndCrewService;
+import com.ideas2it.ideas2movie.repository.CastAndCrewRepository;
+import com.ideas2it.ideas2movie.exception.NotFoundException;
 import com.ideas2it.ideas2movie.util.constant.Message;
 
+/**
+ * <h1>
+ *     CastAndCrewServiceImpl
+ * </h1>
+ * <p>
+ *     Implements the CastAndCrewService and
+ *     Holds the Business Logic
+ *     to Perform Save, and Get CastAndCrew
+ * </p>
+ *
+ * @author YOGESHWAR S
+ * @version 1.0
+ * @since 06-01-2023
+ */
 @Service
 public class CastAndCrewServiceImpl implements CastAndCrewService {
     private final CastAndCrewRepository castAndCrewRepository;
