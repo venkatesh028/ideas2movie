@@ -4,6 +4,8 @@
  */
 package com.ideas2it.ideas2movie.service.impl;
 
+import com.ideas2it.ideas2movie.model.Show;
+import com.ideas2it.ideas2movie.service.TicketService;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -39,9 +41,11 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
 @Service
 public class ReservationServiceImpl implements ReservationService {
     private final ReservationRepository reservationRepository;
+    private final TicketService ticketService;
     private final ModelMapper mapper = new ModelMapper();
-    public ReservationServiceImpl(ReservationRepository reservationRepository) {
+    public ReservationServiceImpl(ReservationRepository reservationRepository, TicketService ticketService) {
         this.reservationRepository = reservationRepository;
+        this.ticketService = ticketService;
     }
 
     /**
@@ -63,6 +67,7 @@ public class ReservationServiceImpl implements ReservationService {
 
         if (reservation.getPayment().getStatus().equals(PaymentStatus.PAID)) {
             existingReservation.setStatus(ReservationStatus.BOOKED);
+            existingReservation.setTicket(ticketService.generateTicket(existingReservation));
         } else {
             existingReservation.setStatus(ReservationStatus.CANCELED);
         }
@@ -80,9 +85,36 @@ public class ReservationServiceImpl implements ReservationService {
             throw new NotFoundException(Message.RESERVATION_NOT_FOUND);
         }
         Reservation reservation = existingReservation.get();
-        reservation.setStatus(ReservationStatus.CANCELED);
-        reservation.getPayment().setStatus(PaymentStatus.REFUNDED);
+
+        if (reservation.getStatus().equals(ReservationStatus.BOOKED)
+                || reservation.getStatus().equals(ReservationStatus.PROCESSING)) {
+            reservation.setStatus(ReservationStatus.CANCELED);
+            reservation.getPayment().setStatus(PaymentStatus.REFUNDED);
+        }
         return mapper.map(reservationRepository.save(reservation), ReservationResponseDTO.class);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean cancelAllReservationForShow(Show show) {
+        List<Reservation> reservations = reservationRepository.findAllByShowId(show.getId());
+        int canceledCount = 0;
+        boolean isCanceled = false;
+
+        if (reservations.isEmpty()) {
+            isCanceled = true;
+        } else {
+            for (Reservation reservation: reservations) {
+                reservation.setStatus(ReservationStatus.CANCELED);
+                reservationRepository.save(reservation);
+                canceledCount++;
+            }
+
+            isCanceled = (canceledCount == reservations.size());
+        }
+        return isCanceled;
     }
 
     /**
@@ -90,7 +122,6 @@ public class ReservationServiceImpl implements ReservationService {
      */
     public List<Seat> getReservedSeats(Long showId) {
         List<Reservation> oldReservations = reservationRepository.findAllByShowId(showId);
-
         List<Seat> bookedSeats = new ArrayList<>();
 
         for (Reservation oldReservation : oldReservations) {

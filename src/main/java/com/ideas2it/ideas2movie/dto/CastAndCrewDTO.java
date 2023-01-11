@@ -6,13 +6,17 @@ package com.ideas2it.ideas2movie.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import com.ideas2it.ideas2movie.util.constant.Message;
 
 /**
+ * <h1>
+ *     CastAndCrew DTO
+ * </h1>
  * <p>
- * Represents the CastAndCrew DTO
+ *     Get the input from the client for CastAndCrew
  * </p>
  *
  * @author YOGESHWAR S
@@ -21,6 +25,7 @@ import com.ideas2it.ideas2movie.util.constant.Message;
  */
 @Getter
 @Setter
+@NoArgsConstructor
 public class CastAndCrewDTO {
     private Long id;
     @NotBlank(message = Message.DIRECTOR_NAME_SHOULD_NOT_BE_EMPTY)

@@ -36,7 +36,7 @@ import com.ideas2it.ideas2movie.util.enums.ReservationStatus;
  *     Reservation
  *</h1>
  * <p>
- *     Reservation Entity is used to hold the Details of the Reservation
+ *     Reservation Entity have the Attribute which is used to hold the Details of the Reservation
  * </p>
  * @author AJAISHARMA
  * @version 1.0

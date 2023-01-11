@@ -12,6 +12,7 @@ import com.ideas2it.ideas2movie.exception.AlreadyExistException;
 import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.exception.NotAcceptableException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
+import com.ideas2it.ideas2movie.model.Screen;
 
 /**
  * <h1>
@@ -95,4 +96,17 @@ public interface ShowService {
      * @throws NotFoundException - Occurs when there is no show for the given id
      */
     ShowResponseDTO getShowById(Long id) throws NotFoundException;
+
+    /**
+     * <h1>
+     *     cancelShowsForRemovedScreen
+     * </h1>
+     * <p>
+     *     Cancels the shows for the screen
+     *     which removed from the theater
+     * </p>
+     * @param screen - Holds the details of the screen which got removed from the screen
+     * @return
+     */
+    boolean cancelShowsForRemovedScreen(Screen screen);
 }

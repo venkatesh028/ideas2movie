@@ -9,8 +9,12 @@ import java.util.List;
 import java.util.Optional;
 
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeMap;
+import org.modelmapper.convention.MatchingStrategies;
+import org.springframework.boot.logging.log4j2.SpringBootConfigurationFactory;
 import org.springframework.stereotype.Service;
 
+import com.ideas2it.ideas2movie.model.Screen;
 import com.ideas2it.ideas2movie.model.Seat;
 import com.ideas2it.ideas2movie.model.Show;
 import com.ideas2it.ideas2movie.dto.ShowDTO;
@@ -26,6 +30,7 @@ import com.ideas2it.ideas2movie.util.constant.Message;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
 import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
+import com.ideas2it.ideas2movie.logger.CustomLogger;
 
 /**
  * <h1>
@@ -45,6 +50,7 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
 public class ShowServiceImpl implements ShowService {
     private final ShowRepository showRepository;
     private final ModelMapper mapper = new ModelMapper();
+    private final CustomLogger logger = new CustomLogger(ShowServiceImpl.class);
     private final MovieService movieService;
     private final ScreenService screenService;
     private final SeatService seatService;
@@ -64,6 +70,7 @@ public class ShowServiceImpl implements ShowService {
      * {@inheritDoc}
      */
     public ShowResponseDTO createShow(ShowDTO showDTO) throws NotFoundException, AlreadyExistException {
+        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         Show show = mapper.map(showDTO, Show.class);
         show.setMovie(movieService.getMovieByIdForShows(showDTO.getMovieId()));
         show.setScreen(screenService.getScreenById(showDTO.getScreenId()));
@@ -129,6 +136,21 @@ public class ShowServiceImpl implements ShowService {
         }
 
         return showResponseDTO;
+    }
+
+    public boolean cancelShowsForRemovedScreen(Screen screen){
+        List<Show> shows = showRepository.findByScreenId(screen.getId());
+        int canceledShowsCount = 0;
+
+        for (Show show: shows){
+            if(reservationService.cancelAllReservationForShow(show)){
+                show.setActive(false);
+                showRepository.save(show);
+                canceledShowsCount++;
+            }
+        }
+
+        return (canceledShowsCount == shows.size());
     }
 
     /**

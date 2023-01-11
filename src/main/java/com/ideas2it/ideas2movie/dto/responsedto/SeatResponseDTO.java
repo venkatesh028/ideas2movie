@@ -1,5 +1,8 @@
 package com.ideas2it.ideas2movie.dto.responsedto;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * <h1>
  *     SeatResponseDTO
@@ -12,8 +15,10 @@ package com.ideas2it.ideas2movie.dto.responsedto;
  * @version 1.0
  * @since 06/01/2023
  */
+
+@Getter
+@Setter
 public class SeatResponseDTO {
-    private Long Seat;
     private String name;
 
 }

@@ -8,6 +8,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
+ * <h1>
+ *     CastAndCrew Response DTO
+ * </h1>
  * <p>
  *     Represents the CastAndCrew Response DTO,
  *     its shows the required data to the client.

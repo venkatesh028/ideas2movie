@@ -1,6 +1,9 @@
 package com.ideas2it.ideas2movie.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * <h1>
@@ -14,10 +17,12 @@ import jakarta.validation.constraints.NotBlank;
  * @version 1.0
  * @since 06/01/2023
  */
+@Getter
+@Setter
 public class SeatDTO {
     @NotBlank(message = "Seat name should not be blank")
     private String name;
-    @NotBlank(message = "price should not be blank")
+    @NotNull(message = "price should not be blank")
     private double price;
     @NotBlank(message = "screen id should not be blank")
     private Long screenId;

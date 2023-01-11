@@ -6,6 +6,7 @@ package com.ideas2it.ideas2movie.controller;
 
 import java.util.List;
 
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -49,7 +50,7 @@ public class ShowController {
     }
 
     @PostMapping
-    public ResponseEntity<ShowResponseDTO> createShow(@RequestBody ShowDTO showDTO) throws AlreadyExistException,
+    public ResponseEntity<ShowResponseDTO> createShow(@Valid @RequestBody ShowDTO showDTO) throws AlreadyExistException,
                                                                                            NotFoundException,
                                                                                            NotAcceptableException {
         return ResponseEntity.status(HttpStatus.OK).body(showService.createShow(showDTO)) ;

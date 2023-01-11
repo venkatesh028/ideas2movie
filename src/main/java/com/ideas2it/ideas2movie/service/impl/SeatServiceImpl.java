@@ -28,6 +28,10 @@ import com.ideas2it.ideas2movie.repository.SeatRepository;
 public class SeatServiceImpl implements SeatService {
     private SeatRepository seatRepository;
 
+    public SeatServiceImpl(SeatRepository seatRepository){
+        this.seatRepository = seatRepository;
+    }
+
     @Override
     public List<Seat> createSeat(Screen screen) {
         int name = 65;
@@ -37,11 +41,11 @@ public class SeatServiceImpl implements SeatService {
                 Seat seat = new Seat();
                 seat.setName(""+column+(char)name);
                 seat.setScreen(screen);
-                seats.add(seatRepository.save(seat));
+                seats.add(seat);
             }
             name++;
         }
-        return seats;
+        return seatRepository.saveAll(seats);
     }
 
     @Override

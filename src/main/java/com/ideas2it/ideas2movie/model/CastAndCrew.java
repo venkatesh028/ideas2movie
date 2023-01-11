@@ -15,6 +15,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -24,7 +25,7 @@ import org.hibernate.annotations.UpdateTimestamp;
  *    CastAndCrew
  * <h1/>
  * <p>
- *    used to get and store the details of movie cast and crew in ideas2movie.
+ *    Entity of CastAndCrew
  * <p/>
  *
  *  @version 1.0
@@ -34,6 +35,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
 @Table(name = "cast_and_crew")
 public class CastAndCrew {
     @Id

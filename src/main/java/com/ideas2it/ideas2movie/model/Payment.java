@@ -31,7 +31,7 @@ import com.ideas2it.ideas2movie.util.enums.PaymentStatus;
  *      Payment
  * </h1>
  * <p>
- *      Payment Entity is used to Hold the Details of the Payment
+ *      Payment Entity have the Attribute which is used to Hold the Details of the Payment
  * </p>
  *
  * @author  AJAISHARMA

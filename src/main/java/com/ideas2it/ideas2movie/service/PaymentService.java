@@ -15,8 +15,9 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  *     PaymentService
  * </h1>
  * <p>
- *     Service Layer for the payment
- *     to Make, update, Get the Details of the Payment
+ *     PaymentService used to manage the Operations for the Payment
+ *     Like Make Payment, viewing the Details of the payment
+ *     and Throws an Exception accordingly
  * </p>
  *
  * @author AJAISHARMA

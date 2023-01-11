@@ -29,12 +29,12 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class ReservationDTO {
-    @NotBlank(message = "")
+
     private Long userId;
-    @NotBlank
+
     private Long showId;
     @NotBlank
     private ModeOfBooking modeOfBooking;
-    @NotBlank
+
     private List<Long> idsOfSeats;
 }

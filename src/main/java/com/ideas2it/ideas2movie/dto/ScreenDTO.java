@@ -26,6 +26,6 @@ public class ScreenDTO {
     private int totalNumberOfRows;
     @NotNull(message = "Number of Columns Should not be null")
     private int totalNumberOfColumns;
-    @NotBlank(message = "Theater id should not be blank")
+    @NotNull(message = "Theater id should not be blank")
     private Long theaterId;
 }

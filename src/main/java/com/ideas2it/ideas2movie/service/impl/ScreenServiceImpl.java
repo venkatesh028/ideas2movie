@@ -16,6 +16,7 @@ import com.ideas2it.ideas2movie.dto.ScreenDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.ScreenResponseDTO;
 import com.ideas2it.ideas2movie.service.ScreenService;
 import com.ideas2it.ideas2movie.service.SeatService;
+import com.ideas2it.ideas2movie.service.ShowService;
 import com.ideas2it.ideas2movie.service.TheaterService;
 import com.ideas2it.ideas2movie.repository.ScreenRepository;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
@@ -40,13 +41,15 @@ public class ScreenServiceImpl implements ScreenService {
     private final ScreenRepository screenRepository;
     private final SeatService seatService;
     private final TheaterService theaterService;
+    private final ShowService showService;
     private final ModelMapper mapper = new ModelMapper();
 
     public ScreenServiceImpl(ScreenRepository screenRepository, SeatService seatService,
-                             TheaterService theaterService){
+                             TheaterService theaterService, ShowService showService){
         this.screenRepository = screenRepository;
         this.seatService = seatService;
         this.theaterService = theaterService;
+        this.showService = showService;
     }
 
     /**
@@ -77,6 +80,7 @@ public class ScreenServiceImpl implements ScreenService {
     public ScreenResponseDTO updateScreen(Long id, ScreenDTO screenDTO) throws AlreadyExistException, NotFoundException {
         Theater theater = theaterService.getTheaterForScreenById(screenDTO.getTheaterId());
         Screen screen = mapper.map(screenDTO, Screen.class);
+        screen.setId(id);
         screen.setActive(true);
         Screen updatedScreen;
         Optional<Screen> existingScreen;
@@ -104,13 +108,17 @@ public class ScreenServiceImpl implements ScreenService {
     public String removeScreen(Long id) throws NotFoundException {
         Optional<Screen> existingScreen = screenRepository.findById(id);
         Screen screen;
+
         if (existingScreen.isPresent()){
             screen = existingScreen.get();
         } else {
             throw new NotFoundException("There is no screen with this screen id ");
         }
         screen.setActive(false);
-        screenRepository.save(screen);
+
+        if (showService.cancelShowsForRemovedScreen(screen)) {
+            screenRepository.save(screen);
+        }
         return "Deleted SuccessFully";
     }
 

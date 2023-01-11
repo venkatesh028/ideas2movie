@@ -63,4 +63,6 @@ public interface ShowRepository extends JpaRepository<Show, Long> {
      * @return lisOfShows - Holds the list of shows for the particular movie
      */
     List<Show> findByMovieName(String movieName);
+
+    List<Show> findByScreenId(Long id);
 }

@@ -8,6 +8,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
+ * <h1>
+ *     Theater Response DTO
+ * </h1>
  * <p>
  *     Represents the Theater Response DTO,
  *     its shows the required data to the client.
@@ -24,5 +27,4 @@ public class TheaterResponseDTO {
     private String theaterName;
     private String city;
     private String area;
-    private String pincode;
 }

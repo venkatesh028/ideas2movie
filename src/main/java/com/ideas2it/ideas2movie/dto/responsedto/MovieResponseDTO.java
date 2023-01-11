@@ -9,11 +9,13 @@ import lombok.Setter;
 
 import java.time.LocalTime;
 
-import com.ideas2it.ideas2movie.model.CastAndCrew;
 import com.ideas2it.ideas2movie.util.enums.Genre;
 import com.ideas2it.ideas2movie.util.enums.Language;
 
 /**
+ * <h1>
+ *     Movie Response DTO
+ * </h1>
  * <p>
  *     Represents the Movie Response DTO,
  *     its shows the required data to the client.
@@ -31,5 +33,5 @@ public class MovieResponseDTO {
     private Language language;
     private LocalTime duration;
     private Genre genre;
-    private CastAndCrew castAndCrew;
+    private CastAndCrewResponseDTO castAndCrewResponseDTO;
 }
