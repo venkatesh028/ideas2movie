@@ -19,7 +19,6 @@ import com.ideas2it.ideas2movie.dto.RoleDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.RoleResponseDTO;
 import com.ideas2it.ideas2movie.service.RoleService;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
-import com.ideas2it.ideas2movie.exception.NotFoundException;
 
 /**
  * <h1>
@@ -36,7 +35,7 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  * @since 06-01-2023
  */
 @RestController
-@RequestMapping("api/v1/role")
+@RequestMapping("/api/v1/roles")
 public class RoleController {
     private final RoleService roleService;
 

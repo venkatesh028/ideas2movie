@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ideas2it.ideas2movie.dto.ReservationDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.ReservationResponseDTO;
 import com.ideas2it.ideas2movie.service.ReservationService;
-import com.ideas2it.ideas2movie.exception.AlreadyExistException;
+import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
 
 /**
@@ -61,18 +61,16 @@ public class ReservationController {
      *     addReservation
      * </h1>
      * <p>
-     *     Gets the Input parameter as a request form the Client
-     *     to Add reservation for a show
+     *     Gets the Input parameter as a request form the Client to Add reservation for a show
      *     by sending the Reservation DTO to the Reservation Service
      *     to perform Business logic to ass Reservation
      * </p>
      *
      * @param reservationDTO - holds the Details to reserve ticket
      * @return ResponseEntity - holds the Reservation Response DTO and Http Status
-     * @throws AlreadyExistException - when seats already reserved
      */
     @PostMapping
-    public ResponseEntity<ReservationResponseDTO> addReservation(@RequestBody ReservationDTO reservationDTO) throws AlreadyExistException {
+    public ResponseEntity<ReservationResponseDTO> addReservation(@RequestBody ReservationDTO reservationDTO) {
         return ResponseEntity.status(HttpStatus.OK).body(reservationService.reserveSeats(reservationDTO));
     }
 
@@ -81,17 +79,17 @@ public class ReservationController {
      *     cancelReservation
      * </h1>
      * <p>
-     *     Gets the Input Parameter as a Request from the Client
-     *     to Cancel the Reservation for a Show
-     *     by sending the Reservation ID to Reservation Service
+     *     Gets the Input Parameter as a Request from the Client to Cancel the Reservation
+     *     for a Show by sending the Reservation ID to Reservation Service
      *     to perform Business Logic to Cancel reservation
      * </p>
      *
      * @param id - ID of the reservation to Cancel
      * @return ResponseEntity - Holds the ReservationResponseDTO and Http Status
      */
-    @DeleteMapping("/{id}")
-    public ResponseEntity<ReservationResponseDTO> cancelReservation(@PathVariable("id") Long id) throws NotFoundException {
+    @DeleteMapping("/cancel/{id}")
+    public ResponseEntity<ReservationResponseDTO> cancelReservation(@PathVariable("id") Long id)
+            throws NotFoundException {
         return ResponseEntity.status(HttpStatus.OK).body(reservationService.cancelReservation(id));
     }
 
@@ -100,9 +98,8 @@ public class ReservationController {
      *     getReservationById
      * </h1>
      * <p>
-     *     Gets the Input parameter as a Request from the Client
-     *     to get the reservation detail for a show
-     *     by sending the reservation ID to the Reservation Service
+     *     Gets the Input parameter as a Request from the Client to get the reservation details
+     *     for a show by sending the reservation ID to the Reservation Service
      *     to perform Business Logic to get Reservation
      * </p>
      *
@@ -110,7 +107,8 @@ public class ReservationController {
      * @return ResponseEntity - Holds the ReservationResponseDTO and Http Status
      */
     @GetMapping("/{id}")
-    public ResponseEntity<ReservationResponseDTO> getReservationById(@PathVariable("id") Long id) throws NotFoundException {
+    public ResponseEntity<ReservationResponseDTO> getReservationById(@PathVariable("id") Long id)
+            throws NotFoundException {
         return ResponseEntity.status(HttpStatus.OK).body(reservationService.getReservationDTOById(id));
     }
 
@@ -119,8 +117,7 @@ public class ReservationController {
      *     getAllReservationByUserId
      * </h1>
      * <p>
-     *     Gets the Input parameter as a Request from the Client
-     *     to get All Reservations of a User
+     *     Gets the Input parameter as a Request from the Client to get All Reservations of a User
      *     By sending the User ID to the Reservation Service
      *     to perform Business Logic to get Reservation of User
      * </p>
@@ -128,8 +125,9 @@ public class ReservationController {
      * @param id - ID of the User to Get the Reservations of User
      * @return ResponseEntity - Holds the ReservationResponseDTO and Http Status
      */
-    @GetMapping("/all/{id}")
-    public ResponseEntity<List<ReservationResponseDTO>> getAllReservationByUserId(@PathVariable("id") Long id) {
+    @GetMapping("/of-user/{id}")
+    public ResponseEntity<List<ReservationResponseDTO>> getAllReservationByUserId(@PathVariable("id") Long id)
+            throws NoContentException {
         return ResponseEntity.status(HttpStatus.OK).body(reservationService.getAllReservationByUserId(id));
     }
 }

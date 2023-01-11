@@ -4,9 +4,14 @@
  */
 package com.ideas2it.ideas2movie.exception;
 
-import org.springframework.http.HttpStatus;
+import lombok.Getter;
 
-public class AlreadyExistException extends Exception{
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
+
+@Getter
+public class AlreadyExistException extends Exception {
+    //private HttpStatus httpStatus = HttpStatus.CONFLICT;
     public AlreadyExistException(String message) {
         super(message);
     }

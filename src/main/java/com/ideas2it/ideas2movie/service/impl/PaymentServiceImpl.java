@@ -87,9 +87,22 @@ public class PaymentServiceImpl implements PaymentService {
     public PaymentResponseDTO getByTransactionId(UUID id) throws NotFoundException {
         Optional<Payment> existingPayment = paymentRepository.getByTransactionId(id);
 
-        if (existingPayment.isPresent()) {
-            return mapper.map(existingPayment.get(), PaymentResponseDTO.class);
+        if (existingPayment.isEmpty()) {
+            throw new NotFoundException(Message.PAYMENT_NOT_FOUND);
         }
-        throw new NotFoundException(Message.PAYMENT_NOT_FOUND);
+        return mapper.map(existingPayment.get(), PaymentResponseDTO.class);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public PaymentResponseDTO getById(Long id) throws  NotFoundException {
+        Optional<Payment> existingPayment = paymentRepository.findById(id);
+
+        if (existingPayment.isEmpty()) {
+            throw new NotFoundException(Message.PAYMENT_NOT_FOUND);
+        }
+        return mapper.map(existingPayment.get(), PaymentResponseDTO.class);
     }
 }

@@ -56,12 +56,11 @@ public class PaymentController {
 
     /**
      * <h1>
-     *      Make Payment
+     *      makePayment
      * </h1>
      * <p>
      *      Gets the Input Parameter as a Request from the Client
-     *      to Make a Payment for the Booking Ticket
-     *      by sending the Payment DTO
+     *      to Make a Payment for the Booking Ticket by sending the Payment DTO
      *      to Payment Service to perform Business Logic to Pay
      * </p>
      *
@@ -72,8 +71,38 @@ public class PaymentController {
     public ResponseEntity<PaymentResponseDTO> makePayment(@RequestBody PaymentDTO paymentDTO) throws NotFoundException {
         return ResponseEntity.status(HttpStatus.OK).body(paymentService.makePayment(paymentDTO));
     }
-    @GetMapping("/{id}")
+
+    /**
+     * <h1>
+     *     getByTransactionId
+     * </h1>
+     * <p>
+     *     Gets the ID of the Transaction from the Client to Get the Details of the Payment
+     *     in the form of PaymentResponseDTO by sending the Transaction ID to PaymentService
+     * </p>
+     *
+     * @param id - ID of the Transaction
+     * @return ResponseEntity - Holds the PaymentResponseDTO and Http Status
+     * @throws NotFoundException - when Payment is Not Found
+     */
+    @GetMapping("/by-transaction/{id}")
     public ResponseEntity<PaymentResponseDTO> getByTransactionId(@PathVariable("id") UUID id) throws NotFoundException {
         return ResponseEntity.status(HttpStatus.OK).body(paymentService.getByTransactionId(id));
+    }
+
+    /**
+     * <h1>
+     *     getById
+     * </h1>
+     * <p>
+     *     Gets the ID of the payment from the Client to get the Details of the payment
+     *     in the form of PaymentResponseDTO by sending the ID to the PaymentService
+     * </p>
+     *
+     * @param
+     */
+    @GetMapping("/{id}")
+    public ResponseEntity<PaymentResponseDTO> getById(@PathVariable("id") Long id) throws NotFoundException {
+        return ResponseEntity.status(HttpStatus.OK).body(paymentService.getById(id));
     }
 }
