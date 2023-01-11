@@ -1,219 +1,403 @@
-"2023-01-10 15:45:15 INFO Starting Ideas2movieApplication using Java 18.0.2 with PID 15572 (E:\ideas2movie\ideas2movie\target\classes started by LENOVO in E:\ideas2movie\ideas2movie)
+"2023-01-11 11:09:21 INFO Starting Ideas2movieApplication using Java 18.0.2 with PID 16192 (E:\ideas2movie\ideas2movie\target\classes started by LENOVO in E:\ideas2movie\ideas2movie)
  %PARSER_ERROR[l]
-""2023-01-10 15:45:15 INFO No active profile set, falling back to 1 default profile: "default"
+""2023-01-11 11:09:21 INFO No active profile set, falling back to 1 default profile: "default"
  %PARSER_ERROR[l]
-""2023-01-10 15:45:16 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2023-01-11 11:09:23 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode.
  %PARSER_ERROR[l]
-""2023-01-10 15:45:16 INFO Finished Spring Data repository scanning in 124 ms. Found 11 JPA repository interfaces.
+""2023-01-11 11:09:23 INFO Finished Spring Data repository scanning in 202 ms. Found 11 JPA repository interfaces.
  %PARSER_ERROR[l]
-""2023-01-10 15:45:17 INFO Tomcat initialized with port(s): 8080 (http)
+""2023-01-11 11:09:24 INFO Tomcat initialized with port(s): 8080 (http)
  %PARSER_ERROR[l]
-""2023-01-10 15:45:17 INFO An older version [1.2.35] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.1]
+""2023-01-11 11:09:24 INFO An older version [1.2.35] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.1]
  %PARSER_ERROR[l]
-""2023-01-10 15:45:17 INFO Loaded Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
+""2023-01-11 11:09:24 INFO Loaded Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
  %PARSER_ERROR[l]
-""2023-01-10 15:45:17 INFO OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
+""2023-01-11 11:09:24 INFO OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
  %PARSER_ERROR[l]
-""2023-01-10 15:45:17 INFO Starting service [Tomcat]
+""2023-01-11 11:09:24 INFO Starting service [Tomcat]
  %PARSER_ERROR[l]
-""2023-01-10 15:45:17 INFO Starting Servlet engine: [Apache Tomcat/10.1.4]
+""2023-01-11 11:09:24 INFO Starting Servlet engine: [Apache Tomcat/10.1.4]
  %PARSER_ERROR[l]
-""2023-01-10 15:45:17 INFO Initializing Spring embedded WebApplicationContext
+""2023-01-11 11:09:24 INFO Initializing Spring embedded WebApplicationContext
  %PARSER_ERROR[l]
-""2023-01-10 15:45:17 INFO Root WebApplicationContext: initialization completed in 2103 ms
+""2023-01-11 11:09:24 INFO Root WebApplicationContext: initialization completed in 2911 ms
  %PARSER_ERROR[l]
-""2023-01-10 15:45:17 INFO HHH000204: Processing PersistenceUnitInfo [name: default]
+""2023-01-11 11:09:25 INFO HHH000204: Processing PersistenceUnitInfo [name: default]
  %PARSER_ERROR[l]
-""2023-01-10 15:45:17 INFO HHH000412: Hibernate ORM core version 6.1.6.Final
+""2023-01-11 11:09:25 INFO HHH000412: Hibernate ORM core version 6.1.6.Final
  %PARSER_ERROR[l]
-""2023-01-10 15:45:17 WARN HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+""2023-01-11 11:09:25 WARN HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
  %PARSER_ERROR[l]
-""2023-01-10 15:45:18 INFO HikariPool-1 - Starting...
+""2023-01-11 11:09:26 INFO HikariPool-1 - Starting...
  %PARSER_ERROR[l]
-""2023-01-10 15:45:18 INFO HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@64dfb31d
+""2023-01-11 11:09:26 INFO HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2cd3fc29
  %PARSER_ERROR[l]
-""2023-01-10 15:45:18 INFO HikariPool-1 - Start completed.
+""2023-01-11 11:09:26 INFO HikariPool-1 - Start completed.
  %PARSER_ERROR[l]
-""2023-01-10 15:45:18 INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+""2023-01-11 11:09:27 INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
  %PARSER_ERROR[l]
-""2023-01-10 15:45:20 INFO HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2023-01-11 11:09:28 INFO HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
  %PARSER_ERROR[l]
-""2023-01-10 15:45:20 INFO Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2023-01-11 11:09:28 INFO Initialized JPA EntityManagerFactory for persistence unit 'default'
  %PARSER_ERROR[l]
-""2023-01-10 15:45:21 WARN spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2023-01-11 11:09:29 WARN spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
  %PARSER_ERROR[l]
-""2023-01-10 15:45:22 INFO Tomcat started on port(s): 8080 (http) with context path ''
+""2023-01-11 11:09:29 INFO Tomcat started on port(s): 8080 (http) with context path ''
  %PARSER_ERROR[l]
-""2023-01-10 15:45:22 INFO Started Ideas2movieApplication in 7.899 seconds (process running for 9.005)
+""2023-01-11 11:09:29 INFO Started Ideas2movieApplication in 9.232 seconds (process running for 11.253)
  %PARSER_ERROR[l]
-""2023-01-10 15:46:04 INFO Closing JPA EntityManagerFactory for persistence unit 'default'
+""2023-01-11 11:09:36 INFO Initializing Spring DispatcherServlet 'dispatcherServlet'
  %PARSER_ERROR[l]
-""2023-01-10 15:46:04 INFO HikariPool-1 - Shutdown initiated...
+""2023-01-11 11:09:36 INFO Initializing Servlet 'dispatcherServlet'
  %PARSER_ERROR[l]
-""2023-01-10 15:46:04 INFO HikariPool-1 - Shutdown completed.
+""2023-01-11 11:09:36 INFO Completed initialization in 1 ms
  %PARSER_ERROR[l]
-""2023-01-10 15:46:11 INFO Starting Ideas2movieApplication using Java 18.0.2 with PID 18004 (E:\ideas2movie\ideas2movie\target\classes started by LENOVO in E:\ideas2movie\ideas2movie)
+""2023-01-11 11:10:35 ERROR There is No Screen with given id
  %PARSER_ERROR[l]
-""2023-01-10 15:46:11 INFO No active profile set, falling back to 1 default profile: "default"
+""2023-01-11 11:18:30 WARN Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.time.LocalTime` from String "7:30": Failed to deserialize java.time.LocalTime: (java.time.format.DateTimeParseException) Text '7:30' could not be parsed at index 0]
  %PARSER_ERROR[l]
-""2023-01-10 15:46:12 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2023-01-11 11:20:14 INFO Closing JPA EntityManagerFactory for persistence unit 'default'
  %PARSER_ERROR[l]
-""2023-01-10 15:46:12 INFO Finished Spring Data repository scanning in 125 ms. Found 11 JPA repository interfaces.
+""2023-01-11 11:20:14 INFO HikariPool-1 - Shutdown initiated...
  %PARSER_ERROR[l]
-""2023-01-10 15:46:13 INFO Tomcat initialized with port(s): 8080 (http)
+""2023-01-11 11:20:14 INFO HikariPool-1 - Shutdown completed.
  %PARSER_ERROR[l]
-""2023-01-10 15:46:13 INFO An older version [1.2.35] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.1]
+""2023-01-11 11:20:25 INFO Starting Ideas2movieApplication using Java 18.0.2 with PID 19068 (E:\ideas2movie\ideas2movie\target\classes started by LENOVO in E:\ideas2movie\ideas2movie)
  %PARSER_ERROR[l]
-""2023-01-10 15:46:13 INFO Loaded Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
+""2023-01-11 11:20:25 INFO No active profile set, falling back to 1 default profile: "default"
  %PARSER_ERROR[l]
-""2023-01-10 15:46:13 INFO OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
+""2023-01-11 11:20:26 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode.
  %PARSER_ERROR[l]
-""2023-01-10 15:46:13 INFO Starting service [Tomcat]
+""2023-01-11 11:20:27 INFO Finished Spring Data repository scanning in 166 ms. Found 11 JPA repository interfaces.
  %PARSER_ERROR[l]
-""2023-01-10 15:46:13 INFO Starting Servlet engine: [Apache Tomcat/10.1.4]
+""2023-01-11 11:20:27 INFO Tomcat initialized with port(s): 8080 (http)
  %PARSER_ERROR[l]
-""2023-01-10 15:46:13 INFO Initializing Spring embedded WebApplicationContext
+""2023-01-11 11:20:27 INFO An older version [1.2.35] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.1]
  %PARSER_ERROR[l]
-""2023-01-10 15:46:13 INFO Root WebApplicationContext: initialization completed in 1797 ms
+""2023-01-11 11:20:27 INFO Loaded Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
  %PARSER_ERROR[l]
-""2023-01-10 15:46:13 INFO HHH000204: Processing PersistenceUnitInfo [name: default]
+""2023-01-11 11:20:27 INFO OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
  %PARSER_ERROR[l]
-""2023-01-10 15:46:13 INFO HHH000412: Hibernate ORM core version 6.1.6.Final
+""2023-01-11 11:20:27 INFO Starting service [Tomcat]
  %PARSER_ERROR[l]
-""2023-01-10 15:46:13 WARN HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+""2023-01-11 11:20:27 INFO Starting Servlet engine: [Apache Tomcat/10.1.4]
  %PARSER_ERROR[l]
-""2023-01-10 15:46:13 INFO HikariPool-1 - Starting...
+""2023-01-11 11:20:27 INFO Initializing Spring embedded WebApplicationContext
  %PARSER_ERROR[l]
-""2023-01-10 15:46:14 INFO HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@fabef2e
+""2023-01-11 11:20:27 INFO Root WebApplicationContext: initialization completed in 2221 ms
  %PARSER_ERROR[l]
-""2023-01-10 15:46:14 INFO HikariPool-1 - Start completed.
+""2023-01-11 11:20:28 INFO HHH000204: Processing PersistenceUnitInfo [name: default]
  %PARSER_ERROR[l]
-""2023-01-10 15:46:14 INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+""2023-01-11 11:20:28 INFO HHH000412: Hibernate ORM core version 6.1.6.Final
  %PARSER_ERROR[l]
-""2023-01-10 15:46:16 INFO HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2023-01-11 11:20:28 WARN HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
  %PARSER_ERROR[l]
-""2023-01-10 15:46:16 INFO Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2023-01-11 11:20:28 INFO HikariPool-1 - Starting...
  %PARSER_ERROR[l]
-""2023-01-10 15:46:17 WARN spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2023-01-11 11:20:29 INFO HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@63f2e0b
  %PARSER_ERROR[l]
-""2023-01-10 15:46:18 INFO Tomcat started on port(s): 8080 (http) with context path ''
+""2023-01-11 11:20:29 INFO HikariPool-1 - Start completed.
  %PARSER_ERROR[l]
-""2023-01-10 15:46:18 INFO Started Ideas2movieApplication in 7.168 seconds (process running for 8.075)
+""2023-01-11 11:20:29 INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+ %PARSER_ERROR[l]
+""2023-01-11 11:20:30 INFO HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+ %PARSER_ERROR[l]
+""2023-01-11 11:20:30 INFO Initialized JPA EntityManagerFactory for persistence unit 'default'
+ %PARSER_ERROR[l]
+""2023-01-11 11:20:31 WARN spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
  %PARSER_ERROR[l]
-""2023-01-10 17:45:37 WARN HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=18m50s855ms907µs100ns).
+""2023-01-11 11:20:31 INFO Tomcat started on port(s): 8080 (http) with context path ''
  %PARSER_ERROR[l]
-""2023-01-10 17:56:02 INFO Closing JPA EntityManagerFactory for persistence unit 'default'
+""2023-01-11 11:20:31 INFO Started Ideas2movieApplication in 7.402 seconds (process running for 8.86)
  %PARSER_ERROR[l]
-""2023-01-10 17:56:02 INFO HikariPool-1 - Shutdown initiated...
+""2023-01-11 11:20:48 INFO Initializing Spring DispatcherServlet 'dispatcherServlet'
  %PARSER_ERROR[l]
-""2023-01-10 17:56:03 INFO HikariPool-1 - Shutdown completed.
+""2023-01-11 11:20:48 INFO Initializing Servlet 'dispatcherServlet'
  %PARSER_ERROR[l]
-""2023-01-10 17:56:51 INFO Starting Ideas2movieApplication using Java 18.0.2 with PID 6296 (E:\ideas2movie\ideas2movie\target\classes started by LENOVO in E:\ideas2movie\ideas2movie)
+""2023-01-11 11:20:48 INFO Completed initialization in 1 ms
  %PARSER_ERROR[l]
-""2023-01-10 17:56:51 INFO No active profile set, falling back to 1 default profile: "default"
+""2023-01-11 11:31:34 ERROR Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.NullPointerException: Cannot invoke "com.ideas2it.ideas2movie.model.Screen.getId()" because the return value of "com.ideas2it.ideas2movie.model.Show.getScreen()" is null] with root cause
  %PARSER_ERROR[l]
-""2023-01-10 17:56:53 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode.
- %PARSER_ERROR[l]
-""2023-01-10 17:56:53 INFO Finished Spring Data repository scanning in 239 ms. Found 11 JPA repository interfaces.
- %PARSER_ERROR[l]
-""2023-01-10 17:56:54 INFO Tomcat initialized with port(s): 8080 (http)
- %PARSER_ERROR[l]
-""2023-01-10 17:56:54 INFO An older version [1.2.35] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.1]
- %PARSER_ERROR[l]
-""2023-01-10 17:56:54 INFO Loaded Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
- %PARSER_ERROR[l]
-""2023-01-10 17:56:54 INFO OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
- %PARSER_ERROR[l]
-""2023-01-10 17:56:54 INFO Starting service [Tomcat]
- %PARSER_ERROR[l]
-""2023-01-10 17:56:54 INFO Starting Servlet engine: [Apache Tomcat/10.1.4]
- %PARSER_ERROR[l]
-""2023-01-10 17:56:54 INFO Initializing Spring embedded WebApplicationContext
- %PARSER_ERROR[l]
-""2023-01-10 17:56:54 INFO Root WebApplicationContext: initialization completed in 3112 ms
- %PARSER_ERROR[l]
-""2023-01-10 17:56:55 INFO HHH000204: Processing PersistenceUnitInfo [name: default]
- %PARSER_ERROR[l]
-""2023-01-10 17:56:55 INFO HHH000412: Hibernate ORM core version 6.1.6.Final
- %PARSER_ERROR[l]
-""2023-01-10 17:56:55 WARN HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
- %PARSER_ERROR[l]
-""2023-01-10 17:56:56 INFO HikariPool-1 - Starting...
- %PARSER_ERROR[l]
-""2023-01-10 17:56:56 INFO HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5cc3e49b
- %PARSER_ERROR[l]
-""2023-01-10 17:56:56 INFO HikariPool-1 - Start completed.
- %PARSER_ERROR[l]
-""2023-01-10 17:56:57 INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
- %PARSER_ERROR[l]
-""2023-01-10 17:57:00 INFO HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
- %PARSER_ERROR[l]
-""2023-01-10 17:57:00 INFO Initialized JPA EntityManagerFactory for persistence unit 'default'
- %PARSER_ERROR[l]
-""2023-01-10 17:57:02 WARN spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
- %PARSER_ERROR[l]
-""2023-01-10 17:57:03 INFO Tomcat started on port(s): 8080 (http) with context path ''
- %PARSER_ERROR[l]
-""2023-01-10 17:57:03 INFO Started Ideas2movieApplication in 13.206 seconds (process running for 14.659)
- %PARSER_ERROR[l]
-""2023-01-10 17:57:28 INFO Closing JPA EntityManagerFactory for persistence unit 'default'
- %PARSER_ERROR[l]
-""2023-01-10 17:57:28 INFO HikariPool-1 - Shutdown initiated...
- %PARSER_ERROR[l]
-""2023-01-10 17:57:28 INFO HikariPool-1 - Shutdown completed.
- %PARSER_ERROR[l]
-""2023-01-10 17:57:36 INFO Starting Ideas2movieApplication using Java 18.0.2 with PID 19028 (E:\ideas2movie\ideas2movie\target\classes started by LENOVO in E:\ideas2movie\ideas2movie)
- %PARSER_ERROR[l]
-""2023-01-10 17:57:36 INFO No active profile set, falling back to 1 default profile: "default"
- %PARSER_ERROR[l]
-""2023-01-10 17:57:38 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode.
- %PARSER_ERROR[l]
-""2023-01-10 17:57:38 INFO Finished Spring Data repository scanning in 267 ms. Found 11 JPA repository interfaces.
- %PARSER_ERROR[l]
-""2023-01-10 17:57:39 INFO Tomcat initialized with port(s): 8080 (http)
- %PARSER_ERROR[l]
-""2023-01-10 17:57:39 INFO An older version [1.2.35] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.1]
- %PARSER_ERROR[l]
-""2023-01-10 17:57:39 INFO Loaded Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
- %PARSER_ERROR[l]
-""2023-01-10 17:57:39 INFO OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
- %PARSER_ERROR[l]
-""2023-01-10 17:57:39 INFO Starting service [Tomcat]
- %PARSER_ERROR[l]
-""2023-01-10 17:57:39 INFO Starting Servlet engine: [Apache Tomcat/10.1.4]
- %PARSER_ERROR[l]
-""2023-01-10 17:57:39 INFO Initializing Spring embedded WebApplicationContext
- %PARSER_ERROR[l]
-""2023-01-10 17:57:39 INFO Root WebApplicationContext: initialization completed in 2900 ms
- %PARSER_ERROR[l]
-""2023-01-10 17:57:39 INFO HHH000204: Processing PersistenceUnitInfo [name: default]
- %PARSER_ERROR[l]
-""2023-01-10 17:57:39 INFO HHH000412: Hibernate ORM core version 6.1.6.Final
- %PARSER_ERROR[l]
-""2023-01-10 17:57:40 WARN HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
- %PARSER_ERROR[l]
-""2023-01-10 17:57:40 INFO HikariPool-1 - Starting...
- %PARSER_ERROR[l]
-""2023-01-10 17:57:40 INFO HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@9f0fc36
- %PARSER_ERROR[l]
-""2023-01-10 17:57:40 INFO HikariPool-1 - Start completed.
- %PARSER_ERROR[l]
-""2023-01-10 17:57:40 INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
- %PARSER_ERROR[l]
-""2023-01-10 17:57:44 INFO HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
- %PARSER_ERROR[l]
-""2023-01-10 17:57:44 INFO Initialized JPA EntityManagerFactory for persistence unit 'default'
- %PARSER_ERROR[l]
-""2023-01-10 17:57:45 WARN spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
- %PARSER_ERROR[l]
-""2023-01-10 17:57:46 INFO Tomcat started on port(s): 8080 (http) with context path ''
- %PARSER_ERROR[l]
-""2023-01-10 17:57:46 INFO Started Ideas2movieApplication in 10.84 seconds (process running for 12.132)
- %PARSER_ERROR[l]
-""2023-01-10 17:58:28 INFO Closing JPA EntityManagerFactory for persistence unit 'default'
- %PARSER_ERROR[l]
-""2023-01-10 17:58:28 INFO HikariPool-1 - Shutdown initiated...
- %PARSER_ERROR[l]
-""2023-01-10 17:58:28 INFO HikariPool-1 - Shutdown completed.
+"java.lang.NullPointerException: Cannot invoke "com.ideas2it.ideas2movie.model.Screen.getId()" because the return value of "com.ideas2it.ideas2movie.model.Show.getScreen()" is null
+	at com.ideas2it.ideas2movie.service.impl.ShowServiceImpl.getAvailableSeats(ShowServiceImpl.java:153)
+	at com.ideas2it.ideas2movie.service.impl.ShowServiceImpl.getAllShowsByMovieName(ShowServiceImpl.java:115)
+	at com.ideas2it.ideas2movie.controller.ShowController.getAllShowsByMovieName(ShowController.java:67)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:207)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:152)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1080)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:973)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1010)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:902)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:705)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:884)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:814)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:400)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:859)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1734)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+"2023-01-11 11:34:30 INFO Closing JPA EntityManagerFactory for persistence unit 'default'
+ %PARSER_ERROR[l]
+""2023-01-11 11:34:30 INFO HikariPool-1 - Shutdown initiated...
+ %PARSER_ERROR[l]
+""2023-01-11 11:34:30 INFO HikariPool-1 - Shutdown completed.
+ %PARSER_ERROR[l]
+""2023-01-11 11:34:41 INFO Starting Ideas2movieApplication using Java 18.0.2 with PID 8556 (E:\ideas2movie\ideas2movie\target\classes started by LENOVO in E:\ideas2movie\ideas2movie)
+ %PARSER_ERROR[l]
+""2023-01-11 11:34:41 INFO No active profile set, falling back to 1 default profile: "default"
+ %PARSER_ERROR[l]
+""2023-01-11 11:34:42 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+ %PARSER_ERROR[l]
+""2023-01-11 11:34:42 INFO Finished Spring Data repository scanning in 117 ms. Found 11 JPA repository interfaces.
+ %PARSER_ERROR[l]
+""2023-01-11 11:34:43 INFO Tomcat initialized with port(s): 8080 (http)
+ %PARSER_ERROR[l]
+""2023-01-11 11:34:43 INFO An older version [1.2.35] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.1]
+ %PARSER_ERROR[l]
+""2023-01-11 11:34:43 INFO Loaded Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
+ %PARSER_ERROR[l]
+""2023-01-11 11:34:43 INFO OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
+ %PARSER_ERROR[l]
+""2023-01-11 11:34:43 INFO Starting service [Tomcat]
+ %PARSER_ERROR[l]
+""2023-01-11 11:34:43 INFO Starting Servlet engine: [Apache Tomcat/10.1.4]
+ %PARSER_ERROR[l]
+""2023-01-11 11:34:43 INFO Initializing Spring embedded WebApplicationContext
+ %PARSER_ERROR[l]
+""2023-01-11 11:34:43 INFO Root WebApplicationContext: initialization completed in 1875 ms
+ %PARSER_ERROR[l]
+""2023-01-11 11:34:43 INFO HHH000204: Processing PersistenceUnitInfo [name: default]
+ %PARSER_ERROR[l]
+""2023-01-11 11:34:43 INFO HHH000412: Hibernate ORM core version 6.1.6.Final
+ %PARSER_ERROR[l]
+""2023-01-11 11:34:43 WARN HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+ %PARSER_ERROR[l]
+""2023-01-11 11:34:44 INFO HikariPool-1 - Starting...
+ %PARSER_ERROR[l]
+""2023-01-11 11:34:44 INFO HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1805383
+ %PARSER_ERROR[l]
+""2023-01-11 11:34:44 INFO HikariPool-1 - Start completed.
+ %PARSER_ERROR[l]
+""2023-01-11 11:34:44 INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+ %PARSER_ERROR[l]
+""2023-01-11 11:34:46 INFO HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+ %PARSER_ERROR[l]
+""2023-01-11 11:34:46 INFO Initialized JPA EntityManagerFactory for persistence unit 'default'
+ %PARSER_ERROR[l]
+""2023-01-11 11:34:46 WARN spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+ %PARSER_ERROR[l]
+""2023-01-11 11:34:47 INFO Tomcat started on port(s): 8080 (http) with context path ''
+ %PARSER_ERROR[l]
+""2023-01-11 11:34:47 INFO Started Ideas2movieApplication in 6.532 seconds (process running for 7.559)
+ %PARSER_ERROR[l]
+""2023-01-11 11:34:53 INFO Initializing Spring DispatcherServlet 'dispatcherServlet'
+ %PARSER_ERROR[l]
+""2023-01-11 11:34:53 INFO Initializing Servlet 'dispatcherServlet'
+ %PARSER_ERROR[l]
+""2023-01-11 11:34:53 INFO Completed initialization in 2 ms
+ %PARSER_ERROR[l]
+""2023-01-11 11:34:53 ERROR Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.NullPointerException: Cannot invoke "com.ideas2it.ideas2movie.model.Screen.getId()" because the return value of "com.ideas2it.ideas2movie.model.Show.getScreen()" is null] with root cause
+ %PARSER_ERROR[l]
+"java.lang.NullPointerException: Cannot invoke "com.ideas2it.ideas2movie.model.Screen.getId()" because the return value of "com.ideas2it.ideas2movie.model.Show.getScreen()" is null
+	at com.ideas2it.ideas2movie.service.impl.ShowServiceImpl.getAvailableSeats(ShowServiceImpl.java:153)
+	at com.ideas2it.ideas2movie.service.impl.ShowServiceImpl.getAllShowsByMovieName(ShowServiceImpl.java:115)
+	at com.ideas2it.ideas2movie.controller.ShowController.getAllShowsByMovieName(ShowController.java:67)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:207)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:152)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1080)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:973)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1010)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:902)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:705)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:884)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:814)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:400)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:859)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1734)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+"2023-01-11 11:44:18 ERROR Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.NullPointerException: Cannot invoke "com.ideas2it.ideas2movie.model.Screen.getId()" because the return value of "com.ideas2it.ideas2movie.model.Show.getScreen()" is null] with root cause
+ %PARSER_ERROR[l]
+"java.lang.NullPointerException: Cannot invoke "com.ideas2it.ideas2movie.model.Screen.getId()" because the return value of "com.ideas2it.ideas2movie.model.Show.getScreen()" is null
+	at com.ideas2it.ideas2movie.service.impl.ShowServiceImpl.getAvailableSeats(ShowServiceImpl.java:153)
+	at com.ideas2it.ideas2movie.service.impl.ShowServiceImpl.getAllShowsByMovieName(ShowServiceImpl.java:115)
+	at com.ideas2it.ideas2movie.controller.ShowController.getAllShowsByMovieName(ShowController.java:67)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:207)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:152)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1080)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:973)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1010)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:902)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:705)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:884)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:814)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:400)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:859)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1734)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+"2023-01-11 11:45:11 ERROR Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.NullPointerException: Cannot invoke "com.ideas2it.ideas2movie.model.Screen.getId()" because the return value of "com.ideas2it.ideas2movie.model.Show.getScreen()" is null] with root cause
+ %PARSER_ERROR[l]
+"java.lang.NullPointerException: Cannot invoke "com.ideas2it.ideas2movie.model.Screen.getId()" because the return value of "com.ideas2it.ideas2movie.model.Show.getScreen()" is null
+	at com.ideas2it.ideas2movie.service.impl.ShowServiceImpl.getAvailableSeats(ShowServiceImpl.java:153)
+	at com.ideas2it.ideas2movie.service.impl.ShowServiceImpl.getAllShowsByMovieName(ShowServiceImpl.java:115)
+	at com.ideas2it.ideas2movie.controller.ShowController.getAllShowsByMovieName(ShowController.java:67)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:207)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:152)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1080)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:973)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1010)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:902)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:705)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:884)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:814)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:400)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:859)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1734)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+"2023-01-11 13:55:22 WARN HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h2m6s38ms820µs800ns).
+ %PARSER_ERROR[l]
+""2023-01-11 14:17:44 INFO Closing JPA EntityManagerFactory for persistence unit 'default'
+ %PARSER_ERROR[l]
+""2023-01-11 14:17:44 INFO HikariPool-1 - Shutdown initiated...
+ %PARSER_ERROR[l]
+""2023-01-11 14:17:44 INFO HikariPool-1 - Shutdown completed.
  %PARSER_ERROR[l]
 "

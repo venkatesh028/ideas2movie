@@ -1,5 +1,8 @@
 package com.ideas2it.ideas2movie.dto.responsedto;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * <h1>
  *     ScreenResponseDTO
@@ -12,11 +15,13 @@ package com.ideas2it.ideas2movie.dto.responsedto;
  * @version 1.0
  * @since 06/01/2023
  */
+
+@Getter
+@Setter
 public class ScreenResponseDTO {
     private Long id;
     private String name;
     private int totalNumberOfRows;
     private int totalNumberOfColumns;
-    private boolean isActive;
     private TheaterResponseDTO theater;
 }
