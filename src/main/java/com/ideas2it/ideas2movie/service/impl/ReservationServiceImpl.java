@@ -4,6 +4,7 @@
  */
 package com.ideas2it.ideas2movie.service.impl;
 
+import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.model.Screen;
 import com.ideas2it.ideas2movie.model.Show;
 import com.ideas2it.ideas2movie.service.TicketService;
@@ -27,11 +28,11 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
 
 /**
  * <h1>
- *     BookingServiceImpl
+ *     ReservationServiceImpl
  * </h1>
  * <p>
- *     Implements the BookingService and Provides the Business Logics
- *     to make, cancel and get the Details of the Reservation
+ *     Implements the ReservationService and Provides the Business Logics
+ *     to Store and Fetch the Details of the Reservation from the Storage
  *     and Throws an Exception when occurred
  * </p>
  *
@@ -128,6 +129,8 @@ public class ReservationServiceImpl implements ReservationService {
      */
     public List<Seat> getReservedSeats(Long showId) {
         List<Reservation> oldReservations = reservationRepository.findAllByShowId(showId);
+
+
         List<Seat> bookedSeats = new ArrayList<>();
 
         for (Reservation oldReservation : oldReservations) {
@@ -162,15 +165,18 @@ public class ReservationServiceImpl implements ReservationService {
             throw new NotFoundException(Message.RESERVATION_NOT_FOUND);
         }
         return reservation.get();
-
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public List<ReservationResponseDTO> getAllReservationByUserId(Long id) {
+    public List<ReservationResponseDTO> getAllReservationByUserId(Long id) throws NoContentException {
         List<Reservation> reservations = reservationRepository.findAllByUserId(id);
+
+        if (reservations.isEmpty()) {
+            throw new NoContentException(Message.RESERVATION_NOT_FOUND);
+        }
         List<ReservationResponseDTO> responseDTOS = new ArrayList<>();
 
         for (Reservation reservation: reservations) {

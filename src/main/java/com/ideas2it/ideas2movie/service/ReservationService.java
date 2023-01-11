@@ -4,6 +4,7 @@
  */
 package com.ideas2it.ideas2movie.service;
 
+import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.model.Screen;
 import java.util.List;
 
@@ -115,7 +116,7 @@ public interface ReservationService {
      * @param showId - ID of the Show to get Booking
      * @return List<Seat> - holds the Booked seats for a Show
      */
-    List<Seat> getReservedSeats(Long showId);
+    List<Seat> getReservedSeats(Long showId) ;
 
     /**
      * <h1>
@@ -145,5 +146,5 @@ public interface ReservationService {
      * @param id - ID of the User to find the Reservation for that User
      * @return List<ReservationResponseDTO> - Holds the List of Reservation for a User
      */
-    List<ReservationResponseDTO> getAllReservationByUserId(Long id);
+    List<ReservationResponseDTO> getAllReservationByUserId(Long id) throws NoContentException;
 }
