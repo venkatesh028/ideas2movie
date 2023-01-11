@@ -100,9 +100,14 @@ public class ReservationServiceImpl implements ReservationService {
      */
     @Override
     public boolean cancelAllReservationForShow(Screen screen) {
-        List<Reservation> reservations = reservationRepository.findAllByShowId(screen.getShow().getId());
+        List<Show> shows = screen.getShows();
+        List<Reservation> reservations = new ArrayList<>();
         int canceledCount = 0;
-        boolean isCanceled = false;
+        boolean isCanceled;
+
+        for (Show show: shows) {
+             reservations = reservationRepository.findAllByShowId(show.getId());
+        }
 
         if (reservations.isEmpty()) {
             isCanceled = true;
