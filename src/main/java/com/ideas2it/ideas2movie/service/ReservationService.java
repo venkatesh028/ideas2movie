@@ -4,15 +4,15 @@
  */
 package com.ideas2it.ideas2movie.service;
 
-import com.ideas2it.ideas2movie.model.Show;
+import com.ideas2it.ideas2movie.model.Screen;
 import java.util.List;
 
 import com.ideas2it.ideas2movie.model.Reservation;
 import com.ideas2it.ideas2movie.model.Seat;
+import com.ideas2it.ideas2movie.model.Show;
 import com.ideas2it.ideas2movie.dto.ReservationDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.ReservationResponseDTO;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
-import org.springframework.data.jpa.repository.Modifying;
 
 /**
  * <h1>
@@ -51,9 +51,9 @@ public interface ReservationService {
      *     cancelReservation
      * </h1>
      * <p>
-     *     gets the Input from the Reservation Controller
+     *     gets the Id of the Reservation from the Reservation Controller
      *     and checks whether the Reservation id present or not
-     *     and cancels the Reservation
+     *     If present then cancels the Reservation otherwise throws an Exception
      * </p>
      *
      * @param id - ID of the Reservation to cancel reservation
@@ -66,13 +66,13 @@ public interface ReservationService {
      *     cancelAllReservationForShow
      * </h1>
      * <p>
-     *     Gets the Show details form the ShowService to cancel the All the reservations
-     *     made for that show by Setting the Status of the reservation to Canceled
+     *     Gets the Screen details form the ScreenService to cancel the All the reservations
+     *     made for the show by Setting the Status of the reservation to Canceled
      * </p>
-     * @param show
-     * @return
+     * @param screen - Holds the Details of the Screen
+     * @return boolean - status of Cancellation
      */
-    boolean cancelAllReservationForShow(Show show);
+    boolean cancelAllReservationForShow(Screen screen);
 
     /**
      * <h1>
@@ -80,7 +80,7 @@ public interface ReservationService {
      * </h1>
      * <p>
      *     Gets the Reservation from PaymentController to Confirm the reservation for the User
-     *     by changes the status of the Reservation
+     *     by changes the status of the Reservation by checking the Status of the Payment
      * </p>
      *
      * @param reservation - Holds the details of the Reservation
@@ -93,9 +93,9 @@ public interface ReservationService {
      *     getReservationDTOById
      * </h1>
      * <p>
-     *     Gets the ID of the Reservation from the Payment Controller
+     *     Gets the ID of the Reservation from the PaymentController
      *     and checks whether the Reservation is present or not
-     *     and returns the Reservation Response DTO
+     *     If present then returns the Reservation Response DTO otherwise throws an Exception
      * </p>
      * @param id - ID of the Reservation
      * @return ReservationResponseDTO -  Holds the Response of the Reservation
@@ -107,9 +107,9 @@ public interface ReservationService {
      *     getReservedSeats
      * </h1>
      * <p>
-     *     Gets the Id of the show from the Show Service
-     *     and gets the Reservations for the Show Id
-     *     and returns the List of Seats which are booked
+     *     Gets the Id of the show from the ShowService and checks Reservation is Present or not
+     *     If present then gets the Reservations for the Show Id and returns the List of Seats
+     *     which are booked otherwise throws an Exception
      * </p>
      *
      * @param showId - ID of the Show to get Booking
@@ -122,7 +122,7 @@ public interface ReservationService {
      *     getReservationById
      * </h1>
      * <p>
-     *     Gets the ID of the Reservation from the Payment Controller
+     *     Gets the ID of the Reservation from the PaymentController
      *     and checks whether the Reservation is present or not
      *     and returns the Reservation
      * </p>
@@ -137,7 +137,7 @@ public interface ReservationService {
      *     getAllByUserId
      * </h1>
      * <p>
-     *     Gets the ID of the User from the Payment Controller
+     *     Gets the ID of the User from the PaymentController
      *     and checks whether the Reservation is present or not
      *     and returns the Reservation Response DTO
      * </p>

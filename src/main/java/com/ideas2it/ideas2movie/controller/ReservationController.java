@@ -29,8 +29,7 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  * <p>
  *     Gets the input parameter as a request from the Client
  *     for create, Update, Get, Delete the Reservation Details
- *     by sending those parameter or Object
- *     to the reservation Service to perform Business Logics on them
+ *     by handling and mapping the request to appropriate function
  * </p>
  *
  * @author AJAISHARMA
@@ -42,6 +41,17 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
 public class ReservationController {
     private final ReservationService reservationService;
 
+    /**
+     * <h1>
+     *     ReservationController
+     * </h1>
+     * <p>
+     *     Used to initialize the Services for calling the Operation performers of Service
+     *     and also achieves the Autowiring
+     * </p>
+     *
+     * @param reservationService - An instance of a ReservationService
+     */
     public ReservationController(ReservationService reservationService) {
         this.reservationService = reservationService;
     }

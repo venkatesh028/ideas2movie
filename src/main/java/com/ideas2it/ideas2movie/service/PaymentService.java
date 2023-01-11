@@ -30,8 +30,7 @@ public interface PaymentService {
      *     makePayment
      * </h1>
      * <p>
-     *     Makes the Payment
-     *     By getting PaymentDTO from Controller
+     *     Makes the Payment By getting PaymentDTO from Controller
      *     and checks the Entered Amount is equals to ticket price
      *     and returns the response accordingly
      * </p>
@@ -46,10 +45,8 @@ public interface PaymentService {
      *     getByTransactionId
      * </h1>
      * <p>
-     *     Gets the Payment details
-     *     by getting the Transaction ID from controller
-     *     and checks the Payment is present or not
-     *     and returns the Response accordingly
+     *     Gets the Payment details by getting the Transaction ID from controller
+     *     and checks the Payment is present or not and returns the Response accordingly
      * </p>
      *
      * @param id - ID of the Transaction of the Payment

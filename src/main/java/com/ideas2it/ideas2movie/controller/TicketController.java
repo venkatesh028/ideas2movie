@@ -23,10 +23,8 @@ import com.ideas2it.ideas2movie.service.TicketService;
  * </h1>
  * <p>
  *     Gets the Input parameter as a Request from the Client
- *     to Book , Cancel and get the Ticket
- *     by sending the Parameter and Object
- *     to the Ticket Service
- *     to perform Business Logics
+ *     to Book , Cancel and get the Details of the Ticket
+ *     by handling and mapping the Request to the Appropriate function
  * </p>
  *
  * @author AJAISHARMA
@@ -43,10 +41,11 @@ public class TicketController {
      *     TicketController Constructor
      * </h1>
      * <p>
-     *     Used to Achieve the Autowiring for Ticket Service
+     *     Used to initialize the Services for calling the Operation performers of Service
+     *     and also achieves the Autowiring
      * </p>
      *
-     * @param ticketService - reference variable of the Ticket Service
+     * @param ticketService - An instance of the Ticket Service
      */
     public TicketController(TicketService ticketService) {
         this.ticketService = ticketService;
