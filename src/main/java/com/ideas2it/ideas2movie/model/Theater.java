@@ -15,6 +15,7 @@ import jakarta.persistence.Table;
 
 import jakarta.validation.constraints.NotBlank;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,6 +26,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.annotations.Where;
 
 import com.ideas2it.ideas2movie.util.constant.Message;
+import com.ideas2it.ideas2movie.util.enums.City;
 
 /**
  * <h1>
@@ -50,8 +52,8 @@ public class Theater {
     private Long id;
     @NotBlank(message = Message.THEATER_NAME_SHOULD_NOT_BE_EMPTY)
     private String theaterName;
-    @NotBlank(message = Message.CITY_NAME_SHOULD_NOT_BE_EMPTY)
-    private String city;
+    @NotNull(message = Message.CITY_NAME_SHOULD_NOT_BE_EMPTY)
+    private City city;
     @NotBlank(message = Message.AREA_NAME_SHOULD_NOT_BE_EMPTY)
     private String area;
     @ColumnDefault(value = "true")

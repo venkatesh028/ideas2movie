@@ -6,6 +6,7 @@ package com.ideas2it.ideas2movie.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,8 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ideas2it.ideas2movie.dto.CastAndCrewDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.CastAndCrewResponseDTO;
-import com.ideas2it.ideas2movie.exception.NotFoundException;
 import com.ideas2it.ideas2movie.service.CastAndCrewService;
+import com.ideas2it.ideas2movie.exception.NotFoundException;
 
 /**
  * <h1>
@@ -40,7 +41,7 @@ import com.ideas2it.ideas2movie.service.CastAndCrewService;
  */
 
 @RestController
-@RequestMapping("api/v1/castandcrews")
+@RequestMapping("api/v1/casts-and-crews")
 public class CastAndCrewController {
     private final CastAndCrewService castAndCrewService;
 
@@ -84,14 +85,14 @@ public class CastAndCrewController {
      *     getCastAndCrewByMovieId
      * </h1>
      * <p>
-     *     It takes an id of a movie as a path variable and
-     *     fetches a cast and crew, returns a response entity
+     *     It takes an id of a castAndCrew as a path variable and
+     *     fetches a details, returns a response entity
      *     with the fetched cast and crew of a movie
-     *     if cast and crew of a particular movie is not present,
+     *     if cast and crew is not present,
      *     it will throw error message.
      * </p>
      *
-     * @param id The id of the movie to fetch cast and crew
+     * @param id The id of the CastAndCrew to fetch the details
      * @return ResponseEntity<CastAndCrewResponseDTO>  - give response as castAndCrew details
      * @throws NotFoundException - occur when cast and crew details is not Found
      */
@@ -99,7 +100,7 @@ public class CastAndCrewController {
     public ResponseEntity<CastAndCrewResponseDTO> getCastAndCrewByMovieId(
             @PathVariable("id") Long id) throws NotFoundException {
         return ResponseEntity.status(HttpStatus.OK)
-                .body(castAndCrewService.getCastAndCrewByMovieId(id));
+                .body(castAndCrewService.getCastAndCrewById(id));
     }
 
     /**
@@ -132,12 +133,12 @@ public class CastAndCrewController {
      *     deleteCastAndCrew
      * </h1>
      * <p>
-     *     It deletes a Cast and crew based on  id from  the database and
+     *     It deletes a Cast and crew based on  id from  the ideas2movie and
      *     returns a response entity with a status code of 200 and a body of the
      *     deleted status
      *</p>
      *
-     * @param id The id of the user to be deleted.
+     * @param id The id of the CastAndCrew to be deleted.
      * @return ResponseEntity<String> - give a response as statement for delete castAndCrew.
      * @throws NotFoundException - Occur when cast and crew is not found
      */

@@ -49,11 +49,11 @@ public interface CastAndCrewService {
      *     Details for movie.
      * </p>
      *
-     * @param id - id of the movie to fetch the cast and crew details from ideas2movie
-     * @return castAndCrewResponseDTO - gives a cast and crew details for the given movie
-     * @throws NotFoundException -  occur when no castAndCrew is existing for given movieId, in ideas2movie
+     * @param id - id of the cast and crew to fetch details from ideas2movie
+     * @return castAndCrewResponseDTO - gives a cast and crew details
+     * @throws NotFoundException -  occur when no castAndCrew is existing, in ideas2movie
      */
-    CastAndCrewResponseDTO getCastAndCrewByMovieId(Long id)
+    CastAndCrewResponseDTO getCastAndCrewById(Long id)
             throws  NotFoundException;
 
     /**

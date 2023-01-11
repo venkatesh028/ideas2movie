@@ -9,7 +9,6 @@ import lombok.Setter;
 
 import java.time.LocalTime;
 
-import com.ideas2it.ideas2movie.model.CastAndCrew;
 import com.ideas2it.ideas2movie.util.enums.Genre;
 import com.ideas2it.ideas2movie.util.enums.Language;
 

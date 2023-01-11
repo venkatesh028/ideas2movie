@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.ideas2it.ideas2movie.model.Theater;
+import com.ideas2it.ideas2movie.util.enums.City;
 
 /**
  * <h1>
@@ -38,7 +39,7 @@ public interface TheaterRepository extends JpaRepository<Theater, Long> {
      * @param city - name of city to be checked if it exists or not.
      * @return true - if city name exist or else return false
      */
-    boolean existsByCity(String city);
+    boolean existsByCity(City city);
 
     /**
      * <h1>
