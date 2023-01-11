@@ -12,7 +12,6 @@ import com.ideas2it.ideas2movie.exception.AlreadyExistException;
 import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.exception.NotAcceptableException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
-import com.ideas2it.ideas2movie.model.Screen;
 
 /**
  * <h1>
@@ -35,8 +34,7 @@ public interface ShowService {
      *     createShow
      * </h1>
      * <p>
-     *     Creates the Show for Movie
-     *     By getting the showDTO from the Controller
+     *     Adds the Show for Movie By getting the showDTO from the Controller
      *     And Checks the Show is already exist for the movie
      *     or for other movie in the same screen with help of
      *     streaming date, start time and screen id if the show
@@ -71,7 +69,8 @@ public interface ShowService {
      * </h1>
      * <p>
      *     Gets all the shows for the particular movie
-     *     By the name of the movie
+     *     By the name of the movie if there is no shows
+     *     for the movie exception is thrown
      * </p>
      *
      * @param movieName - Holds the name of the movie

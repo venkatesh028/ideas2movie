@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 
 @Getter
 @Setter
@@ -12,5 +13,5 @@ import org.springframework.http.HttpStatus;
 @AllArgsConstructor
 public class ErrorMessageDTO {
     private String message;
-    private HttpStatus httpStatus;
+    private HttpStatusCode httpStatus;
 }

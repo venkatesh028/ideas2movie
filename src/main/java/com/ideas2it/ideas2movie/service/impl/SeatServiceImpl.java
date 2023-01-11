@@ -32,6 +32,9 @@ public class SeatServiceImpl implements SeatService {
         this.seatRepository = seatRepository;
     }
 
+    /**
+     *{@inheritDoc}
+     */
     @Override
     public List<Seat> createSeat(Screen screen) {
         int name = 65;
@@ -48,6 +51,9 @@ public class SeatServiceImpl implements SeatService {
         return seatRepository.saveAll(seats);
     }
 
+    /**
+     *{@inheritDoc}
+     */
     @Override
     public List<Seat> getSeatsByScreenId(Long screenId)  {
         return seatRepository.findAllByScreenId(screenId);

@@ -25,7 +25,7 @@ import com.ideas2it.ideas2movie.model.Show;
  * </p>
  *
  * @author Venkatesh TM
- * @vesion 1.0
+ * @version 1.0
  * @since 10/01/2023
  */
 @Repository

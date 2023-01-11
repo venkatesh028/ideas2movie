@@ -18,7 +18,6 @@ import com.ideas2it.ideas2movie.dto.ScreenDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.ScreenResponseDTO;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
-import com.ideas2it.ideas2movie.model.Screen;
 import com.ideas2it.ideas2movie.service.ScreenService;
 
 /**
@@ -27,9 +26,9 @@ import com.ideas2it.ideas2movie.service.ScreenService;
  * </h1>
  * <p>
  *     Gets the inputs via Request from the client
- *     to perform Create, Update, Delete and Get
- *     the Screen by sending the parameter/object
- *     to perform business logics on them
+ *     to perform Create, Update, remove the Screen
+ *     by sending the parameter/object to perform
+ *     business logics on them
  * </p>
  *
  * @author Venkatesh TM

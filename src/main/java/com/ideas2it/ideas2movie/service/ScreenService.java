@@ -17,7 +17,7 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  * <p>
  *     Service Layer for the Screen
  *     to Create, Update, Get
- *     and Delete the details of the Screen
+ *     and remove the details of the Screen
  * </p>
  *
  * @author Venkatesh TM
@@ -28,11 +28,10 @@ public interface ScreenService {
 
     /**
      * <h1>
-     *     Create Screen
+     *     createScreen
      * </h1>
      * <p>
-     *     Create Screen for the Theater
-     *     By getting the screenDTO from the controller
+     *     creates Screen for the Theater By getting the screenDTO from the controller
      *     And checks the Screen is already exist for the theater
      *     with screen name and theater id of the screen if there
      *     is a screen in that theater with the same name then exception is thrown
@@ -71,9 +70,9 @@ public interface ScreenService {
      *     deleteScreen
      * </h1>
      * <p>
-     *      Remove the Screen based on the id of the screen
-     *      if there is no screen for the id
-     *      Exception is thrown
+     *      Removes the Screen based on the id of the screen
+     *      by getting id from the controller if there is no screen
+     *      for the id then Exception is thrown
      * </p>
      *
      * @param id - Holds the id of the Screen
@@ -88,8 +87,8 @@ public interface ScreenService {
      * </h1>
      * <p>
      *     Gets the Screen based on the
-     *     id if the screen is not present
-     *     then the exception is thrown
+     *     id if the screen is not present then
+     *     exception is thrown
      * </p>
      *
      * @param id - Holds the id of the screen

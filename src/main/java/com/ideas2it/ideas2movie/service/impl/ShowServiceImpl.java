@@ -35,7 +35,7 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  * <p>
  *     Implements the Show Service and
  *     Holds the Business Logics
- *     to Create, Update, Delete, Get the Details of the Show
+ *     to Create, Update, Cancel, Get the Details of the Show
  * </p>
  *
  * @author Venkatesh TM
@@ -149,7 +149,10 @@ public class ShowServiceImpl implements ShowService {
         List<Seat> seats = seatService.getSeatsByScreenId(show.getScreen().getId());
         List<Seat> bookedSeats = reservationService.getReservedSeats(show.getId());
         List<SeatResponseDTO> listOfAvailableSeats = new ArrayList<>();
-        seats.removeAll(bookedSeats);
+
+        if (!bookedSeats.isEmpty()){
+            seats.removeAll(bookedSeats);
+        }
 
         for (Seat seat : seats){
             listOfAvailableSeats.add(mapper.map(seat, SeatResponseDTO.class));
