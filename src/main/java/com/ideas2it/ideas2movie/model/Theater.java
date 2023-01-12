@@ -8,6 +8,8 @@ import java.sql.Timestamp;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -53,6 +55,7 @@ public class Theater {
     @NotBlank(message = Message.THEATER_NAME_SHOULD_NOT_BE_EMPTY)
     private String theaterName;
     @NotNull(message = Message.CITY_NAME_SHOULD_NOT_BE_EMPTY)
+    @Enumerated(value = EnumType.STRING)
     private City city;
     @NotBlank(message = Message.AREA_NAME_SHOULD_NOT_BE_EMPTY)
     private String area;

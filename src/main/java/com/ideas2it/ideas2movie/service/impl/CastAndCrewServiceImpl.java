@@ -22,9 +22,8 @@ import com.ideas2it.ideas2movie.util.constant.Message;
  *     CastAndCrewServiceImpl
  * </h1>
  * <p>
- *     Implements the CastAndCrewService and
- *     Holds the Business Logic
- *     to Perform Save, and Get CastAndCrew
+ *     To add the cast and crew details for movie and
+ *     returns the response accordingly
  * </p>
  *
  * @author YOGESHWAR S
