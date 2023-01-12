@@ -16,7 +16,7 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  * <p>
  *     UserService used to manage the Operation for the User Account
  *     Like Creating, Updating, and viewing the Details of the User
- *     and Throwing an Exception accordingly
+ *     and Throwing an Exception accordingly when occurred
  * </p>
  *
  * @author AJAISHARMA

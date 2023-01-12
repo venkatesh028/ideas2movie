@@ -31,9 +31,7 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  *     ReservationServiceImpl
  * </h1>
  * <p>
- *     Implements the ReservationService and Provides the Business Logics
- *     to Store and Fetch the Details of the Reservation from the Storage
- *     and Throws an Exception when occurred
+ *     Uses
  * </p>
  *
  * @author AJAISHARMA

@@ -26,9 +26,9 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  *     RoleServiceImpl
  * </h1>
  * <p>
- *     Implements the RoleService and Provides the Business Logics
- *     to Perform Save, and Get the Details of the Role
- *     and Throws an Exception when occurred
+ *     Uses the roleRepository instance to interact with Storage to perform
+ *     Create Role, Get By Id, Get All role on Role and Throws appropriate Exception when needed
+ *     and Also Logs the Error for debugging
  * </p>
  *
  * @author AJAISHARMA

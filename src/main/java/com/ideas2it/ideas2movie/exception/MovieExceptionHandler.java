@@ -13,6 +13,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.ideas2it.ideas2movie.dto.responsedto.ErrorMessageDTO;
@@ -36,7 +37,8 @@ import com.ideas2it.ideas2movie.logger.CustomLogger;
 public class MovieExceptionHandler {
     private final CustomLogger logger = new CustomLogger(MovieExceptionHandler.class);
 
-    @ExceptionHandler({NotFoundException.class})
+    @ExceptionHandler({NotFoundException.class,
+                        AlreadyExistException.class})
     public ResponseEntity<ErrorMessageDTO> notFoundException(Exception exception) {
         logger.error(exception.getMessage());
         ErrorMessageDTO errorMessage = new ErrorMessageDTO(exception.getMessage(), HttpStatus.NOT_FOUND);
@@ -46,7 +48,7 @@ public class MovieExceptionHandler {
     @ExceptionHandler(AlreadyExistException.class)
     public ResponseEntity<ErrorMessageDTO> alreadyExistException(AlreadyExistException alreadyExistException){
         ErrorMessageDTO errorMessage = new ErrorMessageDTO(alreadyExistException.getMessage(),
-                                                           HttpStatus.NOT_ACCEPTABLE);
+                                                           HttpStatus.CONFLICT);
         return ResponseEntity.status(HttpStatus.CONFLICT).body(errorMessage);
     }
 
