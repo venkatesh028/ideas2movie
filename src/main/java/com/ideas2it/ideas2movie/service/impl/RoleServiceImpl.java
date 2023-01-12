@@ -4,6 +4,7 @@
  */
 package com.ideas2it.ideas2movie.service.impl;
 
+import com.ideas2it.ideas2movie.exception.NotAcceptableException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -20,6 +21,7 @@ import com.ideas2it.ideas2movie.util.constant.Message;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
 import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 
 /**
  * <h1>
@@ -63,7 +65,7 @@ public class RoleServiceImpl implements RoleService {
     public Role getRoleById(Long id) throws NotFoundException {
         Optional<Role> role = roleRepository.findById(id);
 
-        if (null == role) {
+        if (role.isEmpty()) {
             throw new NotFoundException(Message.ROLE_NOT_FOUND);
         }
         return role.get();

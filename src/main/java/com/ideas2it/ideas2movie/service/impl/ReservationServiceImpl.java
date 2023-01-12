@@ -31,8 +31,9 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  *     ReservationServiceImpl
  * </h1>
  * <p>
- *     ReservationServiceImpl Used to reserve and confirm Seats for a Show and  cancels reservation for Show
- *     and Fetch the Details of the Reservation
+ *     ReservationServiceImpl Used to manage the Reservation for Seats of the Show
+ *     Like Reserving the Seats, Cancel reservation of Seats for the Show
+ *     and Retrieving the Details of the Reservation based on reservation ID and User ID
  * </p>
  *
  * @author AJAISHARMA
@@ -126,21 +127,6 @@ public class ReservationServiceImpl implements ReservationService {
     /**
      * {@inheritDoc}
      */
-    public List<Seat> getReservedSeats(Long showId) {
-        List<Reservation> oldReservations = reservationRepository.findAllByShowId(showId);
-        List<Seat> bookedSeats = new ArrayList<>();
-
-        for (Reservation oldReservation : oldReservations) {
-            if(oldReservation.getStatus().equals(ReservationStatus.BOOKED)) {
-                bookedSeats = oldReservation.getSeats();
-            }
-        }
-        return bookedSeats;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public ReservationResponseDTO getReservationDTOById(Long id) throws NotFoundException {
         Optional<Reservation>  reservation = reservationRepository.findById(id);
@@ -180,5 +166,20 @@ public class ReservationServiceImpl implements ReservationService {
             responseDTOS.add(mapper.map(reservation, ReservationResponseDTO.class));
         }
         return responseDTOS;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public List<Seat> getReservedSeats(Long showId) {
+        List<Reservation> oldReservations = reservationRepository.findAllByShowId(showId);
+        List<Seat> bookedSeats = new ArrayList<>();
+
+        for (Reservation oldReservation : oldReservations) {
+            if (oldReservation.getStatus().equals(ReservationStatus.BOOKED)) {
+                bookedSeats = oldReservation.getSeats();
+            }
+        }
+        return bookedSeats;
     }
 }

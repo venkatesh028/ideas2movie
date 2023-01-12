@@ -5,13 +5,15 @@
 package com.ideas2it.ideas2movie.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
-import com.ideas2it.ideas2movie.util.constant.Constant;
-import com.ideas2it.ideas2movie.util.constant.Message;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import com.ideas2it.ideas2movie.util.constant.Constant;
+import com.ideas2it.ideas2movie.util.constant.Message;
 
 /**
  * <h1>
@@ -29,6 +31,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class RoleDTO {
+    @NotNull
     private Long id;
     @NotBlank(message = Message.ROLE_NAME_SHOULD_NOT_BE_EMPTY)
     //@Pattern(regexp = Constant.ROLE_PATTERN, message = Message.ENTER_VALID_ROLE)

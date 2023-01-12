@@ -8,15 +8,16 @@ import com.ideas2it.ideas2movie.dto.UserDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.UserResponseDTO;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
+import org.springframework.web.client.HttpClientErrorException;
 
 /**
  * <h1>
  *     UserService
  * </h1>
  * <p>
- *     UserService used to manage the Operation for the User Account
- *     Like Creating, Updating, and viewing the Details of the User
- *     and Throwing an Exception accordingly when occurred
+ *     UserService used to manage the Account of the User
+ *     like Creating new Account, Changing the Personal Details and
+ *     Retrieving the Details of the User Using the ID of the User
  * </p>
  *
  * @author AJAISHARMA
@@ -30,26 +31,25 @@ public interface UserService {
      *     createUser
      * </h1>
      * <p>
-     *     Creates the User by getting the UserDTO from the Controller
-     *     and checks whether the User name and Phone Number is already Exists or Not
-     *     If Exist then Creates the User Otherwise throws an Exception
+     *     Creates a new Account for the user based on the Information Provided
+     *     By validates If the phone number and Name is Already Exist
+     *     and If the role is Not exist throws an Exception throws an Exception
+     *     returns the Details of the User
      * </p>
      *
      * @param userDTO - reference Variable which holds the Details of the User
      * @return UserResponseDTO - Holds the Created User Details
      * @throws AlreadyExistException - when User's Name or Phone Number Already Exist
-     * @throws NotFoundException - when Role Not Found
+     * @throws BadRequestException - when Role Not Found
      */
-    UserResponseDTO createUser(UserDTO userDTO) throws AlreadyExistException, NotFoundException;
-
+    UserResponseDTO createUser(UserDTO userDTO) throws AlreadyExistException, BadRequestException;
     /**
      * <h1>
      *     getUserByID
      * </h1>
      * <p>
-     *     Gets the User By getting the ID of the User from the Controller
-     *     and checks whether the User is present or Not
-     *     If present then returns the User Details Otherwise throws Exception
+     *     Retrieves the Details of the User By ID of the User
+     *     and Validate If User is Not Exist throws an Exception else Returns the Details of the User
      * </p>
      *
      * @param id - ID of the User to get the Details
@@ -63,9 +63,10 @@ public interface UserService {
      *      updateUser
      * </h1>
      * <p>
-     *      Updates the User by getting the UserDTO from the Controller
-     *      and checks whether the User name and Phone Number is already Exists or Not
-     *      If Exist then updates the User throws an Exception
+     *     Updates the Details of the User By ID of the User
+     *     By validates If the user is Not Exist throws an Exception else
+     *     validate If the Phone number and Name of the User Is already Exist throws an Exception
+     *     else Updates the New Details of the User and return the Updated user
      * </p>
      *
      * @param id - ID of the User to Update the user Details
@@ -81,9 +82,9 @@ public interface UserService {
      *     deleteUser
      * </h1>
      * <p>
-     *     Deletes the User by getting the ID of the User from Controller
-     *     and checks whether the User is present or Not
-     *     If present then deletes the User Details Otherwise throws Exception
+     *     Deactivates the Account of User by the ID of the User By validates
+     *     If the User is not Exist throws the Exception else sets the Active Status of the User to False
+     *     and returns a String for Conformation
      * </p>
      *
      * @param id - ID of the User to delete the Details

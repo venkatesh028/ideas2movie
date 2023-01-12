@@ -61,6 +61,7 @@ public class TicketController {
      *
      * @param id - ID of the Ticket to get
      * @return ResponseEntity - Holds the TicketResponseDTo and Http Status
+     * @throws NotFoundException - when Ticket Not Found
      */
     @GetMapping("/{id}")
     public ResponseEntity<TicketResponseDTO> getTicketById(@PathVariable("id") Long id) throws NotFoundException {

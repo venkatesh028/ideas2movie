@@ -19,9 +19,9 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  *     ReservationService
  * </h1>
  * <p>
- *     ReservationService Used to manage the Operation for the Reservation
- *     Like ReserveSeats, Confirm reservation, Cancel reservation for the Show
- *     and Throws an Exception accordingly
+ *     ReservationService Used to manage the Reservation for Seats of the Show
+ *     Like Reserve Seats, Cancel reservation for the Show
+ *     and Retrieving the Details of the Reservation based on reservation ID and User ID
  * </p>
  *
  * @author AJAISHARMA
@@ -35,10 +35,8 @@ public interface ReservationService {
      *     reserveSeats
      * </h1>
      * <p>
-     *     Gets the Input from the reservation Controller
-     *     and checks whether the selected seats were reserved or not
-     *     and saves the reservation of ticket
-     *     by confirming the status of the Payment for the reservation
+     *     Reserve Selected Seats for the Show and Sets the Status of reservation to PROCESSING
+     *     and calculates the total price for the reservation and returns the Details of the Reservation
      * </p>
      *
      * @param reservationDTO - Holds the details to book Ticket
@@ -48,40 +46,12 @@ public interface ReservationService {
 
     /**
      * <h1>
-     *     cancelReservation
+     *      confirmReservation
      * </h1>
      * <p>
-     *     gets the Id of the Reservation from the Reservation Controller
-     *     and checks whether the Reservation id present or not
-     *     If present then cancels the Reservation otherwise throws an Exception
-     * </p>
-     *
-     * @param id - ID of the Reservation to cancel reservation
-     * @return ReservationResponseDTO - Holds the Details of the Reservation
-     * @throws NotFoundException - when
-     */
-    ReservationResponseDTO cancelReservation(Long id) throws NotFoundException;
-
-    /**
-     * <h1>
-     *     cancelAllReservationForShow
-     * </h1>
-     * <p>
-     *     Gets the Screen details form the ScreenService to cancel the All the reservations
-     *     made for the show by Setting the Status of the reservation to Canceled
-     * </p>
-     * @param screen - Holds the Details of the Screen
-     * @return boolean - status of Cancellation
-     */
-    boolean cancelAllReservationForShow(Screen screen);
-
-    /**
-     * <h1>
-     *     confirmReservation
-     * </h1>
-     * <p>
-     *     Gets the Reservation from PaymentController to Confirm the reservation for the User
-     *     by changes the status of the Reservation by checking the Status of the Payment
+     *      Confirms the Reservation for the Given Reservation by validating If the Status of the payment is PAID
+     *      then sets the Status of the Reservation to BOOKED otherwise CANCELLED
+     *      and returns the Details of the Reservation
      * </p>
      *
      * @param reservation - Holds the details of the Reservation
@@ -91,13 +61,44 @@ public interface ReservationService {
 
     /**
      * <h1>
+     *     cancelReservation
+     * </h1>
+     * <p>
+     *     Cancels the reservation for the Show for the Given ID of the reservation
+     *     by sets the Status of the Reservation to CANCELLED and also sets the status of Payment to REFUNDED
+     *     and returns the Details of the reservation
+     * </p>
+     *
+     * @param id - ID of the Reservation to cancel reservation
+     * @return ReservationResponseDTO - Holds the Details of the Reservation
+     * @throws NotFoundException - when Reservation is Not Found
+     */
+    ReservationResponseDTO cancelReservation(Long id) throws NotFoundException;
+
+    /**
+     * <h1>
+     *     cancelAllReservationForShow
+     * </h1>
+     * <p>
+     *     Cancels the reservation for the Screen by getting the All the Reservation for Shows of the Screen
+     *     and sets the Status of the Reservation to CANCELLED and also sets the status of Payment to REFUNDED
+     *     and validates If the CancelCount is equal to total count of Reservation then returns the true else false
+     * </p>
+     * @param screen - Holds the Details of the Screen
+     * @return boolean - status of Cancellation
+     */
+    boolean cancelAllReservationForShow(Screen screen);
+
+
+    /**
+     * <h1>
      *     getReservationDTOById
      * </h1>
      * <p>
-     *     Gets the ID of the Reservation from the PaymentController
-     *     and checks whether the Reservation is present or not
-     *     If present then returns the Reservation Response DTO otherwise throws an Exception
+     *     Retrieves the Details of the Reservation using the ID of the Reservation
+     *     If Reservation not is Exist throws an Exception else returns the Details of Reservation
      * </p>
+     *
      * @param id - ID of the Reservation
      * @return ReservationResponseDTO -  Holds the Response of the Reservation
      * @throws NotFoundException - when Reservation Not Found
@@ -106,27 +107,11 @@ public interface ReservationService {
 
     /**
      * <h1>
-     *     getReservedSeats
-     * </h1>
-     * <p>
-     *     Gets the Id of the show from the ShowService and checks Reservation is Present or not
-     *     If present then gets the Reservations for the Show Id and returns the List of Seats
-     *     which are booked otherwise throws an Exception
-     * </p>
-     *
-     * @param showId - ID of the Show to get Booking
-     * @return List<Seat> - holds the Booked seats for a Show
-     */
-    List<Seat> getReservedSeats(Long showId) ;
-
-    /**
-     * <h1>
      *     getReservationById
      * </h1>
      * <p>
-     *     Gets the ID of the Reservation from the PaymentController
-     *     and checks whether the Reservation is present or not
-     *     and returns the Reservation
+     *     Retrieves the Details of the Reservation using the ID of the Reservation
+     *     If Reservation not is Exist throws an Exception else returns the Details of Reservation
      * </p>
      *
      * @param id - ID of the Reservation
@@ -140,14 +125,28 @@ public interface ReservationService {
      *     getAllByUserId
      * </h1>
      * <p>
-     *     Gets the ID of the User from the PaymentController
-     *     and checks whether the Reservation is present or not
-     *     and returns the Reservation Response DTO
+     *     Retrieves the List of the All Reservation Details using the ID of the User
+     *     If Reservation not is Exist throws an Exception else returns the List of All Reservation
      * </p>
      *
      * @param id - ID of the User to find the Reservation for that User
      * @return List<ReservationResponseDTO> - Holds the List of Reservation for a User
-     * @throws NotFoundException - when Reservation Not Found
+     * @throws NoContentException - when No Reservations Found For User
      */
     List<ReservationResponseDTO> getAllReservationByUserId(Long id) throws NoContentException;
+
+    /**
+     * <h1>
+     *      getReservedSeats
+     * </h1>
+     * <p>
+     *     Retrieves the List of All Reserved Seats for the Show ID by getting all the reservations for the Show
+     *     and iterate and validates If the show is Booked then adds the seat to the List of reserved Seats
+     *     and returns it.
+     * </p>
+     *
+     * @param showId - ID of the Show to get Booking
+     * @return List<Seat> - holds the Booked seats for a Show
+     */
+    List<Seat> getReservedSeats(Long showId);
 }

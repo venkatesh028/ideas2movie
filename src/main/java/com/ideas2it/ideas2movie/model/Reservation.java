@@ -30,6 +30,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import com.ideas2it.ideas2movie.util.enums.ModeOfBooking;
 import com.ideas2it.ideas2movie.util.enums.ReservationStatus;
+import org.hibernate.annotations.UpdateTimestamp;
 
 /**
  *<h1>
@@ -51,38 +52,50 @@ public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @NotNull
     @Enumerated(EnumType.STRING)
     private ReservationStatus status;
+
     @NotNull
     @Enumerated(EnumType.STRING)
     @Column(name = "mode_of_booking")
     private ModeOfBooking modeOfBooking;
+
     @OneToOne
     @JoinColumn(
             name = "ticket_id",
             referencedColumnName = "id"
     )
     private Ticket ticket;
+
+    @NotNull
     @ManyToOne
     @JoinColumn(
             name = "user_id",
             referencedColumnName = "id"
     )
     private User user;
+
     @OneToOne
     @JoinColumn(
             name = "payment_id",
             referencedColumnName = "id"
     )
     private Payment payment;
+
+    @NotNull
     @ManyToOne
     @JoinColumn(
             name = "show_id",
             referencedColumnName = "id"
     )
     private Show show;
+
+    @NotNull
     private Double totalPrice;
+
+    @NotNull
     @ManyToMany
     @JoinTable(
             name = "reserved_seat",
@@ -100,8 +113,13 @@ public class Reservation {
             }
     )
     private List<Seat> seats;
+
     @CreationTimestamp
     @Column(name = "booked_at")
     private Timestamp bookedAt;
+
+    @UpdateTimestamp
+    @Column(name = "updated_at")
+    private Timestamp updatedAt;
 }
 
