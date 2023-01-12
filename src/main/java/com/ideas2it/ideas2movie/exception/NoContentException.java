@@ -3,11 +3,17 @@ package com.ideas2it.ideas2movie.exception;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
+/**
+ * <h1>
+ *
+ * </h1>
+ * <p>
+ *
+ * </p>
+ */
 @Getter
-public class NoContentException extends Exception{
-
-    private static final HttpStatus httpStatus = HttpStatus.NO_CONTENT;
+public class NoContentException extends Ideas2MovieException {
     public NoContentException(String message){
-        super(message);
+        super(message, HttpStatus.NO_CONTENT);
     }
 }

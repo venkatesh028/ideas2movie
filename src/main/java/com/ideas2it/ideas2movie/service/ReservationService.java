@@ -4,15 +4,14 @@
  */
 package com.ideas2it.ideas2movie.service;
 
-import com.ideas2it.ideas2movie.exception.NoContentException;
-import com.ideas2it.ideas2movie.model.Screen;
 import java.util.List;
 
 import com.ideas2it.ideas2movie.model.Reservation;
+import com.ideas2it.ideas2movie.model.Screen;
 import com.ideas2it.ideas2movie.model.Seat;
-import com.ideas2it.ideas2movie.model.Show;
 import com.ideas2it.ideas2movie.dto.ReservationDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.ReservationResponseDTO;
+import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
 
 /**
@@ -59,6 +58,7 @@ public interface ReservationService {
      *
      * @param id - ID of the Reservation to cancel reservation
      * @return ReservationResponseDTO - Holds the Details of the Reservation
+     * @throws NotFoundException - when
      */
     ReservationResponseDTO cancelReservation(Long id) throws NotFoundException;
 
@@ -100,6 +100,7 @@ public interface ReservationService {
      * </p>
      * @param id - ID of the Reservation
      * @return ReservationResponseDTO -  Holds the Response of the Reservation
+     * @throws NotFoundException - when Reservation Not Found
      */
     ReservationResponseDTO getReservationDTOById(Long id) throws NotFoundException;
 
@@ -130,6 +131,7 @@ public interface ReservationService {
      *
      * @param id - ID of the Reservation
      * @return Reservation -  Holds the Response of the Reservation
+     * @throws NotFoundException - when Reservation Not Found
      */
     Reservation getReservationById(Long id) throws NotFoundException;
 
@@ -145,6 +147,7 @@ public interface ReservationService {
      *
      * @param id - ID of the User to find the Reservation for that User
      * @return List<ReservationResponseDTO> - Holds the List of Reservation for a User
+     * @throws NotFoundException - when Reservation Not Found
      */
     List<ReservationResponseDTO> getAllReservationByUserId(Long id) throws NoContentException;
 }

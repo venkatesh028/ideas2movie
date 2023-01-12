@@ -4,21 +4,21 @@
  */
 package com.ideas2it.ideas2movie.service.impl;
 
-import com.ideas2it.ideas2movie.exception.NotFoundException;
-import com.ideas2it.ideas2movie.model.Reservation;
-import com.ideas2it.ideas2movie.model.Seat;
-import com.ideas2it.ideas2movie.util.constant.Message;
 import java.util.List;
 import java.util.Optional;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import com.ideas2it.ideas2movie.model.Reservation;
+import com.ideas2it.ideas2movie.model.Seat;
 import com.ideas2it.ideas2movie.model.Ticket;
 import com.ideas2it.ideas2movie.dto.responsedto.TicketResponseDTO;
 import com.ideas2it.ideas2movie.service.SeatService;
 import com.ideas2it.ideas2movie.service.TicketService;
 import com.ideas2it.ideas2movie.repository.TicketRepository;
-
+import com.ideas2it.ideas2movie.util.constant.Message;
+import com.ideas2it.ideas2movie.exception.NotFoundException;
 /**
  * <h1>
  *     TicketServiceImpl

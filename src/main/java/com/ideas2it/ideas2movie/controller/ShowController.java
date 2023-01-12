@@ -98,8 +98,8 @@ public class ShowController {
      *     and process the Request by sending to showService and returns the List of ShowResponseDTO
      *     and Http Status or throws an exception accordingly when occurred
      * </p>
-     * @param movieName
-     * @return
+     * @param movieName - Holds the name of the movie
+     * @return ResponseEntity - Holds the List of ShowResponseDTO and Http Status
      * @throws NoContentException
      */
     @GetMapping("/movieName/{movieName}")

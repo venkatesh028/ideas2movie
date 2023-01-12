@@ -4,14 +4,18 @@
  */
 package com.ideas2it.ideas2movie.exception;
 
-import lombok.Getter;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ResponseStatus;
 
-@Getter
-public class NotFoundException  extends Exception{
-    private static HttpStatus httpStatus = HttpStatus.NOT_FOUND;
+/**
+ * <h1>
+ *
+ * </h1>
+ * <p>
+ *
+ * </p>
+ */
+public class NotFoundException  extends Ideas2MovieException{
     public NotFoundException(String message){
-        super(message);
+        super(message,HttpStatus.NOT_FOUND);
     }
 }
