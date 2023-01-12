@@ -25,9 +25,9 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  *     Payment Controller
  * </h1>
  * <p>
- *     Gets the Input Parameter as a Request from the Client
- *     for Create, Get, Update and Delete the Payment Details
- *     by handling and mapping the Request to appropriate function
+ *     Gets the Input as a Request from the Client and validates them
+ *     for making and Getting the Details of the Payment by Instance of the PaymentService
+ *     and used to Handle and Mapping the request to Appropriate Function
  * </p>
  *
  * @author AJAISHARMA
@@ -59,9 +59,9 @@ public class PaymentController {
      *      makePayment
      * </h1>
      * <p>
-     *      Gets the Input Parameter as a Request from the Client
-     *      to Make a Payment for the Booking Ticket by sending the Payment DTO
-     *      to Payment Service to perform Business Logic to Pay
+     *      Gets the RequestBody for Making Payment for Reservation and Validates according to Validation Constraints
+     *      and process the Request by sending to PaymentService and returns the PaymentResponseDTO and Http Status
+     *      or throws an exception when occurred
      * </p>
      *
      * @param paymentDTO - Holds the details of the payment
@@ -77,8 +77,9 @@ public class PaymentController {
      *     getByTransactionId
      * </h1>
      * <p>
-     *     Gets the ID of the Transaction from the Client to Get the Details of the Payment
-     *     in the form of PaymentResponseDTO by sending the Transaction ID to PaymentService
+     *     Gets the PathVariable to get the Details of the Payment by Transaction ID
+     *     and process the Request by sending to PaymentService and returns the PaymentResponseDTO and Http Status
+     *     or throws an exception when occurred
      * </p>
      *
      * @param id - ID of the Transaction
@@ -95,8 +96,9 @@ public class PaymentController {
      *     getById
      * </h1>
      * <p>
-     *     Gets the ID of the payment from the Client to get the Details of the payment
-     *     in the form of PaymentResponseDTO by sending the ID to the PaymentService
+     *     Gets the PathVariable to get the Details of the Payment by Payment ID
+     *     and process the Request by sending to PaymentService and returns the PaymentResponseDTO and Http Status
+     *     or throws an exception when occurred
      * </p>
      *
      * @param

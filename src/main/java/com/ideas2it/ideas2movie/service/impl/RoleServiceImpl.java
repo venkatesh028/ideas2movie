@@ -4,7 +4,6 @@
  */
 package com.ideas2it.ideas2movie.service.impl;
 
-import com.ideas2it.ideas2movie.exception.NoContentException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -19,6 +18,7 @@ import com.ideas2it.ideas2movie.service.RoleService;
 import com.ideas2it.ideas2movie.repository.RoleRepository;
 import com.ideas2it.ideas2movie.util.constant.Message;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
+import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
 
 /**

@@ -4,8 +4,6 @@
  */
 package com.ideas2it.ideas2movie.util.constant;
 
-import javax.xml.transform.sax.SAXResult;
-
 /**
  * <h1>
  *     Message
@@ -72,6 +70,7 @@ public class Message {
     public static final String TICKET_CANCELED = "Ticket Canceled";
     public static final String NO_SHOWS_AVAILABLE = "No Shows Available";
     public static final String MOVIE_NOT_FOUND = "Movie Not Found";
+    public static final String CAST_AND_CREW_NOT_FOUND = "Cast and Crew Not Found";
     public static final String SCREEN_NOT_FOUND = "Screen Not Found";
     public static final String THEATER_ALREADY_REGISTERED = "Theater Already Registered";
     public static final String THEATER_NOT_FOUND = "Theater Not Found";

@@ -27,9 +27,9 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  *     BookingController
  * </h1>
  * <p>
- *     Gets the input parameter as a request from the Client
- *     for create, Update, Get, Delete the Reservation Details
- *     by handling and mapping the request to appropriate function
+ *     Gets the input parameter as a request from the Client and Validates them
+ *     for creating, Updating, Deleting and Getting the Details of the Reservation
+ *     and used to handle and mapping the request to appropriate function
  * </p>
  *
  * @author AJAISHARMA
@@ -61,9 +61,9 @@ public class ReservationController {
      *     addReservation
      * </h1>
      * <p>
-     *     Gets the Input parameter as a request form the Client to Add reservation for a show
-     *     by sending the Reservation DTO to the Reservation Service
-     *     to perform Business logic to ass Reservation
+     *     Gets the RequestBody for Add the Reservation and Validates according to Validation Constraints
+     *     and process the request by sending to ReservationService and returns the ReservationResponseDTO
+     *     and Http Status or throws an Exception when occurred
      * </p>
      *
      * @param reservationDTO - holds the Details to reserve ticket
@@ -79,9 +79,9 @@ public class ReservationController {
      *     cancelReservation
      * </h1>
      * <p>
-     *     Gets the Input Parameter as a Request from the Client to Cancel the Reservation
-     *     for a Show by sending the Reservation ID to Reservation Service
-     *     to perform Business Logic to Cancel reservation
+     *     Gets the PathVariable to cancel the Reservation and process the request by sending
+     *     to ReservationService and returns the ReservationResponseDTO and Http Status
+     *     or throws an Exception when occurred
      * </p>
      *
      * @param id - ID of the reservation to Cancel
@@ -98,9 +98,9 @@ public class ReservationController {
      *     getReservationById
      * </h1>
      * <p>
-     *     Gets the Input parameter as a Request from the Client to get the reservation details
-     *     for a show by sending the reservation ID to the Reservation Service
-     *     to perform Business Logic to get Reservation
+     *     Gets the PathVariable to get the Details of the Reservation and process the request
+     *     by sending to ReservationService and returns the ReservationResponseDTO and Http Status
+     *     or throws an Exception when Occurred
      * </p>
      *
      * @param id - ID of the Reservation to Get details of Reservation
@@ -117,9 +117,9 @@ public class ReservationController {
      *     getAllReservationByUserId
      * </h1>
      * <p>
-     *     Gets the Input parameter as a Request from the Client to get All Reservations of a User
-     *     By sending the User ID to the Reservation Service
-     *     to perform Business Logic to get Reservation of User
+     *     Gets the PathVariable to get All the Details of the User By User ID and process the request
+     *     by sending to ReservationService and returns the ReservationResponseDTO and Http Status
+     *     or throws an Exception when occurred
      * </p>
      *
      * @param id - ID of the User to Get the Reservations of User

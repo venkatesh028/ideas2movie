@@ -4,10 +4,6 @@
  */
 package com.ideas2it.ideas2movie.service.impl;
 
-import com.ideas2it.ideas2movie.exception.NoContentException;
-import com.ideas2it.ideas2movie.model.Screen;
-import com.ideas2it.ideas2movie.model.Show;
-import com.ideas2it.ideas2movie.service.TicketService;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -16,14 +12,18 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import com.ideas2it.ideas2movie.model.Reservation;
+import com.ideas2it.ideas2movie.model.Screen;
 import com.ideas2it.ideas2movie.model.Seat;
+import com.ideas2it.ideas2movie.model.Show;
 import com.ideas2it.ideas2movie.dto.ReservationDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.ReservationResponseDTO;
 import com.ideas2it.ideas2movie.service.ReservationService;
+import com.ideas2it.ideas2movie.service.TicketService;
 import com.ideas2it.ideas2movie.repository.ReservationRepository;
 import com.ideas2it.ideas2movie.util.constant.Message;
 import com.ideas2it.ideas2movie.util.enums.ReservationStatus;
 import com.ideas2it.ideas2movie.util.enums.PaymentStatus;
+import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
 
 /**
@@ -31,7 +31,8 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  *     ReservationServiceImpl
  * </h1>
  * <p>
- *     Uses
+ *     ReservationServiceImpl Used to reserve and confirm Seats for a Show and  cancels reservation for Show
+ *     and Fetch the Details of the Reservation
  * </p>
  *
  * @author AJAISHARMA
@@ -127,8 +128,6 @@ public class ReservationServiceImpl implements ReservationService {
      */
     public List<Seat> getReservedSeats(Long showId) {
         List<Reservation> oldReservations = reservationRepository.findAllByShowId(showId);
-
-
         List<Seat> bookedSeats = new ArrayList<>();
 
         for (Reservation oldReservation : oldReservations) {
