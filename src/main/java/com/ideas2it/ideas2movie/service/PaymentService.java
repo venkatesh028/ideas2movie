@@ -15,9 +15,9 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  *     PaymentService
  * </h1>
  * <p>
- *     PaymentService used to manage the Operations for the Payment
- *     Like Make Payment, viewing the Details of the payment
- *     and Throws an Exception accordingly
+ *     PaymentService Interface used to manage the Payment for Reservation
+ *     Like Processing the payment, updating the Status of the payment
+ *     and retrieving the Details of the Payment by Transaction ID
  * </p>
  *
  * @author AJAISHARMA
@@ -30,13 +30,15 @@ public interface PaymentService {
      *     makePayment
      * </h1>
      * <p>
-     *     Makes the Payment By getting PaymentDTO from Controller
-     *     and checks the Entered Amount is equals to ticket price
-     *     and returns the response accordingly
+     *     Making Payment for the Reservation by getting the Payment Details
+     *     and validates if the amount paid is equal to the total amount of the reservation
+     *     then payment is success then sets the Status of payment to PAID otherwise FAILED
+     *     and sets the Other Details of the payment and stores it.
      * </p>
      *
      * @param paymentDTO - Holds the Payment Details to Make
      * @return PaymentResponseDTO - Holds the response of the Payment
+     * @throws NotFoundException - when Reservation is Not Found
      */
     PaymentResponseDTO makePayment(PaymentDTO paymentDTO) throws NotFoundException;
 
@@ -45,11 +47,11 @@ public interface PaymentService {
      *     getByTransactionId
      * </h1>
      * <p>
-     *     Gets the Payment details by getting the Transaction ID from controller
-     *     and checks the Payment is present or not and returns the Response accordingly
+     *     Retrieves the Details of the payment using the Transaction ID
+     *     If payment not found then throws an Exception otherwise returns the Payment Details
      * </p>
      *
-     * @param id - ID of the Transaction of the Payment
+     * @param id - Transaction ID of the Payment
      * @return PaymentResponseDTO - Holds the details of the Payment
      * @throws NotFoundException - when Payment is Not Found
      */
@@ -60,8 +62,8 @@ public interface PaymentService {
      *      getByTransactionId
      * </h1>
      * <p>
-     *      Gets the Payment details by getting the ID from controller
-     *      and checks the Payment is present or not and returns the Response accordingly
+     *     Retrieves the Details of the payment using the ID of the Payment
+     *     If payment not found then throws an Exception otherwise returns the Payment Details
      * </p>
      *
      * @param id - ID of the Payment

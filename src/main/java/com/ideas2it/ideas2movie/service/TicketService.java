@@ -4,19 +4,19 @@
  */
 package com.ideas2it.ideas2movie.service;
 
-import com.ideas2it.ideas2movie.dto.responsedto.TicketResponseDTO;
-import com.ideas2it.ideas2movie.exception.NotFoundException;
 import com.ideas2it.ideas2movie.model.Reservation;
 import com.ideas2it.ideas2movie.model.Ticket;
+import com.ideas2it.ideas2movie.dto.responsedto.TicketResponseDTO;
+import com.ideas2it.ideas2movie.exception.NotFoundException;
 
 /**
  * <h1>
  *     TicketService
  * </h1>
  * <p>
- *     TicketService used to manage the Operation for the Ticket
- *     Like Creating, Updating, Viewing the Details of the Ticket
- *     and throwing the Exceptions accordingly
+ *     TicketService used to manage the Operations of Ticket
+ *     Like Generating a ticket for a Reservation and Retrieves
+ *     the Details of the Ticket for the reservation
  * </p>
  *
  * @author AJAISHARMA
@@ -29,12 +29,12 @@ public interface TicketService {
      *     generateTicket
      * </h1>
      * <p>
-     *     gets the Reservation Model to Generate a unique ticket for the Given Reservation
-     *     by getting the Details of the movie , show and theater form the reservation
-     *     and returns the Reservation by setting the Ticket in it
+     *     Generates the Ticket for the Reservation By Sets the properties of the ticket
+     *     from the given reservation and returns the Details of the Generated Ticket
      * </p>
-     * @param reservation
-     * @return
+     *
+     * @param reservation - Holds the Details of the Reservation
+     * @return Ticket - Holds the Details of the Ticket
      */
     Ticket generateTicket(Reservation reservation);
 
@@ -43,28 +43,14 @@ public interface TicketService {
      *     getTicketDTOById
      * </h1>
      * <p>
-     *     Gets the Ticket by getting the ID of the ticket from Controller
-     *     and checks whether the ticket is present or not
-     *     and returns the response accordingly
+     *     Retrieves the Details of the Ticket by ID of the Ticket
+     *     and Validates If the Ticket is Not Exist throws the Exception
+     *     else returns the Details of the Ticket
      * </p>
      *
      * @param id - ID of the Ticket to Get the Ticket Details
      * @return TicketResponseDTO - Holds the response of the Ticket
+     * @throws NotFoundException - when Ticket is Not Found
      */
     TicketResponseDTO getTicketDTOById(Long id) throws NotFoundException;
-
-    /**
-     * <h1>
-     *      getTicketById
-     * </h1>
-     * <p>
-     *      Gets the Ticket by getting the ID of the ticket from Controller
-     *      and checks whether the ticket is present or not
-     *      and returns the response accordingly
-     * </p>
-     *
-     * @param id - ID of the Ticket to Get the Ticket Details
-     * @return Ticket - Holds the response of the Ticket
-     */
-    Ticket getTicketById(Long id);
 }

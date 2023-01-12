@@ -4,6 +4,7 @@
  */
 package com.ideas2it.ideas2movie.service.impl;
 
+import com.ideas2it.ideas2movie.model.Role;
 import java.util.Optional;
 
 import org.modelmapper.ModelMapper;
@@ -24,9 +25,9 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  *     UserServiceImpl
  * </h1>
  * <p>
- *     Implements the UserService and Provides the Business Logics
- *     to Create, Update, Get and Delete the Details of the User
- *     and throws an Exception according when occurred
+ *     UserService used to manage the Account of the User
+ *     like Creating new Account, Changing the Personal Details and
+ *     Retrieving the Details of the User Using the ID of the User
  * </p>
  *
  * @author AJAISHARMA
@@ -59,7 +60,7 @@ public class UserServiceImpl implements UserService {
      * {@inheritDoc}
      */
     @Override
-    public UserResponseDTO createUser(UserDTO userDTO) throws AlreadyExistException, NotFoundException {
+    public UserResponseDTO createUser(UserDTO userDTO) throws AlreadyExistException, BadRequestException {
         User user = mapper.map(userDTO, User.class);
 
         if (userRepository.existsByPhoneNumber(user.getPhoneNumber())) {
@@ -67,7 +68,14 @@ public class UserServiceImpl implements UserService {
         } else if (userRepository.existsByName(user.getName())) {
             throw new AlreadyExistException(Message.USER_NAME_ALREADY_EXIST);
         } else {
-            user.setRole(roleService.getRoleById(userDTO.getRole().getId()));
+            Role role;
+
+            try {
+                 role = roleService.getRoleById(userDTO.getRole().getId());
+            } catch (NotFoundException notFoundException) {
+                throw new BadRequestException(notFoundException.getMessage());
+            }
+            user.setRole(role);
         }
         return mapper.map(userRepository.save(user), UserResponseDTO.class);
     }
@@ -113,15 +121,16 @@ public class UserServiceImpl implements UserService {
         Optional<User> existingUser = userRepository.findById(id);
 
         if (existingUser.isPresent()) {
+            throw new NotFoundException(Message.USER_NOT_FOUND);
+        }
             User user = existingUser.get();
             user.setActive(false);
             userRepository.save(user);
 
             if (!userRepository.findById(id).get().isActive()) {
                 return Message.DELETED_SUCCESSFULLY;
+            } else {
+                return Message.FAILED_TO_DELETE;
             }
         }
-        throw new NotFoundException(Message.USER_NOT_FOUND);
-    }
-
 }

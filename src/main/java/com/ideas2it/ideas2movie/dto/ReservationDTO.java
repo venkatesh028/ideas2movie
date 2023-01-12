@@ -4,14 +4,17 @@
  */
 package com.ideas2it.ideas2movie.dto;
 
-import jakarta.validation.constraints.NotBlank;
-
-import com.ideas2it.ideas2movie.util.constant.Message;
-import com.ideas2it.ideas2movie.util.enums.ModeOfBooking;
 import java.util.List;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import com.ideas2it.ideas2movie.util.constant.Message;
+import com.ideas2it.ideas2movie.util.enums.ModeOfBooking;
 
 /**
  * <h1>
@@ -29,12 +32,12 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class ReservationDTO {
-
+    @NotNull
     private Long userId;
-
+    @NotNull
     private Long showId;
     @NotBlank
     private ModeOfBooking modeOfBooking;
-
+    @NotNull
     private List<Long> idsOfSeats;
 }

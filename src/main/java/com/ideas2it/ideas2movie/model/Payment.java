@@ -25,6 +25,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import com.ideas2it.ideas2movie.util.enums.ModeOfPayment;
 import com.ideas2it.ideas2movie.util.enums.PaymentStatus;
+import org.hibernate.annotations.UpdateTimestamp;
 
 /**
  * <h1>
@@ -47,18 +48,26 @@ public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @NotNull
     @Column(name = "transaction_id")
     private UUID transactionId;
+
     @NotNull
     @CreationTimestamp
     private Timestamp transactionAt;
+
     @NotNull
     private Double amount;
+
     @NotNull
     @Enumerated(EnumType.STRING)
     private ModeOfPayment modeOfPayment;
+
     @NotNull
     @Enumerated(EnumType.STRING)
     private PaymentStatus status;
+
+    @UpdateTimestamp
+    private Timestamp updatedAt;
 }

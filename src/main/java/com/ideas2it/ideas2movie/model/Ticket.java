@@ -20,6 +20,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 /**
  * <h1>
@@ -42,21 +43,34 @@ public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @NotNull
     private int numberOfSeatsSelected;
+
     @NotNull
     private Long showId;
+
     @NotNull
     private LocalDate showDate;
+
     @NotNull
     private String theaterName;
+
     @NotNull
     private String screenName;
+
     @NotNull
     private String MovieName;
+
     @NotNull
     private String seats;
+
+    @NotNull
     private ReservationStatus reservationStatus;
+
     @CreationTimestamp
     private Timestamp createdAt;
+
+    @UpdateTimestamp
+    private Timestamp updatedAt;
 }

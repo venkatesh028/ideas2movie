@@ -4,6 +4,8 @@
  */
 package com.ideas2it.ideas2movie.controller;
 
+import jakarta.validation.Valid;
+
 import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
@@ -68,7 +70,7 @@ public class PaymentController {
      * @return ResponseEntity - Holds the PaymentResponseDTO and Http Status
      */
     @PostMapping
-    public ResponseEntity<PaymentResponseDTO> makePayment(@RequestBody PaymentDTO paymentDTO) throws NotFoundException {
+    public ResponseEntity<PaymentResponseDTO> makePayment(@Valid @RequestBody PaymentDTO paymentDTO) throws NotFoundException {
         return ResponseEntity.status(HttpStatus.OK).body(paymentService.makePayment(paymentDTO));
     }
 
