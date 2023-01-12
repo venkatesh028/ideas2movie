@@ -79,10 +79,10 @@ public class UserServiceImpl implements UserService {
     public UserResponseDTO getUserById(Long id) throws NotFoundException {
         Optional<User> user = userRepository.findById(id);
 
-        if (user.isPresent()) {
+        if (user.isEmpty()) {
             throw new NotFoundException(Message.USER_NOT_FOUND);
         }
-        return mapper.map(user, UserResponseDTO.class);
+        return mapper.map(user.get(), UserResponseDTO.class);
     }
 
     /**
@@ -93,16 +93,16 @@ public class UserServiceImpl implements UserService {
         User user = mapper.map(userDTO, User.class);
         Optional<User> existingUser = userRepository.findById(id);
 
-        if (existingUser.isPresent()) {
-            if (userRepository.existsByPhoneNumber(user.getPhoneNumber())) {
-                throw new AlreadyExistException(Message.NUMBER_ALREADY_EXIST);
-            } else if (userRepository.existsByName(user.getName())) {
-                throw new AlreadyExistException(Message.USER_NAME_ALREADY_EXIST);
-            } else {
-                return mapper.map(userRepository.save(user), UserResponseDTO.class);
-            }
+        if (existingUser.isEmpty()) {
+            throw new NotFoundException(Message.USER_NOT_FOUND);
         }
-        throw new NotFoundException(Message.USER_NOT_FOUND);
+        existingUser.get();
+        existingUser.get().setId(id);
+        existingUser.get().setName(user.getName());
+        existingUser.get().setEmail(user.getEmail());
+        existingUser.get().setPhoneNumber(user.getPhoneNumber());
+        existingUser.get().setRole(user.getRole());
+        return mapper.map(userRepository.save(existingUser.get()), UserResponseDTO.class);
     }
 
     /**

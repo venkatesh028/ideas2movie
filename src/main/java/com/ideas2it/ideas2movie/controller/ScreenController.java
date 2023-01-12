@@ -25,10 +25,9 @@ import com.ideas2it.ideas2movie.service.ScreenService;
  *     ScreenController
  * </h1>
  * <p>
- *     Gets the inputs via Request from the client
- *     to perform Create, Update, remove the Screen
- *     by sending the parameter/object to perform
- *     business logics on them
+ *     Gets the input as a Request from the Client and Validates them
+ *     to Create, Update and Remove the Details of the Screen by the Instance of the screenService
+ *     and used to Handle and Mapping the Request to appropriate function
  * </p>
  *
  * @author Venkatesh TM
@@ -43,12 +42,44 @@ public class ScreenController {
         this.screenService = screenService;
     }
 
+    /**
+     * <h1>
+     *      createScreen
+     * </h1>
+     * <p>
+     *      Gets the RequestBody to create Screen and validates them according to Validation Constraints
+     *      and process the request by sending to ScreenService and returns the ScreenResponseDTO
+     *      and Http Status or throws an exception accordingly when occurred
+     * </p>
+     *
+     * @param screenDTO - Holds the Details of Screen to create
+     * @return ResponseEntity - Holds the ScreenResponseDTO and Http Status
+     * @throws NotFoundException - when Theater is Not Found
+     * @throws AlreadyExistException - when Screen already Exist in that Theater
+     */
     @PostMapping
     public ResponseEntity<ScreenResponseDTO> createScreen(@Valid @RequestBody ScreenDTO screenDTO)
             throws NotFoundException, AlreadyExistException{
         return ResponseEntity.status(HttpStatus.OK).body(screenService.createScreen(screenDTO));
     }
 
+    /**
+     * <h1>
+     *     updateScreen
+     * </h1>
+     * <p>
+     *     Gets the PathVariable and RequestBody to Update the Details of the Screen
+     *     and Validates them according to Validation Constraints and process the request
+     *     by sending to ScreenService and returns the ScreenResponseDTO and Http Status
+     *     or throws an exception accordingly when occurred
+     * </p>
+     *
+     * @param id - ID of the Screen to Update the Details of Screen
+     * @param screenDTO - Details of the Screen to Update
+     * @return ResponseEntity - Holds the ScreenResponseEntity and Http Status
+     * @throws NotFoundException - when Screen Not Found
+     * @throws AlreadyExistException - when Screen Details already Exist in that Theater
+     */
     @PostMapping("/{id}")
     public ResponseEntity<ScreenResponseDTO> updateScreen(@PathVariable Long id,
                                                           @Valid @RequestBody ScreenDTO screenDTO)
@@ -56,6 +87,20 @@ public class ScreenController {
         return ResponseEntity.status(HttpStatus.OK).body(screenService.updateScreen(id, screenDTO));
     }
 
+    /**
+     * <h1>
+     *     removeScreen
+     * </h1>
+     * <p>
+     *     Gets the PathVariable to remove Screen from Theater and process the request
+     *     by sending to ScreenService and returns the String and Http Status
+     *     or throws an Exception accordingly when occurred
+     * </p>
+     *
+     * @param id - ID of the Screen to remove
+     * @return ResponseEntity - Holds the String and Http Status
+     * @throws NotFoundException - when Screen is Not Found
+     */
     @DeleteMapping("/{id}")
     public ResponseEntity<String> removeScreen(@PathVariable Long id) throws NotFoundException {
         return ResponseEntity.status(HttpStatus.OK).body(screenService.removeScreen(id));

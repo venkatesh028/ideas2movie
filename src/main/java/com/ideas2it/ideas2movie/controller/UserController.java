@@ -28,9 +28,9 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  *     UserController
  * </h1>
  * <p>
- *     Gets the Input parameter as a Request from then Client
- *     for Create, Update, and Get the Details of the User
- *     by handling and mapping the request to the appropriate function
+ *     Gets the Input as a Request from the Client and Validates them
+ *     for Create, Update, and Get the Details of the User by Instance of the userService
+ *     and used to handle and mapping the request to the appropriate function
  * </p>
  *
  * @author AJAISHARMA
