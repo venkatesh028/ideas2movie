@@ -4,13 +4,13 @@
  */
 package com.ideas2it.ideas2movie.service;
 
-import com.ideas2it.ideas2movie.exception.NoContentException;
 import java.util.List;
 
 import com.ideas2it.ideas2movie.model.Role;
 import com.ideas2it.ideas2movie.dto.RoleDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.RoleResponseDTO;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
+import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
 
 /**

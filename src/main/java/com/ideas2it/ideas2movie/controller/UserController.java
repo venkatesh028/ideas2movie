@@ -61,18 +61,17 @@ public class UserController {
 
     /**
      * <h1>
-     *     Create User
+     *     createUser
      * </h1>
      * <p>
-     *     Gets the Input Parameter as a Request from the Client
-     *     to Create new User for the Ideas2Movie application
-     *     by sending the User DTO
-     *     to User Service to perform Business Logic to create
+     *     Gets the RequestBody for creating the user and Validates according to Validation Constrains
+     *     and process the request by sending to UserService and returns the UserResponseDTO and Http Status
+     *     or throws an Exception when occurred
      * </p>
      *
      * @param userDTO - holds the Details of the User
-     * @return ResponseEntity - Holds the User Response DTO and Http Status
-     * @throws AlreadyExistException - Throws when User Already Exist
+     * @return ResponseEntity - Holds the UserResponseDTO and Http Status
+     * @throws AlreadyExistException - Throws when User Detail is Already Exist
      * @throws NotFoundException - Throws when Role Not Found
      */
     @PostMapping
@@ -84,16 +83,16 @@ public class UserController {
 
     /**
      * <h1>
-     *     Get User By Id
+     *     getUserById
      * </h1>
      * <p>
-     *     Gets the Input parameter as a Request from the Client
-     *     to Get the User By ID by sending the ID to User Service
-     *     to perform Business Logic to Get
+     *     Gets the PathVariable to Get the Details of the User by ID of the User
+     *     and process the request by sending to UserService and returns the UserResponseDTO and Http Status
+     *     or throws an exception when occurred
      * </p>
      *
      * @param id - ID of the User to get the User
-     * @return ResponseEntity - Holds the User Response DTO and Http Status
+     * @return ResponseEntity - Holds the UserResponseDTO and Http Status
      * @throws NotFoundException - throws when user Not Found
      */
     @GetMapping("/{id}")
@@ -106,15 +105,14 @@ public class UserController {
      *     Update User
      * </h1>
      * <p>
-     *     Gets the Input parameter as a Request from the Client
-     *     to Update the User
-     *     by Sending the UserDTO to User Service
-     *     to perform Business Logic to Update
+     *     Gets the PathVariable and RequestBody to update the Details of the User and Validates according
+     *     to Validation Constraints and process the Request by sending to UserService
+     *     and returns the UserResponseDTO and Http Status or throws an Exception when occurred
      * </p>
      *
-     * @param id -ID of the User to update the Detilas of the User
+     * @param id -ID of the User to update the Details of the User
      * @param userDTO - holds the Details of the User
-     * @return ResponseEntity - Holds the User Response DTO and Http Status
+     * @return ResponseEntity - Holds the UserResponseDTO and Http Status
      * @throws NotFoundException - when user Not Found
      * @throws AlreadyExistException - when User's Name or Phone Number Already Exist
      */
@@ -128,14 +126,13 @@ public class UserController {
      *     Delete User
      * </h1>
      * <p>
-     *     Gets the Input Parameter as a request from the Client
-     *     to Delete the User
-     *     by Sending the ID of the User to User Service
-     *     to perform Business Logic to Delete
+     *     Gets the PathVariable to Delete the Details of the User by ID of the User
+     *     and process the Request by sending to UserService and returns the Message and Http Status
+     *     or throws an Exception when occurred
      * </p>
      *
      * @param id - ID of the User to Delete the User
-     * @return ResponseEntity - Holds the User Response DTO and Http Status
+     * @return ResponseEntity - Holds the String and Http Status
      * @throws NotFoundException - throws when user Not Found
      */
     @DeleteMapping("/{id}")

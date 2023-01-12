@@ -4,7 +4,6 @@
  */
 package com.ideas2it.ideas2movie.controller;
 
-import com.ideas2it.ideas2movie.exception.NoContentException;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -19,15 +18,16 @@ import com.ideas2it.ideas2movie.dto.RoleDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.RoleResponseDTO;
 import com.ideas2it.ideas2movie.service.RoleService;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
+import com.ideas2it.ideas2movie.exception.NoContentException;
 
 /**
  * <h1>
  *     RoleController
  * </h1>
  * <p>
- *     Gets the Input Parameter as a request from the Client
- *     for Create and Get the Details of the Role
- *     by handling and Mapping the request to appropriate function
+ *     Gets the Input Parameter as a request from the Client and Validates them
+ *     for Creating and Getting the Details of the Role
+ *     and used to handle and Mapping the request to appropriate function
  * </p>
  *
  * @author AJAISHARMA
@@ -59,10 +59,9 @@ public class RoleController {
      *     createRole
      * </h1>
      * <p>
-     *     Used to create the Role of the Ideas2Movie User
-     *     by getting the Role DTO from the Client
-     *     and sends it to the Role service to
-     *     perform business logic
+     *     Gets the RequestBody for creating the Role and validates according to Validation Constraints
+     *     and process the request by sending to RoleService and returns the RoleResponseDTO and Http Status
+     *     or throws an exception when occurred
      * </p>
      *
      * @param roleDTO - role details to create a new role
@@ -78,8 +77,9 @@ public class RoleController {
      *     getAllRole
      * </h1>
      * <p>
-     *     Used to get all the Roles of the Ideas2Movie
-     *     by calling the Role Service
+     *     Gets the Call to Get all the Roles for the User
+     *     and process the request by sending to RoleService and returns the RoleResponseDTO and Http status
+     *     or throws an Exception when occurred
      * </p>
      *
      * @return ResponseEntity - Holds the Role response DTO and Http Status
