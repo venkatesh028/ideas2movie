@@ -13,8 +13,6 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.ideas2it.ideas2movie.dto.responsedto.ErrorMessageDTO;
 import com.ideas2it.ideas2movie.logger.CustomLogger;
@@ -25,7 +23,7 @@ import com.ideas2it.ideas2movie.logger.CustomLogger;
  * </h1>
  * <p>
  *    Handles the Exception and sends the
- *    proper response entity with status code
+ *    proper response Error message with status code
  * </p>
  *
  * @author Venkatesh TM
@@ -37,36 +35,18 @@ import com.ideas2it.ideas2movie.logger.CustomLogger;
 public class MovieExceptionHandler {
     private final CustomLogger logger = new CustomLogger(MovieExceptionHandler.class);
 
-    @ExceptionHandler({NotFoundException.class,
-                        AlreadyExistException.class})
-    public ResponseEntity<ErrorMessageDTO> notFoundException(Exception exception) {
+    @ExceptionHandler({
+            NotFoundException.class,
+            AlreadyExistException.class,
+            NotAcceptableException.class,
+            NoContentException.class
+    })
+    public ResponseEntity<ErrorMessageDTO> handelIdeas2MovieException(Ideas2MovieException exception) {
         logger.error(exception.getMessage());
-        ErrorMessageDTO errorMessage = new ErrorMessageDTO(exception.getMessage(), HttpStatus.NOT_FOUND);
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorMessage);
+        ErrorMessageDTO errorMessage = new ErrorMessageDTO(exception.getMessage(),exception.getHttpStatus());
+        return ResponseEntity.status(exception.getHttpStatus()).body(errorMessage);
     }
 
-    @ExceptionHandler(AlreadyExistException.class)
-    public ResponseEntity<ErrorMessageDTO> alreadyExistException(AlreadyExistException alreadyExistException){
-        ErrorMessageDTO errorMessage = new ErrorMessageDTO(alreadyExistException.getMessage(),
-                                                           HttpStatus.CONFLICT);
-        return ResponseEntity.status(HttpStatus.CONFLICT).body(errorMessage);
-    }
-
-    @ExceptionHandler(NoContentException.class)
-    public ResponseEntity<ErrorMessageDTO> noContentException(NoContentException noContentException){
-        ErrorMessageDTO errorMessageDTO = new ErrorMessageDTO(noContentException.getMessage(),
-                                                              HttpStatus.NO_CONTENT);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).body(errorMessageDTO);
-    }
-
-    @ExceptionHandler(NotAcceptableException.class)
-    public ResponseEntity<ErrorMessageDTO> notAcceptableException(NotAcceptableException notAcceptableException){
-        ErrorMessageDTO errorMessageDTO = new ErrorMessageDTO(notAcceptableException.getMessage(),
-                                                              HttpStatus.NOT_ACCEPTABLE);
-        return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(errorMessageDTO);
-    }
-
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, String>>  handleMethodNotValidationExceptions(
             MethodArgumentNotValidException methodArgumentNotValidException) {
@@ -75,8 +55,9 @@ public class MovieExceptionHandler {
         methodArgumentNotValidException.getBindingResult().getAllErrors().forEach(error -> {
             String fieldName = ((FieldError) error).getField();
             String errorMessage = error.getDefaultMessage();
+            logger.error(errorMessage);
             errors.put(fieldName, errorMessage);
         });
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errors);
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors);
     }
 }

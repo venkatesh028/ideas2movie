@@ -1,17 +1,24 @@
-package com.ideas2it.ideas2movie.dto.responsedto;
+package com.ideas2it.ideas2movie.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 
+/**
+ * <h1>
+ *     Ideas2MovieException
+ * </h1>
+ * <p>
+ *
+ * </p>
+ */
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
-public class ErrorMessageDTO {
+@NoArgsConstructor
+public class Ideas2MovieException extends Exception {
     private String message;
     private HttpStatus httpStatus;
 }

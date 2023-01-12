@@ -8,10 +8,17 @@ import lombok.Getter;
 
 import org.springframework.http.HttpStatus;
 
+/**
+ * <h1>
+ *
+ * </h1>
+ * <p>
+ *
+ * </p>
+ */
 @Getter
-public class AlreadyExistException extends Exception {
-    private static HttpStatus httpStatus = HttpStatus.CONFLICT;
+public class AlreadyExistException extends Ideas2MovieException {
     public AlreadyExistException(String message) {
-        super(message);
+        super(message, HttpStatus.CONFLICT);
     }
 }
