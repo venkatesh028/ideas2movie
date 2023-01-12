@@ -69,12 +69,15 @@ public class Message {
     public static final String TICKET_BOOKED = "Ticket Booked";
     public static final String TICKET_CANCELED = "Ticket Canceled";
     public static final String NO_SHOWS_AVAILABLE = "No Shows Available";
+    public static final String INVALID_SHOW_TIME = "Start time is lesser than end time";
     public static final String MOVIE_NOT_FOUND = "Movie Not Found";
     public static final String CAST_AND_CREW_NOT_FOUND = "Cast and Crew Not Found";
     public static final String SCREEN_NOT_FOUND = "Screen Not Found";
+    public static final String SCREEN_ALREADY_EXISTS = "There is a Screen with given name in the given theater";
     public static final String THEATER_ALREADY_REGISTERED = "Theater Already Registered";
     public static final String THEATER_NOT_FOUND = "Theater Not Found";
     public static final String SHOW_NOT_FOUND = "Show Not Found";
+    public static final String SHOW_ALREADY_EXISTS = "There is show in this screen exactly at given time and date";
     public static final String PAYMENT_NOT_FOUND = "Payment Not Found";
     public static final String RESERVATION_NOT_FOUND = "Reservation Not Found";
     public static final String TICKET_NOT_FOUND = "Ticket Not Found";

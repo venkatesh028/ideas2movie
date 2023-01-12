@@ -25,6 +25,7 @@ public class ShowResponseDTO {
     private Long id;
     private LocalDate screeningDate;
     private LocalTime startTime;
+    private LocalTime endTime;
     private List<SeatResponseDTO> availableSeats;
     private MovieResponseDTO movie;
     private ScreenResponseDTO screen;

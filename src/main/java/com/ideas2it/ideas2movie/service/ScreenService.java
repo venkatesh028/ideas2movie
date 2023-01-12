@@ -4,6 +4,7 @@
  */
 package com.ideas2it.ideas2movie.service;
 
+import com.ideas2it.ideas2movie.exception.BadRequestException;
 import com.ideas2it.ideas2movie.model.Screen;
 import com.ideas2it.ideas2movie.dto.ScreenDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.ScreenResponseDTO;
@@ -39,10 +40,10 @@ public interface ScreenService {
      *
      * @param screenDTO - Holds the Details of the Screen
      * @return screenResponseDTO - Holds the Response Details of the Screen
-     * @throws NotFoundException - Occurs When there is no theater in that id
      * @throws AlreadyExistException- Occurs when the screen name is already exist in that theater
+     * @throws BadRequestException - Occurs When there is no theater in that id
      */
-    ScreenResponseDTO createScreen(ScreenDTO screenDTO) throws NotFoundException, AlreadyExistException;
+    ScreenResponseDTO createScreen(ScreenDTO screenDTO) throws AlreadyExistException, BadRequestException;
 
     /**
      * <h1>
@@ -63,7 +64,8 @@ public interface ScreenService {
      * @throws AlreadyExistException - Occurs When there is a screen with screen name in the theater
      * @throws NotFoundException - Occurs When there is No screen with given id
      */
-    ScreenResponseDTO updateScreen(Long id, ScreenDTO screenDTO) throws AlreadyExistException, NotFoundException;
+    ScreenResponseDTO updateScreen(Long id, ScreenDTO screenDTO) throws AlreadyExistException, NotFoundException,
+            BadRequestException;
 
     /**
      * <h1>
@@ -95,5 +97,5 @@ public interface ScreenService {
      * @return screen - Holds the details of the screen
      * @throws NotFoundException - Occurs When there is no screen for the given id
      */
-    Screen getScreenById(Long id) throws NotFoundException;
+    Screen getScreenById(Long id) throws BadRequestException, NotFoundException;
 }

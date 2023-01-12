@@ -38,6 +38,9 @@ public class ShowDTO {
     @NotNull
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
     private LocalTime startTime;
+    @NotNull
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
+    private LocalTime endTime;
     @NotNull(message = "Screen id should not be empty")
     private Long screenId;
     @NotNull(message = "Movie id should not be empty")

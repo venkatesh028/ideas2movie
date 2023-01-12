@@ -64,6 +64,7 @@ public class Screen {
     private Timestamp createdAt;
     @UpdateTimestamp
     private Timestamp updatedAt;
+    @NotNull
     @ManyToOne
     @JoinColumn(
             name = "theate_id",
