@@ -106,6 +106,25 @@ public class MovieController {
 
     /**
      * <h1>
+     *     getMovieByName
+     * </h1>
+     * <p>
+     *
+     * </p>
+     *
+     * @param name The name of the movie to fetch a movie details
+     * @return ResponseEntity<MovieResponseDTO>  - give response as movie details
+     * @throws NotFoundException - occur when movie details is not Found
+     */
+   @GetMapping("/0f-movie/{name}")
+    public ResponseEntity<MovieResponseDTO> getMovieByName(
+            @PathVariable("name") String name) throws NotFoundException {
+        MovieResponseDTO existByMovie = movieService.getMovieByName(name);
+        return ResponseEntity.status(HttpStatus.OK).body(existByMovie);
+    }
+
+    /**
+     * <h1>
      *     getAllMovies
      * </h1>
      * <p>
