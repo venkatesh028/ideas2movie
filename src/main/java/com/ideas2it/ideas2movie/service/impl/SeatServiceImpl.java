@@ -39,6 +39,7 @@ public class SeatServiceImpl implements SeatService {
     public List<Seat> createSeat(Screen screen) {
         int name = 65;
         List<Seat> seats = new ArrayList<>();
+
         for (int row = 1; row <= screen.getTotalNumberOfRows(); row++){
             for (int column = 1; column <= screen.getTotalNumberOfColumns(); column++){
                 Seat seat = new Seat();
@@ -55,7 +56,7 @@ public class SeatServiceImpl implements SeatService {
      *{@inheritDoc}
      */
     @Override
-    public List<Seat> getSeatsByScreenId(Long screenId)  {
+    public List<Seat> getSeatsByScreenId(Long screenId) {
         return seatRepository.findAllByScreenId(screenId);
     }
 }

@@ -30,10 +30,9 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  *     ShowController
  * </h1>
  * <p>
- *     Gets the inputs via Request from the client
- *     to perform Create, Update, Delete and Get
- *     the Show by sending the parameter/object
- *     to perform business logics on them
+ *     Gets the Input as a Request from the Client and validates them
+ *     to Create, Cancel and Get the Details of the Show by using the Instance of the showService
+ *     and used to Handle and Mapping the request to appropriate function.
  * </p>
  *
  * @author Venkatesh TM
@@ -54,13 +53,12 @@ public class ShowController {
      *    createShow
      * </h1>
      * <p>
-     *     Gets the input as a request from the client
-     *     create a show for the screen and movie
-     *     by sending the showDTO to showService to perform
-     *     business logics to create
+     *     Gets the RequestBody for creating the Show and Validates according to Validation Constraints
+     *     and process the request by sending to ShowService and returns the ShowResponseDTO and Http Status
+     *     or throws an exception accordingly when occurred.
      * </p>
      *
-     * @param showDTO- Holds the details of the show
+     * @param showDTO- Holds the details of the show to create
      * @return ResponseEntity - Holds the ShowResponseDTO and HttpStatus code
      * @throws AlreadyExistException - Throws When the Show is already exist for the same screen
      * @throws NotFoundException - Throws When movie or screen not found
@@ -77,25 +75,53 @@ public class ShowController {
      *     getShow
      * </h1>
      * <p>
-     *     Gets the input from the client as Request
-     *     to get the show by sending the id to showService
-     *     to perform logic to get the show
+     *     Gets the PathVariable for Getting the Details of the Show for SHow ID
+     *     and process the Request by sending to showService and returns the ShowResponseDTO and Http Status
+     *     or throws an exception accordingly when occurred.
      * </p>
-     * @param id - Holds the id of the show
-     * @return ResponseEntity - Holds the
-     * @throws NotFoundException
+     *
+     * @param id - Holds the ID of the show
+     * @return ResponseEntity - Holds the ShowResponseDTO and Http Status
+     * @throws NotFoundException - when the Show is Not Found
      */
     @GetMapping("/{id}")
     public ResponseEntity<ShowResponseDTO> getShow(@PathVariable Long id) throws NotFoundException {
         return ResponseEntity.status(HttpStatus.OK).body(showService.getShowById(id));
     }
 
+    /**
+     * <h1>
+     *     getAllShowsByMovieName
+     * </h1>
+     * <p>
+     *     Gets the PathVariable to Get Details of All Shows for Movie Name
+     *     and process the Request by sending to showService and returns the List of ShowResponseDTO
+     *     and Http Status or throws an exception accordingly when occurred
+     * </p>
+     * @param movieName
+     * @return
+     * @throws NoContentException
+     */
     @GetMapping("/movieName/{movieName}")
     public ResponseEntity<List<ShowResponseDTO>> getAllShowsByMovieName(@PathVariable String movieName)
                                                                                         throws NoContentException {
         return ResponseEntity.status(HttpStatus.OK).body(showService.getAllShowsByMovieName(movieName));
     }
 
+    /**
+     * <h1>
+     *     cancelShow
+     * </h1>
+     * <p>
+     *     Gets the PathVariable to Cancel the Show for the Show ID
+     *     by process the request by sending to showService and returns the List of ShowResponseDTO
+     *     and Http Status or throws an Exception accordingly when occurred
+     * </p>
+     *
+     * @param id - ID of the Show to cancel the Show
+     * @return ResponseEntity - Holds the String and Http Status
+     * @throws NotFoundException - when Show is Not Found
+     */
     @DeleteMapping("/{id}")
     public ResponseEntity<String> cancelShow(@PathVariable Long id) throws NotFoundException {
         return ResponseEntity.status(HttpStatus.OK).body(showService.cancelShow(id));

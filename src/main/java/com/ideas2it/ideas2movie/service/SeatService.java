@@ -7,12 +7,11 @@ import com.ideas2it.ideas2movie.model.Seat;
 
 /**
  * <h1>
- *     Seat Service
+ *     SeatService
  * </h1>
  * <p>
- *     Service Layer for the Seat
- *     to Create, Get the details
- *     of the Seat
+ *     SeatService used to manage the Operation for the Seat
+ *     Like Creating and Fetching the Details of the Seat and throws an Exception when occurred
  * </p>
  *
  * @author Venkatesh TM
@@ -27,12 +26,10 @@ public interface SeatService {
      *     createSeat
      * </h1>
      * <p>
-     *     Gets the Screen Details
-     *     And creates the number of
-     *     seats based on the based
-     *     on total number of rows
-     *     and column in screen
+     *     Gets Screen Details which Holds the Row and Column count to create Seats for the Screen
+     *     and stores it to the Storage and returns the list of Seat
      * </p>
+     *
      * @param screen - Holds the Details of the Screen
      * @return listOfSeats - Holds the list of seats Created
      */
@@ -43,8 +40,8 @@ public interface SeatService {
      *     getSeatsByScreenId
      * </h1>
      * <p>
-     *     Gets the List of Seats For Particular
-     *     Screen with the screen id
+     *     Gets the ID of the Screen to get all the Seats which are allocated to the
+     *     particular Screen and returns the Details of the Seats
      * </p>
      * @param screenId - Holds the id of the screen
      * @return listOfSeats - Holds the list of seats for that screen
