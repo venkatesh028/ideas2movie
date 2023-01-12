@@ -61,6 +61,20 @@ public interface MovieService {
 
     /**
      * <h1>
+     *     getMovieByName
+     * </h1>
+     * <p>
+     *
+     * </p>
+     *
+     * @param name - name of the movie to be fetched from ideas2movie
+     * @return movieResponseDto - gives a response of movie details based on movie id
+     * @throws NotFoundException - occur when no movie is existing in ideas2movie on a given id
+     */
+    MovieResponseDTO getMovieByName(String name) throws NotFoundException;
+
+    /**
+     * <h1>
      *     getAllMovies
      * </h1>
      * <p>

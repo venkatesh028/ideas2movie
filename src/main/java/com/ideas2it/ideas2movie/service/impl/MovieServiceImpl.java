@@ -74,6 +74,17 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
+    public MovieResponseDTO getMovieByName(String name) throws NotFoundException {
+        Optional<Movie> existByMovie = movieRepository.findByName(name);
+
+        if(existByMovie.isPresent()) {
+            return modelMapper.map(existByMovie.get(), MovieResponseDTO.class);
+        } else {
+            throw new NotFoundException(Message.MOVIE_NOT_FOUND);
+        }
+    }
+
+    @Override
     public List<MovieResponseDTO> getAllMovies() throws NoContentException {
         List<Movie> movies = movieRepository.findAll();
 
