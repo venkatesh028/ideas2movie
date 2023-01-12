@@ -23,6 +23,7 @@ import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.annotations.Where;
 
 /**
  * <h1>
@@ -41,18 +42,24 @@ import org.hibernate.annotations.UpdateTimestamp;
 @Setter
 @NoArgsConstructor
 @Table(name = "user")
+@Where(clause = "is_active = true")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @NotNull
     private String name;
+
     @NotNull
     private String email;
+
     @NotNull
     private String phoneNumber;
+
     @NotNull
     private String password;
+
     @NotNull
     @ManyToOne
     @JoinColumn(
@@ -60,15 +67,19 @@ public class User {
             referencedColumnName = "id"
     )
     private Role role;
+
     @Column(
-            name = "is_active"
+            name = "is_active",
+            insertable = false
     )
     @ColumnDefault(
             value = "true"
     )
     private boolean isActive;
+
     @CreationTimestamp
     private Timestamp createdAt;
+
     @UpdateTimestamp
     private Timestamp updatedAt;
 }

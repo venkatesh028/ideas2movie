@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ideas2it.ideas2movie.dto.ScreenDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.ScreenResponseDTO;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
+import com.ideas2it.ideas2movie.exception.BadRequestException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
 import com.ideas2it.ideas2movie.service.ScreenService;
 
@@ -59,7 +61,7 @@ public class ScreenController {
      */
     @PostMapping
     public ResponseEntity<ScreenResponseDTO> createScreen(@Valid @RequestBody ScreenDTO screenDTO)
-            throws NotFoundException, AlreadyExistException{
+            throws AlreadyExistException, BadRequestException {
         return ResponseEntity.status(HttpStatus.OK).body(screenService.createScreen(screenDTO));
     }
 
@@ -80,10 +82,10 @@ public class ScreenController {
      * @throws NotFoundException - when Screen Not Found
      * @throws AlreadyExistException - when Screen Details already Exist in that Theater
      */
-    @PostMapping("/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<ScreenResponseDTO> updateScreen(@PathVariable Long id,
                                                           @Valid @RequestBody ScreenDTO screenDTO)
-            throws NotFoundException, AlreadyExistException {
+            throws NotFoundException, AlreadyExistException, BadRequestException {
         return ResponseEntity.status(HttpStatus.OK).body(screenService.updateScreen(id, screenDTO));
     }
 

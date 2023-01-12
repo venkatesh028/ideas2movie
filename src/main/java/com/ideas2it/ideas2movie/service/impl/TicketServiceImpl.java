@@ -80,13 +80,4 @@ public class TicketServiceImpl implements TicketService {
         }
         return null;
     }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Ticket getTicketById(Long id) {
-
-        return null;
-    }
 }

@@ -22,7 +22,9 @@ import com.ideas2it.ideas2movie.logger.CustomLogger;
  *     MovieExceptionHandler
  * </h1>
  * <p>
- *    Handles the Exception and sends the
+ *    Handles the Exception within the Ideas2Movie application.
+ *    It includes two exception handlers, one for handling specific custom exceptions
+ *    Another one for handling Exception for invalid input values from request.
  *    proper response Error message with status code
  * </p>
  *
@@ -35,10 +37,25 @@ import com.ideas2it.ideas2movie.logger.CustomLogger;
 public class MovieExceptionHandler {
     private final CustomLogger logger = new CustomLogger(MovieExceptionHandler.class);
 
+    /**
+     * <h1>
+     *     handelIdeas2MovieException
+     * </h1>
+     * <p>
+     *     Handles the Custom Exception for ideas2movie application
+     *     Which occurs in different scenario like Resource Not found
+     *     or Given Resource is Already Exists or No content For
+     *     looking Resources
+     * </p>
+     *
+     * @param exception - Holds The Custom Exception for the application
+     * @return ResponseEntity - Holds the ErrorMessageDto and HttpStatus
+     */
     @ExceptionHandler({
             NotFoundException.class,
             AlreadyExistException.class,
             NotAcceptableException.class,
+            BadRequestException.class,
             NoContentException.class
     })
     public ResponseEntity<ErrorMessageDTO> handelIdeas2MovieException(Ideas2MovieException exception) {
@@ -47,6 +64,19 @@ public class MovieExceptionHandler {
         return ResponseEntity.status(exception.getHttpStatus()).body(errorMessage);
     }
 
+
+    /**
+     * <h1>
+     *     handelMethodNotValidationExceptions
+     * </h1>
+     * <p>
+     *     Handles the exception thrown for the invalid format of the given values
+     *     creates a new map of errors, where it puts the field name and error message in the map.
+     *     and returns a ResponseEntity with the appropriate HTTP status code and the error map as the body.
+     * </p>
+     * @param methodArgumentNotValidException - Holds the methodArgumentNotValidException Which get Handled
+     * @return ResponseEntity - Holds the appropriate HTTP status code and error map as the body
+     */
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, String>>  handleMethodNotValidationExceptions(
             MethodArgumentNotValidException methodArgumentNotValidException) {

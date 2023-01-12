@@ -4,6 +4,8 @@
  */
 package com.ideas2it.ideas2movie.controller;
 
+import jakarta.validation.Valid;
+
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -68,7 +70,7 @@ public class RoleController {
      * @return ResponseEntity - Holds the Role response DTO and Http Status
      */
     @PostMapping
-    public ResponseEntity<RoleResponseDTO> createRole(@RequestBody RoleDTO roleDTO) throws AlreadyExistException {
+    public ResponseEntity<RoleResponseDTO> createRole(@Valid @RequestBody RoleDTO roleDTO) throws AlreadyExistException {
         return ResponseEntity.status(HttpStatus.OK).body(roleService.createRole(roleDTO));
     }
 

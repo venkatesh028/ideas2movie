@@ -25,7 +25,9 @@ import com.ideas2it.ideas2movie.service.ShowService;
 import com.ideas2it.ideas2movie.repository.ShowRepository;
 import com.ideas2it.ideas2movie.util.constant.Message;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
+import com.ideas2it.ideas2movie.exception.BadRequestException;
 import com.ideas2it.ideas2movie.exception.NoContentException;
+import com.ideas2it.ideas2movie.exception.NotAcceptableException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
 
 /**
@@ -64,15 +66,23 @@ public class ShowServiceImpl implements ShowService {
     /**
      * {@inheritDoc}
      */
-    public ShowResponseDTO createShow(ShowDTO showDTO) throws NotFoundException, AlreadyExistException {
+    public ShowResponseDTO createShow(ShowDTO showDTO) throws AlreadyExistException, NotAcceptableException, BadRequestException {
         mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         Show show = mapper.map(showDTO, Show.class);
-        show.setMovie(movieService.getMovieByIdForShows(showDTO.getMovieId()));
-        show.setScreen(screenService.getScreenById(showDTO.getScreenId()));
 
-        if (showRepository.existsByScreeningDateAndStartTimeAndScreen(show.getScreeningDate(),
-                show.getStartTime(), show.getScreen())){
-            throw new AlreadyExistException("There is show in this screen exactly at given time and date");
+        try {
+            show.setMovie(movieService.getMovieByIdForShows(showDTO.getMovieId()));
+            show.setScreen(screenService.getScreenById(showDTO.getScreenId()));
+        } catch (NotFoundException notFoundException){
+            throw new BadRequestException(notFoundException.getMessage());
+        }
+
+        if (show.getStartTime().isAfter(show.getEndTime())) {
+            throw new NotAcceptableException(Message.INVALID_SHOW_TIME);
+        }
+
+        if (isAnyShowExistInGivenTimeAtGivenScreen(show)){
+            throw new AlreadyExistException(Message.SHOW_ALREADY_EXISTS);
         }
         return mapper.map(showRepository.save(show), ShowResponseDTO.class);
     }
@@ -85,7 +95,7 @@ public class ShowServiceImpl implements ShowService {
         Show show;
 
         if (existingShow.isEmpty()){
-            throw new NotFoundException("There is No show in given id");
+            throw new NotFoundException(Message.SHOW_NOT_FOUND);
         }
         show = existingShow.get();
         show.setActive(false);
@@ -100,10 +110,10 @@ public class ShowServiceImpl implements ShowService {
     public List<ShowResponseDTO> getAllShowsByMovieName(String movieName) throws NoContentException {
         List<Show> shows = showRepository.findByMovieName(movieName);
         List<ShowResponseDTO> listOfShowsForParticularMovie = new ArrayList<>();
-        ShowResponseDTO showResponseDTO = null;
+        ShowResponseDTO showResponseDTO;
 
         if (shows.isEmpty()) {
-            throw new NoContentException("There is No Shows For Given Movie");
+            throw new NoContentException(Message.NO_SHOWS_AVAILABLE);
         } else {
 
             for(Show show: shows){
@@ -158,5 +168,39 @@ public class ShowServiceImpl implements ShowService {
             listOfAvailableSeats.add(mapper.map(seat, SeatResponseDTO.class));
         }
         return listOfAvailableSeats;
+    }
+
+    /**
+     * <h1>
+     *     isAnyShowExistInGivenTimeAtGivenScreen
+     * </h1>
+     * <p>
+     *     Checks Any show is exists at given time at the given screen
+     *     for particular date . If the start time of the given show is equal to
+     *     or after the start time of an existing show, and before
+     *     or equal to the end time of an existing show
+     * </p>
+     * @param show - Holds the Show details
+     * @return boolean - true if Show is Exists already otherwise false
+     */
+    private boolean isAnyShowExistInGivenTimeAtGivenScreen(Show show){
+        List<Show> shows = showRepository.findAllByScreeningDateAndScreenId(show.getScreeningDate(),
+                                                                            show.getScreen().getId());
+        boolean isExists = false;
+
+        for (Show existingShow: shows){
+
+            if (((show.getStartTime().equals(existingShow.getStartTime())
+                    || show.getStartTime().isAfter(existingShow.getStartTime()))
+                    &&(show.getStartTime().equals(existingShow.getEndTime())
+                    || show.getStartTime().isBefore(existingShow.getEndTime())))
+                    ||
+                    (show.getStartTime().isBefore(existingShow.getStartTime())
+                    && show.getEndTime().isAfter(existingShow.getStartTime()))) {
+                isExists = true;
+                break;
+            }
+        }
+        return isExists;
     }
 }

@@ -6,8 +6,8 @@ package com.ideas2it.ideas2movie.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
-
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -44,6 +44,7 @@ public class UserDTO {
     @NotBlank(message = Message.PASSWORD_SHOULD_NOT_BE_EMPTY)
     //@Pattern(regexp = Constant.PASSWORD_PATTERN, message = Message.ENTER_VALID_PASSWORD)
     private String password;
+    @NotNull
     private RoleDTO role;
 }
 

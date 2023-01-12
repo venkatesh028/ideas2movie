@@ -54,16 +54,20 @@ public class Show {
     @NotNull
     private LocalTime startTime;
     @NotNull
+    private LocalTime endTime;
+    @NotNull
     private Double price;
     @ColumnDefault(value = "true")
     @Column(insertable = false)
     private boolean isActive;
+    @NotNull
     @ManyToOne
     @JoinColumn(
             name = "screen_id",
             referencedColumnName = "id"
     )
     private Screen screen;
+    @NotNull
     @ManyToOne
     @JoinColumn(
             name = "movie_id",

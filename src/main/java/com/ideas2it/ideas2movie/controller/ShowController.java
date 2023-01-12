@@ -19,10 +19,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ideas2it.ideas2movie.dto.ShowDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.ShowResponseDTO;
+import com.ideas2it.ideas2movie.exception.BadRequestException;
+import com.ideas2it.ideas2movie.exception.NotAcceptableException;
 import com.ideas2it.ideas2movie.service.ShowService;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
 import com.ideas2it.ideas2movie.exception.NoContentException;
-import com.ideas2it.ideas2movie.exception.NotAcceptableException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
 
 /**
@@ -62,11 +63,10 @@ public class ShowController {
      * @return ResponseEntity - Holds the ShowResponseDTO and HttpStatus code
      * @throws AlreadyExistException - Throws When the Show is already exist for the same screen
      * @throws NotFoundException - Throws When movie or screen not found
-     * @throws NotAcceptableException - Throws when the input values are not in the acceptable format
      */
     @PostMapping
     public ResponseEntity<ShowResponseDTO> createShow(@Valid @RequestBody ShowDTO showDTO) throws AlreadyExistException,
-            NotFoundException, NotAcceptableException {
+            NotAcceptableException, BadRequestException {
         return ResponseEntity.status(HttpStatus.OK).body(showService.createShow(showDTO)) ;
     }
 
@@ -100,7 +100,7 @@ public class ShowController {
      * </p>
      * @param movieName - Holds the name of the movie
      * @return ResponseEntity - Holds the List of ShowResponseDTO and Http Status
-     * @throws NoContentException
+     * @throws NoContentException - Occurs When there is No content for the requested resources
      */
     @GetMapping("/movieName/{movieName}")
     public ResponseEntity<List<ShowResponseDTO>> getAllShowsByMovieName(@PathVariable String movieName)

@@ -4,6 +4,8 @@
  */
 package com.ideas2it.ideas2movie.controller;
 
+import jakarta.validation.Valid;
+
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -70,8 +72,8 @@ public class ReservationController {
      * @return ResponseEntity - holds the Reservation Response DTO and Http Status
      */
     @PostMapping
-    public ResponseEntity<ReservationResponseDTO> addReservation(@RequestBody ReservationDTO reservationDTO) {
-        return ResponseEntity.status(HttpStatus.OK).body(reservationService.reserveSeats(reservationDTO));
+    public ResponseEntity<ReservationResponseDTO> addReservation(@Valid @RequestBody ReservationDTO reservationDTO) {
+        return ResponseEntity.status(HttpStatus.PAYMENT_REQUIRED).body(reservationService.reserveSeats(reservationDTO));
     }
 
     /**

@@ -4,6 +4,8 @@
  */
 package com.ideas2it.ideas2movie.controller;
 
+import jakarta.validation.Valid;
+
 import org.modelmapper.ModelMapper;
 
 import org.springframework.http.HttpStatus;
@@ -28,9 +30,9 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  *     UserController
  * </h1>
  * <p>
- *     Gets the Input as a Request from the Client and Validates them
- *     for Create, Update, and Get the Details of the User by Instance of the userService
- *     and used to handle and mapping the request to the appropriate function
+ *     UserController used to handle CRUD operations for the User and Do validates
+ *     the Information of the UserDTO according to the Validation Constraints
+ *     and throws an Exception when Occurred
  * </p>
  *
  * @author AJAISHARMA
@@ -64,21 +66,19 @@ public class UserController {
      *     createUser
      * </h1>
      * <p>
-     *     Gets the RequestBody for creating the user and Validates according to Validation Constrains
-     *     and process the request by sending to UserService and returns the UserResponseDTO and Http Status
-     *     or throws an Exception when occurred
+     *     Create an Account for a User by validates UserDTO according to Validation Constraints
+     *     If Details of the User is Not Valid throws Exception else Process the Request
+     *     and Returns the ResponseEntity with Http Status CREATED and Details of the User
      * </p>
      *
      * @param userDTO - holds the Details of the User
      * @return ResponseEntity - Holds the UserResponseDTO and Http Status
-     * @throws AlreadyExistException - Throws when User Detail is Already Exist
-     * @throws NotFoundException - Throws when Role Not Found
+     * @throws AlreadyExistException - when the Details of the User is Already Present
      */
     @PostMapping
-    public ResponseEntity<UserResponseDTO> createUser(@RequestBody UserDTO userDTO)
-                                                                throws AlreadyExistException,
-                                                                        NotFoundException {
-        return ResponseEntity.status(HttpStatus.OK).body(userService.createUser(userDTO));
+    public ResponseEntity<UserResponseDTO> createAccount(@Valid @RequestBody UserDTO userDTO)
+            throws AlreadyExistException, BadRequestException {
+        return ResponseEntity.status(HttpStatus.CREATED).body(userService.createUser(userDTO));
     }
 
     /**
@@ -86,9 +86,9 @@ public class UserController {
      *     getUserById
      * </h1>
      * <p>
-     *     Gets the PathVariable to Get the Details of the User by ID of the User
-     *     and process the request by sending to UserService and returns the UserResponseDTO and Http Status
-     *     or throws an exception when occurred
+     *     Retrieves the Details of the User By the ID of the User
+     *     and process the request If the User is Not found then throws an Exception
+     *     otherwise returns the ResponseEntity with Http Status OK and Details of the User
      * </p>
      *
      * @param id - ID of the User to get the User
@@ -96,18 +96,20 @@ public class UserController {
      * @throws NotFoundException - throws when user Not Found
      */
     @GetMapping("/{id}")
-    public ResponseEntity<UserResponseDTO> getUserById(@PathVariable("id") Long id) throws NotFoundException {
+    public ResponseEntity<UserResponseDTO> getUserById(@PathVariable("id") Long id)
+            throws NotFoundException {
         return ResponseEntity.status(HttpStatus.OK).body(userService.getUserById(id));
     }
 
     /**
      * <h1>
-     *     Update User
+     *     updateUser
      * </h1>
      * <p>
-     *     Gets the PathVariable and RequestBody to update the Details of the User and Validates according
-     *     to Validation Constraints and process the Request by sending to UserService
-     *     and returns the UserResponseDTO and Http Status or throws an Exception when occurred
+     *     Updates the Details of the User by the ID and UserDTO
+     *     and validates according to Validation Constraints If User Details are not Valid the throws an Exception
+     *     else process the request and returns the ResponseEntity with Http Status OK and updated Details of the User
+     *     or throws an Exception If User not Found
      * </p>
      *
      * @param id -ID of the User to update the Details of the User
@@ -117,18 +119,21 @@ public class UserController {
      * @throws AlreadyExistException - when User's Name or Phone Number Already Exist
      */
     @PutMapping("/{id}")
-    public ResponseEntity<UserResponseDTO> updateUser(@PathVariable("id") Long id, @RequestBody UserDTO userDTO) throws NotFoundException, AlreadyExistException {
+    public ResponseEntity<UserResponseDTO> updateUser(@PathVariable("id") Long id,
+                                                      @Valid @RequestBody UserDTO userDTO)
+            throws NotFoundException, AlreadyExistException {
         return ResponseEntity.status(HttpStatus.OK).body(userService.updateUser(id, userDTO));
     }
 
     /**
      * <h1>
-     *     Delete User
+     *     Deactivates the User Account By the ID of the User and returns the ResponseEntity
+     *     with Http status Ok and a String, If User is not found then throws an Exception
      * </h1>
      * <p>
-     *     Gets the PathVariable to Delete the Details of the User by ID of the User
-     *     and process the Request by sending to UserService and returns the Message and Http Status
-     *     or throws an Exception when occurred
+     *     Deactivates the Account of the User by the ID of the User
+     *     and Returns the ResponseEntity with Http Status OK and a String Message
+     *     or throws an exception when User not found
      * </p>
      *
      * @param id - ID of the User to Delete the User
@@ -136,7 +141,7 @@ public class UserController {
      * @throws NotFoundException - throws when user Not Found
      */
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteUser(@PathVariable("id") Long id) throws NotFoundException{
+    public ResponseEntity<String> deactivateUser(@PathVariable("id") Long id) throws NotFoundException{
         return ResponseEntity.status(HttpStatus.OK).body(userService.deleteUser(id));
     }
 }

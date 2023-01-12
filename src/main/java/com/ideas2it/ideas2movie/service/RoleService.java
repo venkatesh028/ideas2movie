@@ -4,6 +4,7 @@
  */
 package com.ideas2it.ideas2movie.service;
 
+import com.ideas2it.ideas2movie.exception.NotAcceptableException;
 import java.util.List;
 
 import com.ideas2it.ideas2movie.model.Role;

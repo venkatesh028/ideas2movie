@@ -24,6 +24,8 @@ import com.ideas2it.ideas2movie.service.TheaterService;
 import com.ideas2it.ideas2movie.repository.ScreenRepository;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
+import com.ideas2it.ideas2movie.exception.BadRequestException;
+import com.ideas2it.ideas2movie.util.constant.Message;
 
 /**
  * <h1>
@@ -59,14 +61,20 @@ public class ScreenServiceImpl implements ScreenService {
      * {@inheritDoc}
      */
     @Override
-    public ScreenResponseDTO createScreen(ScreenDTO screenDTO) throws NotFoundException, AlreadyExistException {
+    public ScreenResponseDTO createScreen(ScreenDTO screenDTO) throws AlreadyExistException, BadRequestException {
         Screen screen = mapper.map(screenDTO, Screen.class);
         Screen createdScreen;
-        Theater theater = theaterService.getTheaterForScreenById(screenDTO.getTheaterId());
+        Theater theater;
+
+        try {
+            theater = theaterService.getTheaterForScreenById(screenDTO.getTheaterId());
+        }catch (NotFoundException notFoundException){
+            throw new BadRequestException(Message.THEATER_NOT_FOUND);
+        }
         screen.setTheater(theater);
 
         if (screenRepository.existsScreenByNameAndTheaterId(screenDTO.getName(), screenDTO.getTheaterId())){
-            throw new AlreadyExistException("Screen with given name is already exist in the theater");
+            throw new AlreadyExistException(Message.SCREEN_ALREADY_EXISTS);
         }
         createdScreen = screenRepository.save(screen);
 
@@ -80,25 +88,31 @@ public class ScreenServiceImpl implements ScreenService {
      * {@inheritDoc}
      */
     @Override
-    public ScreenResponseDTO updateScreen(Long id, ScreenDTO screenDTO) throws AlreadyExistException, NotFoundException {
-        Theater theater = theaterService.getTheaterForScreenById(screenDTO.getTheaterId());
+    public ScreenResponseDTO updateScreen(Long id, ScreenDTO screenDTO) throws AlreadyExistException, NotFoundException,
+            BadRequestException {
+        Optional<Screen> existingScreen;
+        Theater theater;
         Screen screen = mapper.map(screenDTO, Screen.class);
         screen.setId(id);
         screen.setActive(true);
         Screen updatedScreen;
-        Optional<Screen> existingScreen;
 
+        try {
+            theater = theaterService.getTheaterForScreenById(screenDTO.getTheaterId());
+        }catch (NotFoundException notFoundException){
+            throw new BadRequestException(Message.TICKET_NOT_FOUND);
+        }
         screen.setTheater(theater);
         existingScreen = screenRepository.findByIdAndTheaterId(id, theater.getId());
 
         if (existingScreen.isPresent()){
             if (isScreenAlreadyExistsInTheTheater(screen)){
-                throw new AlreadyExistException("There is a Screen with given name in the given theater");
+                throw new AlreadyExistException(Message.SCREEN_ALREADY_EXISTS);
             } else {
                 updatedScreen = screenRepository.save(screen);
             }
         } else{
-            throw new NotFoundException("There is No Screen with this id in the theater");
+            throw new NotFoundException(Message.SCREEN_NOT_FOUND);
         }
 
         return mapper.map(updatedScreen, ScreenResponseDTO.class);
@@ -116,7 +130,7 @@ public class ScreenServiceImpl implements ScreenService {
         if (existingScreen.isPresent()){
             screen = existingScreen.get();
         } else {
-            throw new NotFoundException("There is no screen with this screen id ");
+            throw new NotFoundException(Message.SCREEN_NOT_FOUND);
         }
         screen.setActive(false);
 
@@ -127,7 +141,7 @@ public class ScreenServiceImpl implements ScreenService {
         screen.setShows(shows);
         screenRepository.save(screen);
         reservationService.cancelAllReservationForShow(screen);
-        return "Deleted SuccessFully";
+        return Message.DELETED_SUCCESSFULLY;
     }
 
     /**
@@ -137,7 +151,7 @@ public class ScreenServiceImpl implements ScreenService {
         Optional<Screen> existingScreen = screenRepository.findById(id);
 
         if (existingScreen.isEmpty()){
-            throw new NotFoundException("There is No Screen with given id");
+            throw new NotFoundException(Message.SCREEN_NOT_FOUND);
         }
         return  existingScreen.get();
     }

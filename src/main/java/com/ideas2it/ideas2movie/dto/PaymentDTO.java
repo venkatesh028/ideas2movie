@@ -26,6 +26,7 @@ import com.ideas2it.ideas2movie.util.enums.ModeOfPayment;
 @Setter
 @NoArgsConstructor
 public class PaymentDTO {
+    @NotNull
     private Long reservationId;
     @NotBlank(message = Message.PAYMENT_MODE_SHOULD_NOT_BE_EMPTY)
     //@Pattern(regexp = Constant.PAYMENT_MODE_PATTER, message = Message.ENTER_VALID_PAYMENT_MODE)
