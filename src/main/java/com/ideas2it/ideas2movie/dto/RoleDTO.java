@@ -32,8 +32,6 @@ import com.ideas2it.ideas2movie.util.constant.Message;
 @Setter
 @NoArgsConstructor
 public class RoleDTO {
-    @NotNull
-    private Long id;
     @NotBlank(message = Message.ROLE_NAME_SHOULD_NOT_BE_EMPTY)
     //@Pattern(regexp = Constant.ROLE_PATTERN, message = Message.ENTER_VALID_ROLE)
     private String name;

@@ -4,6 +4,7 @@
  */
 package com.ideas2it.ideas2movie.service.impl;
 
+import com.ideas2it.ideas2movie.service.SeatService;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -44,10 +45,14 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
 public class ReservationServiceImpl implements ReservationService {
     private final ReservationRepository reservationRepository;
     private final TicketService ticketService;
+    private final SeatService seatService;
     private final ModelMapper mapper = new ModelMapper();
-    public ReservationServiceImpl(ReservationRepository reservationRepository, TicketService ticketService) {
+    public ReservationServiceImpl(ReservationRepository reservationRepository,
+                                  TicketService ticketService,
+                                  SeatService seatService) {
         this.reservationRepository = reservationRepository;
         this.ticketService = ticketService;
+        this.seatService = seatService;
     }
 
     /**
@@ -56,6 +61,12 @@ public class ReservationServiceImpl implements ReservationService {
     public ReservationResponseDTO reserveSeats(ReservationDTO reservationDTO) {
         Reservation newReservation = mapper.map(reservationDTO, Reservation.class);
         newReservation.setStatus(ReservationStatus.PROCESSING);
+        List<Seat> seats = new ArrayList<>();
+
+        for (Long id: reservationDTO.getIdsOfSeats()) {
+            seats.add(seatService.getSeatById(id));
+        }
+        newReservation.setSeats(seats);
         newReservation.setTotalPrice(newReservation.getSeats().size() * newReservation.getShow().getPrice());
         return mapper.map(reservationRepository.save(newReservation), ReservationResponseDTO.class);
     }

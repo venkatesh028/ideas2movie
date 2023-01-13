@@ -54,6 +54,7 @@ public class Message {
     public static final String ENTER_VALID_AMOUNT = "Please, Enter Numbers Only for Amount";
     public static final String NUMBER_ALREADY_EXIST = "Phone Number Already Exist";
     public static final String USER_NAME_ALREADY_EXIST = "Name Already Exist, Please try Different Name";
+    public static final String NAME_AND_NUMBER_ALREADY_EXIST = "Name and Phone number is Already Exist";
     public static final String ROLE_NAME_ALREADY_EXIST = "Role Name Already Exist, Please try Different Name";
     public static final String SEAT_ALREADY_BOOKED = "Seats Already Booked";
     //CLIENT RESPONSE MESSAGES
@@ -73,12 +74,14 @@ public class Message {
     public static final String MOVIE_NOT_FOUND = "Movie Not Found";
     public static final String CAST_AND_CREW_NOT_FOUND = "Cast and Crew Not Found";
     public static final String SCREEN_NOT_FOUND = "Screen Not Found";
-    public static final String SCREEN_ALREADY_EXISTS = "There is a Screen with given name in the given theater";
+    public static final String NO_SCREEN_AVAILABLE = "No Screen Available";
+    public static final String SCREEN_ALREADY_EXISTS = "Screen Already Exist";
     public static final String THEATER_ALREADY_REGISTERED = "Theater Already Registered";
     public static final String THEATER_NOT_FOUND = "Theater Not Found";
     public static final String SHOW_NOT_FOUND = "Show Not Found";
-    public static final String SHOW_ALREADY_EXISTS = "There is show in this screen exactly at given time and date";
+    public static final String SHOW_ALREADY_EXISTS = "Show Already Exist for given time and date";
     public static final String PAYMENT_NOT_FOUND = "Payment Not Found";
     public static final String RESERVATION_NOT_FOUND = "Reservation Not Found";
     public static final String TICKET_NOT_FOUND = "Ticket Not Found";
+    public static final String SEAT_NOT_FOUND = "Seat Not Found";
 }

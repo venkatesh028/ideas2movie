@@ -170,6 +170,15 @@ public class ShowServiceImpl implements ShowService {
         return listOfAvailableSeats;
     }
 
+    public List<Show> getAllShowsForScreen(Long id) throws NoContentException {
+        List<Show> shows = showRepository.findAllByScreenId(id);
+
+        if (shows.isEmpty()) {
+            throw new NoContentException(Message.NO_SHOWS_AVAILABLE);
+        }
+        return shows;
+    }
+
     /**
      * <h1>
      *     isAnyShowExistInGivenTimeAtGivenScreen

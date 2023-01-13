@@ -4,6 +4,8 @@
  */
 package com.ideas2it.ideas2movie.dto;
 
+import com.ideas2it.ideas2movie.dto.responsedto.ShowResponseDTO;
+import com.ideas2it.ideas2movie.dto.responsedto.UserResponseDTO;
 import java.util.List;
 
 import jakarta.validation.constraints.NotBlank;
@@ -38,7 +40,7 @@ public class ReservationDTO {
     @NotNull(message = Message.SEAT_NAME_SHOULD_NOT_BE_EMPTY)
     private List<Long> idsOfSeats;
     @NotNull(message = Message.USER_ID_SHOULD_NOT_BE_EMPTY)
-    private UserDTO userDTO;
+    private UserResponseDTO user;
     @NotNull(message = Message.SHOW_ID_SHOULD_NOT_BE_EMPTY)
-    private ShowDTO showDTO;
+    private ShowResponseDTO show;
 }

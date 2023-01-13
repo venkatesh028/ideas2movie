@@ -16,6 +16,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -42,6 +43,7 @@ import org.hibernate.annotations.Where;
 @Getter
 @Setter
 @NoArgsConstructor
+@Data
 @Table(name = "user")
 @Where(clause = "is_active = true")
 public class User {

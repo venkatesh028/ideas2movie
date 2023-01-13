@@ -4,10 +4,13 @@
  */
 package com.ideas2it.ideas2movie.controller;
 
+import java.util.List;
+
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -19,6 +22,7 @@ import com.ideas2it.ideas2movie.dto.ScreenDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.ScreenResponseDTO;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
 import com.ideas2it.ideas2movie.exception.BadRequestException;
+import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
 import com.ideas2it.ideas2movie.service.ScreenService;
 
@@ -89,6 +93,12 @@ public class ScreenController {
         return ResponseEntity.status(HttpStatus.OK).body(screenService.updateScreen(id, screenDTO));
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<List<ScreenResponseDTO>> getAllScreenByTheaterId(@PathVariable Long id)
+            throws NoContentException {
+        return ResponseEntity.status(HttpStatus.OK).body(screenService.getScreensByTheaterId(id));
+    }
+
     /**
      * <h1>
      *     removeScreen
@@ -107,4 +117,5 @@ public class ScreenController {
     public ResponseEntity<String> removeScreen(@PathVariable Long id) throws NotFoundException {
         return ResponseEntity.status(HttpStatus.OK).body(screenService.removeScreen(id));
     }
+
 }

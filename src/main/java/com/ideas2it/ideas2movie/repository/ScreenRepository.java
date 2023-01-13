@@ -4,6 +4,7 @@
  */
 package com.ideas2it.ideas2movie.repository;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -68,4 +69,6 @@ public interface ScreenRepository extends JpaRepository<Screen,Long> {
      * @return Screen - Holds the details of the screen
      */
     Optional<Screen> findByNameAndTheaterId(String screenName, Long theaterId);
+
+    List<Screen> findAllByTheaterId(Long id);
 }

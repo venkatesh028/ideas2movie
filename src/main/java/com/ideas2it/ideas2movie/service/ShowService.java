@@ -13,6 +13,7 @@ import com.ideas2it.ideas2movie.exception.BadRequestException;
 import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.exception.NotAcceptableException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
+import com.ideas2it.ideas2movie.model.Show;
 
 /**
  * <h1>
@@ -93,4 +94,6 @@ public interface ShowService {
      * @throws NotFoundException - Occurs when there is no show for the given id
      */
     ShowResponseDTO getShowById(Long id) throws NotFoundException;
+
+    List<Show> getAllShowsForScreen(Long id) throws NoContentException;
 }
