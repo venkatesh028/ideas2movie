@@ -25,11 +25,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface UserRepository extends JpaRepository<User, Long> {
     /**
      * <h1>
-     *     existsByPhoneNumber
+     * existsByPhoneNumber
      * </h1>
      * <p>
-     *     Checks and Returns the result
-     *     for phone number is Already Exist or Not
+     * Checks and Returns the result
+     * for phone number is Already Exist or Not
      * </p>
      *
      * @param phoneNumber - Phone Number to check isExist
@@ -39,15 +39,18 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     /**
      * <h1>
-     *     existsByName
+     * existsByName
      * </h1>
      * <p>
-     *     Checks and Returns the result
-     *     for Name is Already Exist or Not
+     * Checks and Returns the result
+     * for Name is Already Exist or Not
      * </p>
      *
      * @param name - Name to check Is Exist
      * @return isExist - Holds the response of isExist
      */
     boolean existsByName(String name);
+
+    User findByPhoneNumber(String phoneNumber);
 }
+
