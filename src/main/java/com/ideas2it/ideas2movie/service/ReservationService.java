@@ -4,6 +4,8 @@
  */
 package com.ideas2it.ideas2movie.service;
 
+import com.ideas2it.ideas2movie.exception.BadRequestException;
+import com.ideas2it.ideas2movie.model.Payment;
 import java.util.List;
 
 import com.ideas2it.ideas2movie.model.Reservation;
@@ -42,7 +44,7 @@ public interface ReservationService {
      * @param reservationDTO - Holds the details to book Ticket
      * @return ReservationResponseDTO - Holds the Details of the Reservation
      */
-    ReservationResponseDTO reserveSeats(ReservationDTO reservationDTO);
+    ReservationResponseDTO reserveSeats(ReservationDTO reservationDTO) throws NotFoundException, BadRequestException;
 
     /**
      * <h1>
@@ -54,10 +56,10 @@ public interface ReservationService {
      *      and returns the Details of the Reservation
      * </p>
      *
-     * @param reservation - Holds the details of the Reservation
+     * @param payment - Holds the details of the Payment for Reservation
      * @return ReservationResponseDTO - Holds the response of the Reservation
      */
-    ReservationResponseDTO confirmReservation(Reservation reservation);
+    ReservationResponseDTO confirmReservation(Payment payment);
 
     /**
      * <h1>

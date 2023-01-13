@@ -144,6 +144,18 @@ public class ShowServiceImpl implements ShowService {
     }
 
     /**
+     *{@inheritDoc}
+     */
+    public List<Show> getAllShowsForScreen(Long id) throws NoContentException {
+        List<Show> shows = showRepository.findAllByScreenId(id);
+
+        if (shows.isEmpty()) {
+            throw new NoContentException(Message.NO_SHOWS_AVAILABLE);
+        }
+        return shows;
+    }
+
+    /**
      * <h1>
      *     getAvailableSeats
      * </h1>
@@ -168,15 +180,6 @@ public class ShowServiceImpl implements ShowService {
             listOfAvailableSeats.add(mapper.map(seat, SeatResponseDTO.class));
         }
         return listOfAvailableSeats;
-    }
-
-    public List<Show> getAllShowsForScreen(Long id) throws NoContentException {
-        List<Show> shows = showRepository.findAllByScreenId(id);
-
-        if (shows.isEmpty()) {
-            throw new NoContentException(Message.NO_SHOWS_AVAILABLE);
-        }
-        return shows;
     }
 
     /**

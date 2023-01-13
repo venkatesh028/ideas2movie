@@ -95,5 +95,18 @@ public interface ShowService {
      */
     ShowResponseDTO getShowById(Long id) throws NotFoundException;
 
+    /**
+     * <h1>
+     *     getAllShowsForScreen
+     * </h1>
+     * <p>
+     *     Gets All Shows screening in a particular
+     *     screen based on id of the screen if there
+     *     is no shows screening then exception is thrown
+     * </p>
+     * @param id - Holds the id of the screen
+     * @return shows - Holds the list of shows screening in particular screen
+     * @throws NoContentException - Occurs When there is no show is screening in the screen
+     */
     List<Show> getAllShowsForScreen(Long id) throws NoContentException;
 }

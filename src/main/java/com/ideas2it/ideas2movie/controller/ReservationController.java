@@ -4,6 +4,7 @@
  */
 package com.ideas2it.ideas2movie.controller;
 
+import com.ideas2it.ideas2movie.exception.BadRequestException;
 import java.util.List;
 
 import jakarta.validation.Valid;
@@ -72,7 +73,8 @@ public class ReservationController {
      * @return ResponseEntity - holds the Reservation Response DTO and Http Status
      */
     @PostMapping
-    public ResponseEntity<ReservationResponseDTO> addReservation(@Valid @RequestBody ReservationDTO reservationDTO) {
+    public ResponseEntity<ReservationResponseDTO> addReservation(@Valid @RequestBody ReservationDTO reservationDTO)
+            throws NotFoundException, BadRequestException {
         return ResponseEntity.status(HttpStatus.PAYMENT_REQUIRED).body(reservationService.reserveSeats(reservationDTO));
     }
 

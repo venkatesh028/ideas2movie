@@ -4,6 +4,8 @@
  */
 package com.ideas2it.ideas2movie.service;
 
+import com.ideas2it.ideas2movie.model.Payment;
+import com.ideas2it.ideas2movie.model.Reservation;
 import java.util.UUID;
 
 import com.ideas2it.ideas2movie.dto.PaymentDTO;
@@ -25,6 +27,7 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  * @since 06-01-2023
  */
 public interface PaymentService {
+
     /**
      * <h1>
      *     makePayment

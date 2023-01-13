@@ -52,4 +52,79 @@
  %PARSER_ERROR[l]
 ""2023-01-13 10:58:06 INFO HikariPool-1 - Shutdown completed.
  %PARSER_ERROR[l]
+""2023-01-13 11:36:21 INFO Starting Ideas2movieApplication using Java 18.0.2 with PID 16720 (E:\ideas2movie\ideas2movie\target\classes started by LENOVO in E:\ideas2movie\ideas2movie)
+ %PARSER_ERROR[l]
+""2023-01-13 11:36:21 INFO No active profile set, falling back to 1 default profile: "default"
+ %PARSER_ERROR[l]
+""2023-01-13 11:36:22 INFO Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+ %PARSER_ERROR[l]
+""2023-01-13 11:36:23 INFO Finished Spring Data repository scanning in 218 ms. Found 11 JPA repository interfaces.
+ %PARSER_ERROR[l]
+""2023-01-13 11:36:24 INFO Tomcat initialized with port(s): 8080 (http)
+ %PARSER_ERROR[l]
+""2023-01-13 11:36:24 INFO An older version [1.2.35] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [2.0.1]
+ %PARSER_ERROR[l]
+""2023-01-13 11:36:24 INFO Loaded Apache Tomcat Native library [1.2.35] using APR version [1.7.0].
+ %PARSER_ERROR[l]
+""2023-01-13 11:36:24 INFO OpenSSL successfully initialized [OpenSSL 1.1.1q  5 Jul 2022]
+ %PARSER_ERROR[l]
+""2023-01-13 11:36:24 INFO Starting service [Tomcat]
+ %PARSER_ERROR[l]
+""2023-01-13 11:36:24 INFO Starting Servlet engine: [Apache Tomcat/10.1.4]
+ %PARSER_ERROR[l]
+""2023-01-13 11:36:24 INFO Initializing Spring embedded WebApplicationContext
+ %PARSER_ERROR[l]
+""2023-01-13 11:36:24 INFO Root WebApplicationContext: initialization completed in 3113 ms
+ %PARSER_ERROR[l]
+""2023-01-13 11:36:24 INFO HHH000204: Processing PersistenceUnitInfo [name: default]
+ %PARSER_ERROR[l]
+""2023-01-13 11:36:24 INFO HHH000412: Hibernate ORM core version 6.1.6.Final
+ %PARSER_ERROR[l]
+""2023-01-13 11:36:25 WARN HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+ %PARSER_ERROR[l]
+""2023-01-13 11:36:25 INFO HikariPool-1 - Starting...
+ %PARSER_ERROR[l]
+""2023-01-13 11:36:26 INFO HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@25470477
+ %PARSER_ERROR[l]
+""2023-01-13 11:36:26 INFO HikariPool-1 - Start completed.
+ %PARSER_ERROR[l]
+""2023-01-13 11:36:26 INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+ %PARSER_ERROR[l]
+""2023-01-13 11:36:29 INFO HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+ %PARSER_ERROR[l]
+""2023-01-13 11:36:29 INFO Initialized JPA EntityManagerFactory for persistence unit 'default'
+ %PARSER_ERROR[l]
+""2023-01-13 11:36:30 WARN spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+ %PARSER_ERROR[l]
+""2023-01-13 11:36:31 WARN 
+
+Using generated security password: e1e9f834-14c7-4346-a5a3-a9eba6cebb86
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+ %PARSER_ERROR[l]
+""2023-01-13 11:36:31 INFO Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@834b0f7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4c69b396, org.springframework.security.web.context.SecurityContextHolderFilter@757ad227, org.springframework.security.web.header.HeaderWriterFilter@5b9ca528, org.springframework.security.web.csrf.CsrfFilter@14a5d7ee, org.springframework.security.web.authentication.logout.LogoutFilter@38224635, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@20e25bf7, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@53ce27fa, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@49314684, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@73c6ebec, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@25639668, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@71eead09, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4d5d945d, org.springframework.security.web.access.ExceptionTranslationFilter@3985175e, org.springframework.security.web.access.intercept.AuthorizationFilter@4d21b505]
+ %PARSER_ERROR[l]
+""2023-01-13 11:36:31 INFO Tomcat started on port(s): 8080 (http) with context path ''
+ %PARSER_ERROR[l]
+""2023-01-13 11:36:31 INFO Started Ideas2movieApplication in 11.682 seconds (process running for 13.208)
+ %PARSER_ERROR[l]
+""2023-01-13 11:38:19 INFO Initializing Spring DispatcherServlet 'dispatcherServlet'
+ %PARSER_ERROR[l]
+""2023-01-13 11:38:19 INFO Initializing Servlet 'dispatcherServlet'
+ %PARSER_ERROR[l]
+""2023-01-13 11:38:19 INFO Completed initialization in 6 ms
+ %PARSER_ERROR[l]
+""2023-01-13 11:38:19 WARN Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [225] milliseconds.
+ %PARSER_ERROR[l]
+""2023-01-13 13:05:47 WARN HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=13m49s835ms629µs600ns).
+ %PARSER_ERROR[l]
+""2023-01-13 13:53:34 WARN HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=30m46s670ms1µs500ns).
+ %PARSER_ERROR[l]
+""2023-01-13 15:41:55 INFO Closing JPA EntityManagerFactory for persistence unit 'default'
+ %PARSER_ERROR[l]
+""2023-01-13 15:41:55 INFO HikariPool-1 - Shutdown initiated...
+ %PARSER_ERROR[l]
+""2023-01-13 15:41:56 INFO HikariPool-1 - Shutdown completed.
+ %PARSER_ERROR[l]
 "

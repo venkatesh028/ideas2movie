@@ -4,7 +4,7 @@
  */
 package com.ideas2it.ideas2movie.service.impl;
 
-import com.ideas2it.ideas2movie.service.SeatService;
+import com.ideas2it.ideas2movie.model.User;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -12,6 +12,7 @@ import java.util.Optional;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import com.ideas2it.ideas2movie.model.Payment;
 import com.ideas2it.ideas2movie.model.Reservation;
 import com.ideas2it.ideas2movie.model.Screen;
 import com.ideas2it.ideas2movie.model.Seat;
@@ -19,11 +20,13 @@ import com.ideas2it.ideas2movie.model.Show;
 import com.ideas2it.ideas2movie.dto.ReservationDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.ReservationResponseDTO;
 import com.ideas2it.ideas2movie.service.ReservationService;
+import com.ideas2it.ideas2movie.service.SeatService;
 import com.ideas2it.ideas2movie.service.TicketService;
 import com.ideas2it.ideas2movie.repository.ReservationRepository;
 import com.ideas2it.ideas2movie.util.constant.Message;
 import com.ideas2it.ideas2movie.util.enums.ReservationStatus;
 import com.ideas2it.ideas2movie.util.enums.PaymentStatus;
+import com.ideas2it.ideas2movie.exception.BadRequestException;
 import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
 
@@ -58,13 +61,19 @@ public class ReservationServiceImpl implements ReservationService {
     /**
      * {@inheritDoc}
      */
-    public ReservationResponseDTO reserveSeats(ReservationDTO reservationDTO) {
+    public ReservationResponseDTO reserveSeats(ReservationDTO reservationDTO) throws BadRequestException {
         Reservation newReservation = mapper.map(reservationDTO, Reservation.class);
         newReservation.setStatus(ReservationStatus.PROCESSING);
+        newReservation.setUser(mapper.map(reservationDTO.getUser(), User.class));
+        newReservation.getShow().setId(reservationDTO.getShow().getId());
         List<Seat> seats = new ArrayList<>();
 
-        for (Long id: reservationDTO.getIdsOfSeats()) {
-            seats.add(seatService.getSeatById(id));
+        try {
+            for (Long id : reservationDTO.getIdsOfSeats()) {
+                seats.add(seatService.getSeatById(id));
+            }
+        } catch (NotFoundException notFoundException) {
+            throw new BadRequestException(notFoundException.getMessage());
         }
         newReservation.setSeats(seats);
         newReservation.setTotalPrice(newReservation.getSeats().size() * newReservation.getShow().getPrice());
@@ -74,11 +83,10 @@ public class ReservationServiceImpl implements ReservationService {
     /**
      * {@inheritDoc}
      */
-    public ReservationResponseDTO confirmReservation(Reservation reservation) {
-        Reservation existingReservation = reservationRepository.findById(reservation.getId()).get();
-        existingReservation.setPayment(reservation.getPayment());
+    public ReservationResponseDTO confirmReservation(Payment payment) {
+        Reservation existingReservation = reservationRepository.findById(payment.getReservation().getId()).get();
 
-        if (reservation.getPayment().getStatus().equals(PaymentStatus.PAID)) {
+        if (payment.getStatus().equals(PaymentStatus.PAID)) {
             existingReservation.setStatus(ReservationStatus.BOOKED);
             existingReservation.setTicket(ticketService.generateTicket(existingReservation));
         } else {
@@ -102,7 +110,7 @@ public class ReservationServiceImpl implements ReservationService {
         if (reservation.getStatus().equals(ReservationStatus.BOOKED)
                 || reservation.getStatus().equals(ReservationStatus.PROCESSING)) {
             reservation.setStatus(ReservationStatus.CANCELED);
-            reservation.getPayment().setStatus(PaymentStatus.REFUNDED);
+            //reservation.getPayment().setStatus(PaymentStatus.REFUNDED);
         }
         return mapper.map(reservationRepository.save(reservation), ReservationResponseDTO.class);
     }
