@@ -19,7 +19,8 @@ import com.ideas2it.ideas2movie.util.enums.ModeOfPayment;
  *     PaymentDTO
  * </h1>
  * <p>
- *     PaymentDTO is used to get the Details for the payment
+ *     PaymentDTO represents the Simplified version of Payment Model
+ *     which Holds the Details of the payment to Get from User to pay for Reservation
  * </p>
  */
 @Getter
@@ -28,7 +29,7 @@ import com.ideas2it.ideas2movie.util.enums.ModeOfPayment;
 public class PaymentDTO {
     @NotNull
     private Long reservationId;
-    @NotBlank(message = Message.PAYMENT_MODE_SHOULD_NOT_BE_EMPTY)
+    @NotNull(message = Message.PAYMENT_MODE_SHOULD_NOT_BE_EMPTY)
     //@Pattern(regexp = Constant.PAYMENT_MODE_PATTER, message = Message.ENTER_VALID_PAYMENT_MODE)
     private ModeOfPayment modeOfPayment;
     @NotNull(message = Message.AMOUNT_SHOULD_NOT_BE_EMPTY)

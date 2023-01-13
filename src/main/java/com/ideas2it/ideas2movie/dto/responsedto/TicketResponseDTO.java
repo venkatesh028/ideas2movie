@@ -5,7 +5,6 @@
 package com.ideas2it.ideas2movie.dto.responsedto;
 
 import java.time.LocalDate;
-import java.util.List;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -15,7 +14,8 @@ import lombok.Setter;
  *     TicketResponseDTO
  *</h1>
  * <p>
- *     Contains the attributes to Hold the Response of the Ticket Entity
+ *     TicketResponseDTO represent the Response sent to the Client with ID of Ticket
+ *     after Getting the Details of the Ticket.
  * </p>
  *
  * @author AJAISHARMA

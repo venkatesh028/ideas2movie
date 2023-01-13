@@ -27,17 +27,18 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import com.ideas2it.ideas2movie.util.enums.ModeOfBooking;
 import com.ideas2it.ideas2movie.util.enums.ReservationStatus;
-import org.hibernate.annotations.UpdateTimestamp;
 
 /**
  *<h1>
  *     Reservation
  *</h1>
  * <p>
- *     Reservation Entity have the Attribute which is used to hold the Details of the Reservation
+ *     Reservation Entity represents the Reservation made by the user which holds
+ *     Information about the User, Show and the ticket.
  * </p>
  * @author AJAISHARMA
  * @version 1.0

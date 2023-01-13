@@ -30,7 +30,8 @@ import org.hibernate.annotations.Where;
  *      User
  * </h1>
  * <p>
- *      User Entity have the Attribute which is used to Hold the Details of the User
+ *      User Entity Represents the Details of the User which are
+ *      like Name, Email, Phone Number, and role of the User
  * </p>
  *
  * @author  AJAISHARMA

@@ -27,7 +27,8 @@ import org.hibernate.annotations.UpdateTimestamp;
  *      Ticket
  * </h1>
  * <p>
- *      Ticket Entity have the attributes which is used to Hold the Details of the Ticket
+ *      Ticket Entity represents the Ticket for the Reservation Made for the Show
+ *      Which Holds the ID of the ticket and Details of the Show.
  * </p>
  *
  * @author  AJAISHARMA

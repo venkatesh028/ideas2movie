@@ -4,9 +4,9 @@
  */
 package com.ideas2it.ideas2movie.controller;
 
-import jakarta.validation.Valid;
-
 import java.util.List;
+
+import jakarta.validation.Valid;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,12 +26,12 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
 
 /**
  * <h1>
- *     BookingController
+ *     ReservationController
  * </h1>
  * <p>
- *     Gets the input parameter as a request from the Client and Validates them
- *     for creating, Updating, Deleting and Getting the Details of the Reservation
- *     and used to handle and mapping the request to appropriate function
+ *     ReservationController provides the RESTful endpoints to Handle the CRUD Operation for the Reservation
+ *     of the Seats for Show and validates the Information of Reservation according to validation Constraints
+ *     If not valid throws anException otherwise returns the Details of Reservation and Http Status
  * </p>
  *
  * @author AJAISHARMA
@@ -39,7 +39,7 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  * @since 06-01-2023
  */
 @RestController
-@RequestMapping("/api/v1/bookings")
+@RequestMapping("/api/v1/reservations")
 public class ReservationController {
     private final ReservationService reservationService;
 
