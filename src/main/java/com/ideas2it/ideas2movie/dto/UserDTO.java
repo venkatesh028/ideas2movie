@@ -21,7 +21,8 @@ import com.ideas2it.ideas2movie.util.constant.Message;
  *      UserDTO
  * </h1>
  * <p>
- *      UserDTO is used to get the Details for the User
+ *      UserDTO represents a Simplified version of the User Model
+ *      which Holds the Necessary Information of the User model
  * </p>
  *
  * @author  AJAISHARMA

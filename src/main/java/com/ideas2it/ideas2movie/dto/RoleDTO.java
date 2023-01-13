@@ -20,7 +20,8 @@ import com.ideas2it.ideas2movie.util.constant.Message;
  *     RoleDTO
  * </h1>
  * <p>
- *     RoleDTO is used to get the Details for the Role
+ *     RoleDTO represents the Simplified version of the Role Model
+ *     which holds the Name and ID of the Role
  * </p>
  *
  * @author AJAISHARMA

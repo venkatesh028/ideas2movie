@@ -23,7 +23,7 @@ import org.hibernate.annotations.UpdateTimestamp;
  *      Role
  * </h1>
  * <p>
- *      Role Entity have the Attribute which is used to Hold the Details of the Role
+ *      Role Entity represents the Details of the Role for the User of the Application.
  * </p>
  *
  * @author  AJAISHARMA

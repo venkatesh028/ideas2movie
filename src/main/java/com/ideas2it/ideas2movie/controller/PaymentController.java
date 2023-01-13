@@ -4,9 +4,9 @@
  */
 package com.ideas2it.ideas2movie.controller;
 
-import jakarta.validation.Valid;
-
 import java.util.UUID;
+
+import jakarta.validation.Valid;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,12 +24,13 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
 
 /**
  * <h1>
- *     Payment Controller
+ *     PaymentController
  * </h1>
  * <p>
- *     Gets the Input as a Request from the Client and validates them
- *     for making and Getting the Details of the Payment by Instance of the PaymentService
- *     and used to Handle and Mapping the request to Appropriate Function
+ *     PaymentController provides the RESTful endpoints to Handle CRUD Operation for Payment
+ *     for the Reservation of the Application and validate the Information of the PaymentDTO
+ *     according to Validation constraints and throws an exception when occurred
+ *     and returns the Details of Payment and Http Status
  * </p>
  *
  * @author AJAISHARMA
@@ -61,13 +62,14 @@ public class PaymentController {
      *      makePayment
      * </h1>
      * <p>
-     *      Gets the RequestBody for Making Payment for Reservation and Validates according to Validation Constraints
-     *      and process the Request by sending to PaymentService and returns the PaymentResponseDTO and Http Status
-     *      or throws an exception when occurred
+     *     Makes the Payment of the Reservation for the Seats of the Show by validating the PaymentDTO
+     *     according to validation constraints If Details of the Payment is Not Valid throws an exception
+     *     else process the request and returns the ResponseEntity with Http status and Details of the Payment
      * </p>
      *
      * @param paymentDTO - Holds the details of the payment
-     * @return ResponseEntity - Holds the PaymentResponseDTO and Http Status
+     * @return ResponseEntity - Holds the PaymentResponseDTO and Http Status OK
+     * @throws NotFoundException - when Reservation Not Found to Pay
      */
     @PostMapping
     public ResponseEntity<PaymentResponseDTO> makePayment(@Valid @RequestBody PaymentDTO paymentDTO) throws NotFoundException {
@@ -79,14 +81,14 @@ public class PaymentController {
      *     getByTransactionId
      * </h1>
      * <p>
-     *     Gets the PathVariable to get the Details of the Payment by Transaction ID
-     *     and process the Request by sending to PaymentService and returns the PaymentResponseDTO and Http Status
-     *     or throws an exception when occurred
+     *     Retrieves the Details of the Payment by Transaction ID of Payment
+     *     by process the request If payment is not found throws an exception
+     *     otherwise returns the ResponseEntity with Http status OK and Details of the Payment
      * </p>
      *
      * @param id - ID of the Transaction
-     * @return ResponseEntity - Holds the PaymentResponseDTO and Http Status
-     * @throws NotFoundException - when Payment is Not Found
+     * @return ResponseEntity - Holds the PaymentResponseDTO and Http Status OK
+     * @throws NotFoundException - when Payment is Not Found for Transaction ID
      */
     @GetMapping("/by-transaction/{id}")
     public ResponseEntity<PaymentResponseDTO> getByTransactionId(@PathVariable("id") UUID id) throws NotFoundException {
@@ -98,12 +100,14 @@ public class PaymentController {
      *     getById
      * </h1>
      * <p>
-     *     Gets the PathVariable to get the Details of the Payment by Payment ID
-     *     and process the Request by sending to PaymentService and returns the PaymentResponseDTO and Http Status
-     *     or throws an exception when occurred
+     *     Retrieves the Details of the Payment by  ID of Payment by process the request
+     *     If payment is not found for the transaction ID throws an exception
+     *     otherwise returns the ResponseEntity with Http status OK and Details of the Payment
      * </p>
      *
-     * @param
+     * @param id - ID of the payment to Retrieve Details of the Payment
+     * @return ResponseEntity - Holds the PaymentResponseDTO and Http Status OK
+     * @throws NotFoundException - when Payment Not found for ID
      */
     @GetMapping("/{id}")
     public ResponseEntity<PaymentResponseDTO> getById(@PathVariable("id") Long id) throws NotFoundException {

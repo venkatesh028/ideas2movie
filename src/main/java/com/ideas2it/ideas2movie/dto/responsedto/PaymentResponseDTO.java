@@ -13,10 +13,11 @@ import lombok.Setter;
 
 /**
  * <h1>
- *     Payment Response DTO
+ *     PaymentResponseDTO
  * </h1>
  * <p>
- *     Contains the Response of the Payment Entity
+ *     PaymentResponseDTO represents the Response sent to the Client with ID of Payment
+ *     after Making and Updating the Details of payment for Reservation
  * </p>
  *
  * @author AJAISHARMA

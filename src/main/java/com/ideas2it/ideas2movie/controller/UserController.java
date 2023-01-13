@@ -31,9 +31,10 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  *     UserController
  * </h1>
  * <p>
- *     UserController used to handle CRUD operations for the User and Do validates
- *     the Information of the UserDTO according to the Validation Constraints
- *     and throws an Exception when Occurred
+ *     UserController provides the RESTful endpoints to handle CRUD operations
+ *     for the User of the Application and validates the Information of the UserDTO
+ *     according to the Validation Constraints and throws an Exception when occurred
+ *     and returns the Details of the User and Http Status
  * </p>
  *
  * @author AJAISHARMA
@@ -73,7 +74,7 @@ public class UserController {
      * </p>
      *
      * @param userDTO - holds the Details of the User
-     * @return ResponseEntity - Holds the UserResponseDTO and Http Status
+     * @return ResponseEntity - Holds the UserResponseDTO and Http Status CREATED
      * @throws AlreadyExistException - when the Details of the User is Already Present
      */
     @PostMapping
@@ -88,12 +89,12 @@ public class UserController {
      * </h1>
      * <p>
      *     Retrieves the Details of the User By the ID of the User
-     *     and process the request If the User is Not found then throws an Exception
+     *     by process the request If the User is Not found then throws an Exception
      *     otherwise returns the ResponseEntity with Http Status OK and Details of the User
      * </p>
      *
      * @param id - ID of the User to get the User
-     * @return ResponseEntity - Holds the UserResponseDTO and Http Status
+     * @return ResponseEntity - Holds the UserResponseDTO and Http Status Ok
      * @throws NotFoundException - throws when user Not Found
      */
     @GetMapping("/{id}")
@@ -107,15 +108,15 @@ public class UserController {
      *     updateUser
      * </h1>
      * <p>
-     *     Updates the Details of the User by the ID and UserDTO
-     *     and validates according to Validation Constraints If User Details are not Valid the throws an Exception
-     *     else process the request and returns the ResponseEntity with Http Status OK and updated Details of the User
-     *     or throws an Exception If User not Found
+     *     Updates the Details of the User by the ID and UserDTO and validates according
+     *     to Validation Constraints If User Details are not Valid the throws an Exception
+     *     else process the request and returns the ResponseEntity with Http Status OK
+     *     and updated Details of the User or throws an Exception If User not Found
      * </p>
      *
      * @param id -ID of the User to update the Details of the User
      * @param userDTO - holds the Details of the User
-     * @return ResponseEntity - Holds the UserResponseDTO and Http Status
+     * @return ResponseEntity - Holds the UserResponseDTO and Http Status OK
      * @throws NotFoundException - when user Not Found
      * @throws AlreadyExistException - when User's Name or Phone Number Already Exist
      */
@@ -128,21 +129,19 @@ public class UserController {
 
     /**
      * <h1>
-     *     Deactivates the User Account By the ID of the User and returns the ResponseEntity
-     *     with Http status Ok and a String, If User is not found then throws an Exception
+     *     deactivateAccount
      * </h1>
      * <p>
-     *     Deactivates the Account of the User by the ID of the User
-     *     and Returns the ResponseEntity with Http Status OK and a String Message
-     *     or throws an exception when User not found
+     *     Deactivates the User Account By the ID of the User and returns the ResponseEntity
+     *     with Http status Ok and a String, If User is not found then throws an Exception
      * </p>
      *
      * @param id - ID of the User to Delete the User
-     * @return ResponseEntity - Holds the String and Http Status
+     * @return ResponseEntity - Holds the String and Http Status OK
      * @throws NotFoundException - throws when user Not Found
      */
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deactivateUser(@PathVariable("id") Long id) throws NotFoundException{
+    public ResponseEntity<String> deactivateAccount(@PathVariable("id") Long id) throws NotFoundException{
         return ResponseEntity.status(HttpStatus.OK).body(userService.deleteUser(id));
     }
 }

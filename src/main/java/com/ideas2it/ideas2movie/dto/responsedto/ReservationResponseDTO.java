@@ -10,10 +10,11 @@ import lombok.Setter;
 
 /**
  * <h1>
- *     Booking Response DTO
+ *     BookingResponseDTO
  * </h1>
  * <p>
- *     Contains the Response of the Booking Entity
+ *     BookingResponseDTO represents the Response sent to the Client with the ID of Reservation
+ *     after Creating and Updating the Details of Reservation for Seats of the Show.
  * </p>
  *
  * @author AJAISHARMA

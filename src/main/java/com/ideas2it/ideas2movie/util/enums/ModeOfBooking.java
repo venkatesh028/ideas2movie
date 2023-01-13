@@ -26,5 +26,5 @@ public enum ModeOfBooking {
 
     @Getter
     @Setter
-    private String mode;
+    private String modeOf;
 }

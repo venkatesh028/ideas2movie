@@ -20,9 +20,9 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  *     TicketController
  * </h1>
  * <p>
- *     Gets the Input parameter as a Request from the Client and Validates them
- *     for get the Details of the Ticket
- *     and used to handle and mapping the Request to the Appropriate function
+ *     TicketController provides the RESTful Endpoints for handle the Retrieving
+ *     Operation of the Ticket and validates according to the Validation Constraints
+ *     and throws an exception when occurred and returns Details of the Ticket and HTtp Status
  * </p>
  *
  * @author AJAISHARMA
@@ -54,13 +54,13 @@ public class TicketController {
      *     getTicketByID
      * </h1>
      * <p>
-     *     Gets the PathVariable to get the Details of the Ticket
-     *     and Process the request by sending to TicketService and returns the TicketResponseDTO and Http status
-     *     or throws an Exception when occurred
+     *     Retrieves the Details of the Ticket By the ID of the Ticket
+     *     and process the request If the Ticket is Not Found then throws an Exception
+     *     otherwise returns the ResponseEntity with Http Status OK and Details of the Ticket
      * </p>
      *
      * @param id - ID of the Ticket to get
-     * @return ResponseEntity - Holds the TicketResponseDTo and Http Status
+     * @return ResponseEntity - Holds the TicketResponseDTo and Http Status Ok
      * @throws NotFoundException - when Ticket Not Found
      */
     @GetMapping("/{id}")

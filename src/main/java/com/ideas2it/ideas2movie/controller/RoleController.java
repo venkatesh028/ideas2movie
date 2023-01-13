@@ -27,9 +27,10 @@ import com.ideas2it.ideas2movie.exception.NoContentException;
  *     RoleController
  * </h1>
  * <p>
- *     Gets the Input Parameter as a request from the Client and Validates them
- *     for Creating and Getting the Details of the Role
- *     and used to handle and Mapping the request to appropriate function
+ *     RoleController provides the RESTful Endpoints to handle CRUD operations
+ *     for the Role of the User and Validates the Information of the RoleDTO
+ *     according to Validation Constraints and throws an Exception when occurred
+ *     and returns the Details of Role and Http Status
  * </p>
  *
  * @author AJAISHARMA
@@ -61,27 +62,29 @@ public class RoleController {
      *     createRole
      * </h1>
      * <p>
-     *     Gets the RequestBody for creating the Role and validates according to Validation Constraints
-     *     and process the request by sending to RoleService and returns the RoleResponseDTO and Http Status
-     *     or throws an exception when occurred
+     *     Creates the Role for the User of the Application by validates the RoleDTO
+     *     according to Validation Constraints If not valid throws an Exception
+     *     else process the request and returns the ResponseEntity with Http Status CREATED
+     *     and Details of the Role
      * </p>
      *
-     * @param roleDTO - role details to create a new role
-     * @return ResponseEntity - Holds the Role response DTO and Http Status
+     * @param roleDTO - Holds the role details to create a new role
+     * @return ResponseEntity - Holds the RoleResponseDTO and Http Status CREATED
+     * @throws AlreadyExistException - when Role is Already Created for user
      */
     @PostMapping
-    public ResponseEntity<RoleResponseDTO> createRole(@Valid @RequestBody RoleDTO roleDTO) throws AlreadyExistException {
-        return ResponseEntity.status(HttpStatus.OK).body(roleService.createRole(roleDTO));
+    public ResponseEntity<RoleResponseDTO> createRole(@Valid @RequestBody RoleDTO roleDTO)
+            throws AlreadyExistException {
+        return ResponseEntity.status(HttpStatus.CREATED).body(roleService.createRole(roleDTO));
     }
 
     /**
      * <h1>
-     *     getAllRole
+     *     getAllRoles
      * </h1>
      * <p>
-     *     Gets the Call to Get all the Roles for the User
-     *     and process the request by sending to RoleService and returns the RoleResponseDTO and Http status
-     *     or throws an Exception when occurred
+     *     Retrieves the List of All Role and process the request If No Role Found for the User then
+     *     throws an Exception otherwise returns the ResponseEntity with Http Status OK and List of Roles
      * </p>
      *
      * @return ResponseEntity - Holds the Role response DTO and Http Status

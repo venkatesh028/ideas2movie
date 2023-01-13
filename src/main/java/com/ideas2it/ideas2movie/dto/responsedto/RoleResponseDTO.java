@@ -5,15 +5,15 @@
 package com.ideas2it.ideas2movie.dto.responsedto;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
  * <h1>
- *     Role Response DTO
+ *     RoleResponseDTO
  * </h1>
  * <p>
- *     Contains the Response of the Role Entity
+ *     RoleResponseDTO represents the Response sent to the Client with ID of Role
+ *     after Creating the Role for User Model.
  * </p>
  *
  * @author AJAISHARMA
