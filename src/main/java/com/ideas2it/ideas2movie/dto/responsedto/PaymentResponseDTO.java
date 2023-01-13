@@ -27,6 +27,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class PaymentResponseDTO {
+    private Long paymentId;
     private UUID transactionId;
     private Timestamp paidAt;
     private double amount;

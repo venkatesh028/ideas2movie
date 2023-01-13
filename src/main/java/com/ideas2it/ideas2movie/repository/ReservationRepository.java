@@ -2,6 +2,7 @@ package com.ideas2it.ideas2movie.repository;
 
 import com.ideas2it.ideas2movie.model.Reservation;
 import java.util.List;
+import java.util.Map;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
