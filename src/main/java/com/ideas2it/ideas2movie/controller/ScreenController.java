@@ -99,7 +99,7 @@ public class ScreenController {
      *     or throws an Exception accordingly when occurred
      * </p>
      *
-     * @param id - ID of the Screen to remove
+     * @param id - ID of the Screen which need to be removed
      * @return ResponseEntity - Holds the String and Http Status
      * @throws NotFoundException - when Screen is Not Found
      */
