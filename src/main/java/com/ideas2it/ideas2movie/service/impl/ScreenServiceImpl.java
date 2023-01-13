@@ -12,6 +12,7 @@ import java.util.Optional;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.model.Screen;
 import com.ideas2it.ideas2movie.model.Show;
 import com.ideas2it.ideas2movie.model.Theater;
@@ -156,6 +157,22 @@ public class ScreenServiceImpl implements ScreenService {
         return  existingScreen.get();
     }
 
+    public List<ScreenResponseDTO> getScreensByTheaterId(Long id) throws NoContentException {
+        List<Screen> existingScreens = screenRepository.findAllByTheaterId(id);
+        List<ScreenResponseDTO> screens = new ArrayList<>();
+
+        if (existingScreens.isEmpty()){
+            throw new NoContentException(Message.SCREEN_NOT_FOUND);
+        }
+
+        for (Screen screen: existingScreens){
+            screens.add(mapper.map(screen, ScreenResponseDTO.class));
+        }
+
+        return screens;
+
+    }
+
     /**
      * <h1>
      *     isScreenAlreadyExistsInTheTheater
@@ -180,5 +197,7 @@ public class ScreenServiceImpl implements ScreenService {
         }
         return isExists;
     }
+
+
 
 }

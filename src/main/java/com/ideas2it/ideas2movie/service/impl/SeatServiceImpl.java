@@ -2,13 +2,16 @@ package com.ideas2it.ideas2movie.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import com.ideas2it.ideas2movie.exception.NotFoundException;
 import com.ideas2it.ideas2movie.model.Screen;
 import com.ideas2it.ideas2movie.model.Seat;
 import com.ideas2it.ideas2movie.service.SeatService;
 import com.ideas2it.ideas2movie.repository.SeatRepository;
+import com.ideas2it.ideas2movie.util.constant.Message;
 
 /**
  * <h1>
@@ -58,5 +61,14 @@ public class SeatServiceImpl implements SeatService {
     @Override
     public List<Seat> getSeatsByScreenId(Long screenId) {
         return seatRepository.findAllByScreenId(screenId);
+    }
+
+    public Seat getSeatById(Long id) throws NotFoundException{
+        Optional<Seat> seat = seatRepository.findById(id);
+
+        if (seat.isEmpty()){
+            throw new NotFoundException(Message.SEAT_NOT_FOUND);
+        }
+        return seat.get();
     }
 }

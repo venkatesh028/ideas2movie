@@ -2,6 +2,7 @@ package com.ideas2it.ideas2movie.service;
 
 import java.util.List;
 
+import com.ideas2it.ideas2movie.exception.NotFoundException;
 import com.ideas2it.ideas2movie.model.Screen;
 import com.ideas2it.ideas2movie.model.Seat;
 
@@ -47,4 +48,6 @@ public interface SeatService {
      * @return listOfSeats - Holds the list of seats for that screen
      */
     List<Seat> getSeatsByScreenId(Long screenId);
+
+    Seat getSeatById(Long id) throws NotFoundException;
 }

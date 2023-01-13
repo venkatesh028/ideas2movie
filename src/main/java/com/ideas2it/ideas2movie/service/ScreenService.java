@@ -4,7 +4,10 @@
  */
 package com.ideas2it.ideas2movie.service;
 
+import java.util.List;
+
 import com.ideas2it.ideas2movie.exception.BadRequestException;
+import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.model.Screen;
 import com.ideas2it.ideas2movie.dto.ScreenDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.ScreenResponseDTO;
@@ -98,4 +101,6 @@ public interface ScreenService {
      * @throws NotFoundException - Occurs When there is no screen for the given id
      */
     Screen getScreenById(Long id) throws BadRequestException, NotFoundException;
+
+    List<ScreenResponseDTO> getScreensByTheaterId(Long id) throws NoContentException;
 }
