@@ -4,6 +4,8 @@
  */
 package com.ideas2it.ideas2movie.service.impl;
 
+import com.ideas2it.ideas2movie.util.enums.ModeOfBooking;
+import com.ideas2it.ideas2movie.util.enums.ReservationStatus;
 import java.sql.Timestamp;
 import java.util.Optional;
 import java.util.UUID;
@@ -72,11 +74,11 @@ public class PaymentServiceImpl implements PaymentService {
         } else {
             payment.setStatus(PaymentStatus.FAILED);
         }
-
         payment.setTransactionAt(new Timestamp(System.currentTimeMillis()));
         payment.setTransactionId(UUID.randomUUID());
         reservation.setPayment(payment);
         reservationService.confirmReservation(reservation);
+
         return mapper.map(paymentRepository.save(payment), PaymentResponseDTO.class);
     }
 
