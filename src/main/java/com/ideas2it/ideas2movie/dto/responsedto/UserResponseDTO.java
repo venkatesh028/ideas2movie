@@ -9,10 +9,11 @@ import lombok.Setter;
 
 /**
  * <h1>
- *     User Response DTO
+ *     UserResponseDTO
  * </h1>
  * <p>
- *     Contains the Response of the User Entity
+ *     UserResponseDTO represents the response sent to the Client with the ID
+ *     after Creating and Updating the User Account.
  * </p>
  *
  * @author AJAISHARMA

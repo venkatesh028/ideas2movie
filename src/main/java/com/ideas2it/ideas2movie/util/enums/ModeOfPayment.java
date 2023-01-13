@@ -25,5 +25,5 @@ public enum ModeOfPayment {
     CASH("Cash"), CARD("Card"), UPI("Upi");
     @Getter
     @Setter
-    private String mode;
+    private String modeOfPayment;
 }

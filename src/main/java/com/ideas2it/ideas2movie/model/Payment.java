@@ -32,7 +32,8 @@ import org.hibernate.annotations.UpdateTimestamp;
  *      Payment
  * </h1>
  * <p>
- *      Payment Entity have the Attribute which is used to Hold the Details of the Payment
+ *      Payment Entity Represent the Details of the Payment Made for the Reservation
+ *      Like Amount, Mode Of payment, and a Unique Transaction ID
  * </p>
  *
  * @author  AJAISHARMA
