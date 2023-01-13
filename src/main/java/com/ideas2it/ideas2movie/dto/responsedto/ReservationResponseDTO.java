@@ -5,8 +5,13 @@
 package com.ideas2it.ideas2movie.dto.responsedto;
 
 import java.util.List;
+
 import lombok.Getter;
 import lombok.Setter;
+
+import com.ideas2it.ideas2movie.model.Show;
+import com.ideas2it.ideas2movie.model.Ticket;
+
 
 /**
  * <h1>
@@ -25,9 +30,7 @@ import lombok.Setter;
 @Setter
 public class ReservationResponseDTO {
     private Long id;
-    private TicketResponseDTO ticketResponseDTO;
-    private PaymentResponseDTO paymentResponseDTO;
-    private ShowResponseDTO showResponseDTO;
-    private List<ShowResponseDTO> seats;
+    private TicketResponseDTO ticket;
+    private ShowResponseDTO show;
     private double price;
 }

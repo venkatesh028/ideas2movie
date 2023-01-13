@@ -4,9 +4,8 @@
  */
 package com.ideas2it.ideas2movie.service.impl;
 
-import com.ideas2it.ideas2movie.util.enums.ModeOfBooking;
-import com.ideas2it.ideas2movie.util.enums.ReservationStatus;
 import java.sql.Timestamp;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -65,22 +64,21 @@ public class PaymentServiceImpl implements PaymentService {
      */
     @Override
     public PaymentResponseDTO makePayment(PaymentDTO paymentDTO) throws NotFoundException {
+        Reservation reservation = reservationService.getReservationById(paymentDTO.getReservationId());
         Payment payment = mapper.map(paymentDTO, Payment.class);
 
-        Reservation reservation = reservationService.getReservationById(paymentDTO.getReservationId());
-
-        if (reservation.getTotalPrice() == payment.getAmount()) {
+        if (Objects.equals(reservation.getTotalPrice(), paymentDTO.getEnteredAmount())) {
             payment.setStatus(PaymentStatus.PAID);
         } else {
             payment.setStatus(PaymentStatus.FAILED);
         }
         payment.setTransactionAt(new Timestamp(System.currentTimeMillis()));
         payment.setTransactionId(UUID.randomUUID());
-        reservation.setPayment(payment);
-        reservationService.confirmReservation(reservation);
+        reservationService.confirmReservation(payment);
 
         return mapper.map(paymentRepository.save(payment), PaymentResponseDTO.class);
     }
+
 
     /**
      * {@inheritDoc}

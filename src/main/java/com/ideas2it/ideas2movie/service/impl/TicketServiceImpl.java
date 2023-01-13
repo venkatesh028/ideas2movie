@@ -54,8 +54,10 @@ public class TicketServiceImpl implements TicketService {
         Ticket ticket  = new Ticket();
         ticket.setNumberOfSeatsSelected(reservation.getSeats().size());
         ticket.setReservationStatus(reservation.getStatus());
+        ticket.setShowId(reservation.getShow().getId());
         ticket.setScreenName(reservation.getShow().getScreen().getName());
         ticket.setTheaterName(reservation.getShow().getScreen().getTheater().getTheaterName());
+        ticket.setMovieName(reservation.getShow().getMovie().getName());
         ticket.setShowDate(reservation.getShow().getScreeningDate());
         List<Seat> seats = reservation.getSeats();
         String seatName = "";
