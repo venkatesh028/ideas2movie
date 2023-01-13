@@ -9,6 +9,8 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
+import com.ideas2it.ideas2movie.dto.responsedto.RoleResponseDTO;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -31,6 +33,7 @@ import com.ideas2it.ideas2movie.util.constant.Message;
  */
 @Getter
 @Setter
+@Data
 @NoArgsConstructor
 public class UserDTO {
     @NotBlank(message = Message.NAME_SHOULD_NOT_BE_EMPTY)
@@ -45,8 +48,8 @@ public class UserDTO {
     @NotBlank(message = Message.PASSWORD_SHOULD_NOT_BE_EMPTY)
     //@Pattern(regexp = Constant.PASSWORD_PATTERN, message = Message.ENTER_VALID_PASSWORD)
     private String password;
-    @NotNull
-    private RoleDTO role;
+    @NotNull(message = Message.ROLE_NAME_SHOULD_NOT_BE_EMPTY)
+    private Long roleId;
 }
 
 

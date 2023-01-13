@@ -9,6 +9,8 @@ import com.ideas2it.ideas2movie.model.Role;
 import java.util.Optional;
 
 import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
+import org.modelmapper.spi.MatchingStrategy;
 import org.springframework.stereotype.Service;
 
 import com.ideas2it.ideas2movie.model.User;
@@ -62,21 +64,22 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public UserResponseDTO createUser(UserDTO userDTO) throws AlreadyExistException, BadRequestException {
+        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         User user = mapper.map(userDTO, User.class);
 
-        if (userRepository.existsByPhoneNumber(user.getPhoneNumber())) {
-            throw new AlreadyExistException(Message.NUMBER_ALREADY_EXIST);
+        if (userRepository.existsByPhoneNumber(user.getPhoneNumber())
+                && userRepository.existsByName(user.getName())) {
+            throw new AlreadyExistException(Message.NAME_AND_NUMBER_ALREADY_EXIST);
         } else if (userRepository.existsByName(user.getName())) {
             throw new AlreadyExistException(Message.USER_NAME_ALREADY_EXIST);
+        } else if (userRepository.existsByPhoneNumber(user.getPhoneNumber())) {
+            throw new AlreadyExistException(Message.NUMBER_ALREADY_EXIST);
         } else {
-            Role role;
-
             try {
-                 role = roleService.getRoleById(userDTO.getRole().getId());
+                user.setRole(roleService.getRoleById(userDTO.getRoleId()));
             } catch (NotFoundException notFoundException) {
                 throw new BadRequestException(notFoundException.getMessage());
             }
-            user.setRole(role);
         }
         return mapper.map(userRepository.save(user), UserResponseDTO.class);
     }
@@ -110,7 +113,7 @@ public class UserServiceImpl implements UserService {
         existingUser.get().setName(user.getName());
         existingUser.get().setEmail(user.getEmail());
         existingUser.get().setPhoneNumber(user.getPhoneNumber());
-        existingUser.get().setRole(user.getRole());
+        existingUser.get().setRole(roleService.getRoleById(userDTO.getRoleId()));
         return mapper.map(userRepository.save(existingUser.get()), UserResponseDTO.class);
     }
 
@@ -121,17 +124,17 @@ public class UserServiceImpl implements UserService {
     public String deleteUser(Long id) throws NotFoundException {
         Optional<User> existingUser = userRepository.findById(id);
 
-        if (existingUser.isPresent()) {
+        if (existingUser.isEmpty()) {
             throw new NotFoundException(Message.USER_NOT_FOUND);
         }
-            User user = existingUser.get();
-            user.setActive(false);
-            userRepository.save(user);
+        User user = existingUser.get();
+        user.setActive(false);
+        userRepository.save(user);
 
-            if (!userRepository.findById(id).get().isActive()) {
-                return Message.DELETED_SUCCESSFULLY;
-            } else {
-                return Message.FAILED_TO_DELETE;
-            }
+        if (userRepository.findById(id).get().isActive()) {
+            return Message.FAILED_TO_DELETE;
+        } else {
+            return Message.DELETED_SUCCESSFULLY;
         }
+    }
 }
