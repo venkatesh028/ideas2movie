@@ -19,6 +19,7 @@ import com.ideas2it.ideas2movie.dto.CastAndCrewDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.CastAndCrewResponseDTO;
 import com.ideas2it.ideas2movie.service.CastAndCrewService;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
+import com.ideas2it.ideas2movie.util.constant.Message;
 
 /**
  * <h1>
@@ -35,7 +36,6 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  * @version 1.0
  * @since 07-01-2023
  */
-
 @RestController
 @RequestMapping("api/v1/casts-and-crews")
 public class CastAndCrewController {
@@ -73,7 +73,7 @@ public class CastAndCrewController {
     @PostMapping
     public ResponseEntity<CastAndCrewResponseDTO> addCastAndCrew(
             @RequestBody CastAndCrewDTO castAndCrewDTO)  {
-        return ResponseEntity.status(HttpStatus.OK).body(castAndCrewService
+        return ResponseEntity.status(HttpStatus.CREATED).body(castAndCrewService
                 .addCastAndCrew(castAndCrewDTO));
     }
 
@@ -133,12 +133,16 @@ public class CastAndCrewController {
      *</p>
      *
      * @param id The id of the CastAndCrew
-     * @return ResponseEntity - Holds the String and Http Status OK
+     * @return boolean
      * @throws NotFoundException - when CastAndCrew not is not found
      */
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteCastAndCrew(@PathVariable("id") Long id)
-            throws NotFoundException  {
-        return ResponseEntity.status(HttpStatus.OK).body(castAndCrewService.deleteCastAndCrew(id));
+            throws NotFoundException {
+        if (!castAndCrewService.deleteCastAndCrew(id)) {
+            return ResponseEntity.status(HttpStatus.OK).body(Message.DELETED_SUCCESSFULLY);
+        } else {
+            return ResponseEntity.status(HttpStatus.OK).body(Message.FAILED_TO_DELETE);
+        }
     }
 }

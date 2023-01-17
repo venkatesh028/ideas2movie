@@ -19,9 +19,9 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  *     Screen Service
  * </h1>
  * <p>
- *     Service Layer for the Screen
- *     to Create, Update, Get
- *     and remove the details of the Screen
+ *     ScreenService provides the Methods for Screen CRUD Operation used to handle the Screen For theater
+ *     like Creating an screen, Getting the Details of the Screen, and Remove the Screen
+ *     and throws an Exceptions when occurred
  * </p>
  *
  * @author Venkatesh TM
@@ -35,7 +35,7 @@ public interface ScreenService {
      *     createScreen
      * </h1>
      * <p>
-     *     creates Screen for the Theater By getting the screenDTO from the controller
+     *     creates Screen for the Theater Based on the information provided
      *     And checks the Screen is already exist for the theater
      *     with screen name and theater id of the screen if there
      *     is a screen in that theater with the same name then exception is thrown
@@ -53,9 +53,8 @@ public interface ScreenService {
      *     updateScreen
      * </h1>
      * <p>
-     *     Updates Screen for the Theater
-     *     By getting ScreenDTO and id from the Controller
-     *     And checks the Screen is already exist for the
+     *     Updates Screen for the Theater based on the given details
+     *     and ID of Screen And checks the Screen is already exist for the
      *     theater with screen name and theater id of the screen
      *     if there is a screen in that theater with the same name
      *     then exception is thrown
@@ -76,15 +75,15 @@ public interface ScreenService {
      * </h1>
      * <p>
      *      Removes the Screen based on the id of the screen
-     *      by getting id from the controller if there is no screen
-     *      for the id then Exception is thrown
+     *      by getting ID if there is no screen for the ID
+     *      then Exception is thrown
      * </p>
      *
      * @param id - Holds the id of the Screen
      * @return message - Holds the success message after changing the active status of screen
      * @throws NotFoundException - Occurs When there is no screen for the given id
      */
-    String removeScreen(Long id) throws NotFoundException;
+    boolean removeScreen(Long id) throws NotFoundException;
 
     /**
      * <h1>

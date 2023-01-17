@@ -19,10 +19,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ideas2it.ideas2movie.dto.ShowDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.ShowResponseDTO;
+import com.ideas2it.ideas2movie.service.ShowService;
+import com.ideas2it.ideas2movie.util.constant.Message;
+import com.ideas2it.ideas2movie.exception.AlreadyExistException;
 import com.ideas2it.ideas2movie.exception.BadRequestException;
 import com.ideas2it.ideas2movie.exception.NotAcceptableException;
-import com.ideas2it.ideas2movie.service.ShowService;
-import com.ideas2it.ideas2movie.exception.AlreadyExistException;
 import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
 
@@ -63,12 +64,13 @@ public class ShowController {
      * @param showDTO- Holds the details of the show to create
      * @return ResponseEntity - Holds the ShowResponseDTO and HttpStatus code
      * @throws AlreadyExistException - Throws When the Show is already exist for the same screen
-     * @throws NotFoundException - Throws When movie or screen not found
+     * @throws BadRequestException - Throws When movie or screen not found
+     * @throws NotAcceptableException - Throws When invalid input for show timing
      */
     @PostMapping
     public ResponseEntity<ShowResponseDTO> createShow(@Valid @RequestBody ShowDTO showDTO) throws AlreadyExistException,
             NotAcceptableException, BadRequestException {
-        return ResponseEntity.status(HttpStatus.OK).body(showService.createShow(showDTO)) ;
+        return ResponseEntity.status(HttpStatus.CREATED).body(showService.createShow(showDTO)) ;
     }
 
     /**
@@ -135,9 +137,9 @@ public class ShowController {
      *     cancelShow
      * </h1>
      * <p>
-     *     Gets the PathVariable to Cancel the Show for the Show ID
-     *     by process the request by sending to showService and returns the List of ShowResponseDTO
-     *     and Http Status or throws an Exception accordingly when occurred
+     *     Cancels the Show based on the id of the show and return
+     *     the response entity and HttpStatus code OK if the show is
+     *     not found for that id then exception is thrown
      * </p>
      *
      * @param id - ID of the Show to cancel the Show
@@ -146,6 +148,11 @@ public class ShowController {
      */
     @DeleteMapping("/{id}")
     public ResponseEntity<String> cancelShow(@PathVariable Long id) throws NotFoundException {
-        return ResponseEntity.status(HttpStatus.OK).body(showService.cancelShow(id));
+        String message = Message.DELETED_SUCCESSFULLY;
+
+        if (showService.cancelShow(id)){
+            message = Message.FAILED_TO_DELETE;
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(message);
     }
 }

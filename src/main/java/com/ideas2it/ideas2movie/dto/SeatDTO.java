@@ -1,3 +1,7 @@
+/*
+ * Copyright 2023 Ideas2IT Technologies. All rights reserved.
+ * IDEAS2IT PROPRIETARY/CONFIDENTIAL.
+ */
 package com.ideas2it.ideas2movie.dto;
 
 import jakarta.validation.constraints.NotBlank;
@@ -10,7 +14,8 @@ import lombok.Setter;
  *     SeatDTO
  * </h1>
  * <p>
- *     Gets the input from the client for the seat
+ *      SeatDTO represents a Simplified version of the Seat Model
+ *      which Holds the Necessary Information of the Seat model
  * </p>
  *
  * @author Venkatesh TM

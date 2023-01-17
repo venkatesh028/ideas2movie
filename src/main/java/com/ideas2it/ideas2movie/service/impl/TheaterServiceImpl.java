@@ -144,17 +144,20 @@ public class TheaterServiceImpl implements TheaterService {
      * {@inheritDoc}
      */
     @Override
-    public String deleteTheater(Long id) throws NotFoundException {
+    public boolean deleteTheater(Long id) throws NotFoundException {
         Optional<Theater> existingTheater = theaterRepository.findById(id);
-
-        if (existingTheater.isPresent() && existingTheater.get().isActive()) {
-            existingTheater.get().setActive(false);
-            theaterRepository.save(existingTheater.get());
-            if (!existingTheater.get().isActive()) {
-                return Message.DELETED_SUCCESSFULLY ;
+        Theater theater;
+        boolean isActive = true;
+        if (existingTheater.isPresent() ) {
+            theater = existingTheater.get();
+            theater.setActive(false);
+            theaterRepository.save(theater);
+            isActive = theaterRepository.existsById(id);
+            if (!isActive) {
+                return isActive;
             }
         }
-        throw new NotFoundException(Message.FAILED_TO_DELETE);
+        throw new NotFoundException(Message.THEATER_NOT_FOUND);
     }
 }
 

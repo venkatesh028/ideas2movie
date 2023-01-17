@@ -40,17 +40,17 @@ public class SeatServiceImpl implements SeatService {
      */
     @Override
     public List<Seat> createSeat(Screen screen) {
-        int name = 65;
+        int asciiValue = 65;
         List<Seat> seats = new ArrayList<>();
 
         for (int row = 1; row <= screen.getTotalNumberOfRows(); row++){
             for (int column = 1; column <= screen.getTotalNumberOfColumns(); column++){
                 Seat seat = new Seat();
-                seat.setName(""+column+(char)name);
+                seat.setName(""+column+(char)asciiValue);
                 seat.setScreen(screen);
                 seats.add(seat);
             }
-            name++;
+            asciiValue++;
         }
         return seatRepository.saveAll(seats);
     }

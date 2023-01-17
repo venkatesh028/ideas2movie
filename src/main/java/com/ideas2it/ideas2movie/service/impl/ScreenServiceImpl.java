@@ -123,10 +123,11 @@ public class ScreenServiceImpl implements ScreenService {
      * {@inheritDoc}
      */
     @Override
-    public String removeScreen(Long id) throws NotFoundException {
+    public boolean removeScreen(Long id) throws NotFoundException {
         Optional<Screen> existingScreen = screenRepository.findById(id);
         List<Show> shows = new ArrayList<>();
         Screen screen;
+        boolean isRemoved;
 
         if (existingScreen.isPresent()){
             screen = existingScreen.get();
@@ -140,9 +141,9 @@ public class ScreenServiceImpl implements ScreenService {
             shows.add(show);
         }
         screen.setShows(shows);
-        screenRepository.save(screen);
+        isRemoved = screenRepository.save(screen).isActive();
         reservationService.cancelAllReservationForShow(screen);
-        return Message.DELETED_SUCCESSFULLY;
+        return isRemoved;
     }
 
     /**

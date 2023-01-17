@@ -7,6 +7,7 @@ package com.ideas2it.ideas2movie.controller;
 import java.util.List;
 
 import jakarta.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,20 +21,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ideas2it.ideas2movie.dto.ScreenDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.ScreenResponseDTO;
+import com.ideas2it.ideas2movie.service.ScreenService;
+import com.ideas2it.ideas2movie.util.constant.Message;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
 import com.ideas2it.ideas2movie.exception.BadRequestException;
 import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
-import com.ideas2it.ideas2movie.service.ScreenService;
 
 /**
  * <h1>
  *     ScreenController
  * </h1>
  * <p>
- *     Gets the input as a Request from the Client and Validates them
- *     to Create, Update, get and Remove the Details of the Screen by the Instance of the screenService
- *     and used to Handle and Mapping the Request to appropriate function
+ *
  * </p>
  *
  * @author Venkatesh TM
@@ -53,20 +53,21 @@ public class ScreenController {
      *      createScreen
      * </h1>
      * <p>
-     *      Gets the RequestBody to create Screen and validates them according to Validation Constraints
-     *      and process the request by sending to ScreenService and returns the ScreenResponseDTO
-     *      and Http Status or throws an exception accordingly when occurred
+     *     Creates the Screen for the theater by the screenDTO and Validates according
+     *     to Validation Constraints if the details of the Screen is not valid then
+     *     the exception is thrown else process the request and return
+     *     the response entity with HttpStatus created
      * </p>
      *
      * @param screenDTO - Holds the Details of Screen to create
      * @return ResponseEntity - Holds the ScreenResponseDTO and Http Status
-     * @throws NotFoundException - when Theater is Not Found
+     * @throws BadRequestException - when Given theater is Not exists
      * @throws AlreadyExistException - when Screen already Exist in that Theater
      */
     @PostMapping
     public ResponseEntity<ScreenResponseDTO> createScreen(@Valid @RequestBody ScreenDTO screenDTO)
             throws AlreadyExistException, BadRequestException {
-        return ResponseEntity.status(HttpStatus.OK).body(screenService.createScreen(screenDTO));
+        return ResponseEntity.status(HttpStatus.CREATED).body(screenService.createScreen(screenDTO));
     }
 
     /**
@@ -74,10 +75,10 @@ public class ScreenController {
      *     updateScreen
      * </h1>
      * <p>
-     *     Gets the PathVariable and RequestBody to Update the Details of the Screen
-     *     and Validates them according to Validation Constraints and process the request
-     *     by sending to ScreenService and returns the ScreenResponseDTO and Http Status
-     *     or throws an exception accordingly when occurred
+     *     Updates the Details of the Screen by the ID and ScreenDTO and validates according
+     *     to Validation Constraints If Screen Details are not Valid then throws an Exception
+     *     else process the request and returns the ResponseEntity with Http Status OK
+     *     and updated Details of the Screen or throws an Exception If Screen not Found
      * </p>
      *
      * @param id - ID of the Screen to Update the Details of Screen
@@ -117,9 +118,7 @@ public class ScreenController {
      *     removeScreen
      * </h1>
      * <p>
-     *     Gets the PathVariable to remove Screen from Theater and process the request
-     *     by sending to ScreenService and returns the String and Http Status
-     *     or throws an Exception accordingly when occurred
+     *
      * </p>
      *
      * @param id - ID of the Screen which need to be removed
@@ -128,7 +127,8 @@ public class ScreenController {
      */
     @DeleteMapping("/{id}")
     public ResponseEntity<String> removeScreen(@PathVariable Long id) throws NotFoundException {
-        return ResponseEntity.status(HttpStatus.OK).body(screenService.removeScreen(id));
+        String message = (!screenService.removeScreen(id)) ? Message.DELETED_SUCCESSFULLY : Message.FAILED_TO_DELETE;
+        return ResponseEntity.status(HttpStatus.OK).body(message);
     }
 
 }

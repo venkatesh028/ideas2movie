@@ -20,9 +20,9 @@ import com.ideas2it.ideas2movie.model.Show;
  *     Show Service
  * </h1>
  * <p>
- *     ShowService used to manage the Operation for the Show
- *     Like Create, Cancel and Get the Details of the Show
- *     and throws an Exception when occurred
+ *     ShowService provides the Methods for Show Operation used to handle the Show For Screen
+ *     like Creating an shows, Getting the Details of the Shows, and Cancel the Shows
+ *     and throws an Exceptions when occurred
  * </p>
  *
  * @author Venkatesh TM
@@ -36,9 +36,10 @@ public interface ShowService {
      *     createShow
      * </h1>
      * <p>
-     *     Gets the Details of the Show to Create a new Show For a Screen
-     *     and checks whether the Details of the Show is already Exist or not
-     *     then save the Show to storage or throws an Exception
+     *     creates Show for the Screen Based on the information provided
+     *     And checks the Show is already exist for the Screen
+     *     with show timing, Date and screen ID of the show if there
+     *     is a show in that screen with the same timing, Date then exception is thrown
      * </p>
      *
      * @param showDTO - Holds the details of the show
@@ -52,25 +53,26 @@ public interface ShowService {
      *     cancelShow
      * </h1>
      * <p>
-     *     Gets the ID of the Show to cancel the Show for a Screen
+     *     Cancels the Show based on the id of the show for a Screen
      *     and checks whether the show is already Exist or not
-     *     then change the status of the show or throws an Exception
+     *     then change the status of the show if show is not exists
+     *     then throws an Exception
      * </p>
      *
      * @param id - Holds the id of the show
      * @return message - Holds the canceled successfully message
      * @throws NotFoundException - Occurs When there is no show with given id
      */
-    String cancelShow(Long id) throws NotFoundException;
+    boolean cancelShow(Long id) throws NotFoundException;
 
     /**
      * <h1>
      *     getAllShowsByMovieName
      * </h1>
      * <p>
-     *     Gets the Movie name to Fetch all the Shows for the Movie
-     *     and checks whether any show is allocated for a movie or Not
-     *     then returns the Details of the Shows or throws an Exception
+     *     Gets all the Shows for particular movie based on the
+     *     name of the movie if there is no shows for that movie
+     *     then exception is thrown
      * </p>
      *
      * @param movieName - Holds the name of the movie
@@ -84,9 +86,9 @@ public interface ShowService {
      *     getShowById
      * </h1>
      * <p>
-     *     Gets the ID of the Show to get the Details of that Show
-     *     and Checks whether the show is Exist or not
-     *     then returns the Details of the Show or throws an Exception
+     *     Gets the Show based on the ID of the Show, Checks
+     *     whether the show is Exist or not then returns the Details of the Show
+     *     or throws an Exception
      * </p>
      *
      * @param id - Holds the id of the Show
@@ -108,7 +110,5 @@ public interface ShowService {
      * @return shows - Holds the list of shows screening in particular screen
      * @throws NoContentException - Occurs When there is no show is screening in the screen
      */
-    List<Show> getAllShowsForScreen(Long id) throws NoContentException;
-
-    public List<ShowResponseDTO> getAllShowsByScreenId(Long id) throws NoContentException;
+    List<ShowResponseDTO> getAllShowsByScreenId(Long id) throws NoContentException;
 }
