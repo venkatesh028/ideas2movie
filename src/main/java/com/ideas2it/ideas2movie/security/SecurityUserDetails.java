@@ -1,3 +1,7 @@
+/*
+ * Copyright 2023 Ideas2IT Technologies. All rights reserved.
+ * IDEAS2IT PROPRIETARY/CONFIDENTIAL.
+ */
 package com.ideas2it.ideas2movie.security;
 
 import java.util.Arrays;
@@ -10,6 +14,15 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.ideas2it.ideas2movie.model.User;
 
+/**
+ * SecurityUserDetails is responsible for holding user details
+ * And It holds information such as username, password,
+ * And granted authorities for a user.
+ *
+ * @author Venkatesh TM
+ * @version 1.0
+ * @since 17/01/2023
+ */
 public class SecurityUserDetails implements UserDetails {
     private boolean isActive;
     private String userName;

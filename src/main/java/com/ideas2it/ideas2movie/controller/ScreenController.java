@@ -32,7 +32,7 @@ import com.ideas2it.ideas2movie.service.ScreenService;
  * </h1>
  * <p>
  *     Gets the input as a Request from the Client and Validates them
- *     to Create, Update and Remove the Details of the Screen by the Instance of the screenService
+ *     to Create, Update, get and Remove the Details of the Screen by the Instance of the screenService
  *     and used to Handle and Mapping the Request to appropriate function
  * </p>
  *
