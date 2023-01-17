@@ -6,6 +6,7 @@ package com.ideas2it.ideas2movie.controller;
 
 import jakarta.validation.Valid;
 
+import com.ideas2it.ideas2movie.util.constant.Message;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -66,7 +67,7 @@ public class UserController {
      *     createUser
      * </h1>
      * <p>
-     *     Create an Account for a User by validates UserDTO according to Validation Constraints
+     *     Creates an Account for a User by validates UserDTO according to Validation Constraints
      *     If Details of the User is Not Valid throws Exception else Process the Request
      *     and Returns the ResponseEntity with Http Status CREATED and Details of the User
      * </p>
@@ -74,6 +75,7 @@ public class UserController {
      * @param userDTO - holds the Details of the User
      * @return ResponseEntity - Holds the UserResponseDTO and Http Status CREATED
      * @throws AlreadyExistException - when the Details of the User is Already Present
+     * @throws BadRequestException - When Role is Not Found
      */
     @PostMapping
     public ResponseEntity<UserResponseDTO> createAccount(@Valid @RequestBody UserDTO userDTO)
@@ -131,16 +133,17 @@ public class UserController {
      * </h1>
      * <p>
      *     Deactivates the User Account By the ID of the User and returns the ResponseEntity
-     *     with Http status Ok and a String, If User is not found then throws an Exception
+     *     with Http status Ok and a Message If User is not found then throws an Exception
      * </p>
      *
      * @param id - ID of the User to Delete the User
-     * @return ResponseEntity - Holds the String and Http Status OK
+     * @return ResponseEntity - Holds the String Message and Http Status OK
      * @throws NotFoundException - throws when user Not Found
      */
     @DeleteMapping("/{id}")
-
-    public ResponseEntity<String> deactivateAccount(@PathVariable("id") Long id) throws NotFoundException{
-        return ResponseEntity.status(HttpStatus.OK).body(userService.deleteUser(id));
+    public ResponseEntity<String> deactivateAccount(@PathVariable("id") Long id)
+            throws NotFoundException {
+        String message = (userService.deleteUser(id)) ? Message.FAILED_TO_DELETE : Message.DELETED_SUCCESSFULLY;
+        return ResponseEntity.status(HttpStatus.OK).body(message);
     }
 }

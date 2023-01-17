@@ -67,12 +67,13 @@ public class PaymentController {
      * </p>
      *
      * @param paymentDTO - Holds the details of the payment
-     * @return ResponseEntity - Holds the PaymentResponseDTO and Http Status OK
+     * @return ResponseEntity - Holds the PaymentResponseDTO and Http Status ACCEPTED
      * @throws NotFoundException - when Reservation Not Found to Pay
      */
     @PostMapping
-    public ResponseEntity<PaymentResponseDTO> makePayment(@Valid @RequestBody PaymentDTO paymentDTO) throws NotFoundException {
-        return ResponseEntity.status(HttpStatus.OK).body(paymentService.makePayment(paymentDTO));
+    public ResponseEntity<PaymentResponseDTO> makePayment(@Valid @RequestBody PaymentDTO paymentDTO)
+            throws NotFoundException {
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(paymentService.makePayment(paymentDTO));
     }
 
     /**
@@ -90,7 +91,8 @@ public class PaymentController {
      * @throws NotFoundException - when Payment is Not Found for Transaction ID
      */
     @GetMapping("/by-transaction/{id}")
-    public ResponseEntity<PaymentResponseDTO> getByTransactionId(@PathVariable("id") UUID id) throws NotFoundException {
+    public ResponseEntity<PaymentResponseDTO> getByTransactionId(@PathVariable("id") UUID id)
+            throws NotFoundException {
         return ResponseEntity.status(HttpStatus.OK).body(paymentService.getByTransactionId(id));
     }
 
@@ -109,7 +111,8 @@ public class PaymentController {
      * @throws NotFoundException - when Payment Not found for ID
      */
     @GetMapping("/{id}")
-    public ResponseEntity<PaymentResponseDTO> getById(@PathVariable("id") Long id) throws NotFoundException {
+    public ResponseEntity<PaymentResponseDTO> getById(@PathVariable("id") Long id)
+            throws NotFoundException {
         return ResponseEntity.status(HttpStatus.OK).body(paymentService.getById(id));
     }
 }

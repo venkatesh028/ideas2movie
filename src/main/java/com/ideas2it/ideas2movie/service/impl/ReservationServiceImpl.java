@@ -61,9 +61,9 @@ public class ReservationServiceImpl implements ReservationService {
      *     and initialize the reservationRepository, ticketService, seatService variables
      * </p>
      *
-     * @param reservationRepository - instance of the ReservationRepository
-     * @param ticketService - instance of the TicketService
-     * @param seatService - instance of the SeatService
+     * @param reservationRepository - An instance of the ReservationRepository
+     * @param ticketService - An instance of the TicketService
+     * @param seatService - An instance of the SeatService
      */
     public ReservationServiceImpl(ReservationRepository reservationRepository,
                                   TicketService ticketService,

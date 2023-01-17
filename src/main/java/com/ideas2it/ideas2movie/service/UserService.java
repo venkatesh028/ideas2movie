@@ -88,8 +88,8 @@ public interface UserService {
      * </p>
      *
      * @param id - ID of the User to delete the Details
-     * @return String - Success message of Deletion
+     * @return boolean -  status of the User is Deleted
      * @throws NotFoundException - when User Not Found
      */
-    String deleteUser(Long id) throws NotFoundException;
+    boolean deleteUser(Long id) throws NotFoundException;
 }
