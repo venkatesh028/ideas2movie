@@ -1,3 +1,7 @@
+/*
+ * Copyright 2023 Ideas2IT Technologies. All rights reserved.
+ * IDEAS2IT PROPRIETARY/CONFIDENTIAL.
+ */
 package com.ideas2it.ideas2movie.dto.responsedto;
 
 import lombok.Getter;
@@ -8,7 +12,8 @@ import lombok.Setter;
  *     SeatResponseDTO
  * </h1>
  * <p>
- *     Contains the response of the Seat
+ *     SeatResponseDTO represents the response sent to the Client with the ID
+ *     after Creating the Seat.
  * </p>
  *
  * @author Venkatesh TM

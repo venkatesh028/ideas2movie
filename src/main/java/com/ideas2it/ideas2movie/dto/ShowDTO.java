@@ -1,8 +1,13 @@
+/*
+ * Copyright 2023 Ideas2IT Technologies. All rights reserved.
+ * IDEAS2IT PROPRIETARY/CONFIDENTIAL.
+ */
 package com.ideas2it.ideas2movie.dto;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
@@ -21,7 +26,8 @@ import lombok.Setter;
  *     ShowDTO
  * </h1>
  * <p>
- *     Gets the input from the client for the show
+ *     ShowDTO represents a Simplified version of the Show Model
+ *     which Holds the Necessary Information of the Show model
  * </p>
  *
  * @author Venkatesh TM
@@ -38,6 +44,7 @@ public class ShowDTO {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate screeningDate;
     @NotNull
+    @Future(message = "Please provide a future time")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
     private LocalTime startTime;
     @NotNull

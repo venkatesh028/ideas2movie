@@ -12,7 +12,8 @@ import com.ideas2it.ideas2movie.model.Seat;
  * </h1>
  * <p>
  *     SeatService used to manage the Operation for the Seat
- *     Like Creating and Fetching the Details of the Seat and throws an Exception when occurred
+ *     Like Creating seat for a screen and Fetching the Details of the Seat for Screen
+ *     and throws an Exception when occurred
  * </p>
  *
  * @author Venkatesh TM
@@ -27,8 +28,8 @@ public interface SeatService {
      *     createSeat
      * </h1>
      * <p>
-     *     Gets Screen Details which Holds the Row and Column count to create Seats for the Screen
-     *     and stores it to the Storage and returns the list of Seat
+     *     Creates Seat For Scree based on Row and Column count of the screen
+     *     and returns the list of Seat
      * </p>
      *
      * @param screen - Holds the Details of the Screen
@@ -41,13 +42,26 @@ public interface SeatService {
      *     getSeatsByScreenId
      * </h1>
      * <p>
-     *     Gets the ID of the Screen to get all the Seats which are allocated to the
-     *     particular Screen and returns the Details of the Seats
+     *     Retrieves all the Seats which are allocated to the
+     *     particular Screen based on the id of the screen
      * </p>
      * @param screenId - Holds the id of the screen
      * @return listOfSeats - Holds the list of seats for that screen
      */
     List<Seat> getSeatsByScreenId(Long screenId);
 
+    /**
+     * <h1>
+     *     getSeatById
+     * </h1>
+     * <p>
+     *     Retrieves Seat based on the id of the seat checks the
+     *     seat is exists if exists return the seat else
+     *     throws exception
+     * </p>
+     * @param id - Holds the id of the seat
+     * @return Seat - Holds the details of seat
+     * @throws NotFoundException - Occurs when there is no seat with given id
+     */
     Seat getSeatById(Long id) throws NotFoundException;
 }

@@ -12,6 +12,7 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.stereotype.Service;
 
+import com.ideas2it.ideas2movie.logger.CustomLogger;
 import com.ideas2it.ideas2movie.model.Seat;
 import com.ideas2it.ideas2movie.model.Show;
 import com.ideas2it.ideas2movie.dto.ShowDTO;
@@ -48,6 +49,7 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
 public class ShowServiceImpl implements ShowService {
     private final ShowRepository showRepository;
     private final ModelMapper mapper = new ModelMapper();
+    private final CustomLogger logger = new CustomLogger(ShowServiceImpl.class);
     private final MovieService movieService;
     private final ScreenService screenService;
     private final SeatService seatService;
@@ -90,17 +92,19 @@ public class ShowServiceImpl implements ShowService {
     /**
      * {@inheritDoc}
      */
-    public String cancelShow(Long id) throws NotFoundException {
+    public boolean cancelShow(Long id) throws NotFoundException {
         Optional<Show> existingShow = showRepository.findById(id);
         Show show;
+        boolean isRemoved;
 
         if (existingShow.isEmpty()){
+            logger.error(Message.SHOW_NOT_FOUND);
             throw new NotFoundException(Message.SHOW_NOT_FOUND);
         }
         show = existingShow.get();
         show.setActive(false);
-        showRepository.save(show);
-        return Message.DELETED_SUCCESSFULLY;
+        isRemoved = showRepository.save(show).isActive();
+        return isRemoved;
     }
 
     /**
@@ -141,18 +145,6 @@ public class ShowServiceImpl implements ShowService {
         }
 
         return showResponseDTO;
-    }
-
-    /**
-     *{@inheritDoc}
-     */
-    public List<Show> getAllShowsForScreen(Long id) throws NoContentException {
-        List<Show> shows = showRepository.findAllByScreenId(id);
-
-        if (shows.isEmpty()) {
-            throw new NoContentException(Message.NO_SHOWS_AVAILABLE);
-        }
-        return shows;
     }
 
     /**
