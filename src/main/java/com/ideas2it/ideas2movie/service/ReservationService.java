@@ -43,8 +43,9 @@ public interface ReservationService {
      *
      * @param reservationDTO - Holds the details to book Ticket
      * @return ReservationResponseDTO - Holds the Details of the Reservation
+     * @throws BadRequestException - When
      */
-    ReservationResponseDTO reserveSeats(ReservationDTO reservationDTO) throws NotFoundException, BadRequestException;
+    ReservationResponseDTO reserveSeats(ReservationDTO reservationDTO) throws BadRequestException;
 
     /**
      * <h1>

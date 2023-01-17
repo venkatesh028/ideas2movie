@@ -4,8 +4,6 @@
  */
 package com.ideas2it.ideas2movie.service;
 
-import com.ideas2it.ideas2movie.model.Payment;
-import com.ideas2it.ideas2movie.model.Reservation;
 import java.util.UUID;
 
 import com.ideas2it.ideas2movie.dto.PaymentDTO;

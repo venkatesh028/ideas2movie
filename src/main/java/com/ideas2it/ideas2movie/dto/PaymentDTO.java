@@ -35,9 +35,9 @@ public class PaymentDTO {
     @NotNull(message = Message.RESERVATION_ID_SHOULD_NOT_BE_EMPTY)
     private Long reservationId;
     @NotNull(message = Message.PAYMENT_MODE_SHOULD_NOT_BE_EMPTY)
-    @Pattern(regexp = Constant.PAYMENT_MODE_PATTERN, message = Message.ENTER_VALID_PAYMENT_MODE)
+    //@Pattern(regexp = Constant.PAYMENT_MODE_PATTERN, message = Message.ENTER_VALID_PAYMENT_MODE)
     private ModeOfPayment modeOfPayment;
     @NotNull(message = Message.AMOUNT_SHOULD_NOT_BE_EMPTY)
-    @Pattern(regexp = Constant.AMOUNT_PATTERN, message = Message.ENTER_VALID_AMOUNT)
+    //@Pattern(regexp = Constant.AMOUNT_PATTERN, message = Message.ENTER_VALID_AMOUNT)
     private Double enteredAmount;
 }

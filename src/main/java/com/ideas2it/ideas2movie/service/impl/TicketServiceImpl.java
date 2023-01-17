@@ -65,12 +65,12 @@ public class TicketServiceImpl implements TicketService {
         ticket.setMovieName(reservation.getShow().getMovie().getName());
         ticket.setShowDate(reservation.getShow().getScreeningDate());
         List<Seat> seats = reservation.getSeats();
-        String seatName = "";
+        StringBuilder seatName = new StringBuilder();
 
         for(Seat seat: seats) {
-            seatName += seat.getName() + ",";
+            seatName.append(seat.getName()).append(",");
         }
-        ticket.setSeats(seatName);
+        ticket.setSeats(seatName.toString());
         ticket.setMovieName(reservation.getShow().getMovie().getName());
         return ticketRepository.save(ticket);
     }

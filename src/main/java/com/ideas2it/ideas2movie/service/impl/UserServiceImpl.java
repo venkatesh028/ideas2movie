@@ -122,7 +122,7 @@ public class UserServiceImpl implements UserService {
      * {@inheritDoc}
      */
     @Override
-    public String deleteUser(Long id) throws NotFoundException {
+    public boolean deleteUser(Long id) throws NotFoundException {
         Optional<User> existingUser = userRepository.findById(id);
 
         if (existingUser.isEmpty()) {
@@ -130,12 +130,6 @@ public class UserServiceImpl implements UserService {
         }
         User user = existingUser.get();
         user.setActive(false);
-        userRepository.save(user);
-
-        if (userRepository.findById(id).get().isActive()) {
-            return Message.FAILED_TO_DELETE;
-        } else {
-            return Message.DELETED_SUCCESSFULLY;
-        }
+        return userRepository.save(user).isActive();
     }
 }

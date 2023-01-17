@@ -22,7 +22,7 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  * <p>
  *     TicketController provides the RESTful Endpoints for handle the Retrieving
  *     Operation of the Ticket and validates according to the Validation Constraints
- *     and throws an exception when occurred and returns Details of the Ticket and HTtp Status
+ *     and throws an exception when occurred and returns Details of the Ticket and Http Status
  * </p>
  *
  * @author AJAISHARMA
@@ -59,11 +59,12 @@ public class TicketController {
      * </p>
      *
      * @param id - ID of the Ticket to get
-     * @return ResponseEntity - Holds the TicketResponseDTo and Http Status Ok
-     * @throws NotFoundException - when Ticket Not Found
+     * @return ResponseEntity - Holds the TicketResponseDTO and Http Status OK
+     * @throws NotFoundException - When Ticket Not Found
      */
     @GetMapping("/{id}")
-    public ResponseEntity<TicketResponseDTO> getTicketById(@PathVariable("id") Long id) throws NotFoundException {
+    public ResponseEntity<TicketResponseDTO> getTicketById(@PathVariable("id") Long id)
+            throws NotFoundException {
         return ResponseEntity.status(HttpStatus.OK).body(ticketService.getTicketDTOById(id));
     }
 }

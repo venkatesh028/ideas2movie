@@ -64,18 +64,20 @@ public class ReservationController {
      *     addReservation
      * </h1>
      * <p>
-     *     Gets the RequestBody for Add the Reservation and Validates according to Validation Constraints
-     *     and process the request by sending to ReservationService and returns the ReservationResponseDTO
-     *     and Http Status or throws an Exception when occurred
+     *     Adds a new reservation of the Seat for a Show by the User by validating the ReservationDTO
+     *     according to the Validation constraints If any Details is Not valida throws an Exception
+     *     else process the request and returns the ResponseEntity with Http Status OK
+     *     and Details of Reservation or throws an Exception when occurred
      * </p>
      *
      * @param reservationDTO - holds the Details to reserve ticket
-     * @return ResponseEntity - holds the Reservation Response DTO and Http Status
+     * @return ResponseEntity - holds the Reservation Response DTO and Http Status CREATED
+     * @throws BadRequestException - When Seat is Not Found
      */
     @PostMapping
     public ResponseEntity<ReservationResponseDTO> addReservation(@Valid @RequestBody ReservationDTO reservationDTO)
-            throws NotFoundException, BadRequestException {
-        return ResponseEntity.status(HttpStatus.PAYMENT_REQUIRED).body(reservationService.reserveSeats(reservationDTO));
+            throws BadRequestException {
+        return ResponseEntity.status(HttpStatus.CREATED).body(reservationService.reserveSeats(reservationDTO));
     }
 
     /**
@@ -83,13 +85,14 @@ public class ReservationController {
      *     cancelReservation
      * </h1>
      * <p>
-     *     Gets the PathVariable to cancel the Reservation and process the request by sending
-     *     to ReservationService and returns the ReservationResponseDTO and Http Status
-     *     or throws an Exception when occurred
+     *     Cancels the Reservation of the Seats for the Show by the ID of the reservation
+     *     by processing the Request and returns the ResponseEntity with the Http Status OK
+     *     and Details of the Reservation or throws an Exception when occurred
      * </p>
      *
      * @param id - ID of the reservation to Cancel
      * @return ResponseEntity - Holds the ReservationResponseDTO and Http Status
+     * @throws NotFoundException - When Reservation Not Found
      */
     @DeleteMapping("/cancel/{id}")
     public ResponseEntity<ReservationResponseDTO> cancelReservation(@PathVariable("id") Long id)
@@ -102,13 +105,14 @@ public class ReservationController {
      *     getReservationById
      * </h1>
      * <p>
-     *     Gets the PathVariable to get the Details of the Reservation and process the request
-     *     by sending to ReservationService and returns the ReservationResponseDTO and Http Status
-     *     or throws an Exception when Occurred
+     *     Retrieves the Details of the Reservation by the ID of the Reservation
+     *     by processing the request and returns the ResponseEntity with Http Status OK
+     *     and Details of the Reservation or throws an Exception when occurred
      * </p>
      *
      * @param id - ID of the Reservation to Get details of Reservation
      * @return ResponseEntity - Holds the ReservationResponseDTO and Http Status
+     * @throws NotFoundException - When Reservation Not Found
      */
     @GetMapping("/{id}")
     public ResponseEntity<ReservationResponseDTO> getReservationById(@PathVariable("id") Long id)
@@ -121,13 +125,14 @@ public class ReservationController {
      *     getAllReservationByUserId
      * </h1>
      * <p>
-     *     Gets the PathVariable to get All the Details of the User By User ID and process the request
-     *     by sending to ReservationService and returns the ReservationResponseDTO and Http Status
-     *     or throws an Exception when occurred
+     *     Retrieves the Details of the All Reservations for the User by the User ID
+     *     by processing the request and returns the ResponseEntity with Http Status OK
+     *     and Details of the All Reservations for User or throws an Exception when occurred
      * </p>
      *
      * @param id - ID of the User to Get the Reservations of User
      * @return ResponseEntity - Holds the ReservationResponseDTO and Http Status
+     * @throws NoContentException - When there is No Reservation Found for User
      */
     @GetMapping("/of-user/{id}")
     public ResponseEntity<List<ReservationResponseDTO>> getAllReservationByUserId(@PathVariable("id") Long id)

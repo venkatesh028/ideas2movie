@@ -69,7 +69,7 @@ public class RoleController {
      *
      * @param roleDTO - Holds the role details to create a new role
      * @return ResponseEntity - Holds the RoleResponseDTO and Http Status CREATED
-     * @throws AlreadyExistException - when Role is Already Created for user
+     * @throws AlreadyExistException - When Role is Already Created for user
      */
     @PostMapping
     public ResponseEntity<RoleResponseDTO> createRole(@Valid @RequestBody RoleDTO roleDTO)
@@ -87,10 +87,11 @@ public class RoleController {
      * </p>
      *
      * @return ResponseEntity - Holds the Role response DTO and Http Status
-     * @throws NoContentException - when no Role Found
+     * @throws NoContentException - When no Role Found
      */
     @GetMapping
-    public ResponseEntity<List<RoleResponseDTO>> getAllRoles() throws NoContentException {
+    public ResponseEntity<List<RoleResponseDTO>> getAllRoles()
+            throws NoContentException {
         return ResponseEntity.status(HttpStatus.OK).body(roleService.getAllRoles());
     }
 }
