@@ -11,6 +11,7 @@ import java.util.Optional;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.modelmapper.spi.MatchingStrategy;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.ideas2it.ideas2movie.model.User;
@@ -66,6 +67,7 @@ public class UserServiceImpl implements UserService {
     public UserResponseDTO createUser(UserDTO userDTO) throws AlreadyExistException, BadRequestException {
         mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         User user = mapper.map(userDTO, User.class);
+        user.setPassword(new BCryptPasswordEncoder().encode(userDTO.getPassword()));
 
         if (userRepository.existsByPhoneNumber(user.getPhoneNumber())
                 && userRepository.existsByName(user.getName())) {

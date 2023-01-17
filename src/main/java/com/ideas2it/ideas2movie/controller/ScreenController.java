@@ -93,6 +93,19 @@ public class ScreenController {
         return ResponseEntity.status(HttpStatus.OK).body(screenService.updateScreen(id, screenDTO));
     }
 
+    /**
+     * <h1>
+     *     getAllScreenByTheaterId
+     * </h1>
+     * <p>
+     *      Retrieves the Details of the Screen By the ID of the Theater
+     *      by processing the request if there is no screen exist for
+     *      that theater then exception is thrown
+     * </p>
+     * @param id - Holds the id of the theater
+     * @return listOfScreen - Holds the list of screen of the particular theater
+     * @throws NoContentException - Occurs when there is no screen for that theater
+     */
     @GetMapping("/{id}")
     public ResponseEntity<List<ScreenResponseDTO>> getAllScreenByTheaterId(@PathVariable Long id)
             throws NoContentException {

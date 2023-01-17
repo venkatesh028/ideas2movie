@@ -28,18 +28,87 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
+    @Bean
     public SecurityFilterChain configure(HttpSecurity httpSecurity)
             throws Exception {
         httpSecurity.authenticationProvider(daoAuthenticationProvider());
 
         return httpSecurity.csrf().disable()
                 .authorizeHttpRequests(authorize -> authorize
+                        .requestMatchers(HttpMethod.POST, "/api/v1/roles")
+                        .permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/v1/users")
-                        .permitAll())
+                        .permitAll()
+                        .requestMatchers(HttpMethod.POST, "api/v1/theaters")
+                        .hasAuthority("admin")
+                        .requestMatchers(HttpMethod.PUT, "api/v1/theaters")
+                        .hasAuthority("admin")
+                        .requestMatchers(HttpMethod.DELETE, "api/v1/theaters")
+                        .hasAuthority("admin")
+                        .requestMatchers(HttpMethod.POST, "api/v1/movies")
+                        .hasAuthority("admin")
+                        .requestMatchers(HttpMethod.PUT, "api/v1/movies")
+                        .hasAuthority("admin")
+                        .requestMatchers(HttpMethod.DELETE, "api/v1/movies")
+                        .hasAuthority("admin")
+                        .requestMatchers(HttpMethod.POST, "api/v1/screens")
+                        .hasAuthority("admin")
+                        .requestMatchers(HttpMethod.PUT, "api/v1/screens")
+                        .hasAuthority("admin")
+                        .requestMatchers(HttpMethod.DELETE, "api/v1/screens")
+                        .hasAuthority("admin")
+                        .requestMatchers(HttpMethod.POST, "api/v1/shows")
+                        .hasAuthority("admin")
+                        .requestMatchers(HttpMethod.PUT, "api/v1/shows")
+                        .hasAuthority("admin")
+                        .requestMatchers(HttpMethod.DELETE, "api/v1/shows")
+                        .hasAuthority("admin")
+                        .requestMatchers(HttpMethod.POST, "api/v1/movies")
+                        .hasAuthority("admin")
+                        .requestMatchers(HttpMethod.PUT, "api/v1/movies")
+                        .hasAuthority("admin")
+                        .requestMatchers(HttpMethod.DELETE, "api/v1/movies")
+                        .hasAuthority("admin")
+                        .requestMatchers(HttpMethod.POST, "api/v1/reservations")
+                        .hasAnyAuthority("admin", "customer")
+                        .requestMatchers(HttpMethod.DELETE, "api/v1/reservations")
+                        .hasAnyAuthority("admin","customer")
+                        .requestMatchers(HttpMethod.GET,"api/v1/shows/of-movie/{movieName}")
+                        .hasAnyAuthority("admin","customer")
+                        .requestMatchers(HttpMethod.GET, "api/v1/shows/{id}")
+                        .hasAnyAuthority("admin", "customer")
+                        .requestMatchers(HttpMethod.GET, "api/v1/shows/of-screen/{id}")
+                        .hasAuthority("admin")
+                        .requestMatchers(HttpMethod.GET, "api/v1/screens/{id}")
+                        .hasAuthority("admin")
+                        .requestMatchers(HttpMethod.GET, "api/v1/reservations/of-user/{id}")
+                        .hasAnyAuthority("admin", "customer")
+                        .requestMatchers(HttpMethod.GET, "api/v1/reservations/{id}")
+                        .hasAnyAuthority("admin","customer")
+                        .requestMatchers(HttpMethod.GET, "api/v1/payments/by-transaction/{id}")
+                        .hasAnyAuthority("admin", "customer")
+                        .requestMatchers(HttpMethod.GET, "api/v1/payments/{id}")
+                        .hasAnyAuthority("admin", "customer")
+                        .requestMatchers(HttpMethod.POST, "api/v1/payments")
+                        .hasAnyAuthority("admin", "customer")
+                        .requestMatchers(HttpMethod.GET, "api/v1/tickets")
+                        .hasAnyAuthority("admin", "customer")
+                )
                 .authorizeHttpRequests().anyRequest().authenticated().and()
                         .httpBasic().and().build();
     }
 
+    /**
+     * <h1>
+     *
+     * </h1>
+     * <p>
+     *
+     * </p>
+     * @param authenticationConfiguration
+     * @return
+     * @throws Exception
+     */
     @Bean
     public AuthenticationManager authenticationManagerBean(AuthenticationConfiguration authenticationConfiguration)
             throws Exception {
@@ -51,9 +120,9 @@ public class SecurityConfig {
      *     daoAuthenticationProvider
      * </h1>
      * <p>
-     *     
+     *     Provide the authentication provider to verify the credentials of user.
      * </p>
-     * @return
+     * @return configured authentication provider
      */
     @Bean
     public DaoAuthenticationProvider daoAuthenticationProvider() {
