@@ -4,9 +4,11 @@
  */
 package com.ideas2it.ideas2movie.controller;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,17 +18,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-import java.util.Optional;
-
 import com.ideas2it.ideas2movie.dto.TheaterDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.TheaterResponseDTO;
+import com.ideas2it.ideas2movie.service.TheaterService;
+import com.ideas2it.ideas2movie.util.constant.Message;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
 import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
-import com.ideas2it.ideas2movie.service.TheaterService;
-import com.ideas2it.ideas2movie.util.constant.Constant;
-import com.ideas2it.ideas2movie.util.constant.Message;
 
 /**
  * <h1>
@@ -68,7 +66,7 @@ public class TheaterController {
      *     addTheater
      * </h1>
      * <p>
-     *     Create the Theater to run movies and validating the TheaterDTO
+     *     Create the Theater for movies and validating the TheaterDTO
      *     according to validation constraints If Details of the Theater
      *     is Not Valid throws an exception else process the request and
      *     returns the ResponseEntity with Http status and Details of the Theater
@@ -83,7 +81,7 @@ public class TheaterController {
         Optional<TheaterResponseDTO> theaterDetails = theaterService.addTheater(theaterDTO);
 
         if (theaterDetails.isPresent()) {
-            return ResponseEntity.status(HttpStatus.OK).body(theaterDetails.get());
+            return ResponseEntity.status(HttpStatus.CREATED).body(theaterDetails.get());
         }
         throw new AlreadyExistException(Message.THEATER_ALREADY_REGISTERED);
     }
@@ -115,13 +113,13 @@ public class TheaterController {
      *     getAllTheaters
      * </h1>
      * <p>
-     *     It returns a response entity with the fetched details of all
-     *     theaters, if the list of theater is empty
-     *     it will throw error message.
+     *     Retrieves the Details of All Theater which is exist in ideas2movie and process
+     *     the request If theaters is not found throws an exception otherwise returns the
+     *     ResponseEntity with Http status OK and Details of all theaters
      *</p>
      *
-     * @return A list of ResponseTheaterDTO objects - gives a response as list of theater details.
-     * @throws NoContentException - occur when list of movie is empty
+     * @return List - Holds the TheaterDTO and Http Status OK
+     * @throws NoContentException - when list of Theater is empty
      */
     @GetMapping
     public List<TheaterResponseDTO> getAllTheaters() throws NoContentException {
@@ -147,10 +145,9 @@ public class TheaterController {
      * @throws  NotFoundException - if theater not exist on a given id.
      */
     @PutMapping("/{id}")
-    public ResponseEntity<TheaterResponseDTO> updateTheater(@PathVariable("id") Long id,
-                                             @RequestBody TheaterDTO theaterDTO) throws
+    public ResponseEntity<TheaterResponseDTO> updateTheater
+        (@PathVariable("id") Long id,@RequestBody TheaterDTO theaterDTO) throws
             NotFoundException, AlreadyExistException {
-
         return ResponseEntity.status(HttpStatus.OK)
                 .body(theaterService.updateTheater(id, theaterDTO));
     }
@@ -164,14 +161,18 @@ public class TheaterController {
      *     and a String if Theater not found throws a exception
      *</p>
      *
-     * @param id The id of the Theater
+     * @param id - The id of the Theater
      * @return ResponseEntity - Holds the String and Http Status OK
      * @throws NotFoundException - when Theater is not found
      */
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteTheater(@PathVariable("id") Long id)
             throws NotFoundException  {
-        return ResponseEntity.status(HttpStatus.OK).body(theaterService.deleteTheater(id));
+        if (!theaterService.deleteTheater(id)) {
+            return ResponseEntity.status(HttpStatus.OK).body(Message.DELETED_SUCCESSFULLY);
+        } else {
+            return ResponseEntity.status(HttpStatus.OK).body(Message.FAILED_TO_DELETE);
+        }
     }
 }
 

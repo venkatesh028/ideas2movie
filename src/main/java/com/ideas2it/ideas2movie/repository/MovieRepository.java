@@ -28,4 +28,7 @@ import com.ideas2it.ideas2movie.model.Movie;
 public interface MovieRepository extends JpaRepository<Movie, Long> {
  Optional<Movie> findByName(String name);
  Optional<Movie> findById(Long id);
+
+ boolean existsById(Long id);
+
 }
