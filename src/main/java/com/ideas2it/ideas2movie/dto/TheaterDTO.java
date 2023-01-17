@@ -17,7 +17,8 @@ import com.ideas2it.ideas2movie.util.enums.City;
  *     Theater DTO
  * </h1>
  * <p>
- *     Get the input from the client for  the Theater DTO
+ *      TheaterDTO represents a Simplified version of the Theater Model
+ *      which Holds the Necessary Information of the Theater model
  * </p>
  *
  * @author YOGESHWAR S
@@ -28,13 +29,10 @@ import com.ideas2it.ideas2movie.util.enums.City;
 @Setter
 @NoArgsConstructor
 public class TheaterDTO {
-    private Long id;
     @NotBlank(message = Message.THEATER_NAME_SHOULD_NOT_BE_EMPTY)
     private String theaterName;
     @NotBlank(message = Message.CITY_NAME_SHOULD_NOT_BE_EMPTY)
     private City city;
     @NotBlank(message = Message.AMOUNT_SHOULD_NOT_BE_EMPTY)
     private String area;
-    @NotBlank(message = Message.PINCODE_SHOULD_NOT_BE_EMPTY)
-    private String pincode;
 }

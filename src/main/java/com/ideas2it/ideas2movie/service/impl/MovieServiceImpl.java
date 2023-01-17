@@ -54,6 +54,9 @@ public class MovieServiceImpl implements MovieService {
         this.movieRepository = movieRepository;
     }
 
+    /**
+     * {@inheritDoc}
+     */
      @Override
     public MovieResponseDTO addMovie(MovieDTO movieDTO) {
 
@@ -62,6 +65,9 @@ public class MovieServiceImpl implements MovieService {
                 MovieResponseDTO.class);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MovieResponseDTO getMovieById(Long id) throws NotFoundException {
         Optional<Movie> movie = movieRepository.findById(id);
@@ -73,6 +79,9 @@ public class MovieServiceImpl implements MovieService {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MovieResponseDTO getMovieByName(String name) throws NotFoundException {
         Optional<Movie> existByMovie = movieRepository.findByName(name);
@@ -84,6 +93,9 @@ public class MovieServiceImpl implements MovieService {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<MovieResponseDTO> getAllMovies() throws NoContentException {
         List<Movie> movies = movieRepository.findAll();
@@ -98,6 +110,9 @@ public class MovieServiceImpl implements MovieService {
         throw  new NoContentException(Message.MOVIE_NOT_FOUND);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Movie getMovieByIdForShows(Long id) throws NotFoundException{
         Optional<Movie> existingMovies = movieRepository.findById(id);
@@ -108,6 +123,10 @@ public class MovieServiceImpl implements MovieService {
             throw new NotFoundException(Message.MOVIE_NOT_FOUND);
         }
     }
+
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public MovieResponseDTO updateMovie(Long id, MovieDTO movieDTO)
             throws  NotFoundException {
@@ -121,6 +140,10 @@ public class MovieServiceImpl implements MovieService {
         }
         throw new NotFoundException(Message.FAILED_TO_UPDATE);
     }
+
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String deleteMovie(Long id) throws NotFoundException {
         Optional<Movie> existingMovie = movieRepository.findById(id);

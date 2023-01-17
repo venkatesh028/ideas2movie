@@ -48,6 +48,10 @@ public class CastAndCrewServiceImpl implements CastAndCrewService {
     public CastAndCrewServiceImpl(CastAndCrewRepository castAndCrewRepository) {
         this.castAndCrewRepository = castAndCrewRepository;
     }
+
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public CastAndCrewResponseDTO addCastAndCrew(CastAndCrewDTO castAndCrewDTO) {
         CastAndCrew castAndCrew = modelMapper.map(castAndCrewDTO, CastAndCrew.class);
@@ -55,6 +59,9 @@ public class CastAndCrewServiceImpl implements CastAndCrewService {
                 CastAndCrewResponseDTO.class);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public CastAndCrewResponseDTO getCastAndCrewById(Long id) throws NotFoundException {
         Optional<CastAndCrew> castAndCrew = castAndCrewRepository.findById(id);
@@ -65,6 +72,9 @@ public class CastAndCrewServiceImpl implements CastAndCrewService {
         throw new NotFoundException(Message.CAST_AND_CREW_NOT_FOUND);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public CastAndCrewResponseDTO updateCastAndCrew(Long id,
                    CastAndCrewDTO castAndCrewDTO) throws NotFoundException {
@@ -79,6 +89,9 @@ public class CastAndCrewServiceImpl implements CastAndCrewService {
         throw new NotFoundException(Message.FAILED_TO_UPDATE);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String deleteCastAndCrew(Long id) throws NotFoundException {
 
