@@ -12,7 +12,6 @@ import java.util.Optional;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
-import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.model.Screen;
 import com.ideas2it.ideas2movie.model.Show;
 import com.ideas2it.ideas2movie.model.Theater;
@@ -23,10 +22,11 @@ import com.ideas2it.ideas2movie.service.ScreenService;
 import com.ideas2it.ideas2movie.service.SeatService;
 import com.ideas2it.ideas2movie.service.TheaterService;
 import com.ideas2it.ideas2movie.repository.ScreenRepository;
-import com.ideas2it.ideas2movie.exception.AlreadyExistException;
-import com.ideas2it.ideas2movie.exception.NotFoundException;
-import com.ideas2it.ideas2movie.exception.BadRequestException;
 import com.ideas2it.ideas2movie.util.constant.Message;
+import com.ideas2it.ideas2movie.exception.AlreadyExistException;
+import com.ideas2it.ideas2movie.exception.BadRequestException;
+import com.ideas2it.ideas2movie.exception.NotFoundException;
+import com.ideas2it.ideas2movie.exception.NoContentException;
 
 /**
  * <h1>
@@ -157,6 +157,9 @@ public class ScreenServiceImpl implements ScreenService {
         return  existingScreen.get();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public List<ScreenResponseDTO> getScreensByTheaterId(Long id) throws NoContentException {
         List<Screen> existingScreens = screenRepository.findAllByTheaterId(id);
         List<ScreenResponseDTO> screens = new ArrayList<>();
@@ -190,6 +193,7 @@ public class ScreenServiceImpl implements ScreenService {
         boolean isExists = false;
         Optional<Screen> existingScreen = screenRepository.findByNameAndTheaterId(screen.getName(),
                 screen.getTheater().getId());
+
         if (existingScreen.isPresent()){
             if (!Objects.equals(existingScreen.get().getId(), screen.getId())){
                 isExists = true;
@@ -197,7 +201,4 @@ public class ScreenServiceImpl implements ScreenService {
         }
         return isExists;
     }
-
-
-
 }

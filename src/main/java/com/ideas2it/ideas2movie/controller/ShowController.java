@@ -54,9 +54,10 @@ public class ShowController {
      *    createShow
      * </h1>
      * <p>
-     *     Gets the RequestBody for creating the Show and Validates according to Validation Constraints
-     *     and process the request by sending to ShowService and returns the ShowResponseDTO and Http Status
-     *     or throws an exception accordingly when occurred.
+     *     Creates the Show For the screen by getting the details from ShowDTO and
+     *     Validates according to Validation Constraints if the details of the show
+     *     is not valid then the exception is thrown else process the request and
+     *     return the response entity with HttpStatus created
      * </p>
      *
      * @param showDTO- Holds the details of the show to create
@@ -75,9 +76,10 @@ public class ShowController {
      *     getShow
      * </h1>
      * <p>
-     *     Gets the PathVariable for Getting the Details of the Show for Show ID
-     *     and process the Request by sending to showService and returns the ShowResponseDTO and Http Status
-     *     or throws an exception accordingly when occurred.
+     *    Retrieves the Details of the show based on the id of the show
+     *    by processing the request if there is no show with that id
+     *    then exception is thrown Else return the response entity with
+     *    HttpStatus Ok
      * </p>
      *
      * @param id - Holds the ID of the show
@@ -89,7 +91,19 @@ public class ShowController {
         return ResponseEntity.status(HttpStatus.OK).body(showService.getShowById(id));
     }
 
-
+    /**
+     *<h1>
+     *     getShowsByScreenId
+     *</h1>
+     * <p>
+     *     Retrieves the list of shows for the particular screen
+     *     By the id of the screen if there is no shows available
+     *     for the screen then exception is thrown
+     * </p>
+     * @param id - id of the screen
+     * @return shows - Holds the list of shows for particular screen
+     * @throws NoContentException - Occurs when there is no shows for the screen
+     */
     @GetMapping("/of-screen/{id}")
     public ResponseEntity<List<ShowResponseDTO>> getShowsByScreenId(@PathVariable Long id)
             throws NoContentException {
@@ -101,9 +115,10 @@ public class ShowController {
      *     getAllShowsByMovieName
      * </h1>
      * <p>
-     *     Gets the PathVariable to Get Details of All Shows for Movie Name
-     *     and process the Request by sending to showService and returns the List of ShowResponseDTO
-     *     and Http Status or throws an exception accordingly when occurred
+     *     Retrieves All the shows for the Particular Movie based on
+     *     The name of that movie if there is no shows for that movie
+     *     then exception is thrown else return the ResponseEntity with
+     *     HttpStatus OK
      * </p>
      * @param movieName - Holds the name of the movie
      * @return ResponseEntity - Holds the List of ShowResponseDTO and Http Status

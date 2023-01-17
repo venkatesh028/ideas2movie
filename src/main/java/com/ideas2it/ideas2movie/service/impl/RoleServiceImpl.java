@@ -4,7 +4,6 @@
  */
 package com.ideas2it.ideas2movie.service.impl;
 
-import com.ideas2it.ideas2movie.exception.NotAcceptableException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -21,16 +20,15 @@ import com.ideas2it.ideas2movie.util.constant.Message;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
 import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 
 /**
  * <h1>
  *     RoleServiceImpl
  * </h1>
  * <p>
- *     Uses the roleRepository instance to interact with Storage to perform
- *     Create Role, Get By Id, Get All role on Role and Throws appropriate Exception when needed
- *     and Also Logs the Error for debugging
+ *     RoleServiceImpl provides the Business logic to perform CRUD like
+ *     Creating Role for User, Fetches the Details of the All Role, and By ID
+ *     and Throws appropriate Exception when needed and Also Logs the Error for debugging
  * </p>
  *
  * @author AJAISHARMA
@@ -41,6 +39,17 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 public class RoleServiceImpl implements RoleService {
     private final RoleRepository roleRepository;
     private final ModelMapper mapper = new ModelMapper();
+
+    /**
+     * <h1>
+     *     RoleServiceImpl Constructor
+     * </h1>
+     * <p>
+     *      inject the RoleRepository dependency and initialize the roleRepository variable
+     * </p>
+     *
+     * @param roleRepository - Instance of the RoleRepository
+     */
     public RoleServiceImpl(RoleRepository roleRepository) {
         this.roleRepository = roleRepository;
     }

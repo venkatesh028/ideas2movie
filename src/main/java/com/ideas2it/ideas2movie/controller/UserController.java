@@ -7,7 +7,6 @@ package com.ideas2it.ideas2movie.controller;
 import jakarta.validation.Valid;
 
 import org.modelmapper.ModelMapper;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -52,8 +51,7 @@ public class UserController {
      *     User Controller Constructor
      * </h1>
      * <p>
-     *     Used to initialize the Services for calling the Operation performers of Service
-     *     and also achieves the Autowiring
+     *     Used to inject the UserService dependency and initialize the userService variable
      * </p>
      *
      * @param userService - An instance of the User Service
@@ -141,6 +139,7 @@ public class UserController {
      * @throws NotFoundException - throws when user Not Found
      */
     @DeleteMapping("/{id}")
+
     public ResponseEntity<String> deactivateAccount(@PathVariable("id") Long id) throws NotFoundException{
         return ResponseEntity.status(HttpStatus.OK).body(userService.deleteUser(id));
     }

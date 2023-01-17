@@ -102,5 +102,18 @@ public interface ScreenService {
      */
     Screen getScreenById(Long id) throws BadRequestException, NotFoundException;
 
+    /**
+     * <h1>
+     *     getScreensByTheaterId
+     * </h1>
+     * <p>
+     *     Gets all the screens for the particular theater
+     *     by the id of the theater if there is no theater
+     *     then exception is thrown
+     * </p>
+     * @param id - Holds the id of the theater
+     * @return Screens - Holds the list of screen for the particular theater
+     * @throws NoContentException - Occurs when there is no screen for the given theater
+     */
     List<ScreenResponseDTO> getScreensByTheaterId(Long id) throws NoContentException;
 }

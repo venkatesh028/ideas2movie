@@ -6,7 +6,6 @@ package com.ideas2it.ideas2movie.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,13 +25,10 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  *     CastAndCrew Controller
  * </h1>
  * <p>
- *     Gets the input parameter as a request from the Client
- *     to Get cast and crew Details of a particular movie
- *     by sending movie id as a request and also
- *     Gets the input parameter as a request from the Admin
- *     to create, update, delete cast and crew Details of a particular movie
- *     by sending those parameter or Object
- *     to the Theater Service to perform Business Logics on them
+ *     CastAndCrewController provides the RESTful endpoints to Handle CRUD Operation and to
+ *     add the cast and crew details for a movie and validate the Information of the CastAndCrewDTO
+ *     according to Validation constraints and throws an exception when occurred
+ *     and returns the Details of CastAndCrew and Http Status
  * </p>
  *
  * @author Yogeshwar S
@@ -50,10 +46,11 @@ public class CastAndCrewController {
      *     CastAndCrew Controller Constructor
      * </h1>
      * <p>
-     *     Used to Achieve the Autowiring for CastAndCrew service.
+     *     Used to initialize the Services for calling the Operation performers of Service
+     *     and also to achieves the Autowiring
      * </p>
      *
-     * @param castAndCrewService - reference variable for CastAndCrew Service
+     * @param castAndCrewService - An instance of the CastAndCrew Service
      */
      public CastAndCrewController(CastAndCrewService castAndCrewService) {
         this.castAndCrewService = castAndCrewService;
@@ -64,14 +61,14 @@ public class CastAndCrewController {
      *     addCastAndCrew
      * </h1>
      * <p>
-     *     It takes a CastAndCrewResponseDTO object as a request body
-     *     and calls the createCastAndCrew function in the castAndCrewService.
-     *     If the castAndCrew of a movie is created, it returns the castAndCrewDTO object
+     *    Add the cast and crew for the movie by validating the CastAndCrewDTO,
+     *    according to validation constraints If Details of the CastAndCrew
+     *    is Not Valid throws an exception else process the request and
+     *    returns the ResponseEntity with Http status and Details of the CastAndCrew
      *</p>
      *
-     * @param castAndCrewDTO The castAndCrewDto object that is to be added.
-     * @return ResponseEntity<CastAndCrewResponseDTO> - gives a response as
-     * castAndCrew details.
+     * @param castAndCrewDTO - Holds the details of castAndCrew
+     * @return ResponseEntity - Holds the castAndCrewDTO and Http Status OK
      */
     @PostMapping
     public ResponseEntity<CastAndCrewResponseDTO> addCastAndCrew(
@@ -82,22 +79,20 @@ public class CastAndCrewController {
 
     /**
      * <h1>
-     *     getCastAndCrewByMovieId
+     *     getCastAndCrewById
      * </h1>
      * <p>
-     *     It takes an id of a castAndCrew as a path variable and
-     *     fetches a details, returns a response entity
-     *     with the fetched cast and crew of a movie
-     *     if cast and crew is not present,
-     *     it will throw error message.
+     *     Retrieves the Details of the castAndCrew by its ID and process the request
+     *     If castAndCrew is not found throws an exception otherwise returns the
+     *     ResponseEntity with Http status OK and Details of the castAndCrew
      * </p>
      *
-     * @param id The id of the CastAndCrew to fetch the details
-     * @return ResponseEntity<CastAndCrewResponseDTO>  - give response as castAndCrew details
-     * @throws NotFoundException - occur when cast and crew details is not Found
+     * @param id - Id of the CastAndCrew
+     * @return ResponseEntity - Holds the CastAndCrewResponseDTO and Http Status OK
+     * @throws NotFoundException - when CastAndCrew is Not Found for by its ID
      */
     @GetMapping("/{id}")
-    public ResponseEntity<CastAndCrewResponseDTO> getCastAndCrewByMovieId(
+    public ResponseEntity<CastAndCrewResponseDTO> getCastAndCrewId(
             @PathVariable("id") Long id) throws NotFoundException {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(castAndCrewService.getCastAndCrewById(id));
@@ -108,16 +103,16 @@ public class CastAndCrewController {
      *     updateCastAndCrew
      * </h1>
      * <p>
-     *     It takes a CastAndCrewDTO object, id as a parameter,
-     *     calls the updateCastAndCrew function in the CastAndCrewService
-     *     and returns a ResponseEntity object with the updated CastAndCrew object
-     *</p>
+     *     Updates the Details of the CastAndCrew by the ID and CastAndCrewDTO and validates according
+     *     to Validation Constraints If CastAndCrew Details are not Valid the throws an Exception
+     *     else process the request and returns the ResponseEntity with Http Status OK
+     *     and updated Details of the CastAndCrew or throws an Exception If CastAndCrew not Found
+     * </p>
      *
-     * @param id The id of castAndCrew
-     * @param castAndCrewDTO The castAndCrewDTO object that needs to be updated
-     * @return A ResponseEntity object - gives updated cast and crew object
-     * @throws NotFoundException - it will throw the error message(N0 cast
-     *                         and crew details exist to update on a given id)
+     * @param id - The id of castAndCrew to update the Details of CastAndCrew
+     * @param castAndCrewDTO - Holds the Details of the CastAndCrewDTO
+     * @return ResponseEntity - Holds the  CastAndCrewResponseDTO and Http Status OK
+     * @throws NotFoundException - when CastAndCrew not found
      */
     @PutMapping("/{id}")
      public ResponseEntity<CastAndCrewResponseDTO> updateCastAndCrew(
@@ -133,14 +128,13 @@ public class CastAndCrewController {
      *     deleteCastAndCrew
      * </h1>
      * <p>
-     *     It deletes a Cast and crew based on  id from  the ideas2movie and
-     *     returns a response entity with a status code of 200 and a body of the
-     *     deleted status
+     *     Delete the CastAndCrew by Id and returns ResponseEntity with Http status Ok
+     *     and a String if theater not found throws a exception
      *</p>
      *
-     * @param id The id of the CastAndCrew to be deleted.
-     * @return ResponseEntity<String> - give a response as statement for delete castAndCrew.
-     * @throws NotFoundException - Occur when cast and crew is not found
+     * @param id The id of the CastAndCrew
+     * @return ResponseEntity - Holds the String and Http Status OK
+     * @throws NotFoundException - when CastAndCrew not is not found
      */
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteCastAndCrew(@PathVariable("id") Long id)

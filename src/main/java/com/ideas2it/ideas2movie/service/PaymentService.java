@@ -17,9 +17,10 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  *     PaymentService
  * </h1>
  * <p>
- *     PaymentService Interface used to manage the Payment for Reservation
+ *     PaymentService provides the Methods for Payment Operation to handle the Payment for a Reservation
  *     Like Processing the payment, updating the Status of the payment
- *     and retrieving the Details of the Payment by Transaction ID
+ *     and retrieving the Details of the Payment by Transaction ID for the Reservation of Seats for a Show
+ *     and throws an Exception when occurred
  * </p>
  *
  * @author AJAISHARMA

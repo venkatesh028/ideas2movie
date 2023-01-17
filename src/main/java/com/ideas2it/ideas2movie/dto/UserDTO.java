@@ -9,7 +9,6 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
-import com.ideas2it.ideas2movie.dto.responsedto.RoleResponseDTO;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -37,18 +36,18 @@ import com.ideas2it.ideas2movie.util.constant.Message;
 @NoArgsConstructor
 public class UserDTO {
     @NotBlank(message = Message.NAME_SHOULD_NOT_BE_EMPTY)
-    //@Pattern(regexp = Constant.NAME_PATTERN, message = Message.ENTER_VALID_NAME)
+    @Pattern(regexp = Constant.NAME_PATTERN, message = Message.ENTER_VALID_NAME)
     private String name;
     @NotBlank(message = Message.EMAIL_SHOULD_NOT_BE_EMPTY)
-    //@Email(message = Message.ENTER_VALID_EMAIL)
+    @Email(message = Message.ENTER_VALID_EMAIL)
     private String email;
     @NotBlank(message = Message.PHONE_SHOULD_NOT_BE_EMPTY)
-    //@Pattern(regexp = Constant.PHONE_NUMBER_PATTERN, message = Message.ENTER_VALID_PHONE_NUMBER)
+    @Pattern(regexp = Constant.PHONE_NUMBER_PATTERN, message = Message.ENTER_VALID_PHONE_NUMBER)
     private String phoneNumber;
     @NotBlank(message = Message.PASSWORD_SHOULD_NOT_BE_EMPTY)
-    //@Pattern(regexp = Constant.PASSWORD_PATTERN, message = Message.ENTER_VALID_PASSWORD)
+    @Pattern(regexp = Constant.PASSWORD_PATTERN, message = Message.ENTER_VALID_PASSWORD)
     private String password;
-    @NotNull(message = Message.ROLE_NAME_SHOULD_NOT_BE_EMPTY)
+    @NotNull(message = Message.ROLE_ID_SHOULD_NOT_BE_EMPTY)
     private Long roleId;
 }
 

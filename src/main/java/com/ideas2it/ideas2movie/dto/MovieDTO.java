@@ -23,8 +23,9 @@ import com.ideas2it.ideas2movie.util.enums.Language;
  *     Movie DTO
  * </h1>
  * <p>
- *     Get the input from the client for  the Movie
- *  * </p>
+ *      MovieDTO represents a Simplified version of the Movie Model
+ *      which Holds the Necessary Information of the Movie model
+ * </p>
  *
  * @author YOGESHWAR S
  * @version 1.0
@@ -34,7 +35,6 @@ import com.ideas2it.ideas2movie.util.enums.Language;
 @Setter
 @NoArgsConstructor
 public class MovieDTO {
-    private Long id;
     @NotBlank(message = Message.MOVIE_NAME_SHOULD_NOT_BE_EMPTY)
     private String name;
     @NotNull(message = Message.LANGUAGE_SHOULD_NOT_BE_EMPTY)

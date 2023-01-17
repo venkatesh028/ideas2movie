@@ -28,9 +28,10 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  *     PaymentServiceImpl
  * </h1>
  * <p>
- *     PaymentServiceImpl used to manage the Payment for Reservation
+ *     PaymentServiceImpl provides the Business logic to handle the Payment for Reservation
  *     Like Processing the payment, updating the Status of the payment
- *     and Viewing the Details of the Payment by Transaction ID
+ *     and Viewing the Details of the Payment by Transaction ID from the Storage
+ *     and throws an Exception when occurred
  * </p>
  *
  * @author AJAISHARMA
@@ -45,10 +46,11 @@ public class PaymentServiceImpl implements PaymentService {
 
     /**
      * <h1>
-     *     Paymeent Service Impl Constructor
+     *     PaymentServiceImpl Constructor
      * </h1>
      * <p>
-     *     Used to Achieve the Autowiring for Payment Repository, Ticket Service
+     *     Used to inject the PaymentRepository, ReservationService dependency
+     *     and initialize the paymentRepository, reservationService variable
      * </p>
      *
      * @param paymentRepository - reference variable for Payment repository
@@ -97,7 +99,7 @@ public class PaymentServiceImpl implements PaymentService {
      * {@inheritDoc}
      */
     @Override
-    public PaymentResponseDTO getById(Long id) throws  NotFoundException {
+    public PaymentResponseDTO getById(Long id) throws NotFoundException {
         Optional<Payment> existingPayment = paymentRepository.findById(id);
 
         if (existingPayment.isEmpty()) {

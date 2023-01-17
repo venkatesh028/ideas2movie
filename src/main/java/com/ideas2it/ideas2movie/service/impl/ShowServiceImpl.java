@@ -155,6 +155,9 @@ public class ShowServiceImpl implements ShowService {
         return shows;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public List<ShowResponseDTO> getAllShowsByScreenId(Long id) throws NoContentException {
         List<Show> existingShows = showRepository.findAllByScreenId(id);
         List<ShowResponseDTO> shows = new ArrayList<>();

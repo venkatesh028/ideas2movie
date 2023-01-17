@@ -3,6 +3,7 @@ package com.ideas2it.ideas2movie.dto;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 
@@ -31,6 +32,7 @@ import lombok.Setter;
 @Setter
 public class ShowDTO {
     @NotNull(message = "Show Date should not be empty")
+    @FutureOrPresent(message = "Please provide a present or future date")
     @JsonDeserialize(using = LocalDateDeserializer.class)
     @JsonSerialize(using = LocalDateSerializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")

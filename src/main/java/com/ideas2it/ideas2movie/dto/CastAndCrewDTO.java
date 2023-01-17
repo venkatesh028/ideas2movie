@@ -16,7 +16,8 @@ import com.ideas2it.ideas2movie.util.constant.Message;
  *     CastAndCrew DTO
  * </h1>
  * <p>
- *     Get the input from the client for CastAndCrew
+ *      CastAndCrewDTO represents a Simplified version of the CastAndCrew Model
+ *      which Holds the Necessary Information of the CastAndCrew model
  * </p>
  *
  * @author YOGESHWAR S
@@ -27,7 +28,6 @@ import com.ideas2it.ideas2movie.util.constant.Message;
 @Setter
 @NoArgsConstructor
 public class CastAndCrewDTO {
-    private Long id;
     @NotBlank(message = Message.DIRECTOR_NAME_SHOULD_NOT_BE_EMPTY)
     private String director;
     @NotBlank(message = Message.HERO_NAME_SHOULD_NOT_BE_EMPTY)

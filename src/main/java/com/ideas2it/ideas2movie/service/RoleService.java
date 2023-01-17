@@ -4,7 +4,6 @@
  */
 package com.ideas2it.ideas2movie.service;
 
-import com.ideas2it.ideas2movie.exception.NotAcceptableException;
 import java.util.List;
 
 import com.ideas2it.ideas2movie.model.Role;
@@ -19,9 +18,8 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  *     RoleService
  * </h1>
  * <p>
- *     RoleService used to Manage the Operations for the Role
- *     Like Creating, Viewing the Details of the Role
- *     and Throws an Exceptions accordingly
+ *     RoleService provides the Methods for Role CRUD to handle the Creation of a Role for a User
+ *     and Fetches the Details of the Role form the Storage and throws an Exception when Occurred
  * </p>
  *
  * @author AJAISHARMA

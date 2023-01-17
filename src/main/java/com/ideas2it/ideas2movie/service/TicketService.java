@@ -14,9 +14,8 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  *     TicketService
  * </h1>
  * <p>
- *     TicketService used to manage the Operations of Ticket
- *     Like Generating a ticket for a Reservation and Retrieves
- *     the Details of the Ticket for the reservation
+ *     TicketService provides the methods for generating the Tickets for a Reservation
+ *     and to get the Details of the Ticket by the ID
  * </p>
  *
  * @author AJAISHARMA

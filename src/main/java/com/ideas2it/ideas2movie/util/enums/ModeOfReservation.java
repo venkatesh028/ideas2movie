@@ -21,10 +21,10 @@ import lombok.Setter;
  * @since   05-01-2023
  */
 @AllArgsConstructor
-public enum ModeOfBooking {
+public enum ModeOfReservation {
     OFFLINE("Offline"), ONLINE("Online");
 
     @Getter
     @Setter
-    private String modeOf;
+    private String mode;
 }
