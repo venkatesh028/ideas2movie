@@ -39,11 +39,10 @@ public class TicketController {
      *     TicketController Constructor
      * </h1>
      * <p>
-     *     Used to initialize the Services for calling the Operation performers of Service
-     *     and also achieves the Autowiring
+     *     Used to inject the TicketService dependency and initialize the ticketService variable
      * </p>
      *
-     * @param ticketService - An instance of the Ticket Service
+     * @param ticketService - An instance of the TicketService
      */
     public TicketController(TicketService ticketService) {
         this.ticketService = ticketService;

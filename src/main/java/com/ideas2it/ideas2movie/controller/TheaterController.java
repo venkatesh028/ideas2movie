@@ -25,19 +25,18 @@ import com.ideas2it.ideas2movie.exception.AlreadyExistException;
 import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
 import com.ideas2it.ideas2movie.service.TheaterService;
+import com.ideas2it.ideas2movie.util.constant.Constant;
+import com.ideas2it.ideas2movie.util.constant.Message;
 
 /**
  * <h1>
  *     Theater Controller
  * </h1>
  * <p>
- *     Gets the input parameter as a request from the Client
- *     to Get Theater Details of a particular theater
- *     by sending theater id as a request and also
- *     Gets the input parameter as a request from the Admin
- *     to create, update, delete theater Details of a particular movie
- *     by sending those parameter or Object
- *     to the Theater Service to perform Business Logics on them
+ *     TheaterController provides the RESTful endpoints to Handle CRUD Operation
+ *     for Theater and validate the Information of the TheaterDTO according
+ *     to Validation constraints and throws an exception when occurred
+ *     and returns the Details of Theater and Http Status
  * </p>
  *
  * @author Yogeshwar S
@@ -54,10 +53,11 @@ public class TheaterController {
      *     Theater Controller Constructor
      * </h1>
      * <p>
-     *     Used to Achieve the Autowiring for Theater service.
+     *     Used to initialize the Services for calling the Operation performers of Service
+     *     and also achieves the Autowiring
      * </p>
      *
-     * @param theaterService - reference variable for Theater Service
+     * @param theaterService - An instance of Theater Service
      */
     public TheaterController(TheaterService theaterService) {
         this.theaterService = theaterService;
@@ -68,16 +68,14 @@ public class TheaterController {
      *     addTheater
      * </h1>
      * <p>
-     *     It takes a TheaterDTO object as a parameter, validates it,
-     *     and then calls the addMovie function in the theaterService.
-     *     If the theater is added, it returns the theater object,
-     *     else it throws a Already exist exception
-     *</p>
+     *     Create the Theater to run movies and validating the TheaterDTO
+     *     according to validation constraints If Details of the Theater
+     *     is Not Valid throws an exception else process the request and
+     *     returns the ResponseEntity with Http status and Details of the Theater
+     * </p>
      *
-     * @param theaterDTO The theaterDTO object that is to be added.
-     * @return ResponseEntity<TheaterDTO> - gives a response as theater details
-     * @throws AlreadyExistException- occur when try to add same theater's name, city, area
-     *                          which are already registered in ideas2movie
+     * @param theaterDTO - Holds the details of the theater
+     * @return ResponseEntity - Holds the theaterDTO and Http Status OK
      */
     @PostMapping
     public ResponseEntity<TheaterResponseDTO> addTheater(
@@ -87,7 +85,7 @@ public class TheaterController {
         if (theaterDetails.isPresent()) {
             return ResponseEntity.status(HttpStatus.OK).body(theaterDetails.get());
         }
-        throw new AlreadyExistException("Theater not created");
+        throw new AlreadyExistException(Message.THEATER_ALREADY_REGISTERED);
     }
 
     /**
@@ -95,15 +93,15 @@ public class TheaterController {
      *     getTheaterById
      * </h1>
      * <p>
-     *     It takes an id of a theater as a parameter and fetches a theater details
-     *     returns a response entity with the fetched details of a theater
-     *     if details of a particular theater is not present,
-     *     it will throw error message.
+     *     Retrieves the Details of the Theater By the ID
+     *     and process the request If the Theater is Not Found then
+     *     throws an Exception otherwise returns the ResponseEntity
+     *     with Http Status OK and Details of the Theater
      *</p>
      *
-     * @param id The id of the theater to fetch a theater details
-     * @return ResponseEntity<MovieResponseDTO>  - give response as theater details
-     * @throws NotFoundException - occur when theater details is not Found
+     * @param id - Id of the theater
+     * @return ResponseEntity - Holds the TheaterDTO and Http Status OK
+     * @throws NotFoundException - when theater details is not Found
      */
     @GetMapping("/{id}")
     public ResponseEntity<TheaterResponseDTO> getTheaterById(
@@ -135,18 +133,18 @@ public class TheaterController {
      *     updateTheater
      * </h1>
      * <p>
-     *     It takes a TheaterDTO object, id as a parameter,
-     *     calls the updateTheater function in the theaterService class,
-     *     and returns a ResponseEntity object with the updated theater details
+     *     Updates the Details of the Theater by the ID and TheaterDTO and validates according
+     *     to Validation Constraints If Theater Details are not Valid the throws an Exception
+     *     else process the request and returns the ResponseEntity with Http Status OK
+     *     and updated Details of the Theater or throws an Exception If Theater not Found
      *</p>
      *
-     * @param theaterDTO The theaterDTO object that needs to be updated.
-     * @param id The id of theater that needs to be updated.
-     * @return A ResponseEntity object is being returned - gives update response statement.
-     * @throws AlreadyExistException - validate the theater name, city, area before update it,
-     *                         if it already  registered with same details  in ideas2movie
-     *                         it will throw the error message.
-     * @throws  NotFoundException - if theater details not exist on a given id.
+     * @param id - ID of the Theater to update the Details of the Theater
+     * @param theaterDTO - Holds the Details of the User
+     * @return ResponseEntity - Holds the TheaterResponseDTO and Http Status OK
+     * @throws AlreadyExistException -when theater name, city, area  already
+     *                          registered with same details
+     * @throws  NotFoundException - if theater not exist on a given id.
      */
     @PutMapping("/{id}")
     public ResponseEntity<TheaterResponseDTO> updateTheater(@PathVariable("id") Long id,
@@ -162,14 +160,13 @@ public class TheaterController {
      *     deleteTheater
      * </h1>
      * <p>
-     *     It deletes a theater details based on id from
-     *     the database and returns a response entity with a
-     *     status code of 200 and a body of the deleted status
-     * </p>
+     *     Delete the Theater by Id and returns ResponseEntity with Http status Ok
+     *     and a String if Theater not found throws a exception
+     *</p>
      *
-     * @param id The id of the theater to be deleted.
-     * @return ResponseEntity<String> - give a response as statement for deleted theater.
-     * @throws NotFoundException - Occur when theater is not found on a given id
+     * @param id The id of the Theater
+     * @return ResponseEntity - Holds the String and Http Status OK
+     * @throws NotFoundException - when Theater is not found
      */
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteTheater(@PathVariable("id") Long id)

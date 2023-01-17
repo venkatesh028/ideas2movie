@@ -141,6 +141,7 @@ public class UserController {
      * @throws NotFoundException - throws when user Not Found
      */
     @DeleteMapping("/{id}")
+
     public ResponseEntity<String> deactivateAccount(@PathVariable("id") Long id) throws NotFoundException{
         return ResponseEntity.status(HttpStatus.OK).body(userService.deleteUser(id));
     }

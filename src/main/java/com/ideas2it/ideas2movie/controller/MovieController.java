@@ -4,7 +4,10 @@
  */
 package com.ideas2it.ideas2movie.controller;
 
+import java.util.List;
+
 import jakarta.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -16,26 +19,21 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 import com.ideas2it.ideas2movie.dto.MovieDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.MovieResponseDTO;
+import com.ideas2it.ideas2movie.service.MovieService;
 import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
-import com.ideas2it.ideas2movie.service.MovieService;
 
 /**
  * <h1>
  *     Movie Controller
  * </h1>
  * <p>
- *     Gets the input parameter as a request from the Client
- *     to Get  Details of a particular movie
- *     by sending movie id as a request and also
- *     Gets the input parameter as a request from the Admin
- *     to create, update, delete details of a particular movie
- *     by sending those parameter or Object
- *     to the Movie Service to perform Business  Logics on them
+ *     MovieController provides the RESTful endpoints to Handle CRUD Operation and
+ *     to know details of movie and validate the Information of the MovieDTO
+ *     according to Validation constraints and throws an exception when occurred
+ *     and returns the Details of Movie and Http Status
  * </p>
  *
  * @author Yogeshwar S
@@ -52,10 +50,11 @@ public class MovieController {
      *     Movie Controller Constructor
      * </h1>
      * <p>
-     *     Used to Achieve the Autowiring for Movie service.
+     *     Used to initialize the Services for calling the Operation performers of Service
+     *     and also achieves the Autowiring
      * </p>
      *
-     * @param movieService - reference variable for Movie Service
+     * @param movieService - An instance of Movie Service
      */
     public MovieController(MovieService movieService) {
         this.movieService = movieService;
@@ -63,17 +62,17 @@ public class MovieController {
 
     /**
      * <h1>
-     *     addMovie
+     *
      * </h1>
      * <p>
-     *     It takes a MovieDTO object as a request body
-     *     and then calls the creatMovie function in the movieService.
-     *     If the details of a movie is created, it returns the movieDTO object
+     *     Add the movie for the Theater by validating the MovieDTO
+     *     according to validation constraints If Details of the Movie
+     *     is Not Valid throws an exception else process the request and
+     *     returns the ResponseEntity with Http status and Details of the Movie
      * </p>
      *
-     * @param movieDTO The MovieDto object that is to be added.
-     * @return ResponseEntity<MovieResponseDTO> - gives a response as
-     * movie details.
+     * @param movieDTO - Holds the details of the movie
+     * @return ResponseEntity - Holds the movieDTO and Http Status OK
      */
     @PostMapping
     public ResponseEntity<MovieResponseDTO> addMovie
@@ -87,15 +86,14 @@ public class MovieController {
      *     getMovieById
      * </h1>
      * <p>
-     *     It takes an id of a movie as a path variable and fetches a movie details
-     *     returns a response entity with the fetched details of a movie
-     *     if details of a particular movie is not present,
-     *     it will throw error message (no movie exist for a given movie id)
+     *     Retrieves the Details of the Movie by its ID and process the request
+     *     If Movie is not found throws an exception otherwise returns the
+     *     ResponseEntity with Http status OK and Details of the Movie
      * </p>
      *
-     * @param id The id of the movie to fetch a movie details
-     * @return ResponseEntity<MovieResponseDTO>  - give response as movie details
-     * @throws NotFoundException - occur when movie details is not Found
+     * @param id Id of the Movie
+     * @return ResponseEntity - Holds the MovieDTO and Http Status OK
+     * @throws NotFoundException - when Movie is Not Found for ID
      */
     @GetMapping("/{id}")
     public ResponseEntity<MovieResponseDTO> getMovieById(
@@ -109,11 +107,13 @@ public class MovieController {
      *     getMovieByName
      * </h1>
      * <p>
-     *
+     *     Retrieves the Details of the Movie by its Name and process the request
+     *     If Movie is not found throws an exception otherwise returns the
+     *     ResponseEntity with Http status OK and Details of the Movie
      * </p>
      *
-     * @param name The name of the movie to fetch a movie details
-     * @return ResponseEntity<MovieResponseDTO>  - give response as movie details
+     * @param name - The name of the movie
+     * @return MovieResponseDTO - Holds the MovieDTO and Http Status OK
      * @throws NotFoundException - occur when movie details is not Found
      */
    @GetMapping("/0f-movie/{name}")
@@ -128,11 +128,12 @@ public class MovieController {
      *     getAllMovies
      * </h1>
      * <p>
-     *     It calls the getAllMovies function  in the movieService and
-     *     returns a ResponseEntity object with the list of movies
+     *     Retrieves the Details of All Movie which is exist in ideas2movie and process
+     *     the request If Movies is not found throws an exception otherwise returns the
+     *     ResponseEntity with Http status OK and Details of all movie
      *</p>
      *
-     * @return A list of ResponseMovieDTO objects  - gives a response as list of movie details.
+     * @return List  - Holds the MovieDTO and Http Status OK
      * @throws NoContentException - occur when list of movie is empty
      */
     @GetMapping
@@ -145,16 +146,16 @@ public class MovieController {
      *     updateMovie
      * </h1>
      * <p>
-     *     It takes a MovieDTO object, id as a parameter, calls
-     *     the updateMovie function in the movieService and returns a
-     *     ResponseEntity object with the updated movie object
+     *     Updates the Details of the Movie by the ID and MovieDTO and validates according
+     *     to Validation Constraints If Movie Details are not Valid the throws an Exception
+     *     else process the request and returns the ResponseEntity with Http Status OK
+     *     and updated Details of the Movie or throws an Exception If Movie not Found
      *</p>
      *
-     * @param id The id of movie
-     * @param movieDTO The movieDTO object that needs to be updated
-     * @return A ResponseEntity object - gives updated movie object
-     * @throws NotFoundException - it will throw the error message(N0 movie
-     *                          details exist to update on a given id)
+     * @param id - The id of movie to update the Details of Movie
+     * @param movieDTO - Holds the Details of the Movie
+     * @return ResponseEntity - Holds the MovieResponseDTO and Http Status OK
+     * @throws NotFoundException - when Movie not found
      */
     @PutMapping("/{id}")
     public ResponseEntity<MovieResponseDTO> updateMovie(@Valid @PathVariable("id") Long id,
@@ -168,14 +169,13 @@ public class MovieController {
      *     deleteMovie
      * </h1>
      * <p>
-     *     It deletes a movie details based on  id from  the database and
-     *     returns a response entity with a status code of 200 and a body of the
-     *     deleted status
-     * </p>
+     *     Delete the Movie by Id and returns ResponseEntity with Http status Ok
+     *     and a String if Movie not found throws a exception
+     *</p>
      *
-     * @param id The id of the movie to be deleted.
-     * @return ResponseEntity<String> - give a response as statement for deleted movie.
-     * @throws NotFoundException - Occur when movie is not found on a given id
+     * @param id The id of the Movie
+     * @return ResponseEntity - Holds the String and Http Status OK
+     * @throws NotFoundException - when Movie is not found
      */
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteMovie(@PathVariable("id") Long id)
