@@ -145,16 +145,18 @@ public class MovieServiceImpl implements MovieService {
      * {@inheritDoc}
      */
     @Override
-    public String deleteMovie(Long id) throws NotFoundException {
-        Optional<Movie> existingMovie = movieRepository.findById(id);
+    public boolean deleteMovie(Long id) throws NotFoundException {
+        boolean isDeleted = true;
+        boolean isAvailable = movieRepository.existsById(id);
 
-        if (existingMovie.isPresent()) {
+        if (isAvailable) {
             movieRepository.deleteById(id);
-            existingMovie = movieRepository.findById(id);
-            if (!existingMovie.isPresent()) {
-                return Message.DELETED_SUCCESSFULLY;
+            isDeleted = movieRepository.existsById(id);
+
+            if (!isDeleted) {
+                return isDeleted;
             }
         }
-        throw new NotFoundException(Message.FAILED_TO_DELETE);
+        throw new NotFoundException(Message.MOVIE_NOT_FOUND);
     }
 }

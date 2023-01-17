@@ -135,5 +135,5 @@ public interface TheaterService {
      * @return delete message if theater deleted successfully
      * @throws NotFoundException - occur when id is not exist in ideas2movie.
      */
-    String deleteTheater(Long id) throws NotFoundException;
+    boolean deleteTheater(Long id) throws NotFoundException;
 }

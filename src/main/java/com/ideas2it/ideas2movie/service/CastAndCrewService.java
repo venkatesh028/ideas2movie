@@ -89,5 +89,5 @@ public interface CastAndCrewService {
      * @return delete message if castAndCrew deleted successfully
      * @throws NotFoundException - occur when id is not exist in ideas2movie.
      */
-    String deleteCastAndCrew(Long id) throws NotFoundException;
+    boolean deleteCastAndCrew(Long id) throws NotFoundException;
 }

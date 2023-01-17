@@ -7,7 +7,6 @@ package com.ideas2it.ideas2movie.controller;
 import java.util.List;
 
 import jakarta.validation.Valid;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -24,6 +23,7 @@ import com.ideas2it.ideas2movie.dto.responsedto.MovieResponseDTO;
 import com.ideas2it.ideas2movie.service.MovieService;
 import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
+import com.ideas2it.ideas2movie.util.constant.Message;
 
 /**
  * <h1>
@@ -65,7 +65,7 @@ public class MovieController {
      *
      * </h1>
      * <p>
-     *     Add the movie for the Theater by validating the MovieDTO
+     *     Add the Movie for the Theater by validating the MovieDTO
      *     according to validation constraints If Details of the Movie
      *     is Not Valid throws an exception else process the request and
      *     returns the ResponseEntity with Http status and Details of the Movie
@@ -77,7 +77,7 @@ public class MovieController {
     @PostMapping
     public ResponseEntity<MovieResponseDTO> addMovie
             (@Valid @RequestBody MovieDTO movieDTO) {
-        return  ResponseEntity.status(HttpStatus.OK)
+        return  ResponseEntity.status(HttpStatus.CREATED)
                 .body(movieService.addMovie(movieDTO));
     }
 
@@ -91,7 +91,7 @@ public class MovieController {
      *     ResponseEntity with Http status OK and Details of the Movie
      * </p>
      *
-     * @param id Id of the Movie
+     * @param id - Id of the Movie
      * @return ResponseEntity - Holds the MovieDTO and Http Status OK
      * @throws NotFoundException - when Movie is Not Found for ID
      */
@@ -114,7 +114,7 @@ public class MovieController {
      *
      * @param name - The name of the movie
      * @return MovieResponseDTO - Holds the MovieDTO and Http Status OK
-     * @throws NotFoundException - occur when movie details is not Found
+     * @throws NotFoundException - when movie details is not Found
      */
    @GetMapping("/0f-movie/{name}")
     public ResponseEntity<MovieResponseDTO> getMovieByName(
@@ -133,8 +133,8 @@ public class MovieController {
      *     ResponseEntity with Http status OK and Details of all movie
      *</p>
      *
-     * @return List  - Holds the MovieDTO and Http Status OK
-     * @throws NoContentException - occur when list of movie is empty
+     * @return List - Holds the MovieDTO and Http Status OK
+     * @throws NoContentException - when list of movie is empty
      */
     @GetMapping
     public List<MovieResponseDTO> getAllMovies() throws NoContentException {
@@ -173,14 +173,20 @@ public class MovieController {
      *     and a String if Movie not found throws a exception
      *</p>
      *
-     * @param id The id of the Movie
+     * @param id - The id of the Movie
      * @return ResponseEntity - Holds the String and Http Status OK
      * @throws NotFoundException - when Movie is not found
      */
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteMovie(@PathVariable("id") Long id)
             throws NotFoundException  {
-        return ResponseEntity.status(HttpStatus.OK)
-                .body(movieService.deleteMovie(id));
+
+        if (!movieService.deleteMovie(id)) {
+            return ResponseEntity.status(HttpStatus.OK)
+                    .body(Message.DELETED_SUCCESSFULLY);
+        } else {
+            return ResponseEntity.status(HttpStatus.OK)
+                    .body(Message.FAILED_TO_DELETE);
+        }
     }
 }

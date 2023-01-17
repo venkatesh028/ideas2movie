@@ -7,7 +7,10 @@ package com.ideas2it.ideas2movie.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 import com.ideas2it.ideas2movie.model.CastAndCrew;
+import com.ideas2it.ideas2movie.model.Movie;
 
 /**
  * <h1>
@@ -24,4 +27,5 @@ import com.ideas2it.ideas2movie.model.CastAndCrew;
  */
 @Repository
 public interface CastAndCrewRepository extends JpaRepository<CastAndCrew, Long> {
+    boolean existsById(Long id);
 }

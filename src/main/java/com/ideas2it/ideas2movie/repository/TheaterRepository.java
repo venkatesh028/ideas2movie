@@ -70,4 +70,6 @@ public interface TheaterRepository extends JpaRepository<Theater, Long> {
      * @return true - if  name exist or else return false
      */
     boolean existsByArea(String area);
+
+    boolean existsById(Long id);
 }

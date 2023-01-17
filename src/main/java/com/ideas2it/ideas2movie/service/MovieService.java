@@ -131,9 +131,9 @@ public interface MovieService {
      *     and send the deleted success message.
      * </p>
      *
-     * @param id of movie to be deleted.
-     * @return delete message if theater deleted successfully
+     * @param id - of movie to be deleted.
+     * @return boolean - false if deleted movie deleted successfully
      * @throws NotFoundException - occur when id is not exist in ideas2movie.
      */
-    String  deleteMovie(Long id) throws NotFoundException;
+    boolean  deleteMovie(Long id) throws NotFoundException;
 }

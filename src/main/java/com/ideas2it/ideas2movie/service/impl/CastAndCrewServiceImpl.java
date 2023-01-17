@@ -93,18 +93,18 @@ public class CastAndCrewServiceImpl implements CastAndCrewService {
      * {@inheritDoc}
      */
     @Override
-    public String deleteCastAndCrew(Long id) throws NotFoundException {
+    public boolean deleteCastAndCrew(Long id) throws NotFoundException {
+        boolean isDeleted = true;
+        boolean isAvailable = castAndCrewRepository.existsById(id);
 
-        Optional<CastAndCrew> existingCastAndCrew = castAndCrewRepository
-                .findById(id);
-
-        if (existingCastAndCrew.isPresent()) {
+        if (isAvailable) {
             castAndCrewRepository.deleteById(id);
-            existingCastAndCrew = castAndCrewRepository.findById(id);
-            if (!existingCastAndCrew.isPresent()) {
-                return Message.DELETED_SUCCESSFULLY;
+            isDeleted = castAndCrewRepository.existsById(id);
+
+            if (!isDeleted) {
+                return isDeleted;
             }
         }
-        throw new NotFoundException(Message.FAILED_TO_DELETE);
+        throw new NotFoundException(Message.CAST_AND_CREW_NOT_FOUND);
     }
 }
