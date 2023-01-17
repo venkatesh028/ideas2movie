@@ -109,4 +109,6 @@ public interface ShowService {
      * @throws NoContentException - Occurs When there is no show is screening in the screen
      */
     List<Show> getAllShowsForScreen(Long id) throws NoContentException;
+
+    public List<ShowResponseDTO> getAllShowsByScreenId(Long id) throws NoContentException;
 }

@@ -75,7 +75,7 @@ public class ShowController {
      *     getShow
      * </h1>
      * <p>
-     *     Gets the PathVariable for Getting the Details of the Show for SHow ID
+     *     Gets the PathVariable for Getting the Details of the Show for Show ID
      *     and process the Request by sending to showService and returns the ShowResponseDTO and Http Status
      *     or throws an exception accordingly when occurred.
      * </p>
@@ -87,6 +87,13 @@ public class ShowController {
     @GetMapping("/{id}")
     public ResponseEntity<ShowResponseDTO> getShow(@PathVariable Long id) throws NotFoundException {
         return ResponseEntity.status(HttpStatus.OK).body(showService.getShowById(id));
+    }
+
+
+    @GetMapping("/of-screen/{id}")
+    public ResponseEntity<List<ShowResponseDTO>> getShowsByScreenId(@PathVariable Long id)
+            throws NoContentException {
+        return ResponseEntity.status(HttpStatus.OK).body(showService.getAllShowsByScreenId(id));
     }
 
     /**
@@ -102,7 +109,7 @@ public class ShowController {
      * @return ResponseEntity - Holds the List of ShowResponseDTO and Http Status
      * @throws NoContentException - Occurs When there is No content for the requested resources
      */
-    @GetMapping("/movieName/{movieName}")
+    @GetMapping("/of-movie/{movieName}")
     public ResponseEntity<List<ShowResponseDTO>> getAllShowsByMovieName(@PathVariable String movieName)
                                                                                         throws NoContentException {
         return ResponseEntity.status(HttpStatus.OK).body(showService.getAllShowsByMovieName(movieName));

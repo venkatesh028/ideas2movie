@@ -155,6 +155,21 @@ public class ShowServiceImpl implements ShowService {
         return shows;
     }
 
+    public List<ShowResponseDTO> getAllShowsByScreenId(Long id) throws NoContentException {
+        List<Show> existingShows = showRepository.findAllByScreenId(id);
+        List<ShowResponseDTO> shows = new ArrayList<>();
+
+        if (existingShows.isEmpty()) {
+            throw new NoContentException(Message.NO_SHOWS_AVAILABLE);
+        }
+
+        for (Show show : existingShows) {
+            shows.add(mapper.map(show, ShowResponseDTO.class));
+        }
+
+        return shows;
+    }
+
     /**
      * <h1>
      *     getAvailableSeats
