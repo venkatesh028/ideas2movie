@@ -4,13 +4,10 @@
  */
 package com.ideas2it.ideas2movie.service.impl;
 
-import com.ideas2it.ideas2movie.exception.BadRequestException;
-import com.ideas2it.ideas2movie.model.Role;
 import java.util.Optional;
 
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
-import org.modelmapper.spi.MatchingStrategy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +19,7 @@ import com.ideas2it.ideas2movie.service.UserService;
 import com.ideas2it.ideas2movie.repository.UserRepository;
 import com.ideas2it.ideas2movie.util.constant.Message;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
+import com.ideas2it.ideas2movie.exception.BadRequestException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
 
 /**
@@ -29,9 +27,10 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  *     UserServiceImpl
  * </h1>
  * <p>
- *     UserService used to manage the Account of the User
- *     like Creating new Account, Changing the Personal Details and
- *     Retrieving the Details of the User Using the ID of the User
+ *     UserServiceImpl provides Business logic for the CRUD to handling the User Account
+ *     and by interacting with the Repository to store and fetches the Details of the User
+ *     bCrypt technique is used to Encrypt the Password of the User
+ *     and throws custom Exceptions accordingly when occurred
  * </p>
  *
  * @author AJAISHARMA
@@ -49,11 +48,12 @@ public class UserServiceImpl implements UserService {
      *     UserServiceImpl Constructor
      * </h1>
      * <p>
-     *     Used to Achieve the Autowiring for User Service
+     *     Used to  inject the UserRepository, RoleService dependency
+     *     and initialize the userRepository, roleService variables
      * </p>
      *
-     * @param userRepository - reference variable of User repository
-     * @param roleService - reference variable of Role Service
+     * @param userRepository - Instance of the UserRepository
+     * @param roleService - Instance of the RoleService
      */
     public UserServiceImpl(UserRepository userRepository, RoleService roleService) {
         this.userRepository = userRepository;
@@ -103,14 +103,13 @@ public class UserServiceImpl implements UserService {
      * {@inheritDoc}
      */
     @Override
-    public UserResponseDTO updateUser(Long id, UserDTO userDTO) throws NotFoundException, AlreadyExistException {
+    public UserResponseDTO updateUser(Long id, UserDTO userDTO) throws NotFoundException {
         User user = mapper.map(userDTO, User.class);
         Optional<User> existingUser = userRepository.findById(id);
 
         if (existingUser.isEmpty()) {
             throw new NotFoundException(Message.USER_NOT_FOUND);
         }
-        existingUser.get();
         existingUser.get().setId(id);
         existingUser.get().setName(user.getName());
         existingUser.get().setEmail(user.getEmail());

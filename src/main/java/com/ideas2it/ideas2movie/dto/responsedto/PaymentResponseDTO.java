@@ -29,7 +29,7 @@ import lombok.Setter;
 public class PaymentResponseDTO {
     private Long paymentId;
     private UUID transactionId;
-    private Timestamp paidAt;
+    private Timestamp transactionAt;
     private double amount;
     private PaymentStatus status;
 }

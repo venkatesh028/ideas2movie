@@ -4,6 +4,7 @@
  */
 package com.ideas2it.ideas2movie.dto.responsedto;
 
+import com.ideas2it.ideas2movie.util.enums.ReservationStatus;
 import java.util.List;
 
 import lombok.Getter;
@@ -31,6 +32,7 @@ import com.ideas2it.ideas2movie.model.Ticket;
 public class ReservationResponseDTO {
     private Long id;
     private TicketResponseDTO ticket;
-    private ShowResponseDTO show;
+    private Long showId;
+    private ReservationStatus status;
     private double price;
 }

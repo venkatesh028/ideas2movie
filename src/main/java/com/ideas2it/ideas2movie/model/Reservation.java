@@ -11,7 +11,6 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -30,7 +29,7 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import com.ideas2it.ideas2movie.util.enums.ModeOfBooking;
+import com.ideas2it.ideas2movie.util.enums.ModeOfReservation;
 import com.ideas2it.ideas2movie.util.enums.ReservationStatus;
 
 /**
@@ -41,10 +40,12 @@ import com.ideas2it.ideas2movie.util.enums.ReservationStatus;
  *     Reservation Entity represents the Reservation made by the user which holds
  *     Information about the User, Show and the ticket.
  * </p>
+ *
  * @author AJAISHARMA
  * @version 1.0
  * @since 05-01-2023
  */
+
 @Entity
 @Getter
 @Setter
@@ -61,8 +62,8 @@ public class Reservation {
 
     @NotNull
     @Enumerated(EnumType.STRING)
-    @Column(name = "mode_of_booking")
-    private ModeOfBooking modeOfBooking;
+    @Column(name = "mode_of_reservation")
+    private ModeOfReservation modeOfReservation;
 
     @OneToOne
     @JoinColumn(

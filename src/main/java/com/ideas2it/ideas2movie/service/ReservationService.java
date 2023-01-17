@@ -21,8 +21,8 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  *     ReservationService
  * </h1>
  * <p>
- *     ReservationService Used to manage the Reservation for Seats of the Show
- *     Like Reserve Seats, Cancel reservation for the Show
+ *     ReservationService provides the Method for Reservation CRUD, Used to handle the Reservation of Seats
+ *     for the show by the User Like Reserving Seats for show, Cancel reservation
  *     and Retrieving the Details of the Reservation based on reservation ID and User ID
  * </p>
  *

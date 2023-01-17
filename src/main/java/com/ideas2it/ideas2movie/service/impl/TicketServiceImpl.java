@@ -7,14 +7,12 @@ package com.ideas2it.ideas2movie.service.impl;
 import java.util.List;
 import java.util.Optional;
 
-import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import com.ideas2it.ideas2movie.model.Reservation;
 import com.ideas2it.ideas2movie.model.Seat;
 import com.ideas2it.ideas2movie.model.Ticket;
 import com.ideas2it.ideas2movie.dto.responsedto.TicketResponseDTO;
-import com.ideas2it.ideas2movie.service.SeatService;
 import com.ideas2it.ideas2movie.service.TicketService;
 import com.ideas2it.ideas2movie.repository.TicketRepository;
 import com.ideas2it.ideas2movie.util.constant.Message;
@@ -24,8 +22,8 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  *     TicketServiceImpl
  * </h1>
  * <p>
- *     Implements the TicketService and Provides the Business Logics
- *     to generate and get the Details of the ticket
+ *     TicketServiceImpl Provides the Business Logics for Generate the Ticket for Reservation
+ *     and Fetches the Details of the Ticket from the Storage
  *     and throws an Exception when occurred
  * </p>
  *
@@ -38,12 +36,19 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
 @Service
 public class TicketServiceImpl implements TicketService {
     private final TicketRepository ticketRepository;
-    private final SeatService seatService;
-    private final ModelMapper mapper = new ModelMapper();
 
-    public TicketServiceImpl(TicketRepository ticketRepository, SeatService seatService) {
+    /**
+     * <h1>
+     *     TicketServiceImpl Constructor
+     * </h1>
+     * <p>
+     *      Used to inject the TicketRepository dependency and initialize the ticketRepository variable
+     * </p>
+     *
+     * @param ticketRepository -  Instance of the TicketRepository
+     */
+    public TicketServiceImpl(TicketRepository ticketRepository) {
         this.ticketRepository = ticketRepository;
-        this.seatService = seatService;
     }
 
     /**

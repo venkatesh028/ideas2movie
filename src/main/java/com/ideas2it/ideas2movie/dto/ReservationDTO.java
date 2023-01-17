@@ -4,19 +4,18 @@
  */
 package com.ideas2it.ideas2movie.dto;
 
-import com.ideas2it.ideas2movie.dto.responsedto.ShowResponseDTO;
-import com.ideas2it.ideas2movie.dto.responsedto.UserResponseDTO;
 import java.util.List;
 
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import com.ideas2it.ideas2movie.dto.responsedto.ShowResponseDTO;
+import com.ideas2it.ideas2movie.dto.responsedto.UserResponseDTO;
 import com.ideas2it.ideas2movie.util.constant.Message;
-import com.ideas2it.ideas2movie.util.enums.ModeOfBooking;
+import com.ideas2it.ideas2movie.util.enums.ModeOfReservation;
 
 /**
  * <h1>
@@ -35,12 +34,12 @@ import com.ideas2it.ideas2movie.util.enums.ModeOfBooking;
 @Setter
 @NoArgsConstructor
 public class ReservationDTO {
-    @NotNull(message = Message.MODE_OF_BOOKING_SHOULD_NOT_BE_EMPTY)
-    private ModeOfBooking modeOfBooking;
-    @NotNull(message = Message.SEAT_NAME_SHOULD_NOT_BE_EMPTY)
+    @NotNull(message = Message.MODE_OF_RESERVATION_SHOULD_NOT_BE_EMPTY)
+    private ModeOfReservation modeOfReservation;
+    @NotNull(message = Message.SELECT_AT_LEAST_ONE_SEAT)
     private List<Long> idsOfSeats;
-    @NotNull(message = Message.USER_ID_SHOULD_NOT_BE_EMPTY)
+    @NotNull(message = Message.USER_SHOULD_NOT_BE_EMPTY)
     private UserResponseDTO user;
-    @NotNull(message = Message.SHOW_ID_SHOULD_NOT_BE_EMPTY)
+    @NotNull(message = Message.SHOW_SHOULD_NOT_BE_EMPTY)
     private ShowResponseDTO show;
 }
