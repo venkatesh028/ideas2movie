@@ -23,6 +23,6 @@ public class Constant {
     public static final String PHONE_NUMBER_PATTERN = "^[6-9]{1}[\\d]{9}$";
     public static final String PASSWORD_PATTERN = "^[A-Za-z0-9@#$*]{8,15}$";
     public static final String ROLE_PATTERN = "^(Admin|Customer)$";
-    public static final String PAYMENT_MODE_PATTER = "^(Cash|Card|Upi)$";
+    public static final String PAYMENT_MODE_PATTERN = "^(Cash|Card|Upi)$";
     public static final String AMOUNT_PATTERN = "^[1-9][0-9]$";
 }

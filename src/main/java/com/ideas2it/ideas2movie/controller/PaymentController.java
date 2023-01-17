@@ -44,11 +44,10 @@ public class PaymentController {
 
     /**
      * <h1>
-     *      Payment Controller Constructor
+     *      PaymentController Constructor
      * </h1>
      * <p>
-     *     Used to initialize the Services for calling the Operation performers of Service
-     *     and also achieves the Autowiring
+     *      Used to inject the PaymentService dependency and initialize the paymentService variable
      * </p>
      *
      * @param paymentService - An instance of the UserService

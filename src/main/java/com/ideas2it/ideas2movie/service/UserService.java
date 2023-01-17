@@ -9,16 +9,15 @@ import com.ideas2it.ideas2movie.dto.responsedto.UserResponseDTO;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
 import com.ideas2it.ideas2movie.exception.BadRequestException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
-import org.springframework.web.client.HttpClientErrorException;
 
 /**
  * <h1>
  *     UserService
  * </h1>
  * <p>
- *     UserService used to manage the Account of the User
- *     like Creating new Account, Changing the Personal Details and
- *     Retrieving the Details of the User Using the ID of the User
+ *     UserService provides the Methods for User CRUD Operation used to handle the User Account
+ *     like Creating an Account for User, Getting the Details of the Account, and Deactivation
+ *     of Account and throws an Exceptions when occurred
  * </p>
  *
  * @author AJAISHARMA

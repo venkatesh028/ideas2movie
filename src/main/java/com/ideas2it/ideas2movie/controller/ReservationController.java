@@ -4,7 +4,6 @@
  */
 package com.ideas2it.ideas2movie.controller;
 
-import com.ideas2it.ideas2movie.exception.BadRequestException;
 import java.util.List;
 
 import jakarta.validation.Valid;
@@ -22,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ideas2it.ideas2movie.dto.ReservationDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.ReservationResponseDTO;
 import com.ideas2it.ideas2movie.service.ReservationService;
+import com.ideas2it.ideas2movie.exception.BadRequestException;
 import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
 
@@ -49,8 +49,8 @@ public class ReservationController {
      *     ReservationController
      * </h1>
      * <p>
-     *     Used to initialize the Services for calling the Operation performers of Service
-     *     and also achieves the Autowiring
+     *     Used to inject the ReservationService dependency
+     *     and initialize the reservationService variable
      * </p>
      *
      * @param reservationService - An instance of a ReservationService

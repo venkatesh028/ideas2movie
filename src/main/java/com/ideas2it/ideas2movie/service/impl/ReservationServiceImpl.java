@@ -4,7 +4,6 @@
  */
 package com.ideas2it.ideas2movie.service.impl;
 
-import com.ideas2it.ideas2movie.model.User;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -17,6 +16,7 @@ import com.ideas2it.ideas2movie.model.Reservation;
 import com.ideas2it.ideas2movie.model.Screen;
 import com.ideas2it.ideas2movie.model.Seat;
 import com.ideas2it.ideas2movie.model.Show;
+import com.ideas2it.ideas2movie.model.User;
 import com.ideas2it.ideas2movie.dto.ReservationDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.ReservationResponseDTO;
 import com.ideas2it.ideas2movie.service.ReservationService;
@@ -35,9 +35,10 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  *     ReservationServiceImpl
  * </h1>
  * <p>
- *     ReservationServiceImpl Used to manage the Reservation for Seats of the Show
+ *     ReservationServiceImpl provides the Business Logic to handle the Reservation for Seats of the Show
  *     Like Reserving the Seats, Cancel reservation of Seats for the Show
- *     and Retrieving the Details of the Reservation based on reservation ID and User ID
+ *     and Retrieving the Details of the Reservation based on reservation ID and User ID form the storage
+ *     and throws an Exception when occurred
  * </p>
  *
  * @author AJAISHARMA
@@ -50,6 +51,20 @@ public class ReservationServiceImpl implements ReservationService {
     private final TicketService ticketService;
     private final SeatService seatService;
     private final ModelMapper mapper = new ModelMapper();
+
+    /**
+     * <h1>
+     *     ReservationServiceImpl Constructor
+     * </h1>
+     * <p>
+     *     Used to inject the ReservationRepository, TicketService, SeatService
+     *     and initialize the reservationRepository, ticketService, seatService variables
+     * </p>
+     *
+     * @param reservationRepository - instance of the ReservationRepository
+     * @param ticketService - instance of the TicketService
+     * @param seatService - instance of the SeatService
+     */
     public ReservationServiceImpl(ReservationRepository reservationRepository,
                                   TicketService ticketService,
                                   SeatService seatService) {
@@ -110,7 +125,6 @@ public class ReservationServiceImpl implements ReservationService {
         if (reservation.getStatus().equals(ReservationStatus.BOOKED)
                 || reservation.getStatus().equals(ReservationStatus.PROCESSING)) {
             reservation.setStatus(ReservationStatus.CANCELED);
-            //reservation.getPayment().setStatus(PaymentStatus.REFUNDED);
         }
         return mapper.map(reservationRepository.save(reservation), ReservationResponseDTO.class);
     }

@@ -47,8 +47,7 @@ public class RoleController {
      *     RoleController Constructor
      * </h1>
      * <p>
-     *     Used to initialize the Services for calling the Operation performers of Service
-     *     and also achieves the Autowiring
+     *     Used to inject the RoleService dependency and initialize the roleService variable
      * </p>
      *
      * @param roleService - An instance of a RoleService
