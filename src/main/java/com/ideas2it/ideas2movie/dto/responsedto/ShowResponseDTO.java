@@ -12,9 +12,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * <h1>
+ * <h2>
  *     ShowResponseDTO
- * </h1>
+ * </h2>
  * <p>
  *     ShowResponseDTO represents the response sent to the Client with the ID
  *     after Creating and Updating the Show.

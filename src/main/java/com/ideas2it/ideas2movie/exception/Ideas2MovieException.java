@@ -8,9 +8,9 @@ import lombok.Setter;
 import org.springframework.http.HttpStatus;
 
 /**
- * <h1>
+ * <h2>
  *     Ideas2MovieException
- * </h1>
+ * </h2>
  * <p>
  *     Ideas2MovieException is a custom exception for the Ideas2Movie application.
  *     It extends the base Exception and includes additional fields for a message and an HTTP status code.

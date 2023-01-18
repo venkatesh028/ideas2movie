@@ -33,13 +33,12 @@ public class SecurityUserDetails implements UserDetails {
         userName = user.getPhoneNumber();
         password = user.getPassword();
         isActive = user.isActive();
-        authorities = Arrays
-                .asList(new SimpleGrantedAuthority((user.getRole().getName())));
+        authorities = Arrays.asList(new SimpleGrantedAuthority((user.getRole().getName())));
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return authorities;
     }
 
     @Override

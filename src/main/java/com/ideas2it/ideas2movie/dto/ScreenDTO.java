@@ -10,9 +10,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * <h1>
+ * <h2>
  *     ScreenDTO
- * </h1>
+ * </h2>
  * <p>
  *     ScreenDTO represents a Simplified version of the Screen Model
  *     which Holds the Necessary Information of the Screen model

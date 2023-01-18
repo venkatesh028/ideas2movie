@@ -14,13 +14,13 @@ import com.ideas2it.ideas2movie.repository.SeatRepository;
 import com.ideas2it.ideas2movie.util.constant.Message;
 
 /**
- * <h1>
+ * <h2>
  *     Seat Service Impl
- * </h1>
+ * </h2>
  * <p>
  *     Implements the Seat Service and
  *     Holds the Business Logics
- *     to Create, Update, Delete, Get the Details of the Seat
+ *     to Create and Get the Details of the Seat
  * </p>
  *
  * @author Venkatesh TM
@@ -29,8 +29,18 @@ import com.ideas2it.ideas2movie.util.constant.Message;
  */
 @Service
 public class SeatServiceImpl implements SeatService {
-    private SeatRepository seatRepository;
+    private final SeatRepository seatRepository;
 
+    /**
+     * <h1>
+     *     SeatServiceImpl Constructor
+     * </h1>
+     * <p>
+     *     Used to  inject the SeatRepository dependency
+     *     and initialize the seatRepository variables
+     * </p>
+     * @param seatRepository - Instance of SeatRepository
+     */
     public SeatServiceImpl(SeatRepository seatRepository){
         this.seatRepository = seatRepository;
     }
@@ -63,6 +73,10 @@ public class SeatServiceImpl implements SeatService {
         return seatRepository.findAllByScreenId(screenId);
     }
 
+    /**
+     *{@inheritDoc}
+     */
+    @Override
     public Seat getSeatById(Long id) throws NotFoundException{
         Optional<Seat> seat = seatRepository.findById(id);
 

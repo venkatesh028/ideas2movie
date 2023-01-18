@@ -16,9 +16,9 @@ import com.ideas2it.ideas2movie.util.constant.Message;
 import com.ideas2it.ideas2movie.logger.CustomLogger;
 
 /**
- * <h1>
+ * <h2>
  *     SecurityServiceImpl
- * </h1>
+ * </h2>
  * <p>
  *     SecurityServiceImpl provides the logic to verify
  *     the user existence by interacting with the user repository

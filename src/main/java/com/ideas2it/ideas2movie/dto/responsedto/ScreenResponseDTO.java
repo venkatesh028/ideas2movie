@@ -8,9 +8,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * <h1>
+ * <h2>
  *     ScreenResponseDTO
- * </h1>
+ * </h2>
  * <p>
  *     ScreenResponseDTO represents the response sent to the Client with the ID
  *     after Creating and Updating the Screen.

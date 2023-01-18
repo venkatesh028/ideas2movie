@@ -26,9 +26,9 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 /**
- * <h1>
+ * <h2>
  *     Seat
- * </h1>
+ * </h2>
  * <p>
  *     Entity of seat
  * </p>

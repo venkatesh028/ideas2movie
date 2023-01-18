@@ -28,9 +28,9 @@ import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.annotations.Where;
 
 /**
- * <h1>
+ * <h2>
  *     Show
- * </h1>
+ * </h2>
  * <p>
  *     Entity of show
  * </p>

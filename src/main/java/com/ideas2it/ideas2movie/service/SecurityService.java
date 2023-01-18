@@ -9,9 +9,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 /**
- * <h1>
+ * <h2>
  *     SecurityService
- * </h1>
+ * </h2>
  * <p>
  *     Provides the Method to load the user based on the provided
  *     username

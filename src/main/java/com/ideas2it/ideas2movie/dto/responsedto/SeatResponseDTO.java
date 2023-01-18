@@ -8,9 +8,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * <h1>
+ * <h2>
  *     SeatResponseDTO
- * </h1>
+ * </h2>
  * <p>
  *     SeatResponseDTO represents the response sent to the Client with the ID
  *     after Creating the Seat.
