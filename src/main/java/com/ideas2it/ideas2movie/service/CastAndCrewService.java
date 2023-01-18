@@ -10,11 +10,11 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
 
 /**
  * <h1>
- *     CastAndCrew Service Interface
+ *     CastAndCrewService
  * </h1>
  * <p>
- *     Service Layer for the CastAndCrew
- *     to Create, and Get the CastAndCrew for  a movie
+ *     CastAndCrewService provides the Methods for CastAndCrewService
+ *     CRUD Operation and throws an Exceptions when occurred.
  * </p>
  *
  * @author YOGESHWAR S
@@ -28,30 +28,28 @@ public interface CastAndCrewService {
      *     addCastAndCrew
      * </h1>
      * <p>
-     *     Getting castAndCrewDTO from CastAndCrew controller
-     *     Add the Cast and Crew details to ideas2movie.
+     *     Create the CastAndCrew details and add the CastAndCrew details
+     *     in ideas2movie.
      * </p>
      *
-     * @param castAndCrewDTO it contains details of the cast and crew.
-     * @return castAndCrewResponseDto - after store in ideas2movie to
-     *                         give a response as cast and crew details.
+     * @param castAndCrewDTO - Holds details of the castAndCrew to be added in ideas2movie.
+     * @return CastAndCrewResponseDto - Holds the created CastAndCrew details.
      */
     CastAndCrewResponseDTO addCastAndCrew(CastAndCrewDTO castAndCrewDTO);
 
     /**
      * <h1>
-     *     getCastAndCrewByMovieId
+     *     getCastAndCrewById
      * </h1>
      * <p>
-     *     Getting movie id from CastAndCrew controller and
-     *     Check the given movie id for castAndCrew exist
-     *     in ideas2movie, if it exist get the castAndCrew
-     *     Details for movie.
+     *     Get the CastAndCrew details on given CastAndCrew Id, if id not
+     *     exist in ideas2movie then throws an Exception.
      * </p>
      *
-     * @param id - id of the cast and crew to fetch details from ideas2movie
-     * @return castAndCrewResponseDTO - gives a cast and crew details
-     * @throws NotFoundException -  occur when no castAndCrew is existing, in ideas2movie
+     * @param id - ID of the CastAndCrew to be fetched from ideas2movie
+     * @return CastAndCrewResponseDto - Holds fetched CastAndCrew details of a CastAndCrew id
+     * @throws NotFoundException - Occur when no CastAndCrew details is existing
+     *                         in ideas2movie on a given id
      */
     CastAndCrewResponseDTO getCastAndCrewById(Long id)
             throws  NotFoundException;
@@ -61,15 +59,14 @@ public interface CastAndCrewService {
      *     updateCastAndCrew
      * </h1>
      * <p>
-     *     Getting cast and crew id , castAndCrewDTO from
-     *     CastAndCrew controller and update the cast, crew
-     *     details and send the updated castAndCrewResponseDTO.
+     * <p>
+     *     Update CastAndCrew details and add the updated CastAndCrew
+     *     details to ideas2movie and throws Exception when occur.
      * </p>
      *
-     * @param id - id of the castAndCrew to be updated
-     * @param castAndCrewDTO it contains cast and crew details to be updated.
-     * @return castAndResponseDto - gives a response of updated cast and crew details based on id
-     * @throws NotFoundException - occur when the given castAndCrew id is not exist in ideas2movie
+     * @param id - ID of the CastAndCrew to be Updated
+     * @return CastAndCrewResponseDto - Holds the Updated CastAndCrew details.
+     * @throws NotFoundException - occur when id is not exist in ideas2movie.
      */
     CastAndCrewResponseDTO updateCastAndCrew(Long id,
             CastAndCrewDTO castAndCrewDTO) throws NotFoundException;
@@ -79,15 +76,14 @@ public interface CastAndCrewService {
      *     deleteCastAndCrew
      * </h1>
      * <p>
-     *     Getting cast and crew id, castAndCrewDTO object from
-     *     CastAndCrew controller and Check the given castAndCrew id
-     *     exist in ideas2movie if it exist, then delete the cast and crew,
-     *     send the deleted success message.
+     *     Delete the CastAndCrew details based on CastAndCrew Id
+     *     if Id exist delete the CastAndCrew else throw an
+     *     Exception.
      * </p>
      *
-     * @param id of castAndCrew to be deleted.
-     * @return delete message if castAndCrew deleted successfully
-     * @throws NotFoundException - occur when id is not exist in ideas2movie.
+     * @param id - ID of CastAndCrew to be deleted.
+     * @return boolean - If CastAndCrew deleted successfully return true or else false
+     * @throws NotFoundException - Occur when id not exist in ideas2movie.
      */
     boolean deleteCastAndCrew(Long id) throws NotFoundException;
 }

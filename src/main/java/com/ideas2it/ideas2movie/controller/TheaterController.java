@@ -5,7 +5,6 @@
 package com.ideas2it.ideas2movie.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,9 +26,9 @@ import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
 
 /**
- * <h1>
+ * <h2>
  *     Theater Controller
- * </h1>
+ * </h2>
  * <p>
  *     TheaterController provides the RESTful endpoints to Handle CRUD Operation
  *     for Theater and validate the Information of the TheaterDTO according
@@ -42,7 +41,7 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  * @since 06-01-2023
  */
 @RestController
-@RequestMapping("api/v1/theaters")
+@RequestMapping("/api/v1/theaters")
 public class TheaterController {
     private final TheaterService theaterService;
 
@@ -76,14 +75,9 @@ public class TheaterController {
      * @return ResponseEntity - Holds the theaterDTO and Http Status OK
      */
     @PostMapping
-    public ResponseEntity<TheaterResponseDTO> addTheater(
-            @RequestBody TheaterDTO theaterDTO) throws AlreadyExistException {
-        Optional<TheaterResponseDTO> theaterDetails = theaterService.addTheater(theaterDTO);
-
-        if (theaterDetails.isPresent()) {
-            return ResponseEntity.status(HttpStatus.CREATED).body(theaterDetails.get());
-        }
-        throw new AlreadyExistException(Message.THEATER_ALREADY_REGISTERED);
+    public ResponseEntity<TheaterResponseDTO> addTheater(@RequestBody TheaterDTO theaterDTO)
+            throws AlreadyExistException {
+        return ResponseEntity.status(HttpStatus.CREATED).body(theaterService.addTheater(theaterDTO));
     }
 
     /**
@@ -157,7 +151,7 @@ public class TheaterController {
      *     deleteTheater
      * </h1>
      * <p>
-     *     Delete the Theater by Id and returns ResponseEntity with Http status Ok
+     *     Remove the Theater by Id and returns ResponseEntity with Http status Ok
      *     and a String if Theater not found throws a exception
      *</p>
      *
@@ -166,9 +160,9 @@ public class TheaterController {
      * @throws NotFoundException - when Theater is not found
      */
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteTheater(@PathVariable("id") Long id)
+    public ResponseEntity<String> removeTheater(@PathVariable("id") Long id)
             throws NotFoundException  {
-        if (!theaterService.deleteTheater(id)) {
+        if (theaterService.removeTheater(id)) {
             return ResponseEntity.status(HttpStatus.OK).body(Message.DELETED_SUCCESSFULLY);
         } else {
             return ResponseEntity.status(HttpStatus.OK).body(Message.FAILED_TO_DELETE);

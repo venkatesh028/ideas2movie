@@ -14,11 +14,11 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
 
 /**
  * <h1>
- *     Movie Service
+ *     MovieService
  * </h1>
  * <p>
- *     Service Layer for the Movie
- *     to Create, and Get the movie details
+ *     MovieService provides the Methods for Movie CRUD Operation
+ *     and throws an Exceptions when occurred
  * </p>
  *
  * @author YOGESHWAR S
@@ -32,14 +32,12 @@ public interface MovieService {
      *     addMovie
      * </h1>
      * <p>
-     *     Add the Movie details to ideas2movie by
-     *     getting movieDTO from controller.
+     *     Create Movie details and add the Movie
+     *     details to ideas2movie.
      * </p>
      *
-     * @param movieDTO it contains details of the movie
-     *                to be added to ideas2movie.
-     * @return movieResponseDto - after store in ideas2movie,
-     *                to give a response as movie details.
+     * @param movieDTO - Holds details of the movie.
+     * @return movieResponseDto - Holds the created movie details.
      */
     MovieResponseDTO addMovie(MovieDTO movieDTO);
 
@@ -48,14 +46,14 @@ public interface MovieService {
      *     getMovieById
      * </h1>
      * <p>
-     *     Getting the id from movie controller and
-     *     check the given movie id is exist in ideas2movie
-     *     if it exist get the Movie Details based on id.
+     *     Get the Movie details on given Movie Id, if id not
+     *     exist in ideas2movie then throws an Exception.
      * </p>
      *
-     * @param id - id of the movie to be fetched from ideas2movie
-     * @return movieResponseDto - gives a response of movie details based on movie id
-     * @throws NotFoundException - occur when no movie is existing in ideas2movie on a given id
+     * @param id - Id of the Movie to be fetched from ideas2movie
+     * @return MovieResponseDto - Holds fetched Movie details of a Movie Id
+     * @throws NotFoundException - Occur when no Movie details is existing
+     *                         in ideas2movie on a given id
      */
     MovieResponseDTO getMovieById(Long id) throws NotFoundException;
 
@@ -64,12 +62,14 @@ public interface MovieService {
      *     getMovieByName
      * </h1>
      * <p>
-     *
+     *     Get the Movie details on given Movie Name, if Movie Name not
+     *     exist in ideas2movie then throws an Exception.
      * </p>
      *
-     * @param name - name of the movie to be fetched from ideas2movie
-     * @return movieResponseDto - gives a response of movie details based on movie id
-     * @throws NotFoundException - occur when no movie is existing in ideas2movie on a given id
+     * @param name - Name of the Movie, to be fetched from ideas2movie
+     * @return MovieResponseDto - Holds fetched Movie details of a Movie Name
+     * @throws NotFoundException - Occur when no Movie details is existing
+     *                         in ideas2movie on a given id
      */
     MovieResponseDTO getMovieByName(String name) throws NotFoundException;
 
@@ -78,11 +78,12 @@ public interface MovieService {
      *     getAllMovies
      * </h1>
      * <p>
-     *     Get all the Movies which is registered in ideas2movie
+     *     Get all the Movies which is registered in ideas2movie and
+     *     throws exception when occur
      * </p>
      *
-     * @return List<MovieResponseDto> gives a response of all movie details
-     * @throws NoContentException - occur when no movies existing in ides2movie
+     * @return MovieResponseDto - Holds all Movie details registered in ideas2movie
+     * @throws NoContentException - Occur when no Movies existing in ides2movie
      */
     List<MovieResponseDTO> getAllMovies() throws NoContentException;
 
@@ -91,15 +92,14 @@ public interface MovieService {
      *     getMovieByIdForShows
      * </h1>
      * <p>
-     *     Getting the movie id from movie controller
-     *     check the given movie id is exist in ideas2movie
-     *     if it exist get the Movie Details for shows.
+     *     Get the Movie details on given Movie Id for Shows, if id not
+     *     exist in ideas2movie then throws an Exception.
      * </p>
      *
-     * @param id - id of the movie to be fetched from ideas2movie
-     * @return existingMovies - return  movie details based on movie id
-     * @throws NotFoundException - occur when no movie is existing in
-     *                       ideas2movie on a given id.
+     * @param id - Id of the Movie to be fetched from ideas2movie
+     * @return MovieResponseDto - Holds created Movie details
+     * @throws NotFoundException - Occur when no Movie details is existing
+     *                         in ideas2movie on a given id
      */
     Movie getMovieByIdForShows(Long id) throws NotFoundException;
 
@@ -108,32 +108,30 @@ public interface MovieService {
      *     updateMovie
      * </h1>
      * <p>
-     *     Getting the movie id and movieDTO object from controller
-     *     Check the given movie id exist in ideas2movie if it exist
-     *     update the movie details and send the updated movieResponseDTO.
+     *     Update Movie details and add the updated Movie
+     *     details to ideas2movie and throws Exception when occur.
      * </p>
      *
-     * @param id - id of the movie to be updated
-     * @param movieDTO it contains movie details
-     * @return movieResponseDto - gives a response of updated movie details based on id
-     * @throws NotFoundException - if the given movie id is not exist in ideas2movie
-     */
-    MovieResponseDTO updateMovie(Long id, MovieDTO movieDTO) throws NotFoundException;
-
-    /**
-     * <h1>
-     *     deleteMovie
-     * </h1>
-     * <p>
-     *     Getting the movie id from movie controller and
-     *     Check the given movie id exist in ideas2movie
-     *     if it exist delete the movie details
-     *     and send the deleted success message.
-     * </p>
-     *
-     * @param id - of movie to be deleted.
-     * @return boolean - false if deleted movie deleted successfully
+     * @param id - Id of the Movie to be Updated
+     * @return movieResponseDto - Holds the Updated movie details.
      * @throws NotFoundException - occur when id is not exist in ideas2movie.
      */
+    MovieResponseDTO updateMovie(Long id, MovieDTO movieDTO)
+            throws NotFoundException;
+
+/**
+ * <h1>
+ *     deleteMovie
+ * </h1>
+ * <p>
+ *     Delete the Movie details based on Movie Id
+ *     if Id exist delete the Movie else throw an
+ *     Exception.
+ * </p>
+ *
+ * @param id - ID of Movie to be deleted.
+ * @return boolean - If Movie deleted successfully return true or else false
+ * @throws NotFoundException - Occur when id not exist in ideas2movie.
+ */
     boolean  deleteMovie(Long id) throws NotFoundException;
 }

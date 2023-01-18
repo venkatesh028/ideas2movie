@@ -14,10 +14,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-
 import jakarta.validation.constraints.NotBlank;
-
 import jakarta.validation.constraints.NotNull;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -35,7 +34,8 @@ import com.ideas2it.ideas2movie.util.enums.City;
  *    Theater
  * <h1/>
  * <p>
- *    Theater Entity have the Attribute which is used to Hold the Details of the Theater
+ *    Theater Entity represent the Details of the Theater which are like
+ *    Theater name, area, city.
  * <p/>
  *
  *  @version 1.0
@@ -52,19 +52,25 @@ public class Theater {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @NotBlank(message = Message.THEATER_NAME_SHOULD_NOT_BE_EMPTY)
     private String theaterName;
+
     @NotNull(message = Message.CITY_NAME_SHOULD_NOT_BE_EMPTY)
     @Enumerated(value = EnumType.STRING)
     private City city;
+
     @NotBlank(message = Message.AREA_NAME_SHOULD_NOT_BE_EMPTY)
     private String area;
+
     @ColumnDefault(value = "true")
     @Column( insertable = false)
     private boolean isActive;
+
     @CreationTimestamp
     @Column(updatable = false)
     private Timestamp createdAt;
+
     @UpdateTimestamp
     private Timestamp updatedAt;
 }

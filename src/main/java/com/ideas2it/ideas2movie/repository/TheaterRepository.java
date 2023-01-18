@@ -15,7 +15,7 @@ import com.ideas2it.ideas2movie.util.enums.City;
  *     TheaterRepository
  * <h1/>
  * <p>
- *     To save and retrieve the theater details in ideas2movie
+ *     Represent the Theater repository to save, fetch the theater details
  *     by using jpa repository.
  * </p>
  *
@@ -31,13 +31,12 @@ public interface TheaterRepository extends JpaRepository<Theater, Long> {
      *     existsByCity
      * </h1>
      * <p>
-     *     Getting the city name from theater service and
-     *     check the given city name exist in ideas2movie
-     *     if it exist return true or else false.
+     *     Check the Details of the Theater exist in ideas2movie
+     *     by using the City Name
      * </p>
      *
-     * @param city - name of city to be checked if it exists or not.
-     * @return true - if city name exist or else return false
+     * @param city - Name of city to be checked if it exists or not.
+     * @return boolean - If city name exist return true or else false
      */
     boolean existsByCity(City city);
 
@@ -46,13 +45,12 @@ public interface TheaterRepository extends JpaRepository<Theater, Long> {
      *     existsByTheaterName
      * </h1>
      * <p>
-     *     Getting the theater name from theater service and
-     *     check the given theater name exist in ideas2movie
-     *     if it exist return true or else false.
+     *     Check the Details of the Theater exist in ideas2movie
+     *     by using the Theater Name
      * </p>
      *
-     * @param theaterName - name of theater to be checked if it exists or not.
-     * @return true - if theater name exist or else return false
+     * @param theaterName - Name of theater to be checked if it exists or not.
+     * @return boolean - If theater name exist return true or else  false
      */
     boolean existsByTheaterName(String theaterName);
 
@@ -61,15 +59,12 @@ public interface TheaterRepository extends JpaRepository<Theater, Long> {
      *     existsByArea
      * </h1>
      * <p>
-     *     Getting the area name from theater service and
-     *     check the given area name exist in ideas2movie
-     *     if it exist return true or else false.
+     *     Check the Details of the Theater exist in ideas2movie
+     *     by using the Area Name
      * </p>
      *
-     * @param area - name of area to be checked if it exists or not.
-     * @return true - if  name exist or else return false
+     * @param area - Name of area to be checked if it exists or not.
+     * @return boolean - If area name exist return true or else  false
      */
     boolean existsByArea(String area);
-
-    boolean existsById(Long id);
 }

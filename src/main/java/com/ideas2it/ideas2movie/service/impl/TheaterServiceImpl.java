@@ -16,10 +16,11 @@ import com.ideas2it.ideas2movie.dto.TheaterDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.TheaterResponseDTO;
 import com.ideas2it.ideas2movie.service.TheaterService;
 import com.ideas2it.ideas2movie.repository.TheaterRepository;
+import com.ideas2it.ideas2movie.util.constant.Message;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
 import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
-import com.ideas2it.ideas2movie.util.constant.Message;
+
 
 /**
  * <h1>
@@ -59,31 +60,31 @@ public class TheaterServiceImpl implements TheaterService {
      * {@inheritDoc}
      */
     @Override
-    public Optional<TheaterResponseDTO> addTheater(TheaterDTO theaterDTO)
+    public TheaterResponseDTO addTheater(TheaterDTO theaterDTO)
             throws AlreadyExistException {
-
         if (theaterRepository.existsByTheaterName(theaterDTO.getTheaterName())
                 && theaterRepository.existsByCity(theaterDTO.getCity()) &&
                 theaterRepository.existsByArea(theaterDTO.getArea())) {
             throw new AlreadyExistException(Message.THEATER_ALREADY_REGISTERED);
-        } else {
-            Theater theater = modelMapper.map(theaterDTO, Theater.class);
-            return Optional.of(modelMapper.map(theaterRepository.save(theater),
-                    TheaterResponseDTO.class));
         }
+        Theater theater = modelMapper.map(theaterDTO, Theater.class);
+        return modelMapper.map(theaterRepository.save(theater), TheaterResponseDTO.class);
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public List<TheaterResponseDTO> getAllTheaters() throws NoContentException {
+    public List<TheaterResponseDTO> getAllTheaters()
+            throws NoContentException {
         List<Theater> theaters = theaterRepository.findAll();
 
         if (!theaters.isEmpty()) {
             List<TheaterResponseDTO> listOfTheater = new ArrayList<>();
+
             for (Theater theater: theaters) {
-                listOfTheater.add(modelMapper.map(theater, TheaterResponseDTO.class));
+                listOfTheater.add(modelMapper.map(theater,
+                        TheaterResponseDTO.class));
             }
             return listOfTheater;
         }
@@ -129,32 +130,34 @@ public class TheaterServiceImpl implements TheaterService {
         theater.setActive(true);
         Optional<Theater> existingTheater = theaterRepository.findById(id);
 
-        if (!existingTheater.isPresent()) {
+        if (existingTheater.isEmpty()) {
             throw new NotFoundException("No theater exist on given id");
-        } else if (theaterRepository.existsByTheaterName(theater.getTheaterName()) &&
-                theaterRepository.existsByCity(theater.getCity()) &&
-                theaterRepository.existsByArea(theaterDTO.getArea())) {
+        } else if (theaterRepository.existsByTheaterName(theater
+          .getTheaterName()) && theaterRepository.existsByCity(theater
+          .getCity()) && theaterRepository.existsByArea(theaterDTO.getArea())) {
             throw new AlreadyExistException(Message.FAILED_TO_UPDATE);
         } else {
             return modelMapper.map(theaterRepository.save(theater),
                     TheaterResponseDTO.class);
         }
     }
+
     /**
      * {@inheritDoc}
      */
     @Override
-    public boolean deleteTheater(Long id) throws NotFoundException {
+    public boolean removeTheater(Long id) throws NotFoundException {
         Optional<Theater> existingTheater = theaterRepository.findById(id);
         Theater theater;
-        boolean isActive = true;
-        if (existingTheater.isPresent() ) {
+        boolean isActive = false;
+
+        if (existingTheater.isPresent()) {
             theater = existingTheater.get();
             theater.setActive(false);
             theaterRepository.save(theater);
-            isActive = theaterRepository.existsById(id);
-            if (!isActive) {
-                return isActive;
+
+            if (!existingTheater.isPresent()) {
+                return isActive = true;
             }
         }
         throw new NotFoundException(Message.THEATER_NOT_FOUND);

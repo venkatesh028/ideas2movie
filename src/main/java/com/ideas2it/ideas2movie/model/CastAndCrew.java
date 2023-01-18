@@ -6,15 +6,11 @@ package com.ideas2it.ideas2movie.model;
 
 import java.sql.Timestamp;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 
@@ -30,8 +26,8 @@ import org.hibernate.annotations.UpdateTimestamp;
  *     CastAndCrew
  * <h1/>
  * <p>
- *     CastAndCrewRole Entity have the Attribute which is used to
- *     Hold the Details of the CastAndCrewRole
+ *     CastAndCrewRole Entity represent the Details of the CastAndCrewRole which are
+ *     like names of director, hero, heroine.
  * <p/>
  *
  *  @version 1.0
@@ -47,13 +43,18 @@ public class CastAndCrew {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @NotNull
     private String director;
+
     private String hero;
+
     private String heroine;
+
     @CreationTimestamp
     @Column(updatable = false)
     private Timestamp createdAt;
+
     @UpdateTimestamp
     private Timestamp updatedAt;
 }

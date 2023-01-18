@@ -4,14 +4,16 @@
  */
 package com.ideas2it.ideas2movie.dto;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+import java.time.LocalTime;
+
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalTime;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import com.ideas2it.ideas2movie.model.CastAndCrew;
 import com.ideas2it.ideas2movie.util.constant.Message;
@@ -19,9 +21,9 @@ import com.ideas2it.ideas2movie.util.enums.Genre;
 import com.ideas2it.ideas2movie.util.enums.Language;
 
 /**
- * <h1>
+ * <h2>
  *     Movie DTO
- * </h1>
+ * </h2>
  * <p>
  *      MovieDTO represents a Simplified version of the Movie Model
  *      which Holds the Necessary Information of the Movie model

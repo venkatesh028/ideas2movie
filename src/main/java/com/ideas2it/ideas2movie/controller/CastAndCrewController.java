@@ -22,9 +22,9 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
 import com.ideas2it.ideas2movie.util.constant.Message;
 
 /**
- * <h1>
+ * <h2>
  *     CastAndCrew Controller
- * </h1>
+ * </h2>
  * <p>
  *     CastAndCrewController provides the RESTful endpoints to Handle CRUD Operation and to
  *     add the cast and crew details for a movie and validate the Information of the CastAndCrewDTO
@@ -37,7 +37,7 @@ import com.ideas2it.ideas2movie.util.constant.Message;
  * @since 07-01-2023
  */
 @RestController
-@RequestMapping("api/v1/casts-and-crews")
+@RequestMapping("/api/v1/casts-and-crews")
 public class CastAndCrewController {
     private final CastAndCrewService castAndCrewService;
 
