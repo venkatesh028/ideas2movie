@@ -4,17 +4,18 @@
  */
 package com.ideas2it.ideas2movie.dto.responsedto;
 
-import com.ideas2it.ideas2movie.util.enums.PaymentStatus;
 import java.sql.Timestamp;
 import java.util.UUID;
 
 import lombok.Getter;
 import lombok.Setter;
 
+import com.ideas2it.ideas2movie.util.enums.PaymentStatus;
+
 /**
- * <h1>
+ * <h2>
  *     PaymentResponseDTO
- * </h1>
+ * </h2>
  * <p>
  *     PaymentResponseDTO represents the Response sent to the Client with ID of Payment
  *     after Making and Updating the Details of payment for Reservation

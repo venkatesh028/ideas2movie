@@ -4,9 +4,9 @@
  */
 package com.ideas2it.ideas2movie.controller;
 
-import jakarta.validation.Valid;
-
 import java.util.List;
+
+import jakarta.validation.Valid;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,11 +21,12 @@ import com.ideas2it.ideas2movie.dto.responsedto.RoleResponseDTO;
 import com.ideas2it.ideas2movie.service.RoleService;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
 import com.ideas2it.ideas2movie.exception.NoContentException;
+import com.ideas2it.ideas2movie.logger.CustomLogger;
 
 /**
- * <h1>
+ * <h2>
  *     RoleController
- * </h1>
+ * </h2>
  * <p>
  *     RoleController provides the RESTful Endpoints to handle CRUD operations
  *     for the Role of the User and Validates the Information of the RoleDTO
@@ -41,7 +42,7 @@ import com.ideas2it.ideas2movie.exception.NoContentException;
 @RequestMapping("/api/v1/roles")
 public class RoleController {
     private final RoleService roleService;
-
+    private final CustomLogger logger = new CustomLogger(RoleController.class);
     /**
      * <h1>
      *     RoleController Constructor
@@ -74,6 +75,7 @@ public class RoleController {
     @PostMapping
     public ResponseEntity<RoleResponseDTO> createRole(@Valid @RequestBody RoleDTO roleDTO)
             throws AlreadyExistException {
+        logger.info("Inside the RoleController Create Role");
         return ResponseEntity.status(HttpStatus.CREATED).body(roleService.createRole(roleDTO));
     }
 
@@ -92,6 +94,7 @@ public class RoleController {
     @GetMapping
     public ResponseEntity<List<RoleResponseDTO>> getAllRoles()
             throws NoContentException {
+        logger.info("Inside the RoleController Get All Role");
         return ResponseEntity.status(HttpStatus.OK).body(roleService.getAllRoles());
     }
 }

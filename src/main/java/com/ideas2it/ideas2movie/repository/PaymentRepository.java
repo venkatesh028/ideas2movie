@@ -1,18 +1,20 @@
 package com.ideas2it.ideas2movie.repository;
 
-import com.ideas2it.ideas2movie.model.Payment;
 import java.util.Optional;
 import java.util.UUID;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import com.ideas2it.ideas2movie.model.Payment;
+
 /**
- * <h1>
+ * <h2>
  *     PaymentRepository
- * </h1>
+ * </h2>
  * <p>
- *     Repository of the Payment
- *     to save, and fetch the Details of the Payment
- *     by using the JPA Repository
+ *     PaymentRepository provides the CRUD for the Payment by extending the JPARepository
+ *     like Saving, Updating and Fetching the Details of the Payment from the repository
+ *     and Contains Custom Methods for Fetching Details of the payment by the Transaction ID
  * </p>
  *
  * @author AJAISHARMA
@@ -25,12 +27,11 @@ public interface PaymentRepository extends JpaRepository<Payment, Long> {
      *     getByTransactionId
      * </h1>
      * <p>
-     *     Fetches the Details of the Payment
-     *     by using the Transaction ID
+     *     Retrieves the Details of the Payment by the Unique Transaction ID of the Payment
      * </p>
      *
-     * @param id - ID of the Transaction to fetch the Payment Details
-     * @return payment - Details of the Payment
+     * @param id - Transaction ID to fetch the Payment Details
+     * @return Optional - Holds the Details of the Payment or null
      */
     Optional<Payment> getByTransactionId(UUID id);
 }

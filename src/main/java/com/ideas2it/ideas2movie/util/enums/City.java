@@ -9,9 +9,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * <h1>
+ * <h2>
  *     City
- * </h1>
+ * </h2>
  * <p>
  *     Contains the City of the Theater as a Enum
  * </p>

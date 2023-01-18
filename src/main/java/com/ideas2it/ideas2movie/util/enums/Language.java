@@ -9,9 +9,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * <h1>
+ * <h2>
  *     Language
- * </h1>
+ * </h2>
  * <p>
  *     Contains the Language of the Movie as a Enum
  * </p>

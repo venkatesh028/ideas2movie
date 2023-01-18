@@ -1,18 +1,19 @@
 package com.ideas2it.ideas2movie.repository;
 
-import com.ideas2it.ideas2movie.model.Reservation;
 import java.util.List;
-import java.util.Map;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import com.ideas2it.ideas2movie.model.Reservation;
+
 /**
- * <h1>
+ * <h2>
  *     ReservationRepository
- * </h1>
+ * </h2>
  * <p>
- *     Repository of the Reservation
- *     to Save, Fetch and Update the Reservation
- *     by Using the JPA Repository
+ *     ReservationRepository provides the CRUD for the Reservation of the Seats for the Show
+ *     by extending the JPA Repository like Saving, Updating and Fetching the Details of the Reservation
+ *     and Contains the Custom methods to Retrieve all Reservation for a Show and User by the ID
  * </p>
  *
  * @author AJAISHARMA
@@ -25,12 +26,12 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long> 
      *     findAllByShowId
      * </h1>
      * <p>
-     *     Fetches the Details of the Reservation
-     *     for Show by using the ID of the Show
+     *     Retrieves the Details of All Reservation for the Show By the given ID
+     *     and returns the List of Reservation
      * </p>
      *
-     * @param id - ID of the Show to fetch the Details of Reservation
-     * @return List<reservation> - Holds the List of reservation made for the Show
+     * @param id - Show ID to fetch the Details of Reservation
+     * @return List - Holds the List of reservation made for the Show or Empty
      */
     List<Reservation> findAllByShowId(Long id);
 
@@ -43,8 +44,8 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long> 
      *     for User by using ID of the User
      * </p>
      *
-     * @param id - ID of the User to fetch the Details of the Reservation
-     * @return List<reservation> - Holds the List of reservation made for the User
+     * @param id - User ID to fetch the Details of the Reservation
+     * @return List - Holds the List of reservation made for the User or Empty
      */
     List<Reservation> findAllByUserId(Long id);
 }

@@ -11,9 +11,9 @@ import com.ideas2it.ideas2movie.exception.BadRequestException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
 
 /**
- * <h1>
+ * <h2>
  *     UserService
- * </h1>
+ * </h2>
  * <p>
  *     UserService provides the Methods for User CRUD Operation used to handle the User Account
  *     like Creating an Account for User, Getting the Details of the Account, and Deactivation
@@ -91,5 +91,5 @@ public interface UserService {
      * @return boolean -  status of the User is Deleted
      * @throws NotFoundException - when User Not Found
      */
-    boolean deleteUser(Long id) throws NotFoundException;
+    boolean deactivateUser(Long id) throws NotFoundException;
 }

@@ -27,9 +27,9 @@ import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.annotations.Where;
 
 /**
- * <h1>
+ * <h2>
  *      User
- * </h1>
+ * </h2>
  * <p>
  *      User Entity Represents the Details of the User which are
  *      like Name, Email, Phone Number, and role of the User

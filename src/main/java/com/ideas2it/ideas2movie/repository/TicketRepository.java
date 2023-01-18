@@ -1,16 +1,16 @@
 package com.ideas2it.ideas2movie.repository;
 
-import com.ideas2it.ideas2movie.model.Ticket;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import com.ideas2it.ideas2movie.model.Ticket;
+
 /**
- * <h1>
+ * <h2>
  *     TicketRepository
- * </h1>
+ * </h2>
  * <p>
- *     Repository of the Ticket
- *     to Save, Fetch, and Update the details of the Ticket
- *     by using the JPA Repository
+ *     TicketRepository provides the CRUD for the Ticket by extending the JPARepository
+ *     like Saving, and Fetching the Details of the Ticket from the repository
  * </p>
  *
  * @author AJAISHARMA

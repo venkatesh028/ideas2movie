@@ -6,8 +6,6 @@ package com.ideas2it.ideas2movie.controller;
 
 import jakarta.validation.Valid;
 
-import com.ideas2it.ideas2movie.util.constant.Message;
-import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,15 +19,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ideas2it.ideas2movie.dto.UserDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.UserResponseDTO;
-import com.ideas2it.ideas2movie.exception.BadRequestException;
 import com.ideas2it.ideas2movie.service.UserService;
+import com.ideas2it.ideas2movie.util.constant.Message;
+import com.ideas2it.ideas2movie.exception.BadRequestException;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
+import com.ideas2it.ideas2movie.logger.CustomLogger;
 
 /**
- * <h1>
+ * <h2>
  *     UserController
- * </h1>
+ * </h2>
  * <p>
  *     UserController provides the RESTful endpoints to handle CRUD operations
  *     for the User of the Application and validates the Information of the UserDTO
@@ -45,7 +45,7 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
 @RequestMapping("/api/v1/users")
 public class UserController {
     private final UserService userService;
-    private final ModelMapper mapper = new ModelMapper();
+    private final CustomLogger logger = new CustomLogger(UserController.class);
 
     /**
      * <h1>
@@ -78,8 +78,9 @@ public class UserController {
      * @throws BadRequestException - When Role is Not Found
      */
     @PostMapping
-    public ResponseEntity<UserResponseDTO> createAccount(@Valid @RequestBody UserDTO userDTO)
+    public ResponseEntity<UserResponseDTO> createUser(@Valid @RequestBody UserDTO userDTO)
             throws AlreadyExistException, BadRequestException {
+        logger.info("Inside the UserController create Account");
         return ResponseEntity.status(HttpStatus.CREATED).body(userService.createUser(userDTO));
     }
 
@@ -100,6 +101,7 @@ public class UserController {
     @GetMapping("/{id}")
     public ResponseEntity<UserResponseDTO> getUserById(@PathVariable("id") Long id)
             throws NotFoundException {
+        logger.info("Inside the UserController Get user by ID");
         return ResponseEntity.status(HttpStatus.OK).body(userService.getUserById(id));
     }
 
@@ -124,6 +126,7 @@ public class UserController {
     public ResponseEntity<UserResponseDTO> updateUser(@PathVariable("id") Long id,
                                                       @Valid @RequestBody UserDTO userDTO)
             throws NotFoundException, AlreadyExistException {
+        logger.info("Inside the UserController Update User");
         return ResponseEntity.status(HttpStatus.OK).body(userService.updateUser(id, userDTO));
     }
 
@@ -141,9 +144,10 @@ public class UserController {
      * @throws NotFoundException - throws when user Not Found
      */
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deactivateAccount(@PathVariable("id") Long id)
+    public ResponseEntity<String> deactivateUser(@PathVariable("id") Long id)
             throws NotFoundException {
-        String message = (userService.deleteUser(id)) ? Message.FAILED_TO_DELETE : Message.DELETED_SUCCESSFULLY;
+        logger.info("Inside the UserController Deactivate Account");
+        String message = (userService.deactivateUser(id)) ? Message.FAILED_TO_DELETE : Message.DELETED_SUCCESSFULLY;
         return ResponseEntity.status(HttpStatus.OK).body(message);
     }
 }

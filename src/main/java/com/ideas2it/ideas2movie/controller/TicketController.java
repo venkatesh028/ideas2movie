@@ -14,11 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ideas2it.ideas2movie.dto.responsedto.TicketResponseDTO;
 import com.ideas2it.ideas2movie.service.TicketService;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
+import com.ideas2it.ideas2movie.logger.CustomLogger;
 
 /**
- * <h1>
+ * <h2>
  *     TicketController
- * </h1>
+ * </h2>
  * <p>
  *     TicketController provides the RESTful Endpoints for handle the Retrieving
  *     Operation of the Ticket and validates according to the Validation Constraints
@@ -30,9 +31,10 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  * @since 06-01-2023
  */
 @RestController
-@RequestMapping("api/v1/tickets")
+@RequestMapping("/api/v1/tickets")
 public class TicketController {
     private final TicketService ticketService;
+    private final CustomLogger logger = new CustomLogger(TicketController.class);
 
     /**
      * <h1>
@@ -65,6 +67,7 @@ public class TicketController {
     @GetMapping("/{id}")
     public ResponseEntity<TicketResponseDTO> getTicketById(@PathVariable("id") Long id)
             throws NotFoundException {
+        logger.info("Inside the TicketController get Ticket By ID");
         return ResponseEntity.status(HttpStatus.OK).body(ticketService.getTicketDTOById(id));
     }
 }
