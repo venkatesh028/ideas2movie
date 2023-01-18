@@ -7,6 +7,7 @@ package com.ideas2it.ideas2movie.controller;
 import java.util.List;
 
 import jakarta.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -26,9 +27,9 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
 import com.ideas2it.ideas2movie.util.constant.Message;
 
 /**
- * <h1>
+ * <h2>
  *     Movie Controller
- * </h1>
+ * </h2>
  * <p>
  *     MovieController provides the RESTful endpoints to Handle CRUD Operation and
  *     to know details of movie and validate the Information of the MovieDTO
@@ -91,7 +92,7 @@ public class MovieController {
      *     ResponseEntity with Http status OK and Details of the Movie
      * </p>
      *
-     * @param id - Id of the Movie
+     * @param id - ID of the Movie
      * @return ResponseEntity - Holds the MovieDTO and Http Status OK
      * @throws NotFoundException - when Movie is Not Found for ID
      */
@@ -152,7 +153,7 @@ public class MovieController {
      *     and updated Details of the Movie or throws an Exception If Movie not Found
      *</p>
      *
-     * @param id - The id of movie to update the Details of Movie
+     * @param id - ID of movie to update the Details of Movie
      * @param movieDTO - Holds the Details of the Movie
      * @return ResponseEntity - Holds the MovieResponseDTO and Http Status OK
      * @throws NotFoundException - when Movie not found

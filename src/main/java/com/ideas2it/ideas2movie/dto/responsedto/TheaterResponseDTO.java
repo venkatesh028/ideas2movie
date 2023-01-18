@@ -10,9 +10,9 @@ import lombok.Setter;
 import com.ideas2it.ideas2movie.util.enums.City;
 
 /**
- * <h1>
+ * <h2>
  *     Theater Response DTO
- * </h1>
+ * </h2>
  * <p>
  *     Represents the Theater Response DTO,
  *     its shows the required data to the client.
