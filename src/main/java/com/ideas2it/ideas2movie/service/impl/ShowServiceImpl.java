@@ -55,6 +55,22 @@ public class ShowServiceImpl implements ShowService {
     private final SeatService seatService;
     private final ReservationService reservationService;
 
+    /**
+     * <h2>
+     *     ShowServiceImpl Constructor
+     * </h2>
+     * <p>
+     *     Used to  inject the ShowRepository, ScreenService,  MovieService
+     *     ,SeatService and ReservationService dependency to initialize the
+     *     variables showRepository, screenService, movieService, seatService
+     *     and reservationService
+     * </p>
+     * @param showRepository - Instance of ShowRepository
+     * @param screenService - Instance of ScreenService
+     * @param movieService - Instance of MovieService
+     * @param seatService - Instance of SeatService
+     * @param reservationService - Instance of ReservationService
+     */
     public ShowServiceImpl(ShowRepository showRepository, ScreenService screenService,
                            MovieService movieService, SeatService seatService,
                            ReservationService reservationService){

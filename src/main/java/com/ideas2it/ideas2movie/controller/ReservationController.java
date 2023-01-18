@@ -24,11 +24,12 @@ import com.ideas2it.ideas2movie.service.ReservationService;
 import com.ideas2it.ideas2movie.exception.BadRequestException;
 import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
+import com.ideas2it.ideas2movie.logger.CustomLogger;
 
 /**
- * <h1>
+ * <h2>
  *     ReservationController
- * </h1>
+ * </h2>
  * <p>
  *     ReservationController provides the RESTful endpoints to Handle the CRUD Operation for the Reservation
  *     of the Seats for Show and validates the Information of Reservation according to validation Constraints
@@ -43,7 +44,7 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
 @RequestMapping("/api/v1/reservations")
 public class ReservationController {
     private final ReservationService reservationService;
-
+    private final CustomLogger logger = new CustomLogger(ReservationController.class);
     /**
      * <h1>
      *     ReservationController
@@ -61,7 +62,7 @@ public class ReservationController {
 
     /**
      * <h1>
-     *     addReservation
+     *     reserveSeat
      * </h1>
      * <p>
      *     Adds a new reservation of the Seat for a Show by the User by validating the ReservationDTO
@@ -75,8 +76,9 @@ public class ReservationController {
      * @throws BadRequestException - When Seat is Not Found
      */
     @PostMapping
-    public ResponseEntity<ReservationResponseDTO> addReservation(@Valid @RequestBody ReservationDTO reservationDTO)
+    public ResponseEntity<ReservationResponseDTO> reserveSeats(@Valid @RequestBody ReservationDTO reservationDTO)
             throws BadRequestException {
+        logger.info("Inside the ReservationController add Reservation");
         return ResponseEntity.status(HttpStatus.CREATED).body(reservationService.reserveSeats(reservationDTO));
     }
 
@@ -95,9 +97,10 @@ public class ReservationController {
      * @throws NotFoundException - When Reservation Not Found
      */
     @DeleteMapping("/cancel/{id}")
-    public ResponseEntity<ReservationResponseDTO> cancelReservation(@PathVariable("id") Long id)
+    public ResponseEntity<ReservationResponseDTO> cancelReservationById(@PathVariable("id") Long id)
             throws NotFoundException {
-        return ResponseEntity.status(HttpStatus.OK).body(reservationService.cancelReservation(id));
+        logger.info("Inside the ReservationController cancel Reservation");
+        return ResponseEntity.status(HttpStatus.OK).body(reservationService.cancelReservationById(id));
     }
 
     /**
@@ -117,12 +120,13 @@ public class ReservationController {
     @GetMapping("/{id}")
     public ResponseEntity<ReservationResponseDTO> getReservationById(@PathVariable("id") Long id)
             throws NotFoundException {
+        logger.info("Inside the ReservationController get Reservation by Id");
         return ResponseEntity.status(HttpStatus.OK).body(reservationService.getReservationDTOById(id));
     }
 
     /**
      * <h1>
-     *     getAllReservationByUserId
+     *     getAllReservationsByUserId
      * </h1>
      * <p>
      *     Retrieves the Details of the All Reservations for the User by the User ID
@@ -135,8 +139,9 @@ public class ReservationController {
      * @throws NoContentException - When there is No Reservation Found for User
      */
     @GetMapping("/of-user/{id}")
-    public ResponseEntity<List<ReservationResponseDTO>> getAllReservationByUserId(@PathVariable("id") Long id)
+    public ResponseEntity<List<ReservationResponseDTO>> getAllReservationsByUserId(@PathVariable("id") Long id)
             throws NoContentException {
-        return ResponseEntity.status(HttpStatus.OK).body(reservationService.getAllReservationByUserId(id));
+        logger.info("Inside the ReservationController get all reservation by user id");
+        return ResponseEntity.status(HttpStatus.OK).body(reservationService.getAllReservationsByUserId(id));
     }
 }

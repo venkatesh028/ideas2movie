@@ -4,7 +4,6 @@
  */
 package com.ideas2it.ideas2movie.model;
 
-import com.ideas2it.ideas2movie.util.enums.ReservationStatus;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 
@@ -22,10 +21,12 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import com.ideas2it.ideas2movie.util.enums.ReservationStatus;
+
 /**
- * <h1>
+ * <h2>
  *      Ticket
- * </h1>
+ * </h2>
  * <p>
  *      Ticket Entity represents the Ticket for the Reservation Made for the Show
  *      Which Holds the ID of the ticket and Details of the Show.

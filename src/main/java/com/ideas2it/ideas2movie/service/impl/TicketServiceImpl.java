@@ -17,10 +17,12 @@ import com.ideas2it.ideas2movie.service.TicketService;
 import com.ideas2it.ideas2movie.repository.TicketRepository;
 import com.ideas2it.ideas2movie.util.constant.Message;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
+import com.ideas2it.ideas2movie.logger.CustomLogger;
+
 /**
- * <h1>
+ * <h2>
  *     TicketServiceImpl
- * </h1>
+ * </h2>
  * <p>
  *     TicketServiceImpl Provides the Business Logics for Generate the Ticket for Reservation
  *     and Fetches the Details of the Ticket from the Storage
@@ -32,10 +34,10 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  * @since 06-01-2023
  */
 
-
 @Service
 public class TicketServiceImpl implements TicketService {
     private final TicketRepository ticketRepository;
+    private final CustomLogger logger = new CustomLogger(TicketServiceImpl.class);
 
     /**
      * <h1>
@@ -56,6 +58,7 @@ public class TicketServiceImpl implements TicketService {
      */
     @Override
     public Ticket generateTicket(Reservation reservation) {
+        logger.info("Inside the TicketServiceImpl generate Ticket");
         Ticket ticket  = new Ticket();
         ticket.setNumberOfSeatsSelected(reservation.getSeats().size());
         ticket.setReservationStatus(reservation.getStatus());
@@ -80,9 +83,11 @@ public class TicketServiceImpl implements TicketService {
      */
     @Override
     public TicketResponseDTO getTicketDTOById(Long id) throws NotFoundException {
+        logger.info("Inside the TicketServiceImpl  get Ticket DTO by ID");
         Optional<Ticket> existingTicket = ticketRepository.findById(id);
 
         if (existingTicket.isEmpty()) {
+            logger.error(Message.TICKET_NOT_FOUND);
             throw new NotFoundException(Message.TICKET_NOT_FOUND);
         }
         return null;

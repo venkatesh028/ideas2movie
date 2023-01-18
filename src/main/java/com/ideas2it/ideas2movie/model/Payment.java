@@ -29,9 +29,9 @@ import com.ideas2it.ideas2movie.util.enums.ModeOfPayment;
 import com.ideas2it.ideas2movie.util.enums.PaymentStatus;
 
 /**
- * <h1>
+ * <h2>
  *      Payment
- * </h1>
+ * </h2>
  * <p>
  *      Payment Entity Represent the Details of the Payment Made for the Reservation
  *      Like Amount, Mode Of payment, and a Unique Transaction ID

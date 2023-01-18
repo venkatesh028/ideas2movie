@@ -22,9 +22,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * <h1>
+ * <h2>
  *     ShowDTO
- * </h1>
+ * </h2>
  * <p>
  *     ShowDTO represents a Simplified version of the Show Model
  *     which Holds the Necessary Information of the Show model

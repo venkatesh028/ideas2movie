@@ -5,13 +5,11 @@
 package com.ideas2it.ideas2movie.repository;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.ideas2it.ideas2movie.model.Screen;
 import com.ideas2it.ideas2movie.model.Show;
 
 /**
@@ -19,9 +17,9 @@ import com.ideas2it.ideas2movie.model.Show;
  *     ShowRepository
  * </h1>
  * <p>
- *     Repository of  the show
- *     to save and fetch the details of
- *     show using the JPARepository
+ *     ShowRepository provides the CRUD of the Show by extending JPARepository like Saving the Show
+ *     And Fetching the details of the show and contains the custom methods
+ *     to fetch the show based on screen id , Movie name and screening date
  * </p>
  *
  * @author Venkatesh TM
@@ -33,25 +31,6 @@ public interface ShowRepository extends JpaRepository<Show, Long> {
 
     /**
      * <h1>
-     *     existsByScreeningDateAndStartTimeAndScreen
-     * </h1>
-     * <p>
-     *     Checks show is exist for
-     *     given screeningDate, StartTime
-     *     and screen
-     * </p>
-     *
-     * @param screeningDate - Holds the date when the show is screening
-     * @param startTime - Holds the start time of the show
-     * @param screen - Holds the Screen details
-     * @return isExists - Holds the response of the isExists
-     */
-    boolean existsByScreeningDateAndStartTimeAndScreen(LocalDate screeningDate,
-                                                       LocalTime startTime,
-                                                       Screen screen);
-
-    /**
-     * <h1>
      *     findByMovieName
      * </h1>
      * <p>
@@ -59,14 +38,33 @@ public interface ShowRepository extends JpaRepository<Show, Long> {
      *     movie name
      * </p>
      *
-     * @param movieName - Holds the name of the movie
+     * @param movieName - Name of the movie
      * @return lisOfShows - Holds the list of shows for the particular movie
      */
     List<Show> findByMovieName(String movieName);
 
-    List<Show> findByScreenId(Long id);
-
+    /**
+     * <h1>
+     *     findAllByScreenDateAndScreenId
+     * </h1>
+     * <p>
+     *     Fetch All the Shows based on te Screening date and ScreenId
+     * </p>
+     * @param screeningDate - Date When the show is screening
+     * @param id - ID of the screen
+     * @return shows - Holds the list of shows screening on that date in that screen
+     */
     List<Show> findAllByScreeningDateAndScreenId(LocalDate screeningDate, Long id);
 
+    /**
+     * <h1>
+     *     findAllByScreenId
+     * </h1>
+     * <p>
+     *     Fetch All the Shows for the particular screen based on the id of the screen
+     * </p>
+     * @param id - ID of the screen
+     * @return shows - Holds the list of shows screening on that screen
+     */
     List<Show> findAllByScreenId(Long id);
 }

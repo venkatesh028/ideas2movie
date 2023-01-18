@@ -29,11 +29,13 @@ import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
 
 /**
- * <h1>
+ * <h2>
  *     ScreenController
- * </h1>
+ * </h2>
  * <p>
- *
+ *     Gets the Input as a Request from the Client and validates them
+ *     to Create, Cancel and Get the Details of the Screen by using the Instance of the screenService
+ *     and used to Handle and Mapping the request to appropriate function.
  * </p>
  *
  * @author Venkatesh TM
@@ -44,6 +46,17 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
 @RequestMapping("/api/v1/screens")
 public class ScreenController {
     private final ScreenService screenService;
+
+    /**
+     * <h1>
+     *     ScreenController Constructor
+     * </h1>
+     * <p>
+     *     Used to inject the ScreenService dependency and initialize the ScreenService variable
+     * </p>
+     *
+     * @param screenService - An instance of the Screen Service
+     */
     public ScreenController(ScreenService screenService){
         this.screenService = screenService;
     }
@@ -118,7 +131,9 @@ public class ScreenController {
      *     removeScreen
      * </h1>
      * <p>
-     *
+     *     Removes the Screen based on the id of the screen of the theater
+     *     by processing the request if there is no screen then exception is
+     *     thrown exception
      * </p>
      *
      * @param id - ID of the Screen which need to be removed
@@ -130,5 +145,4 @@ public class ScreenController {
         String message = (!screenService.removeScreen(id)) ? Message.DELETED_SUCCESSFULLY : Message.FAILED_TO_DELETE;
         return ResponseEntity.status(HttpStatus.OK).body(message);
     }
-
 }

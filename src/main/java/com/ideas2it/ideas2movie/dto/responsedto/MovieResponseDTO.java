@@ -4,18 +4,18 @@
  */
 package com.ideas2it.ideas2movie.dto.responsedto;
 
+import java.time.LocalTime;
+
 import lombok.Getter;
 import lombok.Setter;
-
-import java.time.LocalTime;
 
 import com.ideas2it.ideas2movie.util.enums.Genre;
 import com.ideas2it.ideas2movie.util.enums.Language;
 
 /**
- * <h1>
- *     Movie Response DTO
- * </h1>
+ * <h2>
+ *     MovieResponseDTO
+ * </h2>
  * <p>
  *     Represents the Movie Response DTO,
  *     its shows the required data to the client.

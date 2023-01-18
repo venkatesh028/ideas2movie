@@ -16,9 +16,9 @@ import com.ideas2it.ideas2movie.model.Seat;
  *     SeatRepository
  * </h1>
  * <p>
- *     Repository of  the seat
- *     to save and fetch the details of
- *     seat using the JPARepository
+ *     SeatRepository provides the CRUD of the Seat by extending JPARepository like Saving the Seat
+ *     And Fetching the details of the seat and contains the custom methods
+ *     to fetch the seat based on the screen ID
  * </p>
  *
  * @author Venkatesh TM
@@ -28,8 +28,6 @@ import com.ideas2it.ideas2movie.model.Seat;
 @Repository
 public interface SeatRepository extends JpaRepository<Seat, Long> {
 
-    Seat findByName(String name);
-
     /**
      * <h1>
      *     findAllByScreenId
@@ -37,7 +35,7 @@ public interface SeatRepository extends JpaRepository<Seat, Long> {
      * <p>
      *     Fetch all the seats of the
      *     particular screen based on the
-     *     id
+     *     ID
      * </p>
      * @param id - Holds the id of screen
      * @return listOfSeats - Holds the list of seats

@@ -15,9 +15,9 @@ import com.ideas2it.ideas2movie.util.constant.Constant;
 import com.ideas2it.ideas2movie.util.constant.Message;
 
 /**
- * <h1>
+ * <h2>
  *     RoleDTO
- * </h1>
+ * </h2>
  * <p>
  *     RoleDTO represents the Simplified version of the Role Model
  *     which holds the Name and ID of the Role

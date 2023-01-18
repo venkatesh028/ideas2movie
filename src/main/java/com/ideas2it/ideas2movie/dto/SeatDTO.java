@@ -10,9 +10,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * <h1>
+ * <h2>
  *     SeatDTO
- * </h1>
+ * </h2>
  * <p>
  *      SeatDTO represents a Simplified version of the Seat Model
  *      which Holds the Necessary Information of the Seat model

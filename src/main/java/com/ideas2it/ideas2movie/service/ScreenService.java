@@ -15,9 +15,9 @@ import com.ideas2it.ideas2movie.exception.AlreadyExistException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
 
 /**
- * <h1>
+ * <h2>
  *     Screen Service
- * </h1>
+ * </h2>
  * <p>
  *     ScreenService provides the Methods for Screen CRUD Operation used to handle the Screen For theater
  *     like Creating an screen, Getting the Details of the Screen, and Remove the Screen

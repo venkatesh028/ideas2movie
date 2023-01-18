@@ -21,9 +21,9 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 /**
- * <h1>
+ * <h2>
  *      Role
- * </h1>
+ * </h2>
  * <p>
  *      Role Entity represents the Details of the Role for the User of the Application.
  * </p>

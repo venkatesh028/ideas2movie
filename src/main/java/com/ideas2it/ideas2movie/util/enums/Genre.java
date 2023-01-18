@@ -9,9 +9,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * <h1>
+ * <h2>
  *     Genre
- * </h1>
+ * </h2>
  * <p>
  *     Contains the Genre of the Movie as a Enum
  * </p>

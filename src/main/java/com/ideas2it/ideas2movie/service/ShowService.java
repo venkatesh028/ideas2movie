@@ -13,12 +13,11 @@ import com.ideas2it.ideas2movie.exception.BadRequestException;
 import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.exception.NotAcceptableException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
-import com.ideas2it.ideas2movie.model.Show;
 
 /**
- * <h1>
+ * <h2>
  *     Show Service
- * </h1>
+ * </h2>
  * <p>
  *     ShowService provides the Methods for Show Operation used to handle the Show For Screen
  *     like Creating an shows, Getting the Details of the Shows, and Cancel the Shows

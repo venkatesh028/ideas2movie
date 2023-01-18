@@ -9,9 +9,9 @@ import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
 /**
- * <h1>
+ * <h2>
  *     AlreadyExistException
- * </h1>
+ * </h2>
  * <p>
  *     AlreadyExistException is a custom exception for the Ideas2Movie application.
  *     It extends the Ideas2MovieException and provides a specific exception
@@ -24,6 +24,17 @@ import org.springframework.http.HttpStatus;
  */
 @Getter
 public class AlreadyExistException extends Ideas2MovieException {
+
+    /**
+     * <h1>
+     *     AlreadyExistException constructor
+     * </h1>
+     * <p>
+     *     Calls the super class constructor and passes in the error message and
+     *     an HttpStatus.CONFLICT value.
+     * </p>
+     * @param message - Message Which Represents the error
+     */
     public AlreadyExistException(String message) {
         super(message, HttpStatus.CONFLICT);
     }

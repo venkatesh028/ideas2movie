@@ -18,9 +18,9 @@ import com.ideas2it.ideas2movie.dto.responsedto.ErrorMessageDTO;
 import com.ideas2it.ideas2movie.logger.CustomLogger;
 
 /**
- * <h1>
+ * <h2>
  *     MovieExceptionHandler
- * </h1>
+ * </h2>
  * <p>
  *    Handles the Exception within the Ideas2Movie application.
  *    It includes two exception handlers, one for handling specific custom exceptions

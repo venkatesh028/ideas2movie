@@ -4,9 +4,9 @@ import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
 /**
- * <h1>
+ * <h2>
  *     NoContentException
- * </h1>
+ * </h2>
  * <p>
  *     NoContentException is a custom exception for the Ideas2Movie application.
  *     It extends the Ideas2MovieException and provides a specific exception
@@ -19,6 +19,18 @@ import org.springframework.http.HttpStatus;
  */
 @Getter
 public class NoContentException extends Ideas2MovieException {
+
+    /**
+     * <h1>
+     *     NoContentException constructor
+     * </h1>
+     * <p>
+     *     Calls the super class constructor and passes in the error message and
+     *     an HttpStatus.NO_CONTENT value.
+     * </p>
+     *
+     * @param message - Message Which Represents the error
+     */
     public NoContentException(String message){
         super(message, HttpStatus.NO_CONTENT);
     }

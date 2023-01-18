@@ -9,9 +9,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * <h1>
+ * <h2>
  *     Booking Status
- * </h1>
+ * </h2>
  * <p>
  *     Contains the Status of the Booking as a Enum
  * </p>

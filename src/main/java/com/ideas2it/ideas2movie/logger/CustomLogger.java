@@ -4,9 +4,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * <h1>
+ * <h2>
  *     CustomLogger
- * </h1>
+ * </h2>
  * <p>
  *     Contains the logger  level
  *     to log the information and exception.

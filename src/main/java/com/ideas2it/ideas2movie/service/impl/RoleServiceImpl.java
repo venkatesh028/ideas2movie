@@ -20,11 +20,12 @@ import com.ideas2it.ideas2movie.util.constant.Message;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
 import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
+import com.ideas2it.ideas2movie.logger.CustomLogger;
 
 /**
- * <h1>
+ * <h2>
  *     RoleServiceImpl
- * </h1>
+ * </h2>
  * <p>
  *     RoleServiceImpl provides the Business logic to perform CRUD like
  *     Creating Role for User, Fetches the Details of the All Role, and By ID
@@ -38,6 +39,7 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
 @Service
 public class RoleServiceImpl implements RoleService {
     private final RoleRepository roleRepository;
+    private final CustomLogger logger = new CustomLogger(RoleServiceImpl.class);
     private final ModelMapper mapper = new ModelMapper();
 
     /**
@@ -59,9 +61,11 @@ public class RoleServiceImpl implements RoleService {
      */
     @Override
     public RoleResponseDTO createRole(RoleDTO roleDTO) throws AlreadyExistException {
+        logger.info("Inside the RoleServiceImpl create Role");
         Role role = mapper.map(roleDTO, Role.class);
 
         if (roleRepository.existsByName(role.getName())) {
+            logger.error(Message.ROLE_NAME_ALREADY_EXIST);
             throw new AlreadyExistException(Message.ROLE_NAME_ALREADY_EXIST);
         }
         return mapper.map(roleRepository.save(role), RoleResponseDTO.class);
@@ -72,9 +76,11 @@ public class RoleServiceImpl implements RoleService {
      */
     @Override
     public Role getRoleById(Long id) throws NotFoundException {
+        logger.info("Inside the RoleServiceImpl get Role By ID");
         Optional<Role> role = roleRepository.findById(id);
 
         if (role.isEmpty()) {
+            logger.error(Message.ROLE_NOT_FOUND);
             throw new NotFoundException(Message.ROLE_NOT_FOUND);
         }
         return role.get();
@@ -85,10 +91,11 @@ public class RoleServiceImpl implements RoleService {
      */
     @Override
     public List<RoleResponseDTO> getAllRoles() throws NoContentException {
+        logger.info("Inside the RoleServiceImpl get All Roles");
         List<Role> roles = roleRepository.findAll();
-        RoleResponseDTO roleResponseDTO;
 
         if (roles.isEmpty()) {
+            logger.error(Message.ROLE_NOT_FOUND);
             throw new NoContentException(Message.ROLE_NOT_FOUND);
         }
         List<RoleResponseDTO> roleResponseDTOList = new ArrayList<>();

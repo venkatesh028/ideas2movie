@@ -11,9 +11,9 @@ import com.ideas2it.ideas2movie.dto.responsedto.PaymentResponseDTO;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
 
 /**
- * <h1>
+ * <h2>
  *     PaymentService
- * </h1>
+ * </h2>
  * <p>
  *     PaymentService provides the Methods for Payment Operation to handle the Payment for a Reservation
  *     Like Processing the payment, updating the Status of the payment
@@ -72,5 +72,5 @@ public interface PaymentService {
      * @return PaymentResponseDTO - Holds the details of the Payment
      * @throws NotFoundException - when Payment is Not Found
      */
-    PaymentResponseDTO getById(Long id) throws NotFoundException;
+    PaymentResponseDTO getPaymentById(Long id) throws NotFoundException;
 }

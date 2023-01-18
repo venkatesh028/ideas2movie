@@ -33,9 +33,9 @@ import com.ideas2it.ideas2movie.util.enums.ModeOfReservation;
 import com.ideas2it.ideas2movie.util.enums.ReservationStatus;
 
 /**
- *<h1>
+ *<h2>
  *     Reservation
- *</h1>
+ *</h2>
  * <p>
  *     Reservation Entity represents the Reservation made by the user which holds
  *     Information about the User, Show and the ticket.

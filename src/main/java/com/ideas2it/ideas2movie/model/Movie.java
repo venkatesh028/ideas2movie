@@ -17,12 +17,13 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
-
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -34,8 +35,8 @@ import com.ideas2it.ideas2movie.util.enums.Language;
  *    Movie
  * <h1/>
  * <p>
- *    Movie Entity have the Attribute which is used
- *    to Hold the Details of the Movie
+ *    Movie Entity represent the Details of the Movie which are like
+ *    Movie name, language, duration of a movie.
  * <p/>
  *
  *  @version 1.0
@@ -51,21 +52,28 @@ public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @NotNull
     private String name;
+
     @NotNull
     @Enumerated(value = EnumType.STRING)
     private Language language;
+
     @NotNull
     private LocalTime duration;
+
     @NotNull
     @Enumerated(value = EnumType.STRING)
     private Genre genre;
+
     @CreationTimestamp
     @Column(updatable = false)
     private Timestamp createdAt;
+
     @UpdateTimestamp
     private Timestamp updatedAt;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(
             name = "castAndCrew_id",

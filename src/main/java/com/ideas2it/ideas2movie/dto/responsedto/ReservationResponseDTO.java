@@ -4,22 +4,17 @@
  */
 package com.ideas2it.ideas2movie.dto.responsedto;
 
-import com.ideas2it.ideas2movie.util.enums.ReservationStatus;
-import java.util.List;
-
 import lombok.Getter;
 import lombok.Setter;
 
-import com.ideas2it.ideas2movie.model.Show;
-import com.ideas2it.ideas2movie.model.Ticket;
-
+import com.ideas2it.ideas2movie.util.enums.ReservationStatus;
 
 /**
- * <h1>
- *     BookingResponseDTO
- * </h1>
+ * <h2>
+ *     ReservationResponseDTO
+ * </h2>
  * <p>
- *     BookingResponseDTO represents the Response sent to the Client with the ID of Reservation
+ *     ReservationResponseDTO represents the Response sent to the Client with the ID of Reservation
  *     after Creating and Updating the Details of Reservation for Seats of the Show.
  * </p>
  *

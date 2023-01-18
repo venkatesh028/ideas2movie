@@ -9,9 +9,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * <h1>
+ * <h2>
  *      Mode Of Payment
- * </h1>
+ * </h2>
  * <p>
  *      Contains the Mode of Payment as a Enum
  * </p>

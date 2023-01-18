@@ -7,9 +7,9 @@ import com.ideas2it.ideas2movie.model.Screen;
 import com.ideas2it.ideas2movie.model.Seat;
 
 /**
- * <h1>
+ * <h2>
  *     SeatService
- * </h1>
+ * </h2>
  * <p>
  *     SeatService used to manage the Operation for the Seat
  *     Like Creating seat for a screen and Fetching the Details of the Seat for Screen

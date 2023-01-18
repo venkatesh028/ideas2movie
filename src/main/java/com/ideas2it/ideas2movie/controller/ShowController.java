@@ -28,9 +28,9 @@ import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
 
 /**
- * <h1>
+ * <h2>
  *     ShowController
- * </h1>
+ * </h2>
  * <p>
  *     Gets the Input as a Request from the Client and validates them
  *     to Create, Cancel and Get the Details of the Show by using the Instance of the showService
@@ -46,6 +46,16 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
 public class ShowController {
     private final ShowService showService;
 
+    /**
+     * <h1>
+     *     Show Controller Constructor
+     * </h1>
+     * <p>
+     *     Used to inject the ShowService dependency and initialize the showService variable
+     * </p>
+     *
+     * @param showService - An instance of the Show Service
+     */
     public ShowController(ShowService showService){
         this.showService = showService;
     }

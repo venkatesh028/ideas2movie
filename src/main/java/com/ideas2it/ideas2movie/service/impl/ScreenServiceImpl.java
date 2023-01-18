@@ -29,9 +29,9 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
 import com.ideas2it.ideas2movie.exception.NoContentException;
 
 /**
- * <h1>
+ * <h2>
  *     Screen Service Impl
- * </h1>
+ * </h2>
  * <p>
  *     Implements the Screen Service and
  *     Holds the Business Logics
@@ -50,6 +50,20 @@ public class ScreenServiceImpl implements ScreenService {
     private final ReservationService reservationService;
     private final ModelMapper mapper = new ModelMapper();
 
+    /**
+     * <h1>
+     *     ScreenServiceImpl Constructor
+     * </h1>
+     * <p>
+     *     Used to  inject the ScreenRepository, SeatService,  TheaterService
+     *     And ReservationService dependency to initialize the variables
+     *     screenRepository, seatService, theaterService and reservationService
+     * </p>
+     * @param screenRepository - Instance of ScreenRepository
+     * @param seatService - Instance of SeatService
+     * @param theaterService - Instance of TheaterService
+     * @param reservationService - Instance of ReservationService
+     */
     public ScreenServiceImpl(ScreenRepository screenRepository, SeatService seatService,
                              TheaterService theaterService, ReservationService reservationService){
         this.screenRepository = screenRepository;
@@ -142,7 +156,7 @@ public class ScreenServiceImpl implements ScreenService {
         }
         screen.setShows(shows);
         isRemoved = screenRepository.save(screen).isActive();
-        reservationService.cancelAllReservationForShow(screen);
+        reservationService.cancelAllReservationsForShow(screen);
         return isRemoved;
     }
 

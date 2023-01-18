@@ -9,9 +9,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * <h1>
- *     Mode Of Booking
- * </h1>
+ * <h2>
+ *     ModeOfBooking
+ * </h2>
  * <p>
  *     Contains the Mode of the Booking as a Enum
  * </p>

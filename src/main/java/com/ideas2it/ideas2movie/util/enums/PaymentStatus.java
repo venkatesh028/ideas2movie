@@ -9,9 +9,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * <h1>
+ * <h2>
  *      Payment Status
- * </h1>
+ * </h2>
  * <p>
  *      Contains the Status of the Payment as a Enum
  * </p>
