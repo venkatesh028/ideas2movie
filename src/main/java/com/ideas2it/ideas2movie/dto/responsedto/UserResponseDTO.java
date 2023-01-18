@@ -8,9 +8,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * <h1>
+ * <h2>
  *     UserResponseDTO
- * </h1>
+ * </h2>
  * <p>
  *     UserResponseDTO represents the response sent to the Client with the ID
  *     after Creating and Updating the User Account.

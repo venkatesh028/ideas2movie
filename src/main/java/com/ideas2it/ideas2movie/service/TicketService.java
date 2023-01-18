@@ -10,9 +10,9 @@ import com.ideas2it.ideas2movie.dto.responsedto.TicketResponseDTO;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
 
 /**
- * <h1>
+ * <h2>
  *     TicketService
- * </h1>
+ * </h2>
  * <p>
  *     TicketService provides the methods for generating the Tickets for a Reservation
  *     and to get the Details of the Ticket by the ID

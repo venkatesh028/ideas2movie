@@ -22,11 +22,12 @@ import com.ideas2it.ideas2movie.repository.PaymentRepository;
 import com.ideas2it.ideas2movie.util.constant.Message;
 import com.ideas2it.ideas2movie.util.enums.PaymentStatus;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
+import com.ideas2it.ideas2movie.logger.CustomLogger;
 
 /**
- * <h1>
+ * <h2>
  *     PaymentServiceImpl
- * </h1>
+ * </h2>
  * <p>
  *     PaymentServiceImpl provides the Business logic to handle the Payment for Reservation
  *     Like Processing the payment, updating the Status of the payment
@@ -42,6 +43,7 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
 public class PaymentServiceImpl implements PaymentService {
     private final PaymentRepository paymentRepository;
     private final ReservationService reservationService;
+    private final CustomLogger logger = new CustomLogger(PaymentServiceImpl.class);
     private final ModelMapper mapper = new ModelMapper();
 
     /**
@@ -66,6 +68,7 @@ public class PaymentServiceImpl implements PaymentService {
      */
     @Override
     public PaymentResponseDTO makePayment(PaymentDTO paymentDTO) throws NotFoundException {
+        logger.info("Inside the PaymentServiceImpl make Payment");
         Reservation reservation = reservationService.getReservationById(paymentDTO.getReservationId());
         Payment payment = mapper.map(paymentDTO, Payment.class);
 
@@ -87,9 +90,11 @@ public class PaymentServiceImpl implements PaymentService {
      */
     @Override
     public PaymentResponseDTO getByTransactionId(UUID id) throws NotFoundException {
+        logger.info("Inside the PaymentServiceImpl get by Transaction ID");
         Optional<Payment> existingPayment = paymentRepository.getByTransactionId(id);
 
         if (existingPayment.isEmpty()) {
+            logger.error(Message.PAYMENT_NOT_FOUND);
             throw new NotFoundException(Message.PAYMENT_NOT_FOUND);
         }
         return mapper.map(existingPayment.get(), PaymentResponseDTO.class);
@@ -99,10 +104,12 @@ public class PaymentServiceImpl implements PaymentService {
      * {@inheritDoc}
      */
     @Override
-    public PaymentResponseDTO getById(Long id) throws NotFoundException {
+    public PaymentResponseDTO getPaymentById(Long id) throws NotFoundException {
+        logger.info("Inside the PaymentServiceImpl get By ID");
         Optional<Payment> existingPayment = paymentRepository.findById(id);
 
         if (existingPayment.isEmpty()) {
+            logger.error(Message.PAYMENT_NOT_FOUND);
             throw new NotFoundException(Message.PAYMENT_NOT_FOUND);
         }
         return mapper.map(existingPayment.get(), PaymentResponseDTO.class);

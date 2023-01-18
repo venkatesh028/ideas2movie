@@ -21,11 +21,12 @@ import com.ideas2it.ideas2movie.dto.PaymentDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.PaymentResponseDTO;
 import com.ideas2it.ideas2movie.service.PaymentService;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
+import com.ideas2it.ideas2movie.logger.CustomLogger;
 
 /**
- * <h1>
+ * <h2>
  *     PaymentController
- * </h1>
+ * </h2>
  * <p>
  *     PaymentController provides the RESTful endpoints to Handle CRUD Operation for Payment
  *     for the Reservation of the Application and validate the Information of the PaymentDTO
@@ -38,10 +39,10 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
  * @since 06-01-2023
  */
 @RestController
-@RequestMapping("api/v1/payments")
+@RequestMapping("/api/v1/payments")
 public class PaymentController {
     private final PaymentService paymentService;
-
+    private final CustomLogger logger = new CustomLogger(PaymentController.class);
     /**
      * <h1>
      *      PaymentController Constructor
@@ -73,6 +74,7 @@ public class PaymentController {
     @PostMapping
     public ResponseEntity<PaymentResponseDTO> makePayment(@Valid @RequestBody PaymentDTO paymentDTO)
             throws NotFoundException {
+        logger.info("Inside the PaymentController Make payment");
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(paymentService.makePayment(paymentDTO));
     }
 
@@ -93,6 +95,7 @@ public class PaymentController {
     @GetMapping("/by-transaction/{id}")
     public ResponseEntity<PaymentResponseDTO> getByTransactionId(@PathVariable("id") UUID id)
             throws NotFoundException {
+        logger.info("Inside the PaymentController get by Transaction ID");
         return ResponseEntity.status(HttpStatus.OK).body(paymentService.getByTransactionId(id));
     }
 
@@ -111,8 +114,9 @@ public class PaymentController {
      * @throws NotFoundException - when Payment Not found for ID
      */
     @GetMapping("/{id}")
-    public ResponseEntity<PaymentResponseDTO> getById(@PathVariable("id") Long id)
+    public ResponseEntity<PaymentResponseDTO> getPaymentById(@PathVariable("id") Long id)
             throws NotFoundException {
-        return ResponseEntity.status(HttpStatus.OK).body(paymentService.getById(id));
+        logger.info("Inside the PaymentController get By Id");
+        return ResponseEntity.status(HttpStatus.OK).body(paymentService.getPaymentById(id));
     }
 }

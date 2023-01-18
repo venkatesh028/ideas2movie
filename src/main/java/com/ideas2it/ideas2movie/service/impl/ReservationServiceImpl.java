@@ -29,11 +29,12 @@ import com.ideas2it.ideas2movie.util.enums.PaymentStatus;
 import com.ideas2it.ideas2movie.exception.BadRequestException;
 import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
+import com.ideas2it.ideas2movie.logger.CustomLogger;
 
 /**
- * <h1>
+ * <h2>
  *     ReservationServiceImpl
- * </h1>
+ * </h2>
  * <p>
  *     ReservationServiceImpl provides the Business Logic to handle the Reservation for Seats of the Show
  *     Like Reserving the Seats, Cancel reservation of Seats for the Show
@@ -50,6 +51,7 @@ public class ReservationServiceImpl implements ReservationService {
     private final ReservationRepository reservationRepository;
     private final TicketService ticketService;
     private final SeatService seatService;
+    private final CustomLogger logger = new CustomLogger(ReservationServiceImpl.class);
     private final ModelMapper mapper = new ModelMapper();
 
     /**
@@ -77,6 +79,7 @@ public class ReservationServiceImpl implements ReservationService {
      * {@inheritDoc}
      */
     public ReservationResponseDTO reserveSeats(ReservationDTO reservationDTO) throws BadRequestException {
+        logger.info("Inside the ReservationServiceImpl reserve Seats");
         Reservation newReservation = mapper.map(reservationDTO, Reservation.class);
         newReservation.setStatus(ReservationStatus.PROCESSING);
         newReservation.setUser(mapper.map(reservationDTO.getUser(), User.class));
@@ -88,6 +91,7 @@ public class ReservationServiceImpl implements ReservationService {
                 seats.add(seatService.getSeatById(id));
             }
         } catch (NotFoundException notFoundException) {
+            logger.error(notFoundException.getMessage());
             throw new BadRequestException(notFoundException.getMessage());
         }
         newReservation.setSeats(seats);
@@ -98,26 +102,36 @@ public class ReservationServiceImpl implements ReservationService {
     /**
      * {@inheritDoc}
      */
-    public ReservationResponseDTO confirmReservation(Payment payment) {
-        Reservation existingReservation = reservationRepository.findById(payment.getReservation().getId()).get();
+    public ReservationResponseDTO confirmReservation(Payment payment) throws NotFoundException {
+        logger.info("Inside the ReservationServiceImpl confirm reservation");
+        Optional<Reservation> existingReservation = reservationRepository.findById(payment.getReservation().getId());
+
+        if (existingReservation.isEmpty()) {
+            logger.error(Message.RESERVATION_NOT_FOUND);
+            throw new NotFoundException(Message.RESERVATION_NOT_FOUND);
+        }
+
+        Reservation reservation = existingReservation.get();
 
         if (payment.getStatus().equals(PaymentStatus.PAID)) {
-            existingReservation.setStatus(ReservationStatus.BOOKED);
-            existingReservation.setTicket(ticketService.generateTicket(existingReservation));
+            reservation.setStatus(ReservationStatus.BOOKED);
+            reservation.setTicket(ticketService.generateTicket(reservation));
         } else {
-            existingReservation.setStatus(ReservationStatus.CANCELED);
+            reservation.setStatus(ReservationStatus.CANCELED);
         }
-        return mapper.map(reservationRepository.save(existingReservation), ReservationResponseDTO.class);
+        return mapper.map(reservationRepository.save(reservation), ReservationResponseDTO.class);
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public ReservationResponseDTO cancelReservation(Long id) throws NotFoundException {
+    public ReservationResponseDTO cancelReservationById(Long id) throws NotFoundException {
+        logger.info("Inside the ReservationServiceImpl cancel reservation");
         Optional<Reservation> existingReservation = reservationRepository.findById(id);
 
         if (existingReservation.isEmpty()) {
+            logger.error(Message.RESERVATION_NOT_FOUND);
             throw new NotFoundException(Message.RESERVATION_NOT_FOUND);
         }
         Reservation reservation = existingReservation.get();
@@ -133,7 +147,8 @@ public class ReservationServiceImpl implements ReservationService {
      * {@inheritDoc}
      */
     @Override
-    public boolean cancelAllReservationForShow(Screen screen) {
+    public boolean cancelAllReservationsForShow(Screen screen) {
+        logger.info("Inside the ReservationServiceImpl cancel all reservation for show");
         List<Show> shows = screen.getShows();
         List<Reservation> reservations = new ArrayList<>();
         int canceledCount = 0;
@@ -162,9 +177,11 @@ public class ReservationServiceImpl implements ReservationService {
      */
     @Override
     public ReservationResponseDTO getReservationDTOById(Long id) throws NotFoundException {
+        logger.info("Inside the ReservationServiceImpl get reservationDTO by ID");
         Optional<Reservation>  reservation = reservationRepository.findById(id);
 
         if (reservation.isEmpty()) {
+            logger.error(Message.RESERVATION_NOT_FOUND);
             throw new NotFoundException(Message.RESERVATION_NOT_FOUND);
         }
         return mapper.map(reservation.get(), ReservationResponseDTO.class);
@@ -175,9 +192,11 @@ public class ReservationServiceImpl implements ReservationService {
      */
     @Override
     public Reservation getReservationById(Long id) throws NotFoundException {
+        logger.info("Inside the ReservationServiceImpl get reservation by ID");
         Optional<Reservation> reservation = reservationRepository.findById(id);
 
         if (reservation.isEmpty()) {
+            logger.error(Message.RESERVATION_NOT_FOUND);
             throw new NotFoundException(Message.RESERVATION_NOT_FOUND);
         }
         return reservation.get();
@@ -187,10 +206,12 @@ public class ReservationServiceImpl implements ReservationService {
      * {@inheritDoc}
      */
     @Override
-    public List<ReservationResponseDTO> getAllReservationByUserId(Long id) throws NoContentException {
+    public List<ReservationResponseDTO> getAllReservationsByUserId(Long id) throws NoContentException {
+        logger.info("Inside the ReservationServiceImpl get all Reservation by user Id");
         List<Reservation> reservations = reservationRepository.findAllByUserId(id);
 
         if (reservations.isEmpty()) {
+            logger.error(Message.RESERVATION_NOT_FOUND);
             throw new NoContentException(Message.RESERVATION_NOT_FOUND);
         }
         List<ReservationResponseDTO> responseDTOS = new ArrayList<>();
@@ -205,6 +226,7 @@ public class ReservationServiceImpl implements ReservationService {
      * {@inheritDoc}
      */
     public List<Seat> getReservedSeats(Long showId) {
+        logger.info("Inside the ReservationServiceImpl get reserved Seats");
         List<Reservation> oldReservations = reservationRepository.findAllByShowId(showId);
         List<Seat> bookedSeats = new ArrayList<>();
 

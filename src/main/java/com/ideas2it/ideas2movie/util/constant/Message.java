@@ -5,9 +5,9 @@
 package com.ideas2it.ideas2movie.util.constant;
 
 /**
- * <h1>
+ * <h2>
  *     Message
- * </h1>
+ * </h2>
  * <p>
  *     Contains the Default Messages to display to the User
  *     according to Success, Failure, Exception, and Error

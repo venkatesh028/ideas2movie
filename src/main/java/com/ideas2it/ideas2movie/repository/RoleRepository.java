@@ -1,16 +1,17 @@
 package com.ideas2it.ideas2movie.repository;
 
-import com.ideas2it.ideas2movie.model.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import com.ideas2it.ideas2movie.model.Role;
+
 /**
- * <h1>
+ * <h2>
  *     RoleRepository
- * </h1>
+ * </h2>
  * <p>
- *     Repository of the Role
- *     to Save and Fetch the Role for User
- *     by using JPA Repository
+ *     RoleRepository provides the CRUD for the Role of the User by extending JPA Repository
+ *     like Saving, and Fetching the Details of Role from the repository
+ *     and Contains the Custom Method to check whether the Role is exist for the given Name
  * </p>
  *
  * @author - AJAISHARMA
@@ -23,12 +24,12 @@ public interface RoleRepository extends JpaRepository<Role, Long> {
      *      existsByName
      * </h1>
      * <p>
-     *      Checks and Returns the result
-     *      for Name is Already Exist or Not
+     *      Checks whether there is Role in the repository for the given Name or not
+     *      and returns the boolean value accordingly
      * </p>
      *
-     * @param name - Name to check Is Exist
-     * @return isExist - Holds the response of isExist
+     * @param name - Name of the Role to check If Exist or not
+     * @return boolean - true If name is Exist else false
      */
     boolean existsByName(String name);
 }

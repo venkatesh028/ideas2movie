@@ -4,18 +4,19 @@
  */
 package com.ideas2it.ideas2movie.repository;
 
-
-import com.ideas2it.ideas2movie.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import com.ideas2it.ideas2movie.model.User;
+
 /**
- * <h1>
+ * <h2>
  *     UserRepository
- * </h1>
+ * </h2>
  * <p>
- *     Repository of the User
- *     to save, Fetch, and update the details of the User
- *     By using the JPA Repository
+ *     UserRepository provides the CRUD of the User by extending JPARepository
+ *     like Saving, Updating and Fetching the Details of the User
+ *     and contains the Custom methods to Check whether the user is present for the given Name or Phone Number
+ *     and to Fetch the Details od the User by Phone Number
  * </p>
  *
  * @author AJAISHARMA
@@ -25,32 +26,43 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface UserRepository extends JpaRepository<User, Long> {
     /**
      * <h1>
-     * existsByPhoneNumber
+     *     existsByPhoneNumber
      * </h1>
      * <p>
-     * Checks and Returns the result
-     * for phone number is Already Exist or Not
+     *     Checks whether there is a User in the repository for the given phone number or not
+     *     and return the Boolean value accordingly
      * </p>
      *
-     * @param phoneNumber - Phone Number to check isExist
-     * @return isExist - Holds the response of isExist
+     * @param phoneNumber - Phone Number of the User
+     * @return boolean - true If phone number id exist else false
      */
     boolean existsByPhoneNumber(String phoneNumber);
 
     /**
      * <h1>
-     * existsByName
+     *     existsByName
      * </h1>
      * <p>
-     * Checks and Returns the result
-     * for Name is Already Exist or Not
+     *     Checks whether there is a User in the repository for the given Name or not
+     *     and returns the boolean value accordingly
      * </p>
      *
-     * @param name - Name to check Is Exist
-     * @return isExist - Holds the response of isExist
+     * @param name - Name of the User
+     * @return boolean - true If Name is exist else false
      */
     boolean existsByName(String name);
 
+    /**
+     * <h1>
+     *     findByPhoneNumber
+     * </h1>
+     * <p>
+     *     Retrieves the Details of the User associated with the given Phone Number
+     * </p>
+     *
+     * @param phoneNumber - Phone Number of the User to Fetch Details
+     * @return User - Holds the Details of the User or null
+     */
     User findByPhoneNumber(String phoneNumber);
 }
 

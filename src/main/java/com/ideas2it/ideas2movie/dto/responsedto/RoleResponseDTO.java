@@ -8,9 +8,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * <h1>
+ * <h2>
  *     RoleResponseDTO
- * </h1>
+ * </h2>
  * <p>
  *     RoleResponseDTO represents the Response sent to the Client with ID of Role
  *     after Creating the Role for User Model.

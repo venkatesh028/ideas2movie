@@ -4,22 +4,22 @@
  */
 package com.ideas2it.ideas2movie.service;
 
-import com.ideas2it.ideas2movie.exception.BadRequestException;
-import com.ideas2it.ideas2movie.model.Payment;
 import java.util.List;
 
+import com.ideas2it.ideas2movie.model.Payment;
 import com.ideas2it.ideas2movie.model.Reservation;
 import com.ideas2it.ideas2movie.model.Screen;
 import com.ideas2it.ideas2movie.model.Seat;
 import com.ideas2it.ideas2movie.dto.ReservationDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.ReservationResponseDTO;
+import com.ideas2it.ideas2movie.exception.BadRequestException;
 import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
 
 /**
- * <h1>
+ * <h2>
  *     ReservationService
- * </h1>
+ * </h2>
  * <p>
  *     ReservationService provides the Method for Reservation CRUD, Used to handle the Reservation of Seats
  *     for the show by the User Like Reserving Seats for show, Cancel reservation
@@ -60,7 +60,7 @@ public interface ReservationService {
      * @param payment - Holds the details of the Payment for Reservation
      * @return ReservationResponseDTO - Holds the response of the Reservation
      */
-    ReservationResponseDTO confirmReservation(Payment payment);
+    ReservationResponseDTO confirmReservation(Payment payment) throws NotFoundException;
 
     /**
      * <h1>
@@ -76,7 +76,7 @@ public interface ReservationService {
      * @return ReservationResponseDTO - Holds the Details of the Reservation
      * @throws NotFoundException - when Reservation is Not Found
      */
-    ReservationResponseDTO cancelReservation(Long id) throws NotFoundException;
+    ReservationResponseDTO cancelReservationById(Long id) throws NotFoundException;
 
     /**
      * <h1>
@@ -90,7 +90,7 @@ public interface ReservationService {
      * @param screen - Holds the Details of the Screen
      * @return boolean - status of Cancellation
      */
-    boolean cancelAllReservationForShow(Screen screen);
+    boolean cancelAllReservationsForShow(Screen screen);
 
 
     /**
@@ -136,7 +136,7 @@ public interface ReservationService {
      * @return List<ReservationResponseDTO> - Holds the List of Reservation for a User
      * @throws NoContentException - when No Reservations Found For User
      */
-    List<ReservationResponseDTO> getAllReservationByUserId(Long id) throws NoContentException;
+    List<ReservationResponseDTO> getAllReservationsByUserId(Long id) throws NoContentException;
 
     /**
      * <h1>

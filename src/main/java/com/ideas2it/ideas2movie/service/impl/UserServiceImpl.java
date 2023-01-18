@@ -21,11 +21,12 @@ import com.ideas2it.ideas2movie.util.constant.Message;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
 import com.ideas2it.ideas2movie.exception.BadRequestException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
+import com.ideas2it.ideas2movie.logger.CustomLogger;
 
 /**
- * <h1>
+ * <h2>
  *     UserServiceImpl
- * </h1>
+ * </h2>
  * <p>
  *     UserServiceImpl provides Business logic for the CRUD to handling the User Account
  *     and by interacting with the Repository to store and fetches the Details of the User
@@ -41,6 +42,7 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final RoleService roleService;
+    private final CustomLogger logger = new CustomLogger(UserServiceImpl.class);
     private final ModelMapper mapper = new ModelMapper();
 
     /**
@@ -48,8 +50,8 @@ public class UserServiceImpl implements UserService {
      *     UserServiceImpl Constructor
      * </h1>
      * <p>
-     *     Used to  inject the UserRepository, RoleService dependency
-     *     and initialize the userRepository, roleService variables
+     *     Used to  inject the UserRepository, RoleService, CustomLogger dependency
+     *     and initialize the userRepository, roleService, logger variables
      * </p>
      *
      * @param userRepository - Instance of the UserRepository
@@ -65,21 +67,26 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public UserResponseDTO createUser(UserDTO userDTO) throws AlreadyExistException, BadRequestException {
+        logger.info("Inside the UserServiceImpl create User");
         mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         User user = mapper.map(userDTO, User.class);
         user.setPassword(new BCryptPasswordEncoder().encode(userDTO.getPassword()));
 
         if (userRepository.existsByPhoneNumber(user.getPhoneNumber())
                 && userRepository.existsByName(user.getName())) {
+            logger.error(Message.NAME_AND_NUMBER_ALREADY_EXIST);
             throw new AlreadyExistException(Message.NAME_AND_NUMBER_ALREADY_EXIST);
         } else if (userRepository.existsByName(user.getName())) {
+            logger.error(Message.USER_NAME_ALREADY_EXIST);
             throw new AlreadyExistException(Message.USER_NAME_ALREADY_EXIST);
         } else if (userRepository.existsByPhoneNumber(user.getPhoneNumber())) {
+            logger.error(Message.NUMBER_ALREADY_EXIST);
             throw new AlreadyExistException(Message.NUMBER_ALREADY_EXIST);
         } else {
             try {
                 user.setRole(roleService.getRoleById(userDTO.getRoleId()));
             } catch (NotFoundException notFoundException) {
+                logger.error(notFoundException.getMessage());
                 throw new BadRequestException(notFoundException.getMessage());
             }
         }
@@ -91,9 +98,11 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public UserResponseDTO getUserById(Long id) throws NotFoundException {
+        logger.info("Inside the UserServiceImpl get User By ID");
         Optional<User> user = userRepository.findById(id);
 
         if (user.isEmpty()) {
+            logger.error(Message.USER_NOT_FOUND);
             throw new NotFoundException(Message.USER_NOT_FOUND);
         }
         return mapper.map(user.get(), UserResponseDTO.class);
@@ -104,10 +113,12 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public UserResponseDTO updateUser(Long id, UserDTO userDTO) throws NotFoundException {
+        logger.info("Inside the UserServiceImpl update User");
         User user = mapper.map(userDTO, User.class);
         Optional<User> existingUser = userRepository.findById(id);
 
         if (existingUser.isEmpty()) {
+            logger.error(Message.USER_NOT_FOUND);
             throw new NotFoundException(Message.USER_NOT_FOUND);
         }
         existingUser.get().setId(id);
@@ -122,10 +133,12 @@ public class UserServiceImpl implements UserService {
      * {@inheritDoc}
      */
     @Override
-    public boolean deleteUser(Long id) throws NotFoundException {
+    public boolean deactivateUser(Long id) throws NotFoundException {
+        logger.info("Inside the UserServiceImpl deactivateUser");
         Optional<User> existingUser = userRepository.findById(id);
 
         if (existingUser.isEmpty()) {
+            logger.error(Message.USER_NOT_FOUND);
             throw new NotFoundException(Message.USER_NOT_FOUND);
         }
         User user = existingUser.get();

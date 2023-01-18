@@ -18,9 +18,9 @@ import com.ideas2it.ideas2movie.util.constant.Constant;
 import com.ideas2it.ideas2movie.util.constant.Message;
 
 /**
- * <h1>
+ * <h2>
  *      UserDTO
- * </h1>
+ * </h2>
  * <p>
  *      UserDTO represents a Simplified version of the User Model
  *      which Holds the Necessary Information of the User model

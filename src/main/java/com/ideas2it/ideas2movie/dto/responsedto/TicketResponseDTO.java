@@ -10,9 +10,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- *<h1>
+ *<h2>
  *     TicketResponseDTO
- *</h1>
+ *</h2>
  * <p>
  *     TicketResponseDTO represent the Response sent to the Client with ID of Ticket
  *     after Getting the Details of the Ticket.

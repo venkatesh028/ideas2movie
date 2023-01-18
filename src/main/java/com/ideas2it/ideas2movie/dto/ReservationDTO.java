@@ -18,9 +18,9 @@ import com.ideas2it.ideas2movie.util.constant.Message;
 import com.ideas2it.ideas2movie.util.enums.ModeOfReservation;
 
 /**
- * <h1>
+ * <h2>
  *     ReservationDTO
- * </h1>
+ * </h2>
  * <p>
  *     ReservationDTO represent the Simplified version of the Reservation Model
  *     which Holds the Necessary Details of the Reservation model to get from User to Reserve Seats for Show.
