@@ -64,4 +64,18 @@ public class CustomLogger {
     public void error(String message){
         logger.error(message);
     }
+
+    /**
+     * <h1>
+     *     DEBUG
+     * </h1>
+     * <p>
+     *     Logs the debug message.
+     * </p>
+     *
+     * @param message - Holds the debug message
+     */
+    public void debug(String message){
+        logger.debug(message);
+    }
 }

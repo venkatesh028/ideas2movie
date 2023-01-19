@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ideas2it.ideas2movie.dto.MovieDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.MovieResponseDTO;
+import com.ideas2it.ideas2movie.logger.CustomLogger;
 import com.ideas2it.ideas2movie.service.MovieService;
 import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
@@ -45,18 +46,9 @@ import com.ideas2it.ideas2movie.util.constant.Message;
 @RequestMapping("/api/v1/movies")
 public class MovieController {
     private final MovieService movieService;
+    private final CustomLogger logger = new CustomLogger(MovieController.class);
 
-    /**
-     * <h1>
-     *     Movie Controller Constructor
-     * </h1>
-     * <p>
-     *     Used to initialize the Services for calling the Operation performers of Service
-     *     and also achieves the Autowiring
-     * </p>
-     *
-     * @param movieService - An instance of Movie Service
-     */
+
     public MovieController(MovieService movieService) {
         this.movieService = movieService;
     }
@@ -77,6 +69,7 @@ public class MovieController {
      */
     @PostMapping
     public ResponseEntity<MovieResponseDTO> addMovie(@Valid @RequestBody MovieDTO movieDTO) {
+        logger.debug("Inside the MovieController addMovie");
         return  ResponseEntity.status(HttpStatus.CREATED)
                 .body(movieService.addMovie(movieDTO));
     }
@@ -98,6 +91,7 @@ public class MovieController {
     @GetMapping("/{id}")
     public ResponseEntity<MovieResponseDTO> getMovieById(@PathVariable("id") Long id)
             throws NotFoundException {
+        logger.debug("Inside the MovieController getMovieById");
         MovieResponseDTO fetchedMovie = movieService.getMovieById(id);
         return ResponseEntity.status(HttpStatus.OK).body(fetchedMovie);
     }
@@ -119,6 +113,7 @@ public class MovieController {
    @GetMapping("/0f-movie/{name}")
     public ResponseEntity<MovieResponseDTO> getMovieByName(@PathVariable("name") String name)
            throws NotFoundException {
+       logger.debug("Inside the MovieController getMovieByName");
         MovieResponseDTO existByMovie = movieService.getMovieByName(name);
         return ResponseEntity.status(HttpStatus.OK).body(existByMovie);
     }
@@ -138,6 +133,7 @@ public class MovieController {
      */
     @GetMapping
     public List<MovieResponseDTO> getAllMovies() throws NoContentException {
+        logger.debug("Inside the MovieController getAllMovies");
         return movieService.getAllMovies();
     }
 
@@ -160,6 +156,7 @@ public class MovieController {
     @PutMapping("/{id}")
     public ResponseEntity<MovieResponseDTO> updateMovie(@Valid @PathVariable("id") Long id,
            @RequestBody MovieDTO movieDTO) throws NotFoundException {
+        logger.debug("Inside the MovieController updateMovie");
         return ResponseEntity.status(HttpStatus.OK)
                 .body(movieService.updateMovie(id, movieDTO));
     }
@@ -180,13 +177,9 @@ public class MovieController {
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteMovie(@PathVariable("id") Long id)
             throws NotFoundException  {
-
-        if (!movieService.deleteMovie(id)) {
-            return ResponseEntity.status(HttpStatus.OK)
-                    .body(Message.DELETED_SUCCESSFULLY);
-        } else {
-            return ResponseEntity.status(HttpStatus.OK)
-                    .body(Message.FAILED_TO_DELETE);
-        }
+        logger.debug("Inside the MovieController deleteMovie");
+        String message = (movieService.deleteMovie(id)) ? Message.DELETED_SUCCESSFULLY : Message.FAILED_TO_DELETE;
+        return ResponseEntity.status(HttpStatus.OK)
+                    .body(message);
     }
 }

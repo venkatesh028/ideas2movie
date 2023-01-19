@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ideas2it.ideas2movie.dto.TheaterDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.TheaterResponseDTO;
+import com.ideas2it.ideas2movie.logger.CustomLogger;
 import com.ideas2it.ideas2movie.service.TheaterService;
 import com.ideas2it.ideas2movie.util.constant.Message;
 import com.ideas2it.ideas2movie.exception.AlreadyExistException;
@@ -44,18 +45,8 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
 @RequestMapping("/api/v1/theaters")
 public class TheaterController {
     private final TheaterService theaterService;
+    private final CustomLogger logger = new CustomLogger(TheaterController.class);
 
-    /**
-     * <h1>
-     *     Theater Controller Constructor
-     * </h1>
-     * <p>
-     *     Used to initialize the Services for calling the Operation performers of Service
-     *     and also achieves the Autowiring
-     * </p>
-     *
-     * @param theaterService - An instance of Theater Service
-     */
     public TheaterController(TheaterService theaterService) {
         this.theaterService = theaterService;
     }
@@ -77,6 +68,7 @@ public class TheaterController {
     @PostMapping
     public ResponseEntity<TheaterResponseDTO> addTheater(@RequestBody TheaterDTO theaterDTO)
             throws AlreadyExistException {
+        logger.debug("Inside the TheaterController addTheater");
         return ResponseEntity.status(HttpStatus.CREATED).body(theaterService.addTheater(theaterDTO));
     }
 
@@ -98,6 +90,7 @@ public class TheaterController {
     @GetMapping("/{id}")
     public ResponseEntity<TheaterResponseDTO> getTheaterById(@PathVariable("id") Long id)
             throws NotFoundException {
+        logger.debug("Inside the TheaterController getTheaterById");
         return ResponseEntity.status(HttpStatus.OK)
                 .body(theaterService.getTheaterById(id));
     }
@@ -117,6 +110,7 @@ public class TheaterController {
      */
     @GetMapping
     public ResponseEntity<List<TheaterResponseDTO>> getAllTheaters() throws NoContentException {
+        logger.debug("Inside the TheaterController getAllTheaters");
         return ResponseEntity.status(HttpStatus.OK)
                 .body(theaterService.getAllTheaters());
     }
@@ -142,6 +136,7 @@ public class TheaterController {
     @PutMapping("/{id}")
     public ResponseEntity<TheaterResponseDTO> updateTheater(@PathVariable("id") Long id,
         @RequestBody TheaterDTO theaterDTO) throws  NotFoundException, AlreadyExistException {
+        logger.debug("Inside the TheaterController updateTheater");
         return ResponseEntity.status(HttpStatus.OK).body(theaterService.updateTheater(id, theaterDTO));
     }
 
@@ -161,11 +156,10 @@ public class TheaterController {
     @DeleteMapping("/{id}")
     public ResponseEntity<String> removeTheater(@PathVariable("id") Long id)
             throws NotFoundException  {
-        if (theaterService.removeTheater(id)) {
-            return ResponseEntity.status(HttpStatus.OK).body(Message.DELETED_SUCCESSFULLY);
-        } else {
-            return ResponseEntity.status(HttpStatus.OK).body(Message.FAILED_TO_DELETE);
-        }
+        logger.debug("Inside the TheaterController removeTheater");
+        String message = (theaterService.removeTheater(id)) ? (Message.DELETED_SUCCESSFULLY)
+                : (Message.FAILED_TO_DELETE);
+        return ResponseEntity.status(HttpStatus.OK).body(message);
     }
 }
 
