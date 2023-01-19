@@ -11,11 +11,11 @@ import com.ideas2it.ideas2movie.util.enums.City;
 
 /**
  * <h2>
- *     Theater Response DTO
+ *     TheaterResponseDTO
  * </h2>
  * <p>
- *     Represents the Theater Response DTO,
- *     its shows the required data to the client.
+ *     TheaterResponseDTO represents the response sent to the Client with the ID
+ *     after Creating and Updating the Theater Details.
  * </p>
  *
  * @author YOGESHWAR S

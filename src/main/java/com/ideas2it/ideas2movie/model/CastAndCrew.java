@@ -22,13 +22,13 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 /**
- * <h1>
+ * <h2>
  *     CastAndCrew
- * <h1/>
+ * </h2>
  * <p>
  *     CastAndCrewRole Entity represent the Details of the CastAndCrewRole which are
  *     like names of director, hero, heroine.
- * <p/>
+ * </p>
  *
  *  @version 1.0
  *  @since 05-Jan-2023

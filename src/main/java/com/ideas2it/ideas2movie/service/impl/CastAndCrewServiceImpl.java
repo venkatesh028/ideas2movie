@@ -18,9 +18,9 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
 import com.ideas2it.ideas2movie.util.constant.Message;
 
 /**
- * <h1>
+ * <h2>
  *     CastAndCrewServiceImpl
- * </h1>
+ * </h2>
  * <p>
  *     To add the cast and crew details for movie and
  *     returns the response accordingly
@@ -40,7 +40,8 @@ public class CastAndCrewServiceImpl implements CastAndCrewService {
      *     CastAndCrew ServiceImpl Constructor
      * </h1>
      * <p>
-     *     Used to Achieve the Autowiring for CastAndCrew Repository.
+     *     Used to  inject the CastAndCrewRepository, CustomLogger dependency
+     *     and initialize the castAndCrewRepository, logger variables
      * </p>
      *
      * @param castAndCrewRepository - reference variable for CastAndCrew Repository

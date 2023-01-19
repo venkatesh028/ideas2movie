@@ -14,9 +14,9 @@ import com.ideas2it.ideas2movie.util.constant.Message;
 import com.ideas2it.ideas2movie.util.enums.City;
 
 /**
- * <h1>
+ * <h2>
  *     Theater DTO
- * </h1>
+ * </h2>
  * <p>
  *      TheaterDTO represents a Simplified version of the Theater Model
  *      which Holds the Necessary Information of the Theater model
