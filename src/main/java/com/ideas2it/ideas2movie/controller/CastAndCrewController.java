@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ideas2it.ideas2movie.dto.CastAndCrewDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.CastAndCrewResponseDTO;
 import com.ideas2it.ideas2movie.service.CastAndCrewService;
-import com.ideas2it.ideas2movie.exception.NotFoundException;
 import com.ideas2it.ideas2movie.util.constant.Message;
+import com.ideas2it.ideas2movie.exception.NotFoundException;
 
 /**
  * <h2>

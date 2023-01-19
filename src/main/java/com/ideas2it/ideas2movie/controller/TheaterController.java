@@ -96,8 +96,8 @@ public class TheaterController {
      * @throws NotFoundException - when theater details is not Found
      */
     @GetMapping("/{id}")
-    public ResponseEntity<TheaterResponseDTO> getTheaterById(
-            @PathVariable("id") Long id) throws NotFoundException {
+    public ResponseEntity<TheaterResponseDTO> getTheaterById(@PathVariable("id") Long id)
+            throws NotFoundException {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(theaterService.getTheaterById(id));
     }
@@ -116,8 +116,9 @@ public class TheaterController {
      * @throws NoContentException - when list of Theater is empty
      */
     @GetMapping
-    public List<TheaterResponseDTO> getAllTheaters() throws NoContentException {
-        return theaterService.getAllTheaters();
+    public ResponseEntity<List<TheaterResponseDTO>> getAllTheaters() throws NoContentException {
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(theaterService.getAllTheaters());
     }
 
     /**
@@ -139,11 +140,9 @@ public class TheaterController {
      * @throws  NotFoundException - if theater not exist on a given id.
      */
     @PutMapping("/{id}")
-    public ResponseEntity<TheaterResponseDTO> updateTheater
-        (@PathVariable("id") Long id,@RequestBody TheaterDTO theaterDTO) throws
-            NotFoundException, AlreadyExistException {
-        return ResponseEntity.status(HttpStatus.OK)
-                .body(theaterService.updateTheater(id, theaterDTO));
+    public ResponseEntity<TheaterResponseDTO> updateTheater(@PathVariable("id") Long id,
+        @RequestBody TheaterDTO theaterDTO) throws  NotFoundException, AlreadyExistException {
+        return ResponseEntity.status(HttpStatus.OK).body(theaterService.updateTheater(id, theaterDTO));
     }
 
     /**

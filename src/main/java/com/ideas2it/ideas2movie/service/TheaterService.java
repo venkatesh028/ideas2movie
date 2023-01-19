@@ -15,9 +15,9 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
 
 
 /**
- * <h1>
+ * <h2>
  *     TheaterService
- * </h1>
+ * </h2>
  * <p>
  *     TheaterService provides the Methods for Theater CRUD Operation
  *     and throws an Exceptions when occurred

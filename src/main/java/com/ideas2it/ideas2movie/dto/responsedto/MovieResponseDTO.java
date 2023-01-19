@@ -17,8 +17,8 @@ import com.ideas2it.ideas2movie.util.enums.Language;
  *     MovieResponseDTO
  * </h2>
  * <p>
- *     Represents the Movie Response DTO,
- *     its shows the required data to the client.
+ *     MovieResponseDTO represents the response sent to the Client with the ID
+ *     after Creating and Updating the Movie Details.
  * </p>
  *
  * @author YOGESHWAR S

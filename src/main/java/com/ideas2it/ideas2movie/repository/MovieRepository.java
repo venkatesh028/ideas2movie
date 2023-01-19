@@ -12,9 +12,9 @@ import org.springframework.stereotype.Repository;
 import com.ideas2it.ideas2movie.model.Movie;
 
 /**
- * <h1>
+ * <h2>
  *     MovieRepository
- * <h1/>
+ * </h2>
  * <p>
  *     Repository of the Movie
  *     to save, and fetch the Details of the Movie
