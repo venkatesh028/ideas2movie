@@ -35,7 +35,6 @@ public class Message {
     public static final String THEATER_NAME_SHOULD_NOT_BE_EMPTY = "Theater Name Should Not be Empty";
     public static final String CITY_NAME_SHOULD_NOT_BE_EMPTY = "City Name should not be Empty";
     public static final String AREA_NAME_SHOULD_NOT_BE_EMPTY = "Area Name should not be Empty";
-    public static final String PINCODE_SHOULD_NOT_BE_EMPTY = "PinCode should not be Empty";
     //CAST AND CREW DTO
     public static final String DIRECTOR_NAME_SHOULD_NOT_BE_EMPTY = "Director Name should not be Empty";
     public static final String HERO_NAME_SHOULD_NOT_BE_EMPTY = "Hero Name should not be Empty";
@@ -57,8 +56,6 @@ public class Message {
     public static final String ENTER_VALID_PHONE_NUMBER = "Please, Enter Valid Phone";
     public static final String ENTER_VALID_PASSWORD = "Please, Enter Valid Password(minimum 8 characters)";
     public static final String ENTER_VALID_ROLE = "Please, Enter Valid Role";
-    public static final String ENTER_VALID_PAYMENT_MODE = "Please, Select 1.Cash 2.Card 3.Upi";
-    public static final String ENTER_VALID_AMOUNT = "Please, Enter Numbers Only for Amount";
     //ALREADY EXIST MESSAGES
     public static final String NUMBER_ALREADY_EXIST = "Phone Number Already Exist";
     public static final String USER_NAME_ALREADY_EXIST = "Name Already Exist, Please try Different Name";
