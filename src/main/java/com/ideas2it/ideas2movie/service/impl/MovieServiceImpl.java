@@ -21,9 +21,9 @@ import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
 
 /**
- * <h1>
+ * <h2>
  *     MovieServiceImpl
- * </h1>
+ * </h2>
  * <p>
  *     Implements the MovieService and
  *     Holds the Business Logic
@@ -146,16 +146,11 @@ public class MovieServiceImpl implements MovieService {
      */
     @Override
     public boolean deleteMovie(Long id) throws NotFoundException {
-        boolean isDeleted = true;
         boolean isAvailable = movieRepository.existsById(id);
-
+        boolean isDeleted;
         if (isAvailable) {
             movieRepository.deleteById(id);
-            isDeleted = movieRepository.existsById(id);
-
-            if (!isDeleted) {
-                return isDeleted;
-            }
+            return isDeleted = true;
         }
         throw new NotFoundException(Message.MOVIE_NOT_FOUND);
     }

@@ -11,9 +11,9 @@ import com.ideas2it.ideas2movie.model.Theater;
 import com.ideas2it.ideas2movie.util.enums.City;
 
 /**
- * <h1>
+ * <h2>
  *     TheaterRepository
- * <h1/>
+ * </h1>
  * <p>
  *     Represent the Theater repository to save, fetch the theater details
  *     by using jpa repository.

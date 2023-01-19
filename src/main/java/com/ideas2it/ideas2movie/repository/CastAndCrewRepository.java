@@ -10,9 +10,9 @@ import org.springframework.stereotype.Repository;
 import com.ideas2it.ideas2movie.model.CastAndCrew;
 
 /**
- * <h1>
+ * <h2>
  *     CastAndCrewRepository
- * <h1/>
+ * </h2>
  * <p>
  *     Repository of CastAndCrew, to save, fetch the cast and
  *     crew details by using jpa repository.

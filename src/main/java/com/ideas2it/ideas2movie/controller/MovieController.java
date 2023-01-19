@@ -76,8 +76,7 @@ public class MovieController {
      * @return ResponseEntity - Holds the movieDTO and Http Status OK
      */
     @PostMapping
-    public ResponseEntity<MovieResponseDTO> addMovie
-            (@Valid @RequestBody MovieDTO movieDTO) {
+    public ResponseEntity<MovieResponseDTO> addMovie(@Valid @RequestBody MovieDTO movieDTO) {
         return  ResponseEntity.status(HttpStatus.CREATED)
                 .body(movieService.addMovie(movieDTO));
     }
@@ -97,8 +96,8 @@ public class MovieController {
      * @throws NotFoundException - when Movie is Not Found for ID
      */
     @GetMapping("/{id}")
-    public ResponseEntity<MovieResponseDTO> getMovieById(
-            @PathVariable("id") Long id) throws NotFoundException {
+    public ResponseEntity<MovieResponseDTO> getMovieById(@PathVariable("id") Long id)
+            throws NotFoundException {
         MovieResponseDTO fetchedMovie = movieService.getMovieById(id);
         return ResponseEntity.status(HttpStatus.OK).body(fetchedMovie);
     }
@@ -118,8 +117,8 @@ public class MovieController {
      * @throws NotFoundException - when movie details is not Found
      */
    @GetMapping("/0f-movie/{name}")
-    public ResponseEntity<MovieResponseDTO> getMovieByName(
-            @PathVariable("name") String name) throws NotFoundException {
+    public ResponseEntity<MovieResponseDTO> getMovieByName(@PathVariable("name") String name)
+           throws NotFoundException {
         MovieResponseDTO existByMovie = movieService.getMovieByName(name);
         return ResponseEntity.status(HttpStatus.OK).body(existByMovie);
     }

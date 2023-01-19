@@ -21,11 +21,10 @@ import com.ideas2it.ideas2movie.exception.AlreadyExistException;
 import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
 
-
 /**
- * <h1>
+ * <h2>
  *     TheaterServiceImpl
- * </h1>
+ * </h2>
  * <p>
  *     Implements the TheaterService and
  *     Holds the Business Logic
@@ -79,16 +78,16 @@ public class TheaterServiceImpl implements TheaterService {
             throws NoContentException {
         List<Theater> theaters = theaterRepository.findAll();
 
-        if (!theaters.isEmpty()) {
-            List<TheaterResponseDTO> listOfTheater = new ArrayList<>();
-
-            for (Theater theater: theaters) {
-                listOfTheater.add(modelMapper.map(theater,
-                        TheaterResponseDTO.class));
-            }
-            return listOfTheater;
+        if (theaters.isEmpty()) {
+            throw  new NoContentException(Message.THEATER_NOT_FOUND);
         }
-        throw  new NoContentException(Message.THEATER_NOT_FOUND);
+        List<TheaterResponseDTO> listOfTheater = new ArrayList<>();
+
+        for (Theater theater: theaters) {
+            listOfTheater.add(modelMapper.map(theater,
+                    TheaterResponseDTO.class));
+        }
+        return listOfTheater;
     }
 
     /**
@@ -149,16 +148,12 @@ public class TheaterServiceImpl implements TheaterService {
     public boolean removeTheater(Long id) throws NotFoundException {
         Optional<Theater> existingTheater = theaterRepository.findById(id);
         Theater theater;
-        boolean isActive = false;
-
+        boolean isDeactivated;
         if (existingTheater.isPresent()) {
             theater = existingTheater.get();
             theater.setActive(false);
             theaterRepository.save(theater);
-
-            if (!existingTheater.isPresent()) {
-                return isActive = true;
-            }
+            return isDeactivated = true;
         }
         throw new NotFoundException(Message.THEATER_NOT_FOUND);
     }

@@ -11,8 +11,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.ideas2it.ideas2movie.dto.responsedto.ErrorMessageDTO;
 import com.ideas2it.ideas2movie.logger.CustomLogger;
@@ -33,7 +33,7 @@ import com.ideas2it.ideas2movie.logger.CustomLogger;
  * @since 05/01/2023
  *
  */
-@ControllerAdvice
+@RestControllerAdvice
 public class MovieExceptionHandler {
     private final CustomLogger logger = new CustomLogger(MovieExceptionHandler.class);
 

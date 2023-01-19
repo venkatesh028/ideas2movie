@@ -13,9 +13,9 @@ import com.ideas2it.ideas2movie.exception.NoContentException;
 import com.ideas2it.ideas2movie.exception.NotFoundException;
 
 /**
- * <h1>
+ * <h2>
  *     MovieService
- * </h1>
+ * </h2>
  * <p>
  *     MovieService provides the Methods for Movie CRUD Operation
  *     and throws an Exceptions when occurred

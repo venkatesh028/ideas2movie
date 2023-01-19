@@ -31,13 +31,13 @@ import com.ideas2it.ideas2movie.util.enums.Genre;
 import com.ideas2it.ideas2movie.util.enums.Language;
 
 /**
- * <h1>
+ * <h2>
  *    Movie
- * <h1/>
+ * </h2>
  * <p>
  *    Movie Entity represent the Details of the Movie which are like
  *    Movie name, language, duration of a movie.
- * <p/>
+ * </p>
  *
  *  @version 1.0
  *  @since 05-Jan-2023

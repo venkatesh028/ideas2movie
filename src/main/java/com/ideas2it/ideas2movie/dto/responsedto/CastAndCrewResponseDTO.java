@@ -9,11 +9,11 @@ import lombok.Setter;
 
 /**
  * <h2>
- *     CastAndCrew Response DTO
+ *     CastAndCrewResponseDTO
  * </h2>
  * <p>
- *     Represents the CastAndCrew Response DTO,
- *     its shows the required data to the client.
+ *     CastAndCrewResponseDTO represents the response sent to the Client with the ID
+ *     after Creating and Updating the  CastAndCrew.
  * </p>
  *
  * @author YOGESHWAR S

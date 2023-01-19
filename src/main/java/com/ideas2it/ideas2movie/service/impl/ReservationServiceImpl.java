@@ -113,7 +113,10 @@ public class ReservationServiceImpl implements ReservationService {
 
         Reservation reservation = existingReservation.get();
 
-        if (payment.getStatus().equals(PaymentStatus.PAID)) {
+        if (reservation.getStatus().equals(ReservationStatus.CANCELED)) {
+            logger.error(Message.RESERVATION_NOT_FOUND);
+            throw new NotFoundException(Message.RESERVATION_NOT_FOUND);
+        } else if (payment.getStatus().equals(PaymentStatus.PAID)) {
             reservation.setStatus(ReservationStatus.BOOKED);
             reservation.setTicket(ticketService.generateTicket(reservation));
         } else {
@@ -139,6 +142,7 @@ public class ReservationServiceImpl implements ReservationService {
         if (reservation.getStatus().equals(ReservationStatus.BOOKED)
                 || reservation.getStatus().equals(ReservationStatus.PROCESSING)) {
             reservation.setStatus(ReservationStatus.CANCELED);
+            reservation.getTicket().setReservationStatus(ReservationStatus.CANCELED);
         }
         return mapper.map(reservationRepository.save(reservation), ReservationResponseDTO.class);
     }
