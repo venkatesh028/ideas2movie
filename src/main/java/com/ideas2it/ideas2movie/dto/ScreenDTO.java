@@ -9,6 +9,8 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
+import com.ideas2it.ideas2movie.util.constant.Message;
+
 /**
  * <h2>
  *     ScreenDTO

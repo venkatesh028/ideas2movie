@@ -7,7 +7,6 @@ package com.ideas2it.ideas2movie.dto;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
@@ -44,7 +43,6 @@ public class ShowDTO {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate screeningDate;
     @NotNull
-    @Future(message = "Please provide a future time")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
     private LocalTime startTime;
     @NotNull
