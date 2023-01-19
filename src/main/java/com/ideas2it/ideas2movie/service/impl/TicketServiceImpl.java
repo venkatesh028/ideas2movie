@@ -7,6 +7,7 @@ package com.ideas2it.ideas2movie.service.impl;
 import java.util.List;
 import java.util.Optional;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import com.ideas2it.ideas2movie.model.Reservation;
@@ -38,6 +39,7 @@ import com.ideas2it.ideas2movie.logger.CustomLogger;
 public class TicketServiceImpl implements TicketService {
     private final TicketRepository ticketRepository;
     private final CustomLogger logger = new CustomLogger(TicketServiceImpl.class);
+    private final ModelMapper mapper = new ModelMapper();
 
     /**
      * <h1>
@@ -67,6 +69,7 @@ public class TicketServiceImpl implements TicketService {
         ticket.setTheaterName(reservation.getShow().getScreen().getTheater().getTheaterName());
         ticket.setMovieName(reservation.getShow().getMovie().getName());
         ticket.setShowDate(reservation.getShow().getScreeningDate());
+        ticket.setReservationStatus(reservation.getStatus());
         List<Seat> seats = reservation.getSeats();
         StringBuilder seatName = new StringBuilder();
 
@@ -90,6 +93,6 @@ public class TicketServiceImpl implements TicketService {
             logger.error(Message.TICKET_NOT_FOUND);
             throw new NotFoundException(Message.TICKET_NOT_FOUND);
         }
-        return null;
+        return mapper.map(existingTicket.get(), TicketResponseDTO.class);
     }
 }
