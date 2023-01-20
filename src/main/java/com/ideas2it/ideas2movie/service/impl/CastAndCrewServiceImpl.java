@@ -9,6 +9,7 @@ import java.util.Optional;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import com.ideas2it.ideas2movie.logger.CustomLogger;
 import com.ideas2it.ideas2movie.model.CastAndCrew;
 import com.ideas2it.ideas2movie.dto.CastAndCrewDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.CastAndCrewResponseDTO;
@@ -33,19 +34,9 @@ import com.ideas2it.ideas2movie.util.constant.Message;
 @Service
 public class CastAndCrewServiceImpl implements CastAndCrewService {
     private final CastAndCrewRepository castAndCrewRepository;
-    ModelMapper modelMapper = new ModelMapper();
+    private final CustomLogger logger = new CustomLogger(CastAndCrewServiceImpl.class);
+    private final  ModelMapper modelMapper = new ModelMapper();
 
-    /**
-     * <h1>
-     *     CastAndCrew ServiceImpl Constructor
-     * </h1>
-     * <p>
-     *     Used to  inject the CastAndCrewRepository, CustomLogger dependency
-     *     and initialize the castAndCrewRepository, logger variables
-     * </p>
-     *
-     * @param castAndCrewRepository - reference variable for CastAndCrew Repository
-     */
     public CastAndCrewServiceImpl(CastAndCrewRepository castAndCrewRepository) {
         this.castAndCrewRepository = castAndCrewRepository;
     }
@@ -55,6 +46,7 @@ public class CastAndCrewServiceImpl implements CastAndCrewService {
      */
     @Override
     public CastAndCrewResponseDTO addCastAndCrew(CastAndCrewDTO castAndCrewDTO) {
+        logger.debug("Inside the CastAndCrewServiceImpl addCastAndCrew");
         CastAndCrew castAndCrew = modelMapper.map(castAndCrewDTO, CastAndCrew.class);
         return modelMapper.map(castAndCrewRepository.save(castAndCrew),
                 CastAndCrewResponseDTO.class);
@@ -65,6 +57,7 @@ public class CastAndCrewServiceImpl implements CastAndCrewService {
      */
     @Override
     public CastAndCrewResponseDTO getCastAndCrewById(Long id) throws NotFoundException {
+        logger.debug("Inside the CastAndCrewServiceImpl getCastAndCrewById");
         Optional<CastAndCrew> castAndCrew = castAndCrewRepository.findById(id);
 
         if (castAndCrew.isPresent()) {
@@ -79,6 +72,7 @@ public class CastAndCrewServiceImpl implements CastAndCrewService {
     @Override
     public CastAndCrewResponseDTO updateCastAndCrew(Long id,
                    CastAndCrewDTO castAndCrewDTO) throws NotFoundException {
+        logger.debug("Inside the CastAndCrewServiceImpl updateCastAndCrew");
         CastAndCrew castAndCrew = modelMapper.map(castAndCrewDTO, CastAndCrew.class);
         castAndCrew.setId(id);
         Optional<CastAndCrew> existingCastAndCrew = castAndCrewRepository.findById(id);
@@ -95,16 +89,13 @@ public class CastAndCrewServiceImpl implements CastAndCrewService {
      */
     @Override
     public boolean deleteCastAndCrew(Long id) throws NotFoundException {
+        logger.debug("Inside the CastAndCrewServiceImpl deleteCastAndCrew");
         boolean isDeleted = true;
         boolean isAvailable = castAndCrewRepository.existsById(id);
 
         if (isAvailable) {
             castAndCrewRepository.deleteById(id);
-            isDeleted = castAndCrewRepository.existsById(id);
-
-            if (!isDeleted) {
                 return isDeleted;
-            }
         }
         throw new NotFoundException(Message.CAST_AND_CREW_NOT_FOUND);
     }

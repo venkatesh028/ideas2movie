@@ -11,6 +11,7 @@ import java.util.Optional;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import com.ideas2it.ideas2movie.logger.CustomLogger;
 import com.ideas2it.ideas2movie.model.Movie;
 import com.ideas2it.ideas2movie.dto.MovieDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.MovieResponseDTO;
@@ -38,18 +39,9 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
 public class MovieServiceImpl implements MovieService {
 
     private final MovieRepository movieRepository;
+    private  final CustomLogger logger = new CustomLogger(MovieServiceImpl.class);
     private final ModelMapper modelMapper = new ModelMapper();
 
-    /**
-     * <h1>
-     *     Movie ServiceImpl Constructor
-     * </h1>
-     * <p>
-     *     Used to Achieve the Autowiring for Movie Repository.
-     * </p>
-     *
-     * @param movieRepository - reference variable for Movie Repository
-     */
     public MovieServiceImpl( MovieRepository movieRepository) {
         this.movieRepository = movieRepository;
     }
@@ -59,7 +51,7 @@ public class MovieServiceImpl implements MovieService {
      */
      @Override
     public MovieResponseDTO addMovie(MovieDTO movieDTO) {
-
+        logger.debug("Inside the MovieServiceImpl addMovie");
         Movie movie = modelMapper.map(movieDTO, Movie.class);
         return modelMapper.map(movieRepository.save(movie),
                 MovieResponseDTO.class);
@@ -70,6 +62,7 @@ public class MovieServiceImpl implements MovieService {
      */
     @Override
     public MovieResponseDTO getMovieById(Long id) throws NotFoundException {
+        logger.debug("Inside the MovieServiceImpl getMovieById");
         Optional<Movie> movie = movieRepository.findById(id);
 
         if (movie.isPresent()) {
@@ -84,6 +77,7 @@ public class MovieServiceImpl implements MovieService {
      */
     @Override
     public MovieResponseDTO getMovieByName(String name) throws NotFoundException {
+        logger.debug("Inside the MovieServiceImpl getMovieByName");
         Optional<Movie> existByMovie = movieRepository.findByName(name);
 
         if(existByMovie.isPresent()) {
@@ -98,6 +92,7 @@ public class MovieServiceImpl implements MovieService {
      */
     @Override
     public List<MovieResponseDTO> getAllMovies() throws NoContentException {
+        logger.debug("Inside the MovieServiceImpl getAllMovies");
         List<Movie> movies = movieRepository.findAll();
 
         if (!movies.isEmpty()) {
@@ -115,6 +110,7 @@ public class MovieServiceImpl implements MovieService {
      */
     @Override
     public Movie getMovieByIdForShows(Long id) throws NotFoundException{
+        logger.debug("Inside the MovieServiceImpl getMovieByIdForShows");
         Optional<Movie> existingMovies = movieRepository.findById(id);
 
         if (existingMovies.isPresent()) {
@@ -130,6 +126,7 @@ public class MovieServiceImpl implements MovieService {
     @Override
     public MovieResponseDTO updateMovie(Long id, MovieDTO movieDTO)
             throws  NotFoundException {
+        logger.debug("Inside the MovieServiceImpl updateMovie");
         Movie movie = modelMapper.map(movieDTO, Movie.class);
         movie.setId(id);
         Optional<Movie> existingMovie = movieRepository.findById(id);
@@ -146,6 +143,7 @@ public class MovieServiceImpl implements MovieService {
      */
     @Override
     public boolean deleteMovie(Long id) throws NotFoundException {
+        logger.debug("Inside the MovieServiceImpl deleteMovie");
         boolean isAvailable = movieRepository.existsById(id);
         boolean isDeleted;
         if (isAvailable) {

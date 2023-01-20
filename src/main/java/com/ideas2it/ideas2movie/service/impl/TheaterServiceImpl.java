@@ -11,6 +11,7 @@ import java.util.Optional;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import com.ideas2it.ideas2movie.logger.CustomLogger;
 import com.ideas2it.ideas2movie.model.Theater;
 import com.ideas2it.ideas2movie.dto.TheaterDTO;
 import com.ideas2it.ideas2movie.dto.responsedto.TheaterResponseDTO;
@@ -39,18 +40,9 @@ import com.ideas2it.ideas2movie.exception.NotFoundException;
 @Service
 public class TheaterServiceImpl implements TheaterService {
     private final TheaterRepository theaterRepository;
+    private final CustomLogger logger = new CustomLogger(TheaterServiceImpl.class);
     private final ModelMapper modelMapper = new ModelMapper();
 
-    /**
-     * <h1>
-     *     Theater ServiceImpl Constructor
-     * </h1>
-     * <p>
-     *     Used to Achieve the Autowiring for Theater Repository.
-     * </p>
-     *
-     * @param theaterRepository- reference variable for Theater Repository
-     */
     public TheaterServiceImpl(TheaterRepository theaterRepository) {
         this.theaterRepository = theaterRepository;
     }
@@ -61,6 +53,8 @@ public class TheaterServiceImpl implements TheaterService {
     @Override
     public TheaterResponseDTO addTheater(TheaterDTO theaterDTO)
             throws AlreadyExistException {
+        logger.debug("Inside the TheaterServiceImpl addTheater");
+
         if (theaterRepository.existsByTheaterName(theaterDTO.getTheaterName())
                 && theaterRepository.existsByCity(theaterDTO.getCity()) &&
                 theaterRepository.existsByArea(theaterDTO.getArea())) {
@@ -76,6 +70,7 @@ public class TheaterServiceImpl implements TheaterService {
     @Override
     public List<TheaterResponseDTO> getAllTheaters()
             throws NoContentException {
+        logger.debug("Inside the TheaterServiceImpl getAllTheater");
         List<Theater> theaters = theaterRepository.findAll();
 
         if (theaters.isEmpty()) {
@@ -95,6 +90,7 @@ public class TheaterServiceImpl implements TheaterService {
      */
     @Override
     public TheaterResponseDTO getTheaterById(Long id) throws NotFoundException {
+        logger.debug("Inside the TheaterServiceImpl getTheaterById");
         Optional<Theater> theater = theaterRepository.findById(id);
 
         if (theater.isPresent()) {
@@ -109,6 +105,7 @@ public class TheaterServiceImpl implements TheaterService {
      */
     @Override
     public Theater getTheaterForScreenById(Long id) throws NotFoundException {
+        logger.debug("Inside the TheaterServiceImpl getTheaterForScreenById");
         Optional<Theater> existingTheater = theaterRepository.findById(id);
 
         if (existingTheater.isPresent()) {
@@ -124,6 +121,7 @@ public class TheaterServiceImpl implements TheaterService {
     @Override
     public TheaterResponseDTO updateTheater(Long id, TheaterDTO theaterDTO)
             throws NotFoundException, AlreadyExistException {
+        logger.debug("Inside the TheaterServiceImpl updateTheater");
         Theater theater = modelMapper.map(theaterDTO, Theater.class);
         theater.setId(id);
         theater.setActive(true);
@@ -146,14 +144,16 @@ public class TheaterServiceImpl implements TheaterService {
      */
     @Override
     public boolean removeTheater(Long id) throws NotFoundException {
+        logger.debug("Inside the TheaterServiceImpl removeTheater");
         Optional<Theater> existingTheater = theaterRepository.findById(id);
         Theater theater;
-        boolean isDeactivated;
+        boolean isDeactivated = true;
+
         if (existingTheater.isPresent()) {
             theater = existingTheater.get();
             theater.setActive(false);
             theaterRepository.save(theater);
-            return isDeactivated = true;
+            return isDeactivated;
         }
         throw new NotFoundException(Message.THEATER_NOT_FOUND);
     }
