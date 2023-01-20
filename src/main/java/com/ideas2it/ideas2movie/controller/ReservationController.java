@@ -78,7 +78,7 @@ public class ReservationController {
     @PostMapping
     public ResponseEntity<ReservationResponseDTO> reserveSeats(@Valid @RequestBody ReservationDTO reservationDTO)
             throws BadRequestException {
-        logger.info("Inside the ReservationController add Reservation");
+        logger.debug("Inside the ReservationController add Reservation");
         return ResponseEntity.status(HttpStatus.CREATED).body(reservationService.reserveSeats(reservationDTO));
     }
 
@@ -99,7 +99,7 @@ public class ReservationController {
     @DeleteMapping("/cancel/{id}")
     public ResponseEntity<ReservationResponseDTO> cancelReservationById(@PathVariable("id") Long id)
             throws NotFoundException {
-        logger.info("Inside the ReservationController cancel Reservation");
+        logger.debug("Inside the ReservationController cancel Reservation");
         return ResponseEntity.status(HttpStatus.OK).body(reservationService.cancelReservationById(id));
     }
 
@@ -120,7 +120,7 @@ public class ReservationController {
     @GetMapping("/{id}")
     public ResponseEntity<ReservationResponseDTO> getReservationById(@PathVariable("id") Long id)
             throws NotFoundException {
-        logger.info("Inside the ReservationController get Reservation by Id");
+        logger.debug("Inside the ReservationController get Reservation by Id");
         return ResponseEntity.status(HttpStatus.OK).body(reservationService.getReservationDTOById(id));
     }
 
@@ -141,7 +141,7 @@ public class ReservationController {
     @GetMapping("/of-user/{id}")
     public ResponseEntity<List<ReservationResponseDTO>> getAllReservationsByUserId(@PathVariable("id") Long id)
             throws NoContentException {
-        logger.info("Inside the ReservationController get all reservation by user id");
+        logger.debug("Inside the ReservationController get all reservation by user id");
         return ResponseEntity.status(HttpStatus.OK).body(reservationService.getAllReservationsByUserId(id));
     }
 }

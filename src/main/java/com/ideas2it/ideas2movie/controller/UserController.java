@@ -80,7 +80,7 @@ public class UserController {
     @PostMapping
     public ResponseEntity<UserResponseDTO> createUser(@Valid @RequestBody UserDTO userDTO)
             throws AlreadyExistException, BadRequestException {
-        logger.info("Inside the UserController create Account");
+        logger.debug("Inside the UserController create Account");
         return ResponseEntity.status(HttpStatus.CREATED).body(userService.createUser(userDTO));
     }
 
@@ -101,7 +101,7 @@ public class UserController {
     @GetMapping("/{id}")
     public ResponseEntity<UserResponseDTO> getUserById(@PathVariable("id") Long id)
             throws NotFoundException {
-        logger.info("Inside the UserController Get user by ID");
+        logger.debug("Inside the UserController Get user by ID");
         return ResponseEntity.status(HttpStatus.OK).body(userService.getUserById(id));
     }
 
@@ -126,7 +126,7 @@ public class UserController {
     public ResponseEntity<UserResponseDTO> updateUser(@PathVariable("id") Long id,
                                                       @Valid @RequestBody UserDTO userDTO)
             throws NotFoundException, AlreadyExistException {
-        logger.info("Inside the UserController Update User");
+        logger.debug("Inside the UserController Update User");
         return ResponseEntity.status(HttpStatus.OK).body(userService.updateUser(id, userDTO));
     }
 
@@ -146,7 +146,7 @@ public class UserController {
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deactivateUser(@PathVariable("id") Long id)
             throws NotFoundException {
-        logger.info("Inside the UserController Deactivate Account");
+        logger.debug("Inside the UserController Deactivate Account");
         String message = (userService.deactivateUser(id)) ? Message.FAILED_TO_DELETE : Message.DELETED_SUCCESSFULLY;
         return ResponseEntity.status(HttpStatus.OK).body(message);
     }

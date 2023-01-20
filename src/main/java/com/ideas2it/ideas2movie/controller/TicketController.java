@@ -67,7 +67,7 @@ public class TicketController {
     @GetMapping("/{id}")
     public ResponseEntity<TicketResponseDTO> getTicketById(@PathVariable("id") Long id)
             throws NotFoundException {
-        logger.info("Inside the TicketController get Ticket By ID");
+        logger.debug("Inside the TicketController get Ticket By ID");
         return ResponseEntity.status(HttpStatus.OK).body(ticketService.getTicketDTOById(id));
     }
 }
