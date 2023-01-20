@@ -75,7 +75,7 @@ public class RoleController {
     @PostMapping
     public ResponseEntity<RoleResponseDTO> createRole(@Valid @RequestBody RoleDTO roleDTO)
             throws AlreadyExistException {
-        logger.info("Inside the RoleController Create Role");
+        logger.debug("Inside the RoleController Create Role");
         return ResponseEntity.status(HttpStatus.CREATED).body(roleService.createRole(roleDTO));
     }
 
@@ -94,7 +94,7 @@ public class RoleController {
     @GetMapping
     public ResponseEntity<List<RoleResponseDTO>> getAllRoles()
             throws NoContentException {
-        logger.info("Inside the RoleController Get All Role");
+        logger.debug("Inside the RoleController Get All Role");
         return ResponseEntity.status(HttpStatus.OK).body(roleService.getAllRoles());
     }
 }

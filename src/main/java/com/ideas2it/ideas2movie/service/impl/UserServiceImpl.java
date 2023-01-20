@@ -67,22 +67,12 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public UserResponseDTO createUser(UserDTO userDTO) throws AlreadyExistException, BadRequestException {
-        logger.info("Inside the UserServiceImpl create User");
+        logger.debug("Inside the UserServiceImpl create User");
         mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         User user = mapper.map(userDTO, User.class);
         user.setPassword(new BCryptPasswordEncoder().encode(userDTO.getPassword()));
 
-        if (userRepository.existsByPhoneNumber(user.getPhoneNumber())
-                && userRepository.existsByName(user.getName())) {
-            logger.error(Message.NAME_AND_NUMBER_ALREADY_EXIST);
-            throw new AlreadyExistException(Message.NAME_AND_NUMBER_ALREADY_EXIST);
-        } else if (userRepository.existsByName(user.getName())) {
-            logger.error(Message.USER_NAME_ALREADY_EXIST);
-            throw new AlreadyExistException(Message.USER_NAME_ALREADY_EXIST);
-        } else if (userRepository.existsByPhoneNumber(user.getPhoneNumber())) {
-            logger.error(Message.NUMBER_ALREADY_EXIST);
-            throw new AlreadyExistException(Message.NUMBER_ALREADY_EXIST);
-        } else {
+        if (!isExist(user)) {
             try {
                 user.setRole(roleService.getRoleById(userDTO.getRoleId()));
             } catch (NotFoundException notFoundException) {
@@ -94,14 +84,42 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
+     * <h1>
+     *     isExist
+     * </h1>
+     * <p>
+     *     checks If the given User's Name or Phone number is Already Exist in the Application or not
+     *     and returns the Boolean value accordingly
+     * </p>
+     *
+     * @param user - Holds the Details of the User
+     * @return boolean - Status of the User is Present or not
+     * @throws AlreadyExistException - when User Phone number or Name is Already exist
+     */
+    private boolean isExist(User user) throws AlreadyExistException {
+        if (userRepository.existsByPhoneNumber(user.getPhoneNumber())
+                && userRepository.existsByName(user.getName())) {
+            logger.error(Message.NAME_AND_NUMBER_ALREADY_EXIST);
+            throw new AlreadyExistException(Message.NAME_AND_NUMBER_ALREADY_EXIST);
+        } else if (userRepository.existsByName(user.getName())) {
+            logger.error(Message.USER_NAME_ALREADY_EXIST);
+            throw new AlreadyExistException(Message.USER_NAME_ALREADY_EXIST);
+        } else if (userRepository.existsByPhoneNumber(user.getPhoneNumber())) {
+            logger.error(Message.NUMBER_ALREADY_EXIST);
+            throw new AlreadyExistException(Message.NUMBER_ALREADY_EXIST);
+        }
+        return false;
+    }
+
+    /**
      * {@inheritDoc}
      */
     @Override
     public UserResponseDTO getUserById(Long id) throws NotFoundException {
-        logger.info("Inside the UserServiceImpl get User By ID");
+        logger.debug("Inside the UserServiceImpl get User By ID");
         Optional<User> user = userRepository.findById(id);
 
-        if (user.isEmpty()) {
+        if (!user.isPresent()) {
             logger.error(Message.USER_NOT_FOUND);
             throw new NotFoundException(Message.USER_NOT_FOUND);
         }
@@ -113,11 +131,11 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public UserResponseDTO updateUser(Long id, UserDTO userDTO) throws NotFoundException {
-        logger.info("Inside the UserServiceImpl update User");
+        logger.debug("Inside the UserServiceImpl update User");
         User user = mapper.map(userDTO, User.class);
         Optional<User> existingUser = userRepository.findById(id);
 
-        if (existingUser.isEmpty()) {
+        if (!existingUser.isPresent()) {
             logger.error(Message.USER_NOT_FOUND);
             throw new NotFoundException(Message.USER_NOT_FOUND);
         }
@@ -134,10 +152,10 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public boolean deactivateUser(Long id) throws NotFoundException {
-        logger.info("Inside the UserServiceImpl deactivateUser");
+        logger.debug("Inside the UserServiceImpl deactivateUser");
         Optional<User> existingUser = userRepository.findById(id);
 
-        if (existingUser.isEmpty()) {
+        if (!existingUser.isPresent()) {
             logger.error(Message.USER_NOT_FOUND);
             throw new NotFoundException(Message.USER_NOT_FOUND);
         }

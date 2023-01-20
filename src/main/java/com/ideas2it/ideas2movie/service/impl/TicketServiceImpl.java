@@ -34,7 +34,6 @@ import com.ideas2it.ideas2movie.logger.CustomLogger;
  * @version 1.0
  * @since 06-01-2023
  */
-
 @Service
 public class TicketServiceImpl implements TicketService {
     private final TicketRepository ticketRepository;
@@ -60,7 +59,7 @@ public class TicketServiceImpl implements TicketService {
      */
     @Override
     public Ticket generateTicket(Reservation reservation) {
-        logger.info("Inside the TicketServiceImpl generate Ticket");
+        logger.debug("Inside the TicketServiceImpl generate Ticket");
         Ticket ticket  = new Ticket();
         ticket.setNumberOfSeatsSelected(reservation.getSeats().size());
         ticket.setReservationStatus(reservation.getStatus());
@@ -70,12 +69,10 @@ public class TicketServiceImpl implements TicketService {
         ticket.setMovieName(reservation.getShow().getMovie().getName());
         ticket.setShowDate(reservation.getShow().getScreeningDate());
         ticket.setReservationStatus(reservation.getStatus());
+
         List<Seat> seats = reservation.getSeats();
         StringBuilder seatName = new StringBuilder();
-
-        for(Seat seat: seats) {
-            seatName.append(seat.getName()).append(",");
-        }
+        seats.forEach(seat -> seatName.append(seat.getName()).append(","));
         ticket.setSeats(seatName.toString());
         ticket.setMovieName(reservation.getShow().getMovie().getName());
         return ticketRepository.save(ticket);
@@ -86,10 +83,10 @@ public class TicketServiceImpl implements TicketService {
      */
     @Override
     public TicketResponseDTO getTicketDTOById(Long id) throws NotFoundException {
-        logger.info("Inside the TicketServiceImpl  get Ticket DTO by ID");
+        logger.debug("Inside the TicketServiceImpl  get Ticket DTO by ID");
         Optional<Ticket> existingTicket = ticketRepository.findById(id);
 
-        if (existingTicket.isEmpty()) {
+        if (!existingTicket.isPresent()) {
             logger.error(Message.TICKET_NOT_FOUND);
             throw new NotFoundException(Message.TICKET_NOT_FOUND);
         }

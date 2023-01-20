@@ -68,7 +68,7 @@ public class PaymentServiceImpl implements PaymentService {
      */
     @Override
     public PaymentResponseDTO makePayment(PaymentDTO paymentDTO) throws NotFoundException {
-        logger.info("Inside the PaymentServiceImpl make Payment");
+        logger.debug("Inside the PaymentServiceImpl make Payment");
         Reservation reservation = reservationService.getReservationById(paymentDTO.getReservationId());
         Payment payment = mapper.map(paymentDTO, Payment.class);
 
@@ -90,14 +90,14 @@ public class PaymentServiceImpl implements PaymentService {
      */
     @Override
     public PaymentResponseDTO getByTransactionId(UUID id) throws NotFoundException {
-        logger.info("Inside the PaymentServiceImpl get by Transaction ID");
+        logger.debug("Inside the PaymentServiceImpl get by Transaction ID");
         Optional<Payment> existingPayment = paymentRepository.getByTransactionId(id);
 
-        if (existingPayment.isEmpty()) {
-            logger.error(Message.PAYMENT_NOT_FOUND);
-            throw new NotFoundException(Message.PAYMENT_NOT_FOUND);
+        if (existingPayment.isPresent()) {
+            return mapper.map(existingPayment.get(), PaymentResponseDTO.class);
         }
-        return mapper.map(existingPayment.get(), PaymentResponseDTO.class);
+        logger.error(Message.PAYMENT_NOT_FOUND);
+        throw new NotFoundException(Message.PAYMENT_NOT_FOUND);
     }
 
     /**
@@ -105,13 +105,13 @@ public class PaymentServiceImpl implements PaymentService {
      */
     @Override
     public PaymentResponseDTO getPaymentById(Long id) throws NotFoundException {
-        logger.info("Inside the PaymentServiceImpl get By ID");
+        logger.debug("Inside the PaymentServiceImpl get By ID");
         Optional<Payment> existingPayment = paymentRepository.findById(id);
 
-        if (existingPayment.isEmpty()) {
-            logger.error(Message.PAYMENT_NOT_FOUND);
-            throw new NotFoundException(Message.PAYMENT_NOT_FOUND);
+        if (existingPayment.isPresent()) {
+            return mapper.map(existingPayment.get(), PaymentResponseDTO.class);
         }
-        return mapper.map(existingPayment.get(), PaymentResponseDTO.class);
+        logger.error(Message.PAYMENT_NOT_FOUND);
+        throw new NotFoundException(Message.PAYMENT_NOT_FOUND);
     }
 }
