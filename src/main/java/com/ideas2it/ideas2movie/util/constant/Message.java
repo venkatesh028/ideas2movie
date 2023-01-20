@@ -49,6 +49,18 @@ public class Message {
     public static final String SHOW_SHOULD_NOT_BE_EMPTY = "Show Id should not be Empty";
     public static final String SELECT_AT_LEAST_ONE_SEAT = "Select At-least One Seat";
     public static final String MODE_OF_RESERVATION_SHOULD_NOT_BE_EMPTY = "Mode of Reservation should not be Empty";
+    //Screen DTO
+    public static final String SCREEN_NAME_SHOULD_NOT_BE_EMPTY = "Screen name should not be empty";
+    public static final String ROWS_SHOULD_NOT_NULL = "Number of Rows Should not be null";
+    public static final String COLUMN_SHOULD_NOT_NULL = "Number of Columns Should not be null";
+    public static final String THEATER_ID_SHOULD_BE_BLANK = "Theater id should not be blank";
+    //Show DTO
+    public static final String DATE_SHOULD_NOT_EMPTY = "Show Date should not be empty";
+    public static final String ENTER_PRESENT_OR_FUTURE_DATE = "Please provide a present or future date";
+    public static final String SCREEN_ID_SHOULD_NOT_EMPTY = "Screen id should not be empty";
+    public static final String MOVIE_ID_SHOULD_NOT_BE_EMPTY = "Movie id should not be empty";
+    public static final String PRICE_SHOULD_NOT_BE_NULL = "Price Should not be null";
+
     //REGEX VALIDATION MESSAGES
     //USER
     public static final String ENTER_VALID_NAME = "Please, Enter Valid Name";

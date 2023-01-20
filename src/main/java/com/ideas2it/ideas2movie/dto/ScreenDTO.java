@@ -27,12 +27,12 @@ import com.ideas2it.ideas2movie.util.constant.Message;
 @Getter
 @Setter
 public class ScreenDTO {
-    @NotBlank(message = "Screen name should not be empty")
+    @NotBlank(message = Message.SCREEN_NAME_SHOULD_NOT_BE_EMPTY)
     private String name;
-    @NotNull(message = "Number of Rows Should not be null")
+    @NotNull(message = Message.ROWS_SHOULD_NOT_NULL)
     private int totalNumberOfRows;
-    @NotNull(message = "Number of Columns Should not be null")
+    @NotNull(message = Message.COLUMN_SHOULD_NOT_NULL)
     private int totalNumberOfColumns;
-    @NotNull(message = "Theater id should not be blank")
+    @NotNull(message = Message.THEATER_ID_SHOULD_BE_BLANK)
     private Long theaterId;
 }
