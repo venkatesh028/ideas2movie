@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -61,7 +62,7 @@ public class RoleServiceImpl implements RoleService {
      */
     @Override
     public RoleResponseDTO createRole(RoleDTO roleDTO) throws AlreadyExistException {
-        logger.info("Inside the RoleServiceImpl create Role");
+        logger.debug("Inside the RoleServiceImpl create Role");
         Role role = mapper.map(roleDTO, Role.class);
 
         if (roleRepository.existsByName(role.getName())) {
@@ -76,10 +77,10 @@ public class RoleServiceImpl implements RoleService {
      */
     @Override
     public Role getRoleById(Long id) throws NotFoundException {
-        logger.info("Inside the RoleServiceImpl get Role By ID");
+        logger.debug("Inside the RoleServiceImpl get Role By ID");
         Optional<Role> role = roleRepository.findById(id);
 
-        if (role.isEmpty()) {
+        if (!role.isPresent()) {
             logger.error(Message.ROLE_NOT_FOUND);
             throw new NotFoundException(Message.ROLE_NOT_FOUND);
         }
@@ -91,18 +92,13 @@ public class RoleServiceImpl implements RoleService {
      */
     @Override
     public List<RoleResponseDTO> getAllRoles() throws NoContentException {
-        logger.info("Inside the RoleServiceImpl get All Roles");
+        logger.debug("Inside the RoleServiceImpl get All Roles");
         List<Role> roles = roleRepository.findAll();
 
         if (roles.isEmpty()) {
             logger.error(Message.ROLE_NOT_FOUND);
             throw new NoContentException(Message.ROLE_NOT_FOUND);
         }
-        List<RoleResponseDTO> roleResponseDTOList = new ArrayList<>();
-
-        for (Role role : roles) {
-            roleResponseDTOList.add(mapper.map(role, RoleResponseDTO.class));
-        }
-        return roleResponseDTOList;
+        return  roles.stream().map(role -> mapper.map(role, RoleResponseDTO.class)).collect(Collectors.toList());
     }
 }

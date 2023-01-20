@@ -153,12 +153,11 @@ public class ShowServiceImpl implements ShowService {
         Optional<Show> existingShow = showRepository.findById(id);
         ShowResponseDTO showResponseDTO;
 
-        if (existingShow.isPresent()){
-            showResponseDTO = mapper.map(existingShow.get(), ShowResponseDTO.class);
-            showResponseDTO.setAvailableSeats(getAvailableSeats(existingShow.get()));
-        } else {
+        if (!existingShow.isPresent()){
             throw new NotFoundException(Message.SHOW_NOT_FOUND);
         }
+        showResponseDTO = mapper.map(existingShow.get(), ShowResponseDTO.class);
+        showResponseDTO.setAvailableSeats(getAvailableSeats(existingShow.get()));
 
         return showResponseDTO;
     }
@@ -173,11 +172,7 @@ public class ShowServiceImpl implements ShowService {
         if (existingShows.isEmpty()) {
             throw new NoContentException(Message.NO_SHOWS_AVAILABLE);
         }
-
-        for (Show show : existingShows) {
-            shows.add(mapper.map(show, ShowResponseDTO.class));
-        }
-
+        existingShows.forEach(show -> shows.add(mapper.map(show, ShowResponseDTO.class)));
         return shows;
     }
 
@@ -201,10 +196,7 @@ public class ShowServiceImpl implements ShowService {
         if (!bookedSeats.isEmpty()){
             seats.removeAll(bookedSeats);
         }
-
-        for (Seat seat : seats){
-            listOfAvailableSeats.add(mapper.map(seat, SeatResponseDTO.class));
-        }
+        seats.forEach(seat -> listOfAvailableSeats.add(mapper.map(seat, SeatResponseDTO.class)));
         return listOfAvailableSeats;
     }
 

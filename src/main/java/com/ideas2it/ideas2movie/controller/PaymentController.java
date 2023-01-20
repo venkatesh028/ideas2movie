@@ -74,7 +74,7 @@ public class PaymentController {
     @PostMapping
     public ResponseEntity<PaymentResponseDTO> makePayment(@Valid @RequestBody PaymentDTO paymentDTO)
             throws NotFoundException {
-        logger.info("Inside the PaymentController Make payment");
+        logger.debug("Inside the PaymentController Make payment");
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(paymentService.makePayment(paymentDTO));
     }
 
@@ -95,7 +95,7 @@ public class PaymentController {
     @GetMapping("/by-transaction/{id}")
     public ResponseEntity<PaymentResponseDTO> getByTransactionId(@PathVariable("id") UUID id)
             throws NotFoundException {
-        logger.info("Inside the PaymentController get by Transaction ID");
+        logger.debug("Inside the PaymentController get by Transaction ID");
         return ResponseEntity.status(HttpStatus.OK).body(paymentService.getByTransactionId(id));
     }
 
@@ -116,7 +116,7 @@ public class PaymentController {
     @GetMapping("/{id}")
     public ResponseEntity<PaymentResponseDTO> getPaymentById(@PathVariable("id") Long id)
             throws NotFoundException {
-        logger.info("Inside the PaymentController get By Id");
+        logger.debug("Inside the PaymentController get By Id");
         return ResponseEntity.status(HttpStatus.OK).body(paymentService.getPaymentById(id));
     }
 }

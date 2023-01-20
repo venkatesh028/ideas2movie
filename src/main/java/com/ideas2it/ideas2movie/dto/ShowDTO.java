@@ -20,6 +20,8 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import lombok.Getter;
 import lombok.Setter;
 
+import com.ideas2it.ideas2movie.util.constant.Message;
+
 /**
  * <h2>
  *     ShowDTO
@@ -36,8 +38,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ShowDTO {
-    @NotNull(message = "Show Date should not be empty")
-    @FutureOrPresent(message = "Please provide a present or future date")
+    @NotNull(message = Message.DATE_SHOULD_NOT_EMPTY)
+    @FutureOrPresent(message = Message.ENTER_PRESENT_OR_FUTURE_DATE)
     @JsonDeserialize(using = LocalDateDeserializer.class)
     @JsonSerialize(using = LocalDateSerializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
@@ -48,11 +50,11 @@ public class ShowDTO {
     @NotNull
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
     private LocalTime endTime;
-    @NotNull(message = "Screen id should not be empty")
+    @NotNull(message = Message.SCREEN_ID_SHOULD_NOT_EMPTY)
     private Long screenId;
-    @NotNull(message = "Movie id should not be empty")
+    @NotNull(message = Message.MOVIE_ID_SHOULD_NOT_BE_EMPTY)
     private Long movieId;
-    @NotNull(message = "Price Should not be null")
+    @NotNull(message = Message.PRICE_SHOULD_NOT_BE_NULL)
     @Min(10)
     private Double price;
 }

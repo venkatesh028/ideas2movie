@@ -115,7 +115,8 @@ public class ScreenServiceImpl implements ScreenService {
         try {
             theater = theaterService.getTheaterForScreenById(screenDTO.getTheaterId());
         }catch (NotFoundException notFoundException){
-            throw new BadRequestException(Message.TICKET_NOT_FOUND);
+            throw new BadRequestException(Message.THEATER_NOT_FOUND);
+
         }
         screen.setTheater(theater);
         existingScreen = screenRepository.findByIdAndTheaterId(id, theater.getId());
@@ -149,11 +150,7 @@ public class ScreenServiceImpl implements ScreenService {
             throw new NotFoundException(Message.SCREEN_NOT_FOUND);
         }
         screen.setActive(false);
-
-        for (Show show : screen.getShows()){
-            show.setActive(false);
-            shows.add(show);
-        }
+        screen.getShows().forEach(show -> {show.setActive(false); shows.add(show);});
         screen.setShows(shows);
         isRemoved = screenRepository.save(screen).isActive();
         reservationService.cancelAllReservationsForShow(screen);
@@ -182,13 +179,8 @@ public class ScreenServiceImpl implements ScreenService {
         if (existingScreens.isEmpty()){
             throw new NoContentException(Message.SCREEN_NOT_FOUND);
         }
-
-        for (Screen screen: existingScreens){
-            screens.add(mapper.map(screen, ScreenResponseDTO.class));
-        }
-
+        existingScreens.forEach(screen -> screens.add(mapper.map(screen, ScreenResponseDTO.class)));
         return screens;
-
     }
 
     /**
